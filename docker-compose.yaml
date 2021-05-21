@@ -1,0 +1,51 @@
+version: "3.7"
+services:
+  vuepress:
+    image: node:15
+    # build:
+    #   context: ./
+    #   dockerfile: Dockerfile
+    container_name: "vuepress"
+    tty: true
+    restart: always
+    working_dir: /var/www
+    command: ["yarn", "dev"]
+    volumes:
+      - ./:/var/www
+    privileged: true
+    ports:
+      - "8083:8080"
+    networks:
+      vuepress:
+        ipv4_address: 172.18.0.2
+  # plantuml服务
+  plantuml-server:
+    image: plantuml/plantuml-server
+    container_name: plantuml-server
+    tty: true
+    # restart: always
+    volumes:
+      - ./:/opt/www
+    # ports:
+    #   - 8081:8080
+    networks:
+      vuepress:
+        ipv4_address: 172.18.0.3
+  plantuml-style-c4:
+    image: nginx
+    volumes:
+    - ./plantuml-style-c4:/usr/share/nginx/html
+    tty: true
+    # restart: always
+    ports:
+    - "8082:80"
+    networks:
+      vuepress:
+        ipv4_address: 172.18.0.4
+networks:
+  vuepress:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.18.0.0/24"

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>查询DSL | 一名GO+PHP工程师</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/assets/css/0.styles.4089f489.css" as="style"><link rel="preload" href="/assets/js/app.a1883da8.js" as="script"><link rel="preload" href="/assets/js/3.21e2e031.js" as="script"><link rel="preload" href="/assets/js/148.f24cd187.js" as="script"><link rel="prefetch" href="/assets/js/10.0db5da5f.js"><link rel="prefetch" href="/assets/js/100.d5cb88cb.js"><link rel="prefetch" href="/assets/js/101.6bbce255.js"><link rel="prefetch" href="/assets/js/102.968ea43c.js"><link rel="prefetch" href="/assets/js/103.a362f49e.js"><link rel="prefetch" href="/assets/js/104.a207d395.js"><link rel="prefetch" href="/assets/js/105.eaae1ece.js"><link rel="prefetch" href="/assets/js/106.9b961ba0.js"><link rel="prefetch" href="/assets/js/107.df9ba599.js"><link rel="prefetch" href="/assets/js/108.1e4967d1.js"><link rel="prefetch" href="/assets/js/109.bab44539.js"><link rel="prefetch" href="/assets/js/11.9fc4d877.js"><link rel="prefetch" href="/assets/js/110.975b5aeb.js"><link rel="prefetch" href="/assets/js/111.4db6087d.js"><link rel="prefetch" href="/assets/js/112.bb76db96.js"><link rel="prefetch" href="/assets/js/113.9b314292.js"><link rel="prefetch" href="/assets/js/114.b05dc902.js"><link rel="prefetch" href="/assets/js/115.b693bf1e.js"><link rel="prefetch" href="/assets/js/116.35ffe409.js"><link rel="prefetch" href="/assets/js/117.193b54e8.js"><link rel="prefetch" href="/assets/js/118.d91f7ec2.js"><link rel="prefetch" href="/assets/js/119.857d484f.js"><link rel="prefetch" href="/assets/js/12.5955fae6.js"><link rel="prefetch" href="/assets/js/120.c2fc1bab.js"><link rel="prefetch" href="/assets/js/121.c3bed7c3.js"><link rel="prefetch" href="/assets/js/122.a0e26719.js"><link rel="prefetch" href="/assets/js/123.feb52a49.js"><link rel="prefetch" href="/assets/js/124.ca59f8f6.js"><link rel="prefetch" href="/assets/js/125.8bba790f.js"><link rel="prefetch" href="/assets/js/126.9ef7f1bd.js"><link rel="prefetch" href="/assets/js/127.7d06eb7f.js"><link rel="prefetch" href="/assets/js/128.9b247099.js"><link rel="prefetch" href="/assets/js/129.b5d91607.js"><link rel="prefetch" href="/assets/js/13.b1c22ead.js"><link rel="prefetch" href="/assets/js/130.3fa988b7.js"><link rel="prefetch" href="/assets/js/131.ff0058e6.js"><link rel="prefetch" href="/assets/js/132.9fd5bbe5.js"><link rel="prefetch" href="/assets/js/133.749040d4.js"><link rel="prefetch" href="/assets/js/134.6a6cf86d.js"><link rel="prefetch" href="/assets/js/135.16d61a44.js"><link rel="prefetch" href="/assets/js/136.2c3aff88.js"><link rel="prefetch" href="/assets/js/137.50106a44.js"><link rel="prefetch" href="/assets/js/138.b434395c.js"><link rel="prefetch" href="/assets/js/139.b13aa419.js"><link rel="prefetch" href="/assets/js/14.48fb5c32.js"><link rel="prefetch" href="/assets/js/140.c2741475.js"><link rel="prefetch" href="/assets/js/141.85f894e1.js"><link rel="prefetch" href="/assets/js/142.e385a422.js"><link rel="prefetch" href="/assets/js/143.002698c9.js"><link rel="prefetch" href="/assets/js/144.6e3b56cf.js"><link rel="prefetch" href="/assets/js/145.95b58ec4.js"><link rel="prefetch" href="/assets/js/146.c5ff12f5.js"><link rel="prefetch" href="/assets/js/147.5817049d.js"><link rel="prefetch" href="/assets/js/149.0941e789.js"><link rel="prefetch" href="/assets/js/15.5523616c.js"><link rel="prefetch" href="/assets/js/150.cab7c460.js"><link rel="prefetch" href="/assets/js/151.9b1a9135.js"><link rel="prefetch" href="/assets/js/152.6a733b47.js"><link rel="prefetch" href="/assets/js/153.1a5b425b.js"><link rel="prefetch" href="/assets/js/154.59a5cdd0.js"><link rel="prefetch" href="/assets/js/155.6906efc0.js"><link rel="prefetch" href="/assets/js/156.14a1e6f8.js"><link rel="prefetch" href="/assets/js/157.2a90db8a.js"><link rel="prefetch" href="/assets/js/158.71dda3a8.js"><link rel="prefetch" href="/assets/js/159.33fa138a.js"><link rel="prefetch" href="/assets/js/16.bc45c675.js"><link rel="prefetch" href="/assets/js/160.41012461.js"><link rel="prefetch" href="/assets/js/161.029d6fef.js"><link rel="prefetch" href="/assets/js/162.d7e72e4d.js"><link rel="prefetch" href="/assets/js/163.33c153d8.js"><link rel="prefetch" href="/assets/js/164.cbd2db78.js"><link rel="prefetch" href="/assets/js/165.8d99fa18.js"><link rel="prefetch" href="/assets/js/166.5bcaa3dd.js"><link rel="prefetch" href="/assets/js/167.2349d4bb.js"><link rel="prefetch" href="/assets/js/168.03f7c431.js"><link rel="prefetch" href="/assets/js/169.662db72b.js"><link rel="prefetch" href="/assets/js/17.6b0481e2.js"><link rel="prefetch" href="/assets/js/170.4469c187.js"><link rel="prefetch" href="/assets/js/171.58868926.js"><link rel="prefetch" href="/assets/js/172.afe06d5f.js"><link rel="prefetch" href="/assets/js/173.a36e004f.js"><link rel="prefetch" href="/assets/js/174.849bcbbd.js"><link rel="prefetch" href="/assets/js/175.deb32fb8.js"><link rel="prefetch" href="/assets/js/176.45f7d6a8.js"><link rel="prefetch" href="/assets/js/177.fb85b7c2.js"><link rel="prefetch" href="/assets/js/178.7f4bf5e6.js"><link rel="prefetch" href="/assets/js/18.e70cc004.js"><link rel="prefetch" href="/assets/js/19.e954bc7a.js"><link rel="prefetch" href="/assets/js/2.aec18661.js"><link rel="prefetch" href="/assets/js/20.94381428.js"><link rel="prefetch" href="/assets/js/21.5058af0e.js"><link rel="prefetch" href="/assets/js/22.d9c7ba8d.js"><link rel="prefetch" href="/assets/js/23.9773e373.js"><link rel="prefetch" href="/assets/js/24.a012e542.js"><link rel="prefetch" href="/assets/js/25.c1e53297.js"><link rel="prefetch" href="/assets/js/26.60c27d52.js"><link rel="prefetch" href="/assets/js/27.9ff6e463.js"><link rel="prefetch" href="/assets/js/28.e4955e68.js"><link rel="prefetch" href="/assets/js/29.8c0a7989.js"><link rel="prefetch" href="/assets/js/30.8d2c51b9.js"><link rel="prefetch" href="/assets/js/31.77daad09.js"><link rel="prefetch" href="/assets/js/32.763b7b98.js"><link rel="prefetch" href="/assets/js/33.a35d3f49.js"><link rel="prefetch" href="/assets/js/34.3b42b1e2.js"><link rel="prefetch" href="/assets/js/35.770b0123.js"><link rel="prefetch" href="/assets/js/36.aecfaf6e.js"><link rel="prefetch" href="/assets/js/37.bd49ca59.js"><link rel="prefetch" href="/assets/js/38.fed1555d.js"><link rel="prefetch" href="/assets/js/39.ba12b4f9.js"><link rel="prefetch" href="/assets/js/4.c2d1d771.js"><link rel="prefetch" href="/assets/js/40.ad0b908b.js"><link rel="prefetch" href="/assets/js/41.e5c2a903.js"><link rel="prefetch" href="/assets/js/42.bd11772d.js"><link rel="prefetch" href="/assets/js/43.26dc2a52.js"><link rel="prefetch" href="/assets/js/44.c0141c7c.js"><link rel="prefetch" href="/assets/js/45.328fda2a.js"><link rel="prefetch" href="/assets/js/46.0bd04509.js"><link rel="prefetch" href="/assets/js/47.853f7f02.js"><link rel="prefetch" href="/assets/js/48.7e30092c.js"><link rel="prefetch" href="/assets/js/49.d7c41614.js"><link rel="prefetch" href="/assets/js/5.1f2ba3e8.js"><link rel="prefetch" href="/assets/js/50.bbc144de.js"><link rel="prefetch" href="/assets/js/51.29fb5c68.js"><link rel="prefetch" href="/assets/js/52.d2042f8d.js"><link rel="prefetch" href="/assets/js/53.8a5c3d60.js"><link rel="prefetch" href="/assets/js/54.0f846846.js"><link rel="prefetch" href="/assets/js/55.85b62bcc.js"><link rel="prefetch" href="/assets/js/56.c2bf89f1.js"><link rel="prefetch" href="/assets/js/57.3187bec1.js"><link rel="prefetch" href="/assets/js/58.ba87c684.js"><link rel="prefetch" href="/assets/js/59.b40c3148.js"><link rel="prefetch" href="/assets/js/6.c31c16f8.js"><link rel="prefetch" href="/assets/js/60.04a8298f.js"><link rel="prefetch" href="/assets/js/61.c57dc954.js"><link rel="prefetch" href="/assets/js/62.24bf6999.js"><link rel="prefetch" href="/assets/js/63.2f87f55d.js"><link rel="prefetch" href="/assets/js/64.68cd3b45.js"><link rel="prefetch" href="/assets/js/65.255d0e52.js"><link rel="prefetch" href="/assets/js/66.1148b749.js"><link rel="prefetch" href="/assets/js/67.1d93ad03.js"><link rel="prefetch" href="/assets/js/68.0a66e8af.js"><link rel="prefetch" href="/assets/js/69.21fb7c12.js"><link rel="prefetch" href="/assets/js/7.9e783835.js"><link rel="prefetch" href="/assets/js/70.52af12e9.js"><link rel="prefetch" href="/assets/js/71.b920fbd7.js"><link rel="prefetch" href="/assets/js/72.765b0fde.js"><link rel="prefetch" href="/assets/js/73.9d1a0227.js"><link rel="prefetch" href="/assets/js/74.3c8755ec.js"><link rel="prefetch" href="/assets/js/75.5800081d.js"><link rel="prefetch" href="/assets/js/76.a0981293.js"><link rel="prefetch" href="/assets/js/77.606766d0.js"><link rel="prefetch" href="/assets/js/78.41729cec.js"><link rel="prefetch" href="/assets/js/79.96c2852e.js"><link rel="prefetch" href="/assets/js/8.4f13117f.js"><link rel="prefetch" href="/assets/js/80.2120e0e9.js"><link rel="prefetch" href="/assets/js/81.04f50a1e.js"><link rel="prefetch" href="/assets/js/82.db879ca5.js"><link rel="prefetch" href="/assets/js/83.e89b8863.js"><link rel="prefetch" href="/assets/js/84.07410b58.js"><link rel="prefetch" href="/assets/js/85.d46c8682.js"><link rel="prefetch" href="/assets/js/86.3869d59e.js"><link rel="prefetch" href="/assets/js/87.e7860b15.js"><link rel="prefetch" href="/assets/js/88.2b183553.js"><link rel="prefetch" href="/assets/js/89.36e67a82.js"><link rel="prefetch" href="/assets/js/9.a64cd1e6.js"><link rel="prefetch" href="/assets/js/90.391f76ed.js"><link rel="prefetch" href="/assets/js/91.b9d1bb73.js"><link rel="prefetch" href="/assets/js/92.a65aa479.js"><link rel="prefetch" href="/assets/js/93.bc850b53.js"><link rel="prefetch" href="/assets/js/94.7dc858d7.js"><link rel="prefetch" href="/assets/js/95.83afadb6.js"><link rel="prefetch" href="/assets/js/96.bd648be3.js"><link rel="prefetch" href="/assets/js/97.b6312544.js"><link rel="prefetch" href="/assets/js/98.fdb7d67a.js"><link rel="prefetch" href="/assets/js/99.c4b1cfd7.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.4089f489.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">一名GO+PHP工程师</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="https://gitee.com/ColinWWL/blog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  码云Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="https://gitee.com/ColinWWL/blog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  码云Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/数据库/Elasticsearch/1Elasticsearch概述" class="sidebar-heading clickable"><span>Elasticsearch</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/数据库/Elasticsearch/1Elasticsearch概述.html" class="sidebar-link">概述</a></li><li><a href="/数据库/Elasticsearch/2Elasticsearch入门.html" class="sidebar-link">入门</a></li><li><a href="/数据库/Elasticsearch/3EFK集群环境.html" class="sidebar-link">集群环境</a></li><li><a href="/数据库/Elasticsearch/4Elasticsearch进阶.html" class="sidebar-link">进阶</a></li><li><a href="/数据库/Elasticsearch/6Elasticsearch优化.html" class="sidebar-link">优化</a></li><li><a href="/数据库/Elasticsearch/7Elasticsearch面试题.html" class="sidebar-link">面试题</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/数据库/Elasticsearch/深入学习/搜索-1.查询DSL" class="sidebar-heading clickable open active"><span>深入学习</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/数据库/Elasticsearch/深入学习/搜索-1.查询DSL.html" class="active sidebar-link">查询DSL</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/数据库/Elasticsearch/深入学习/搜索-1.查询DSL.html#查询过滤的区别" class="sidebar-link">查询过滤的区别</a></li><li class="sidebar-sub-header"><a href="/数据库/Elasticsearch/深入学习/搜索-1.查询DSL.html#全文搜索" class="sidebar-link">全文搜索</a></li></ul></li><li><a href="/数据库/Elasticsearch/深入学习/映射-1.动态字段映射.html" class="sidebar-link">动态字段映射</a></li><li><a href="/数据库/Elasticsearch/深入学习/映射-2.动态模版.html" class="sidebar-link">动态模版</a></li><li><a href="/数据库/Elasticsearch/深入学习/映射-3.元字段.html" class="sidebar-link">元字段</a></li><li><a href="/数据库/Elasticsearch/深入学习/映射-4.映射参数.html" class="sidebar-link">映射参数</a></li><li><a href="/数据库/Elasticsearch/深入学习/索引.html" class="sidebar-link">索引管理</a></li><li><a href="/数据库/Elasticsearch/深入学习/聚合-Pipeline 聚合分析.html" class="sidebar-link">Pipeline 聚合分析</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="查询dsl"><a href="#查询dsl" class="header-anchor">#</a> 查询DSL</h1> <h2 id="查询过滤的区别"><a href="#查询过滤的区别" class="header-anchor">#</a> 查询过滤的区别</h2> <p>Elasticsearch提供了基于JSON的完整查询DSL来定义查询。查询DSL包括两种子句：</p> <ul><li><p>叶查询子句 ：在特定的字段上查找特定的值，比如match、term或者range查询。这些查询可以自己使用。</p></li> <li><p>复合查询子句 ：包含其他叶查询或复合查询子句，以合理的方式结合多条查询（比如bool或dis_max查询），或者改变查询行为（比如not或constant_score查询）。</p></li> <li><p>查询 （query）用于检查内容与条件是否匹配，并且计算_score元字段表示匹配度。查询的结构中以query参数开始来执行内容查询。</p></li> <li><p>过滤 （filter）不计算匹配得分，只是简单地决定文档是否匹配。内容过滤主要用于过滤结构化的数据，例如：时间段是否在2015到2016年之间，status字段是否设置为&quot;published&quot;。</p></li></ul> <p>使用过滤往往会被Elasticsearch自动缓存来提高性能。</p> <p>查询的子句也可以传递filter参数，比如bool查询内的filter、constant_score查询内的filter参数等。</p> <p>举个查询子句的例子。查询会匹配符合下列所有条件的文档：</p> <ul><li><p>title字段包含单词Search。</p></li> <li><p>content字段包含单词Elasticsearch。</p></li> <li><p>status字段包含准确的单词published。</p></li> <li><p>publish_date字段包含从2015年1月1日之后的日期。</p></li></ul> <p>请求：POST <a href="http://127.0.0.1:9200/secisland/_search" target="_blank" rel="noopener noreferrer">http://127.0.0.1:9200/secisland/_search<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <div class="language- extra-class"><pre class="language-text"><code>{
+  &quot;query&quot;: {
+    &quot;bool&quot;: {
+      &quot;must&quot;: [
+        { &quot;match&quot;: { &quot;title&quot;:&quot;Search&quot;}},
+        { &quot;match&quot;: { &quot;content&quot;: &quot;Elasticsearch&quot; }}
+      ],
+      &quot;filter&quot;: [
+        { &quot;term&quot;:  { &quot;status&quot;: &quot;published&quot; }},
+        { &quot;range&quot;: { &quot;publish_date&quot;: { &quot;gte&quot;: &quot;2015-01-01&quot; }}}
+      ]
+    }
+  }
+}
+</code></pre></div><p>query参数表示内容查询。内容查询中使用的bool和match子句，用于计算每个文档的匹配得分。</p> <p>filter参数表示内容过滤。内容过滤中使用的term和range子句，会过滤掉不匹配的文档，并且不影响计算文档匹配得分。</p> <p>最简单的查询，匹配所有文档，文档的_score值是1.0。</p> <div class="language- extra-class"><pre class="language-text"><code>{ &quot;match_all&quot;: {} }
+</code></pre></div><p>可以使用boost参数修改_score值：</p> <div class="language- extra-class"><pre class="language-text"><code>{ &quot;match_all&quot;: { &quot;boost&quot; : 1.2 }}
+</code></pre></div><h2 id="全文搜索"><a href="#全文搜索" class="header-anchor">#</a> 全文搜索</h2> <p>在文本字段上执行全文搜索。在执行查询之前，要了解被查询字段的分词方式，在查询字符串上应用每个被查询字段的映射分词器（或搜索分词器）。</p> <p>标准查询 接受文本/数字/日期的查询，分析参数并组成查询条件。例如：</p> <div class="language- extra-class"><pre class="language-text"><code>{
+  &quot;match&quot; : {&quot;message&quot; : &quot;this is a test&quot;}
+}
+</code></pre></div><p>注意，message是字段名，可以用任何字段的名（包括_all）来替换。</p> <p>有三种类型的match查询：布尔（boolean）、短语（phrase）和短语前缀（phrase_prefix）。除此之外还有多段查询、Lucene语法查询、简化查询。下面分别介绍。</p> <ol><li>布尔查询</li></ol> <p>默认的标准查询类型，分析文本并且组成一个布尔查询。operator参数可以设置为or或者and来控制布尔子句（默认为or）。用于匹配的should子句（可选）的最小数量可以使用minimun_should_match参数来设置。</p> <p>可以设置analyzer来控制在文本上执行分析过程的分词器。默认是字段映射中明确定义或者默认的搜索分词器。</p> <p>lenient参数可以设置为true来忽略数据类型匹配出错造成的异常，例如尝试通过文本查询字符串来查询数字类型字段。默认为false。</p> <p>（1）模糊匹配</p> <p>fuzziness可以对请求的字段类型进行模糊匹配。</p> <p>prefix_length 和 max_expansions 在这种情况下可以用来控制模糊过程。如果设置模糊选项，查询会使用 top_terms_blended_freqs_${max_expansions}作为重写方法。fuzzy_rewrite 参数可以控制查询会怎样进行重写。</p> <p>提供额外参数的例子：</p> <div class="language- extra-class"><pre class="language-text"><code>{
+  &quot;match&quot; : {
+    &quot;message&quot; : {&quot;query&quot; : &quot;this is a test&quot;,&quot;operator&quot; : &quot;and&quot;}
+  }
+}
+</code></pre></div><p>（2）零索引词查询</p> <p>如果查询使用的分词器移除所有词元，默认行为是不匹配任何文档。可以使用zero_terms_query选项进行修改，接受none（默认）和all（相当于match_all查询）。</p> <div class="language- extra-class"><pre class="language-text"><code>{
+  &quot;match&quot; : {
+    &quot;message&quot; : {
+      &quot;query&quot; : &quot;to be or not to be&quot;,
+      &quot;operator&quot; : &quot;and&quot;,
+      &quot;zero_terms_query&quot;: &quot;all&quot;
+    }
+  }
+}
+</code></pre></div><ol start="2"><li>短语查询</li></ol> <p>短语查询分析文本并且创建短语查询。例如：</p> <div class="language- extra-class"><pre class="language-text"><code>{
+  &quot;match_phrase&quot; : {
+    &quot;message&quot; : &quot;this is a test&quot;
+  }
+}
+</code></pre></div><p>因为短语查询只是标准查询的一个类型，所以也可以用下面的方式使用：</p> <div class="language- extra-class"><pre class="language-text"><code>{
+  &quot;match&quot; : {
+    &quot;message&quot; : {&quot;query&quot; : &quot;this is a test&quot;,&quot;type&quot; : &quot;phrase&quot;}
+  }
+}
+</code></pre></div><p>短语查询根据一个可配置的slop（默认为0）匹配索引词。</p> <p>可以设置analyzer来控制将要在文本上执行分词的分词器。默认是字段映射中定义的分析器，或者是默认的搜索分析器，例如：</p> <div class="language- extra-class"><pre class="language-text"><code>{
+  &quot;match_phrase&quot; : {
+    &quot;message&quot; : {&quot;query&quot; : &quot;this is a test&quot;,&quot;analyzer&quot; : &quot;my_analyzer&quot;}
+  }
+}
+</code></pre></div><ol start="3"><li>短语前缀查询</li></ol> <p>可以对文本最后一个字段进行前缀匹配。例如：</p> <div class="language- extra-class"><pre class="language-text"><code>{
+  &quot;match_phrase_prefix&quot; : {&quot;message&quot; : &quot;this is a test&quot;}
+}
+</code></pre></div><p>和短语查询一样，也可以用下面的方式：</p> <div class="language- extra-class"><pre class="language-text"><code>{
+  &quot;match&quot; : {
+    &quot;message&quot; : {&quot;query&quot; : &quot;this is a test&quot;,&quot;type&quot; : &quot;phrase_prefix&quot;}
+  }
+}
+</code></pre></div><p>接受短语查询相同的参数。此外，也接受max_expansions参数，可以控制最后索引词会扩展多少前缀。推荐设置为一个可以接受的值来控制查询的执行时间。例如：</p> <div class="language- extra-class"><pre class="language-text"><code>{
+  &quot;match_phrase_prefix&quot; : {
+    &quot;message&quot; : {&quot;query&quot; : &quot;this is a test&quot;,&quot;max_expansions&quot; : 10}
+  }
+}
+</code></pre></div><ol start="4"><li>多字段查询</li></ol> <p>在标准查询的基础上，支持多字段查询：</p> <div class="language- extra-class"><pre class="language-text"><code>{
+  &quot;multi_match&quot; : {
+    &quot;query&quot;: &quot;this is a test&quot;,
+    &quot;fields&quot;: [ &quot;subject&quot;, &quot;message&quot; ]
+  }
+}
+</code></pre></div><p>字段可以通过通配符指定：</p> <div class="language- extra-class"><pre class="language-text"><code>{
+  &quot;multi_match&quot; : {
+    &quot;query&quot;: &quot;Will Smith&quot;,
+    &quot;fields&quot;: [ &quot;title&quot;, &quot;*_name&quot; ]
+  }
+}
+</code></pre></div><p>个别字段可以用caret（^）符号加权：</p> <div class="language- extra-class"><pre class="language-text"><code>{
+  &quot;multi_match&quot; : {
+    &quot;query&quot; : &quot;this is a test&quot;,
+    &quot;fields&quot; : [ &quot;subject^3&quot;, &quot;message&quot; ]
+  }
+}
+</code></pre></div><p>上述代码的含义是：subject字段比message字段重要三倍。</p> <p>多匹配查询内部执行方式取决于type参数，可以设置的值如下所示：</p> <ul><li><p>best_fields------（默认）查找匹配任何字段的文档，但是使用最佳匹配字段的_score。</p></li> <li><p>most_fields------查找匹配任何字段的文档，结合每个字段的_score。</p></li> <li><p>cross_fields------用相同的分析器处理字段，把这些字段当作一个大字段。查找任何字段的每个单词。</p></li> <li><p>phrase------在每个字段上运行短语匹配查询，结合每个字段的_score。</p></li> <li><p>phrase_prefix------在每个字段上运行短语前缀匹配查询，结合每个字段的_score。</p></li></ul> <p>下面介绍这几个值。</p> <p>（1）best_fields</p> <p>在同一个字段中搜索多个单词的时候此参数最有用。例如，一个字段中包含&quot;brown fox&quot;比包含&quot;brown&quot;或包含&quot;fox&quot;更有意义。best_fields类型对每个字段生成一个匹配查询并且封装成dis_max查询，来找到最佳匹配字段。例如，查询语句：</p> <div class="language- extra-class"><pre class="language-text"><code>{
+  &quot;multi_match&quot; : {
+    &quot;query&quot;: &quot;brown fox&quot;,
+    &quot;type&quot;: &quot;best_fields&quot;,
+    &quot;fields&quot;: [ &quot;subject&quot;, &quot;message&quot; ],
+    &quot;tie_breaker&quot;: 0.3
+  }
+}
+</code></pre></div><p>会执行为：</p> <div class="language- extra-class"><pre class="language-text"><code>{
+  &quot;dis_max&quot;: {
+    &quot;queries&quot;: [
+      { &quot;match&quot;: { &quot;subject&quot;: &quot;brown fox&quot; }},
+      { &quot;match&quot;: { &quot;message&quot;: &quot;brown fox&quot; }}
+    ],
+    &quot;tie_breaker&quot;: 0.3
+  }
+}
+</code></pre></div><p>通常，best_fields类型使用最佳匹配字段的得分，但是如果指定了tie_breaker，可以通过&quot;最佳匹配字段的得分&quot;来计算匹配得分。</p> <p>所有其他匹配字段的参数包括tie_breaker*_score相加。同时，接受analyzer、boost、operator、minimum_should_match、fuzziness、prefix_length、max_expansions、rewrite、zero_terms_query和cutoff_frequency。</p> <p>其中，minimum_should_match参数可能的值见表4-2。</p> <p>（2）most_fields</p> <p>当查询多字段包含相同文本以不同方式分词的时候此参数最有用。例如，主字段包含同义词、词根和不区分大小写的索引词；第二个字段可能包含原始的索引词；第三个字段可以包含单个索引词。通过结合所有三个字段的得分可以通过主字段匹配尽可能多的文档，通过第二个和第三个字段把最相近的结果推到列表的顶端。</p> <p>表4-2　最低匹配值</p> <p><img src="http://reader.epubee.com/books/mobile/f8/f8fc674e229abfd9abb3cc5ba2ec41de/Image00043.jpg" alt=""></p> <p>查询语句：</p> <div class="language- extra-class"><pre class="language-text"><code>{
+  &quot;multi_match&quot; : {
+    &quot;query&quot;: &quot;quick brown fox&quot;,
+    &quot;type&quot;: &quot;most_fields&quot;,
+    &quot;fields&quot;: [ &quot;title&quot;, &quot;title.original&quot;, &quot;title.shingles&quot; ]
+  }
+}
+</code></pre></div><p>会执行为：</p> <div class="language- extra-class"><pre class="language-text"><code>{
+  &quot;bool&quot;: {
+    &quot;should&quot;: [
+      { &quot;match&quot;: { &quot;title&quot;: &quot;quick brown fox&quot; }},
+      { &quot;match&quot;: { &quot;title.original&quot;: &quot;quick brown fox&quot; }},
+      { &quot;match&quot;: { &quot;title.shingles&quot;: &quot;quick brown fox&quot; }}
+    ]
+  }
+}
+</code></pre></div><p>最终的匹配得分是将每个匹配子句的得分加在一块，然后除以匹配子句的数量。</p> <p>接受的参数有：analyzer、boost、operator、minimun_should_match、fuzziness、prefix_length、max_expansions、rewrite、zero_terms_query和cutoff_frequency。</p> <p>（3）cross_fields</p> <p>当结构化的文档中多个字段应该匹配的时候，此参数特别有用。例如，当通过first_name和last_name字段查询&quot;Will Smith&quot;的时候，最佳的匹配是&quot;Will&quot;在一个字段，&quot;Smith&quot;在另一个字段。</p> <p>一种处理这种查询的简单方式是将first_name和last_name字段索引到一个full_name字段。当然，这只能在索引的时候完成。</p> <p>cross_fields类型在查询时通过采取term-centric方法来尝试解决这个问题。首先将查询字符串分词为单独的索引词，然后在任一字段中查找每个索引词。</p> <p>查询示例如下：</p> <div class="language- extra-class"><pre class="language-text"><code>{
+  &quot;multi_match&quot; : {
+    &quot;query&quot;: &quot;Will Smith&quot;,
+    &quot;type&quot;: &quot;cross_fields&quot;,
+    &quot;fields&quot;: [ &quot;first_name&quot;, &quot;last_name&quot; ],
+    &quot;operator&quot;: &quot;and&quot;
+  }
+}
+</code></pre></div><p>接受的参数有：analyzer、boost、operator、minimum_should_match、zero_terms_query和cutoff_frequency。</p> <p>（4）phrase和phrase_prefix</p> <p>短语和短语前缀类型和best_fields一样，只不过使用的是match_phrase查询或者match_phrase_prefix查询而不是match查询。</p> <p>查询示例如下：</p> <div class="language- extra-class"><pre class="language-text"><code>{
+  &quot;multi_match&quot; : {
+    &quot;query&quot;: &quot;quick brown f&quot;,
+    &quot;type&quot;: &quot;phrase_prefix&quot;,
+    &quot;fields&quot;: [ &quot;subject&quot;, &quot;message&quot; ]
+  }
+}
+</code></pre></div><p>会执行为：</p> <div class="language- extra-class"><pre class="language-text"><code>{
+  &quot;dis_max&quot;: {
+    &quot;queries&quot;: [
+      { &quot;match_phrase_prefix&quot;: { &quot;subject&quot;: &quot;quick brown f&quot; }},
+      { &quot;match_phrase_prefix&quot;: { &quot;message&quot;: &quot;quick brown f&quot; }}
+    ]
+  }
+}
+</code></pre></div><p>接受如下参数：analyzer、boost、slop和zero_terms_query参数。此外，短语前缀类型接受max_expansions。</p> <p>（5）cross_field和分词器</p> <p>cross_field类型只能够工作在使用相同分词器的term-centric模式的字段。具有相同分词器的字段被分在一组，如果有多个分组，会通过bool查询结合在一起。</p> <p>例如，first和last字段拥有相同的分词器，添加first.edge和last.edge使用edge_ngram分析器，查询：</p> <div class="language- extra-class"><pre class="language-text"><code>{
+  &quot;multi_match&quot; : {
+    &quot;query&quot;: &quot;Jon&quot;,
+    &quot;type&quot;: &quot;cross_fields&quot;,
+    &quot;fields&quot;: [&quot;first&quot;, &quot;first.edge&quot;,&quot;last&quot;,  &quot;last.edge&quot;]
+  }
+}
+</code></pre></div><p>first和last会被组在一起作为单独的字段，first.edge和last.edge会被组在一起作为单独的字段。</p> <p>可以重写查询作为两个通过bool查询联合在一起的cross_fields查询，然后对其中一个应用minimum_should_match参数：</p> <div class="language- extra-class"><pre class="language-text"><code>{
+  &quot;bool&quot;: {
+    &quot;should&quot;: [
+      {
+        &quot;multi_match&quot; : {
+          &quot;query&quot;: &quot;Will Smith&quot;,
+          &quot;type&quot;: &quot;cross_fields&quot;,
+          &quot;fields&quot;: [ &quot;first&quot;, &quot;last&quot; ],
+          &quot;minimum_should_match&quot;: &quot;50%&quot;
+        }
+      },
+    {
+        &quot;multi_match&quot; : {
+          &quot;query&quot;: &quot;Will Smith&quot;,
+          &quot;type&quot;: &quot;cross_fields&quot;,
+          &quot;fields&quot;: [ &quot;*.edge&quot; ]
+        }
+      }
+    ]
+  }
+}
+</code></pre></div><p>也可以强迫所有字段到相同的分组，方法是在查询中指定analyzer参数：</p> <div class="language- extra-class"><pre class="language-text"><code>{
+  &quot;multi_match&quot; : {
+    &quot;query&quot;: &quot;Jon&quot;,
+    &quot;type&quot;: &quot;cross_fields&quot;,
+    &quot;analyzer&quot;: &quot;standard&quot;,
+    &quot;fields&quot;: [ &quot;first&quot;, &quot;last&quot;, &quot;*.edge&quot; ]
+  }
+}
+</code></pre></div><ol start="5"><li>Lucene语法查询</li></ol> <p>通过使用语法分析器来分析内容进行查询：</p> <div class="language- extra-class"><pre class="language-text"><code>{
+  &quot;query_string&quot; : {
+    &quot;default_field&quot; : &quot;content&quot;,
+    &quot;query&quot; : &quot;this AND that OR thus&quot;
+  }
+}
+</code></pre></div><p>query_string为最高级别，参数见表4-3。</p> <p>表4-3　查询字符串参数</p> <p><img src="http://reader.epubee.com/books/mobile/f8/f8fc674e229abfd9abb3cc5ba2ec41de/Image00044.jpg" alt=""></p> <p>（1）默认字段</p> <p>如果在查询字符串语法中没有明确指出查询的字段，会inde.query.default_field提取需要搜索的字段。默认为_all字段。</p> <p>所以，如果_all字段被禁用，将其修改设置为一个不同的默认字段是很有必要的。</p> <p>（2）多字段</p> <p>query_string查询也可以在多个字段上执行。可以通过&quot;fields&quot;参数定义字段。</p> <p>多字段执行query_string查询的意义在于利用OR子句扩展每个查询索引词，形如：</p> <div class="language- extra-class"><pre class="language-text"><code>field1:query_term OR field2:query_term | ...
+
+</code></pre></div><p>例如，下面的查询：</p> <div class="language- extra-class"><pre class="language-text"><code>{
+  &quot;query_string&quot; : {&quot;fields&quot; : [&quot;content&quot;, &quot;name&quot;],&quot;query&quot; : &quot;this AND that&quot;}
+}
+</code></pre></div><p>实际匹配形式：</p> <div class="language- extra-class"><pre class="language-text"><code>{
+  &quot;query_string&quot;: {
+  &quot;query&quot;: &quot;(content:this OR name:this) AND (content:that OR name:that)&quot;}
+}
+</code></pre></div><p>（3）语法</p> <p>查询字符串被解析为一系列字段和运算符。字段可以是一个单词或者短语（搜索短语中的所有单词，以相同的顺序用双引号包起来）。</p> <p>可用的选项有：</p> <p>1）字段名------可以指定default_field之外的其他字段。</p> <ul><li>status字段包含active。</li></ul> <div class="language- extra-class"><pre class="language-text"><code>status:active
+
+</code></pre></div><ul><li>title字段包含quick或brown。</li></ul> <div class="language- extra-class"><pre class="language-text"><code>title:(quick OR brown)
+title:(quick brown)
+
+</code></pre></div><ul><li>author字段包含短语&quot;John Smith&quot;。</li></ul> <div class="language- extra-class"><pre class="language-text"><code>author:&quot;John Smith&quot;
+
+</code></pre></div><ul><li>任何book.title、book.content或book.date字段包含quick或brown（注意，需要用反斜线转义*）。</li></ul> <div class="language- extra-class"><pre class="language-text"><code>book.\*:(quick brown)
+
+</code></pre></div><ul><li>title字段不包含（或者缺失）值。</li></ul> <div class="language- extra-class"><pre class="language-text"><code>_missing_:title
+
+</code></pre></div><ul><li>title字段包含任何非空值。</li></ul> <div class="language- extra-class"><pre class="language-text"><code>_exists_:title
+
+</code></pre></div><p>2）通配符------通配符搜索使用? 代替单个字符，使用*代替零个或多个字符。</p> <div class="language- extra-class"><pre class="language-text"><code>qu?ck bro*
+
+</code></pre></div><p>3）正则表达式------通过使用斜线（/）包围，正则表达式可以植入到查询字符串中。</p> <div class="language- extra-class"><pre class="language-text"><code>name:/joh?n(ath[oa]n)/
+
+</code></pre></div><p>4）模糊化。</p> <div class="language- extra-class"><pre class="language-text"><code>quikc~1
+
+</code></pre></div><p>5）邻近搜索------可以指定短语中单词的最大编辑距离。</p> <div class="language- extra-class"><pre class="language-text"><code>&quot;fox quick&quot;~5
+
+</code></pre></div><p>字段中的文本越接近于查询字符串的顺序，文档的相关性越高。短语&quot;quick fox&quot;的相关性高于&quot;quick brown fox&quot;。</p> <p>6）范围------可以指定日期、数字或字符串字段的范围。包含的范围用方括号指定[min TO max]，不包含的范围用花括号指定{min TO max}。</p> <p>-2016年的所有日期</p> <div class="language- extra-class"><pre class="language-text"><code>date:[2016-01-01 TO 2016-12-31]
+
+</code></pre></div><p>-数字1到5</p> <div class="language- extra-class"><pre class="language-text"><code>count:[1 TO 5]
+
+</code></pre></div><p>-alpha和omega之间的标签，不包括alpha和omega</p> <div class="language- extra-class"><pre class="language-text"><code>tag:{alpha TO omega}
+</code></pre></div><p>-大于等于10的数</p> <div class="language- extra-class"><pre class="language-text"><code>count:[10 TO *]
+
+</code></pre></div><p>-2016年之前的日期</p> <div class="language- extra-class"><pre class="language-text"><code>date:{* TO 2016-01-01}
+</code></pre></div><p>-大于等于1小于5的数</p> <div class="language- extra-class"><pre class="language-text"><code>count:[1 TO 5}
+</code></pre></div><p>-一边值为无限</p> <div class="language- extra-class"><pre class="language-text"><code>age:&gt;10
+age:&gt;=10
+age:&lt;10
+age:&lt;=10
+
+</code></pre></div><p>7）增权。</p> <div class="language- extra-class"><pre class="language-text"><code>quick^2 fox
+&quot;john smith&quot;^2
+(foo bar)^4
+
+</code></pre></div><p>8）布尔操作符。</p> <p>+必须包含。</p> <p>-必须不包含。</p> <p>支持AND、OR和NOT（也可以写作&amp;&amp;、||和!）操作符。</p> <div class="language- extra-class"><pre class="language-text"><code>((quick AND fox) OR (brown AND fox) OR fox) AND NOT news
+
+</code></pre></div><p>等同于：</p> <div class="language- extra-class"><pre class="language-text"><code>{
+  &quot;bool&quot;: {
+    &quot;must&quot;: { &quot;match&quot;: &quot;fox&quot;},
+    &quot;should&quot;: { &quot;match&quot;: &quot;quick brown&quot; },
+    &quot;must_not&quot;: { &quot;match&quot;: &quot;news&quot;}
+  }
+}
+</code></pre></div><p>9）分组------多字段或子句可以使用圆括号进行分组。</p> <div class="language- extra-class"><pre class="language-text"><code>status:(active OR pending) title:(full text search)^2
+
+</code></pre></div><p>10）保留字符------查询中出现保留字符的时候，需要进行转义。</p> <div class="language- extra-class"><pre class="language-text"><code>\(1\+1\)\=2
+
+</code></pre></div><p>保留字符有：+-=&amp;&amp;||&gt;&lt;!(){}[]^&quot;~*?😕</p> <p>11）空查询------如果查询字符串是空的或者仅包含空格，查询会生成一个空结果集。</p> <ol start="6"><li>简化查询</li></ol> <p>系统提供了简化语法来进行查询。不像普通的Lucene语法查询，简化查询不会抛出异常，而且会丢弃查询无效部分：</p> <div class="language- extra-class"><pre class="language-text"><code>{
+  &quot;simple_query_string&quot; : {
+    &quot;query&quot;: &quot;\&quot;fried eggs\&quot; +(eggplant | potato) -frittata&quot;,
+    &quot;analyzer&quot;: &quot;snowball&quot;,
+    &quot;fields&quot;: [&quot;body^5&quot;,&quot;_all&quot;],
+    &quot;default_operator&quot;: &quot;and&quot;
+  }
+}
+</code></pre></div><p>简化查询可以接受参数见表4-4。</p> <p>表4-4　简化查询参数</p> <p><img src="http://reader.epubee.com/books/mobile/f8/f8fc674e229abfd9abb3cc5ba2ec41de/Image00045.jpg" alt=""></p> <p>（1）语法</p> <p>简单查询字符串支持的特殊字符如下所示：</p> <p>+　表示AND运算符。</p> <p>|　表示OR运算符。</p> <p>--　排除一个词元。</p> <p>&quot;　包含一批词元来指定搜索短语。</p> <p>*　在索引词结尾表示前缀查询。</p> <p>（和）　表示优先。</p> <p>~N　在单词的后面，表示编辑距离（模糊性）。</p> <p>~N　在短语的后面，表示溢出量。</p> <p>为了搜索任何这些特殊字符，需要使用斜线（\）。</p> <p>（2）默认字段</p> <p>当在搜索字符串语法中没有明确指出需要搜索的字段时，index.query.default_field会用来提取要搜索的字段。默认为_all字段。</p> <p>（3）多字段</p> <p>字段参数也可以包括基于模式的字段名，可以自动扩展相关字段（动态引入包含的字段）。例如：</p> <div class="language- extra-class"><pre class="language-text"><code>{
+  &quot;simple_query_string&quot; : {&quot;fields&quot; : [&quot;content&quot;, &quot;name.*^5&quot;],
+  &quot;query&quot; : &quot;foo bar baz&quot;}
+}
+</code></pre></div><p>（4）标记</p> <p>简单查询字符串支持多个标记来指定需要启用的解析功能。在flags参数中指定为一个用|分隔的字符串：</p> <div class="language- extra-class"><pre class="language-text"><code>{
+  &quot;simple_query_string&quot; : {&quot;query&quot; : &quot;foo | bar + baz*&quot;,
+    &quot;flags&quot; : &quot;OR|AND|PREFIX&quot;}
+}
+</code></pre></div><p>可用的标记有：ALL、NONE、AND、OR、NOT、PREFIX、PHRASE、PRECEDENCE、ESCAPE、WHITESPACE、FUZZY、NEAR和SLOP。</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">5/21/2021, 7:41:24 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/数据库/Elasticsearch/7Elasticsearch面试题.html" class="prev">
+        面试题
+      </a></span> <span class="next"><a href="/数据库/Elasticsearch/深入学习/映射-1.动态字段映射.html">
+        动态字段映射
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.a1883da8.js" defer></script><script src="/assets/js/3.21e2e031.js" defer></script><script src="/assets/js/148.f24cd187.js" defer></script>
+  </body>
+</html>

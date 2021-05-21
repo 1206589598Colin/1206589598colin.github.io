@@ -1,0 +1,12 @@
+{
+    "dockerFile": "Dockerfile",
+    // "appPort": [
+    //     "8000:8000"
+    // ],
+    "extensions": [
+		"ms-vscode.go",
+		"ms-ceintl.vscode-language-pack-zh-hans"
+	],
+    // 容器挂载的路径
+	"mounts":[ "source=/home/colin/project/learn/vuepress/go,target=/go/src,type=bind,consistency=cached"]
+}

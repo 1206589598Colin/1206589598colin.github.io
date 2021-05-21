@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>核心技术-集群安全机制 RBAC | 一名GO+PHP工程师</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/assets/css/0.styles.4089f489.css" as="style"><link rel="preload" href="/assets/js/app.a1883da8.js" as="script"><link rel="preload" href="/assets/js/3.21e2e031.js" as="script"><link rel="preload" href="/assets/js/61.c57dc954.js" as="script"><link rel="prefetch" href="/assets/js/10.0db5da5f.js"><link rel="prefetch" href="/assets/js/100.d5cb88cb.js"><link rel="prefetch" href="/assets/js/101.6bbce255.js"><link rel="prefetch" href="/assets/js/102.968ea43c.js"><link rel="prefetch" href="/assets/js/103.a362f49e.js"><link rel="prefetch" href="/assets/js/104.a207d395.js"><link rel="prefetch" href="/assets/js/105.eaae1ece.js"><link rel="prefetch" href="/assets/js/106.9b961ba0.js"><link rel="prefetch" href="/assets/js/107.df9ba599.js"><link rel="prefetch" href="/assets/js/108.1e4967d1.js"><link rel="prefetch" href="/assets/js/109.bab44539.js"><link rel="prefetch" href="/assets/js/11.9fc4d877.js"><link rel="prefetch" href="/assets/js/110.975b5aeb.js"><link rel="prefetch" href="/assets/js/111.4db6087d.js"><link rel="prefetch" href="/assets/js/112.bb76db96.js"><link rel="prefetch" href="/assets/js/113.9b314292.js"><link rel="prefetch" href="/assets/js/114.b05dc902.js"><link rel="prefetch" href="/assets/js/115.b693bf1e.js"><link rel="prefetch" href="/assets/js/116.35ffe409.js"><link rel="prefetch" href="/assets/js/117.193b54e8.js"><link rel="prefetch" href="/assets/js/118.d91f7ec2.js"><link rel="prefetch" href="/assets/js/119.857d484f.js"><link rel="prefetch" href="/assets/js/12.5955fae6.js"><link rel="prefetch" href="/assets/js/120.c2fc1bab.js"><link rel="prefetch" href="/assets/js/121.c3bed7c3.js"><link rel="prefetch" href="/assets/js/122.a0e26719.js"><link rel="prefetch" href="/assets/js/123.feb52a49.js"><link rel="prefetch" href="/assets/js/124.ca59f8f6.js"><link rel="prefetch" href="/assets/js/125.8bba790f.js"><link rel="prefetch" href="/assets/js/126.9ef7f1bd.js"><link rel="prefetch" href="/assets/js/127.7d06eb7f.js"><link rel="prefetch" href="/assets/js/128.9b247099.js"><link rel="prefetch" href="/assets/js/129.b5d91607.js"><link rel="prefetch" href="/assets/js/13.b1c22ead.js"><link rel="prefetch" href="/assets/js/130.3fa988b7.js"><link rel="prefetch" href="/assets/js/131.ff0058e6.js"><link rel="prefetch" href="/assets/js/132.9fd5bbe5.js"><link rel="prefetch" href="/assets/js/133.749040d4.js"><link rel="prefetch" href="/assets/js/134.6a6cf86d.js"><link rel="prefetch" href="/assets/js/135.16d61a44.js"><link rel="prefetch" href="/assets/js/136.2c3aff88.js"><link rel="prefetch" href="/assets/js/137.50106a44.js"><link rel="prefetch" href="/assets/js/138.b434395c.js"><link rel="prefetch" href="/assets/js/139.b13aa419.js"><link rel="prefetch" href="/assets/js/14.48fb5c32.js"><link rel="prefetch" href="/assets/js/140.c2741475.js"><link rel="prefetch" href="/assets/js/141.85f894e1.js"><link rel="prefetch" href="/assets/js/142.e385a422.js"><link rel="prefetch" href="/assets/js/143.002698c9.js"><link rel="prefetch" href="/assets/js/144.6e3b56cf.js"><link rel="prefetch" href="/assets/js/145.95b58ec4.js"><link rel="prefetch" href="/assets/js/146.c5ff12f5.js"><link rel="prefetch" href="/assets/js/147.5817049d.js"><link rel="prefetch" href="/assets/js/148.f24cd187.js"><link rel="prefetch" href="/assets/js/149.0941e789.js"><link rel="prefetch" href="/assets/js/15.5523616c.js"><link rel="prefetch" href="/assets/js/150.cab7c460.js"><link rel="prefetch" href="/assets/js/151.9b1a9135.js"><link rel="prefetch" href="/assets/js/152.6a733b47.js"><link rel="prefetch" href="/assets/js/153.1a5b425b.js"><link rel="prefetch" href="/assets/js/154.59a5cdd0.js"><link rel="prefetch" href="/assets/js/155.6906efc0.js"><link rel="prefetch" href="/assets/js/156.14a1e6f8.js"><link rel="prefetch" href="/assets/js/157.2a90db8a.js"><link rel="prefetch" href="/assets/js/158.71dda3a8.js"><link rel="prefetch" href="/assets/js/159.33fa138a.js"><link rel="prefetch" href="/assets/js/16.bc45c675.js"><link rel="prefetch" href="/assets/js/160.41012461.js"><link rel="prefetch" href="/assets/js/161.029d6fef.js"><link rel="prefetch" href="/assets/js/162.d7e72e4d.js"><link rel="prefetch" href="/assets/js/163.33c153d8.js"><link rel="prefetch" href="/assets/js/164.cbd2db78.js"><link rel="prefetch" href="/assets/js/165.8d99fa18.js"><link rel="prefetch" href="/assets/js/166.5bcaa3dd.js"><link rel="prefetch" href="/assets/js/167.2349d4bb.js"><link rel="prefetch" href="/assets/js/168.03f7c431.js"><link rel="prefetch" href="/assets/js/169.662db72b.js"><link rel="prefetch" href="/assets/js/17.6b0481e2.js"><link rel="prefetch" href="/assets/js/170.4469c187.js"><link rel="prefetch" href="/assets/js/171.58868926.js"><link rel="prefetch" href="/assets/js/172.afe06d5f.js"><link rel="prefetch" href="/assets/js/173.a36e004f.js"><link rel="prefetch" href="/assets/js/174.849bcbbd.js"><link rel="prefetch" href="/assets/js/175.deb32fb8.js"><link rel="prefetch" href="/assets/js/176.45f7d6a8.js"><link rel="prefetch" href="/assets/js/177.fb85b7c2.js"><link rel="prefetch" href="/assets/js/178.7f4bf5e6.js"><link rel="prefetch" href="/assets/js/18.e70cc004.js"><link rel="prefetch" href="/assets/js/19.e954bc7a.js"><link rel="prefetch" href="/assets/js/2.aec18661.js"><link rel="prefetch" href="/assets/js/20.94381428.js"><link rel="prefetch" href="/assets/js/21.5058af0e.js"><link rel="prefetch" href="/assets/js/22.d9c7ba8d.js"><link rel="prefetch" href="/assets/js/23.9773e373.js"><link rel="prefetch" href="/assets/js/24.a012e542.js"><link rel="prefetch" href="/assets/js/25.c1e53297.js"><link rel="prefetch" href="/assets/js/26.60c27d52.js"><link rel="prefetch" href="/assets/js/27.9ff6e463.js"><link rel="prefetch" href="/assets/js/28.e4955e68.js"><link rel="prefetch" href="/assets/js/29.8c0a7989.js"><link rel="prefetch" href="/assets/js/30.8d2c51b9.js"><link rel="prefetch" href="/assets/js/31.77daad09.js"><link rel="prefetch" href="/assets/js/32.763b7b98.js"><link rel="prefetch" href="/assets/js/33.a35d3f49.js"><link rel="prefetch" href="/assets/js/34.3b42b1e2.js"><link rel="prefetch" href="/assets/js/35.770b0123.js"><link rel="prefetch" href="/assets/js/36.aecfaf6e.js"><link rel="prefetch" href="/assets/js/37.bd49ca59.js"><link rel="prefetch" href="/assets/js/38.fed1555d.js"><link rel="prefetch" href="/assets/js/39.ba12b4f9.js"><link rel="prefetch" href="/assets/js/4.c2d1d771.js"><link rel="prefetch" href="/assets/js/40.ad0b908b.js"><link rel="prefetch" href="/assets/js/41.e5c2a903.js"><link rel="prefetch" href="/assets/js/42.bd11772d.js"><link rel="prefetch" href="/assets/js/43.26dc2a52.js"><link rel="prefetch" href="/assets/js/44.c0141c7c.js"><link rel="prefetch" href="/assets/js/45.328fda2a.js"><link rel="prefetch" href="/assets/js/46.0bd04509.js"><link rel="prefetch" href="/assets/js/47.853f7f02.js"><link rel="prefetch" href="/assets/js/48.7e30092c.js"><link rel="prefetch" href="/assets/js/49.d7c41614.js"><link rel="prefetch" href="/assets/js/5.1f2ba3e8.js"><link rel="prefetch" href="/assets/js/50.bbc144de.js"><link rel="prefetch" href="/assets/js/51.29fb5c68.js"><link rel="prefetch" href="/assets/js/52.d2042f8d.js"><link rel="prefetch" href="/assets/js/53.8a5c3d60.js"><link rel="prefetch" href="/assets/js/54.0f846846.js"><link rel="prefetch" href="/assets/js/55.85b62bcc.js"><link rel="prefetch" href="/assets/js/56.c2bf89f1.js"><link rel="prefetch" href="/assets/js/57.3187bec1.js"><link rel="prefetch" href="/assets/js/58.ba87c684.js"><link rel="prefetch" href="/assets/js/59.b40c3148.js"><link rel="prefetch" href="/assets/js/6.c31c16f8.js"><link rel="prefetch" href="/assets/js/60.04a8298f.js"><link rel="prefetch" href="/assets/js/62.24bf6999.js"><link rel="prefetch" href="/assets/js/63.2f87f55d.js"><link rel="prefetch" href="/assets/js/64.68cd3b45.js"><link rel="prefetch" href="/assets/js/65.255d0e52.js"><link rel="prefetch" href="/assets/js/66.1148b749.js"><link rel="prefetch" href="/assets/js/67.1d93ad03.js"><link rel="prefetch" href="/assets/js/68.0a66e8af.js"><link rel="prefetch" href="/assets/js/69.21fb7c12.js"><link rel="prefetch" href="/assets/js/7.9e783835.js"><link rel="prefetch" href="/assets/js/70.52af12e9.js"><link rel="prefetch" href="/assets/js/71.b920fbd7.js"><link rel="prefetch" href="/assets/js/72.765b0fde.js"><link rel="prefetch" href="/assets/js/73.9d1a0227.js"><link rel="prefetch" href="/assets/js/74.3c8755ec.js"><link rel="prefetch" href="/assets/js/75.5800081d.js"><link rel="prefetch" href="/assets/js/76.a0981293.js"><link rel="prefetch" href="/assets/js/77.606766d0.js"><link rel="prefetch" href="/assets/js/78.41729cec.js"><link rel="prefetch" href="/assets/js/79.96c2852e.js"><link rel="prefetch" href="/assets/js/8.4f13117f.js"><link rel="prefetch" href="/assets/js/80.2120e0e9.js"><link rel="prefetch" href="/assets/js/81.04f50a1e.js"><link rel="prefetch" href="/assets/js/82.db879ca5.js"><link rel="prefetch" href="/assets/js/83.e89b8863.js"><link rel="prefetch" href="/assets/js/84.07410b58.js"><link rel="prefetch" href="/assets/js/85.d46c8682.js"><link rel="prefetch" href="/assets/js/86.3869d59e.js"><link rel="prefetch" href="/assets/js/87.e7860b15.js"><link rel="prefetch" href="/assets/js/88.2b183553.js"><link rel="prefetch" href="/assets/js/89.36e67a82.js"><link rel="prefetch" href="/assets/js/9.a64cd1e6.js"><link rel="prefetch" href="/assets/js/90.391f76ed.js"><link rel="prefetch" href="/assets/js/91.b9d1bb73.js"><link rel="prefetch" href="/assets/js/92.a65aa479.js"><link rel="prefetch" href="/assets/js/93.bc850b53.js"><link rel="prefetch" href="/assets/js/94.7dc858d7.js"><link rel="prefetch" href="/assets/js/95.83afadb6.js"><link rel="prefetch" href="/assets/js/96.bd648be3.js"><link rel="prefetch" href="/assets/js/97.b6312544.js"><link rel="prefetch" href="/assets/js/98.fdb7d67a.js"><link rel="prefetch" href="/assets/js/99.c4b1cfd7.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.4089f489.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">一名GO+PHP工程师</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="https://gitee.com/ColinWWL/blog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  码云Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="https://gitee.com/ColinWWL/blog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  码云Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/系统组件与架构设计/K8S/1kubernetes 概述" class="sidebar-heading clickable open"><span>K8S</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/系统组件与架构设计/K8S/1kubernetes 概述.html" class="sidebar-link">概述</a></li><li><a href="/系统组件与架构设计/K8S/2kubernetes 集群搭建-kubeadm方式 .html" class="sidebar-link">集群搭建(kubeadm 方式)</a></li><li><a href="/系统组件与架构设计/K8S/4kubernetes 集群 YAML 文件详解.html" class="sidebar-link">集群 YAML 文件详解</a></li><li><a href="/系统组件与架构设计/K8S/5kubernetes 集群命令行工具 kubectl.html" class="sidebar-link">集群命令行工具 kubectl</a></li><li><a href="/系统组件与架构设计/K8S/6kubernetes 核心技术-Pod.html" class="sidebar-link">核心技术-Pod</a></li><li><a href="/系统组件与架构设计/K8S/7kubernetes 核心技术-Label.html" class="sidebar-link">核心技术-Label</a></li><li><a href="/系统组件与架构设计/K8S/8kubernetes 核心技术-Controller 控制器.html" class="sidebar-link">核心技术-Controller 控制器</a></li><li><a href="/系统组件与架构设计/K8S/9kubernetes 核心技术-Volume.html" class="sidebar-link">核心技术-Volume</a></li><li><a href="/系统组件与架构设计/K8S/10 kubernetes 核心技术-PVC 和 PV.html" class="sidebar-link">核心技术-PVC 和 PV</a></li><li><a href="/系统组件与架构设计/K8S/11kubernetes 核心技术-Secret.html" class="sidebar-link">核心技术-Secret</a></li><li><a href="/系统组件与架构设计/K8S/12kubernetes 核心技术-configMap.html" class="sidebar-link">核心技术-configMap</a></li><li><a href="/系统组件与架构设计/K8S/13kubernetes 核心技术-Namespace.html" class="sidebar-link">核心技术-Namespace</a></li><li><a href="/系统组件与架构设计/K8S/14kubernetes 核心技术-Service.html" class="sidebar-link">核心技术-Service</a></li><li><a href="/系统组件与架构设计/K8S/18kubernetes 核心技术-探针.html" class="sidebar-link">核心技术-探针</a></li><li><a href="/系统组件与架构设计/K8S/19kubernetes 核心技术-调度器.html" class="sidebar-link">核心技术-调度器</a></li><li><a href="/系统组件与架构设计/K8S/20kubernetes 核心技术-集群安全机制 RBAC.html" class="active sidebar-link">核心技术-集群安全机制 RBAC</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/系统组件与架构设计/K8S/20kubernetes 核心技术-集群安全机制 RBAC.html#基本概念" class="sidebar-link">基本概念</a></li><li class="sidebar-sub-header"><a href="/系统组件与架构设计/K8S/20kubernetes 核心技术-集群安全机制 RBAC.html#rbac-原理和用法" class="sidebar-link">RBAC 原理和用法</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/系统组件与架构设计/K8S/20kubernetes 核心技术-集群安全机制 RBAC.html#rbac-的-api-资源对象说明" class="sidebar-link">RBAC 的 API 资源对象说明</a></li><li class="sidebar-sub-header"><a href="/系统组件与架构设计/K8S/20kubernetes 核心技术-集群安全机制 RBAC.html#对资源的引用方式" class="sidebar-link">对资源的引用方式</a></li><li class="sidebar-sub-header"><a href="/系统组件与架构设计/K8S/20kubernetes 核心技术-集群安全机制 RBAC.html#常见的角色-role-示例" class="sidebar-link">常见的角色(Role)示例</a></li><li class="sidebar-sub-header"><a href="/系统组件与架构设计/K8S/20kubernetes 核心技术-集群安全机制 RBAC.html#常用的角色绑定" class="sidebar-link">常用的角色绑定</a></li><li class="sidebar-sub-header"><a href="/系统组件与架构设计/K8S/20kubernetes 核心技术-集群安全机制 RBAC.html#默认的角色和角色绑定" class="sidebar-link">默认的角色和角色绑定</a></li><li class="sidebar-sub-header"><a href="/系统组件与架构设计/K8S/20kubernetes 核心技术-集群安全机制 RBAC.html#授权注意事项-预防提权和授权初始化" class="sidebar-link">授权注意事项：预防提权和授权初始化</a></li></ul></li></ul></li><li><a href="/系统组件与架构设计/K8S/22kubernetes 核心技术-Helm.html" class="sidebar-link">核心技术-Helm</a></li><li><a href="/系统组件与架构设计/K8S/23kubernetes 高可用集群搭建.html" class="sidebar-link">高可用集群搭建</a></li><li><a href="/系统组件与架构设计/K8S/24kubernetes 部署项目.html" class="sidebar-link">部署项目</a></li><li><a href="/系统组件与架构设计/K8S/25kubernetes-部署性能监控平台.html" class="sidebar-link">部署性能监控平台</a></li><li><a href="/系统组件与架构设计/K8S/Web界面Dashboard.html" class="sidebar-link">Web界面Dashboard</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="核心技术-集群安全机制-rbac"><a href="#核心技术-集群安全机制-rbac" class="header-anchor">#</a> 核心技术-集群安全机制 RBAC</h1> <h2 id="基本概念"><a href="#基本概念" class="header-anchor">#</a> 基本概念</h2> <p>RBAC(Role-Based Access Control，基于角色的访问控制)在 k8s v1.5 中引入，在 v1.6 版本时升级为 Beta 版本，并成为 kubeadm 安装方式下的默认选项，相对于其他访问控制方式，新的 RBAC 具有如下优势：</p> <ul><li><p>对集群中的资源和非资源权限均有完整的覆盖</p></li> <li><p>整个 RBAC 完全由几个 API 对象完成，同其他 API 对象一样，可以用 kubectl 或 API进行操作</p></li> <li><p>可以在运行时进行调整，无需重启 API Server 要使用 RBAC 授权模式，需要在 API Server 的启动参数中加上--authorization-mode=RBAC</p></li></ul> <h2 id="rbac-原理和用法"><a href="#rbac-原理和用法" class="header-anchor">#</a> RBAC 原理和用法</h2> <h3 id="rbac-的-api-资源对象说明"><a href="#rbac-的-api-资源对象说明" class="header-anchor">#</a> RBAC 的 API 资源对象说明</h3> <p>RBAC 引入了 4 个新的顶级资源对象：Role、ClusterRole、RoleBinding、ClusterRoleBinding。同其他 API 资源对象一样，用户可以使用 kubectl 或者 API 调用等方式操作这些资源对象。</p> <h4 id="角色-role"><a href="#角色-role" class="header-anchor">#</a> 角色(Role)</h4> <p>一个角色就是一组权限的集合，这里的权限都是许可形式的，不存在拒绝的规则。在一个命名空间中，可以用角色来定义一个角色，如果是集群级别的，就需要使用 ClusterRole了。角色只能对命名空间内的资源进行授权，下面的例子中定义的角色具备读取 Pod 的权限：</p> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token key atrule">kind</span><span class="token punctuation">:</span> Role
+
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> rbac.authorization.k8s.io/v1
+
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">namespace</span><span class="token punctuation">:</span> default
+
+<span class="token key atrule">name</span><span class="token punctuation">:</span> pod<span class="token punctuation">-</span>reader
+
+<span class="token key atrule">rules</span><span class="token punctuation">:</span>
+
+ <span class="token punctuation">-</span> <span class="token key atrule">apiGroups</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;&quot;</span><span class="token punctuation">]</span> <span class="token comment"># 空字符串表示核心 API 群</span>
+
+<span class="token key atrule">resource</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;pods&quot;</span><span class="token punctuation">]</span>
+
+<span class="token key atrule">verbs</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;get&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;watch&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;list&quot;</span><span class="token punctuation">]</span>
+</code></pre></div><p>rules 中的参数说明：</p> <ul><li><p>apiGroup：支持的 API 组列表，例如：APIVersion: batch/v1、APIVersion:extensions:v1、apiVersion:apps/v1 等</p></li> <li><p>resources：支持的资源对象列表，例如：pods、deployments、jobs 等</p></li> <li><p>verbs：对资源对象的操作方法列表，例如：get、watch、list、delete、replace 等</p></li></ul> <h4 id="集群角色-clusterrole"><a href="#集群角色-clusterrole" class="header-anchor">#</a> 集群角色(ClusterRole)</h4> <p>集群角色除了具有和角色一致的命名空间内资源的管理能力，因其集群级别的范围，还可以用于以下特殊元素的授权。</p> <ul><li><p>集群范围的资源，例如 Node</p></li> <li><p>非资源型的路径，例如/healthz</p></li> <li><p>包含全部命名空间的资源，例如 pods</p></li></ul> <p>下面的集群角色可以让用户有权访问任意一个或所有命名空间的 secrets：</p> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token key atrule">kind</span><span class="token punctuation">:</span> ClusterRole
+
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> rbac.authorization.k8s.io/v1
+
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+
+\<span class="token comment"># name: secret-reader</span>
+
+\<span class="token comment"># ClusterRole 不受限于命名空间，所以省略了 namespace name 的定义</span>
+
+<span class="token key atrule">rules</span><span class="token punctuation">:</span>
+
+ <span class="token punctuation">-</span> <span class="token key atrule">apiGroups</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;&quot;</span><span class="token punctuation">]</span>
+
+<span class="token key atrule">resources</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;secrets&quot;</span><span class="token punctuation">]</span>
+
+<span class="token key atrule">verbs</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;get&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;watch&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;list&quot;</span><span class="token punctuation">]</span>
+</code></pre></div><h4 id="角色绑定-rolebinding-和集群角色绑定-clusterrolebinding"><a href="#角色绑定-rolebinding-和集群角色绑定-clusterrolebinding" class="header-anchor">#</a> 角色绑定(RoleBinding)和集群角色绑定(ClusterRoleBinding)</h4> <p>角色绑定或集群角色绑定用来把一个角色绑定到一个目标上，绑定目标可以是 User、Group 或者 Service Account。使用 RoleBinding 为某个命名空间授权，ClusterRoleBinding 为集群范围内授权。</p> <p>RoleBinding 可以引用 Role 进行授权，下例中的 RoleBinding 将在 default 命名空间中把pod-reader 角色授予用户 jane，可以让 jane 用户读取 default 命名空间的 Pod：</p> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token key atrule">kind</span><span class="token punctuation">:</span> RoleBinding
+
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> rbac.authorization.k8s.io/v1
+
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">name</span><span class="token punctuation">:</span> read<span class="token punctuation">-</span>pods
+
+<span class="token key atrule">namespace</span><span class="token punctuation">:</span> default
+
+<span class="token key atrule">subjects</span><span class="token punctuation">:</span>
+
+ <span class="token punctuation">-</span> <span class="token key atrule">kind</span><span class="token punctuation">:</span> User
+
+<span class="token key atrule">name</span><span class="token punctuation">:</span> jane
+
+<span class="token key atrule">apiGroup</span><span class="token punctuation">:</span> rbac.authorization.k8s.io
+
+<span class="token key atrule">roleRef</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Role
+
+<span class="token key atrule">name</span><span class="token punctuation">:</span> pod<span class="token punctuation">-</span>reader
+
+<span class="token key atrule">apiGroup</span><span class="token punctuation">:</span> rbac.authorization.k8s.io
+
+</code></pre></div><p>RoleBinding 也可以引用 ClusterRole，对属于同一命名空间内 ClusterRole 定义的资源主体进行授权。一种常见的做法是集群管理员为集群范围预先定义好一组角色(ClusterRole)，然后在多个命名空间中重复使用这些 ClusterRole。</p> <p>使用 RoleBinding 绑定集群角色 secret-reader，使 dave 只能读取 development 命名空间中的 secret：</p> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token key atrule">kind</span><span class="token punctuation">:</span> RoleBinding
+
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> rbac.authorization.k8s.io/v1
+
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">name</span><span class="token punctuation">:</span> read<span class="token punctuation">-</span>secrets
+
+<span class="token key atrule">namespace</span><span class="token punctuation">:</span> development
+
+<span class="token key atrule">subjects</span><span class="token punctuation">:</span>
+
+ <span class="token punctuation">-</span> <span class="token key atrule">kind</span><span class="token punctuation">:</span> User
+
+<span class="token key atrule">name</span><span class="token punctuation">:</span> dave
+
+<span class="token key atrule">apiGroup</span><span class="token punctuation">:</span> rbac.authorization.k8s.io
+
+<span class="token key atrule">roleRef</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> ClusterRole
+
+<span class="token key atrule">name</span><span class="token punctuation">:</span> secret<span class="token punctuation">-</span>reader
+
+<span class="token key atrule">apiGroup</span><span class="token punctuation">:</span> rbac.authorization.k8s.io
+</code></pre></div><p>集群角色绑定中的角色只能是集群角色，用于进行集群级别或者对所有命名空间都生效授权。允许 manager 组的用户读取任意 namespace 中的 secret</p> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token key atrule">kind</span><span class="token punctuation">:</span> ClusterRoleBinding
+
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> rbac.authorization.k8s.io/v1
+
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">name</span><span class="token punctuation">:</span> read<span class="token punctuation">-</span>secrets<span class="token punctuation">-</span>global
+
+<span class="token key atrule">subjects</span><span class="token punctuation">:</span>
+
+ <span class="token punctuation">-</span> <span class="token key atrule">kind</span><span class="token punctuation">:</span> Group
+
+<span class="token key atrule">name</span><span class="token punctuation">:</span> manager
+
+<span class="token key atrule">apiGroup</span><span class="token punctuation">:</span> rbac.authorization.k8s.io
+
+<span class="token key atrule">roleRef</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> ClusterRole
+
+<span class="token key atrule">name</span><span class="token punctuation">:</span> secret<span class="token punctuation">-</span>reader
+
+<span class="token key atrule">apiGroup</span><span class="token punctuation">:</span> rbac.authorization.k8s.io
+
+</code></pre></div><h3 id="对资源的引用方式"><a href="#对资源的引用方式" class="header-anchor">#</a> 对资源的引用方式</h3> <p>多数资源可以用其名称的字符串来表达，也就是 Endpoint 中的 URL 相对路径，例如 pods。然后，某些 Kubernetes API 包含下级资源，例如 Pod 的日志(logs)。Pod 日志的 Endpoint是 GET /api/v1/namespaces/{namespaces}/pods/{name}/log。Pod 是一个命名空间内的资源，log 就是一个下级资源。要在一个 RBAC 角色中体现，则需要用斜线/来分割资源和下级资源。若想授权让某个主体同时能够读取 Pod 和 Pod log，则可以配置 resources 为一个数组：</p> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token key atrule">kind</span><span class="token punctuation">:</span> Role
+
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> rbac.authorization.k8s.io/v1
+
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">namespace</span><span class="token punctuation">:</span> default
+
+<span class="token key atrule">name</span><span class="token punctuation">:</span> pod<span class="token punctuation">-</span>and<span class="token punctuation">-</span>pod<span class="token punctuation">-</span>logs<span class="token punctuation">-</span>reader
+
+<span class="token key atrule">rules</span><span class="token punctuation">:</span>
+
+ <span class="token punctuation">-</span> <span class="token key atrule">apiGroups</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;&quot;</span><span class="token punctuation">]</span>
+
+<span class="token key atrule">resources</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;pods&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;pods/log&quot;</span><span class="token punctuation">]</span>
+
+<span class="token key atrule">verbs</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;get&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;list&quot;</span><span class="token punctuation">]</span>
+</code></pre></div><p>资源还可以通过名字(ResourceName)进行引用。在指定 ResourceName 后，使用 get、delete、update、patch 动词的请求，就会被限制在这个资源实例范围内。例如下面的声明让一个主体只能对一个叫 my-configmap 的 configmap 进行 get 和 update 操作：</p> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token key atrule">kind</span><span class="token punctuation">:</span> Role
+
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> rbac.authorization.k8s.io/v1
+
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">namespace</span><span class="token punctuation">:</span> default
+
+<span class="token key atrule">name</span><span class="token punctuation">:</span> configmap<span class="token punctuation">-</span>updater
+
+<span class="token key atrule">rules</span><span class="token punctuation">:</span>
+
+ <span class="token punctuation">-</span> <span class="token key atrule">apiGroups</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;&quot;</span><span class="token punctuation">]</span>
+
+<span class="token key atrule">resources</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;configmap&quot;</span><span class="token punctuation">]</span>
+
+<span class="token key atrule">resourceNames</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;my-configmap&quot;</span><span class="token punctuation">]</span>
+
+<span class="token key atrule">verbs</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;update&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;get&quot;</span><span class="token punctuation">]</span>
+</code></pre></div><h3 id="常见的角色-role-示例"><a href="#常见的角色-role-示例" class="header-anchor">#</a> 常见的角色(Role)示例</h3> <ul><li>允许读取核心 API 组中 Pod 的资源：</li></ul> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token key atrule">rules</span><span class="token punctuation">:</span>
+
+* apiGroups<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;&quot;</span><span class="token punctuation">]</span>
+
+<span class="token key atrule">resources</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;pods&quot;</span><span class="token punctuation">]</span>
+
+<span class="token key atrule">verbs</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;get&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;list&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;watch&quot;</span><span class="token punctuation">]</span>
+
+</code></pre></div><ul><li>允许读写&quot;extensions&quot;和&quot;apps&quot;两个 API 组中的 deployment 资源</li></ul> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token key atrule">rules</span><span class="token punctuation">:</span>
+
+ <span class="token punctuation">-</span> <span class="token key atrule">apiGroups</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;extensions&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;apps&quot;</span><span class="token punctuation">]</span>
+
+<span class="token key atrule">resources</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;deployments&quot;</span><span class="token punctuation">]</span>
+
+<span class="token key atrule">verbs</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;get&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;list&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;watch&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;create&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;update&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;patch&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;delete&quot;</span><span class="token punctuation">]</span>
+
+</code></pre></div><ul><li>允许读写 pods 及读写 jobs</li></ul> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token key atrule">rules</span><span class="token punctuation">:</span>
+
+ <span class="token punctuation">-</span> <span class="token key atrule">apiGroups</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;&quot;</span><span class="token punctuation">]</span>
+
+<span class="token key atrule">resources</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;pods&quot;</span><span class="token punctuation">]</span>
+
+<span class="token key atrule">verbs</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;get&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;list&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;watch&quot;</span><span class="token punctuation">]</span>
+
+ <span class="token punctuation">-</span> <span class="token key atrule">apiGroups</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;batch&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;extensions&quot;</span><span class="token punctuation">]</span>
+
+<span class="token key atrule">resources</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;jobs&quot;</span><span class="token punctuation">]</span>
+
+<span class="token key atrule">verbs</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;get&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;list&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;watch&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;create&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;update&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;patch&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;delete&quot;</span><span class="token punctuation">]</span>
+
+</code></pre></div><ul><li>允许读取一个名为 my-config 的 ConfigMap(必须绑定到一个 RoleBinding 来限制到一个 namespace 下的 ConfigMap)：</li></ul> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token key atrule">rules</span><span class="token punctuation">:</span>
+
+ <span class="token punctuation">-</span> <span class="token key atrule">apiGroups</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;&quot;</span><span class="token punctuation">]</span>
+
+<span class="token key atrule">resources</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;configmaps&quot;</span><span class="token punctuation">]</span>
+
+<span class="token key atrule">resourceNames</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;my-config&quot;</span><span class="token punctuation">]</span>
+
+<span class="token key atrule">verbs</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;get&quot;</span><span class="token punctuation">]</span>
+
+</code></pre></div><ul><li>读取核心组的 node 资源(Node 属于集群级别的资源，必须放在 ClusterRole 中，并使用 ClusterRoleBinding 进行绑定)：</li></ul> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token key atrule">rules</span><span class="token punctuation">:</span>
+
+ <span class="token punctuation">-</span> <span class="token key atrule">apiGroups</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;&quot;</span><span class="token punctuation">]</span>
+
+<span class="token key atrule">resources</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;nodes&quot;</span><span class="token punctuation">]</span>
+
+<span class="token key atrule">verbs</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;get&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;list&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;watch&quot;</span><span class="token punctuation">]</span>
+
+</code></pre></div><ul><li>允许对非资源端点/healthz 及其所有子路径进行 GET/POST 操作(必须使用ClusterRole 和 ClusterRoleBinding)：</li></ul> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token key atrule">rules</span><span class="token punctuation">:</span>
+
+ <span class="token punctuation">-</span> <span class="token key atrule">nonResourceURLs</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;/healthz&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;/healthz/*&quot;</span><span class="token punctuation">]</span>
+
+<span class="token key atrule">verbs</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;get&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;post&quot;</span><span class="token punctuation">]</span>
+</code></pre></div><h3 id="常用的角色绑定"><a href="#常用的角色绑定" class="header-anchor">#</a> 常用的角色绑定</h3> <div class="language-yaml extra-class"><pre class="language-yaml"><code> <span class="token punctuation">-</span> 用户名 Alice@example.com
+
+<span class="token key atrule">subjects</span><span class="token punctuation">:</span>
+
+ <span class="token punctuation">-</span> <span class="token key atrule">kind</span><span class="token punctuation">:</span> User
+
+<span class="token key atrule">name</span><span class="token punctuation">:</span> <span class="token string">&quot;Alice@example.com&quot;</span>
+
+<span class="token key atrule">apiGroup</span><span class="token punctuation">:</span> rbac.authorization.k8s.io
+
+ <span class="token punctuation">-</span> 组名 frontend<span class="token punctuation">-</span>admins
+
+<span class="token key atrule">subjects</span><span class="token punctuation">:</span>
+
+ <span class="token punctuation">-</span> <span class="token key atrule">kind</span><span class="token punctuation">:</span> Group
+
+<span class="token key atrule">name</span><span class="token punctuation">:</span> <span class="token string">&quot;frontend-admins&quot;</span>
+
+<span class="token key atrule">apiGroup</span><span class="token punctuation">:</span> rbac.authorization.k8s.io
+
+ <span class="token punctuation">-</span> kube<span class="token punctuation">-</span>system 命名空间中的默认 Service Account
+
+<span class="token key atrule">subjects</span><span class="token punctuation">:</span>
+
+ <span class="token punctuation">-</span> <span class="token key atrule">kind</span><span class="token punctuation">:</span> ServiceAccount
+
+<span class="token key atrule">name</span><span class="token punctuation">:</span> default
+
+<span class="token key atrule">namespace</span><span class="token punctuation">:</span> kube<span class="token punctuation">-</span>system
+
+ <span class="token punctuation">-</span> qa 命名空间中的所有 Service Account
+
+<span class="token key atrule">subjects</span><span class="token punctuation">:</span>
+
+ <span class="token punctuation">-</span> <span class="token key atrule">kind</span><span class="token punctuation">:</span> Group
+
+<span class="token key atrule">name</span><span class="token punctuation">:</span> system<span class="token punctuation">:</span>serviceaccounts<span class="token punctuation">:</span>qa
+
+<span class="token key atrule">apiGroup</span><span class="token punctuation">:</span> rbac.authorization.k8s.io
+
+ <span class="token punctuation">-</span> 所有 Service Account
+
+<span class="token key atrule">subjects</span><span class="token punctuation">:</span>
+
+ <span class="token punctuation">-</span> <span class="token key atrule">kind</span><span class="token punctuation">:</span> Group
+
+<span class="token key atrule">name</span><span class="token punctuation">:</span> system<span class="token punctuation">:</span>serviceaccounts
+
+<span class="token key atrule">apiGroup</span><span class="token punctuation">:</span> rbac.authorization.k8s.io
+
+ <span class="token punctuation">-</span> 所有认证用户
+
+<span class="token key atrule">subjects</span><span class="token punctuation">:</span>
+
+ <span class="token punctuation">-</span> <span class="token key atrule">kind</span><span class="token punctuation">:</span> Group
+
+<span class="token key atrule">name</span><span class="token punctuation">:</span> system<span class="token punctuation">:</span>authentication
+
+<span class="token key atrule">apiGroup</span><span class="token punctuation">:</span> rbac.authorization.k8s.io
+
+ <span class="token punctuation">-</span> 所有未认证用户
+
+<span class="token key atrule">subjects</span><span class="token punctuation">:</span>
+
+ <span class="token punctuation">-</span> <span class="token key atrule">kind</span><span class="token punctuation">:</span> Group
+
+<span class="token key atrule">name</span><span class="token punctuation">:</span> system<span class="token punctuation">:</span>unauthentication
+
+<span class="token key atrule">apiGroup</span><span class="token punctuation">:</span> rbac.authorization.k8s.io
+
+ <span class="token punctuation">-</span> 全部用户
+
+<span class="token key atrule">subjects</span><span class="token punctuation">:</span>
+
+ <span class="token punctuation">-</span> <span class="token key atrule">kind</span><span class="token punctuation">:</span> Group
+
+<span class="token key atrule">name</span><span class="token punctuation">:</span> system<span class="token punctuation">:</span>authentication
+
+<span class="token key atrule">apiGroup</span><span class="token punctuation">:</span> rbac.authorization.k8s.io
+
+ <span class="token punctuation">-</span> <span class="token key atrule">kind</span><span class="token punctuation">:</span> Group
+
+<span class="token key atrule">name</span><span class="token punctuation">:</span> system<span class="token punctuation">:</span>unauthentication
+
+<span class="token key atrule">apiGroup</span><span class="token punctuation">:</span> rbac.authorization.k8s.io
+
+</code></pre></div><h3 id="默认的角色和角色绑定"><a href="#默认的角色和角色绑定" class="header-anchor">#</a> 默认的角色和角色绑定</h3> <p>API Server 会创建一套默认的 ClusterRole 和 ClusterRoleBinding 对象，其中很多是以 system: 为前缀的，以表明这些资源属于基础架构，对这些对象的改动可能造成集群故障。</p> <p>所有默认的 ClusterRole 和RoleBinding 都会用标签 kubernetes.io/bootstrapping=rbac-defaults 进行标记。</p> <h4 id="常见的系统角色如下"><a href="#常见的系统角色如下" class="header-anchor">#</a> 常见的系统角色如下：</h4> <p><img src="/assets/img/2021-04-23-09-36-22.556b5d04.png" alt=""></p> <p>有些默认角色不是以 system: 为前缀的，这部分角色是针对用户的，其中包含超级用户角色 cluster-admin，有的用于集群一级的角色 cluster-status，还有针对 namespace 的角色 admin、edit、view</p> <h4 id="常见的用户角色如下"><a href="#常见的用户角色如下" class="header-anchor">#</a> 常见的用户角色如下：</h4> <p><img src="/assets/img/2021-04-23-09-36-34.2f36a7ca.png" alt=""></p> <p>核心 Master 组件角色</p> <p><img src="/assets/img/2021-04-23-09-36-52.801d94f3.png" alt=""></p> <h3 id="授权注意事项-预防提权和授权初始化"><a href="#授权注意事项-预防提权和授权初始化" class="header-anchor">#</a> 授权注意事项：预防提权和授权初始化</h3> <p>RBAC API 拒绝用户利用编辑角色或者角色绑定的方式进行提权。这一限制是在 API 层面做出的，因此即使 RBAC 没有启用也仍然有效。</p> <p>用户只能在拥有一个角色的所有权限，且与该角色的生效范围一致的前提下，才能对角色进行创建和更新。例如用户 user-1 没有列出集群中所有 secret 的权限，就不能创建具有这一权限的集群角色。要让一个用户能够创建或更新角色，需要以下权限：</p> <ul><li><p>为其授予一个允许创建/更新 Role 或 ClusterRole 资源对象的角色；为用户授予角色，要覆盖该用户所能控制的所有权限范围。用户如果尝试创建超出其自身权限的角色或者集群角色，则该 API 调用会被禁止。如果一个用户的权限包含了一个角色的所有权限，那么就可以为其创建和更新角色绑定；或者如果被授予了针对某个角色的绑定授权，则也有权完成此操作。例如：user1 没有列出集群内所有 secret 的权限，就无法为一个具有这样权限的角色创建集群角色绑定。要使用户能够创建、更新这一角色绑定，则需要有如下做法：</p></li> <li><div class="language- extra-class"><pre><code> 为其授予一个允许创建和更新角色绑定或者集群角色绑定的角色为其授予绑定某一角色的权限，有隐式或显式两种方法
+</code></pre></div></li> <li><div class="language- extra-class"><pre><code>         隐式：让其具有所有该角色的权限
+</code></pre></div></li> <li><div class="language- extra-class"><pre><code>         显式：让用户授予针对该角色或集群角色绑定操作的权限
+</code></pre></div></li></ul> <p>让 user-1 有对 user-1-namespace 命名空间中的其他用户授予 admin、edit 及 view 角色</p> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> rbac.authorization.k8s.io/v1
+
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> ClusterRole
+
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">name</span><span class="token punctuation">:</span> role<span class="token punctuation">-</span>grantor
+
+<span class="token key atrule">rules</span><span class="token punctuation">:</span>
+
+ <span class="token punctuation">-</span> <span class="token key atrule">apiGroups</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;rbac.authorization.k8s.io&quot;</span><span class="token punctuation">]</span>
+
+<span class="token key atrule">resources</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;rolebindings&quot;</span><span class="token punctuation">]</span>
+
+<span class="token key atrule">verbs</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;create&quot;</span><span class="token punctuation">]</span>
+
+ <span class="token punctuation">-</span> <span class="token key atrule">apiGroups</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;rbac.authorization.k8s.io&quot;</span><span class="token punctuation">]</span>
+
+<span class="token key atrule">resources</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;clusterroles&quot;</span><span class="token punctuation">]</span>
+
+<span class="token key atrule">verbs</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;bind&quot;</span><span class="token punctuation">]</span>
+
+<span class="token key atrule">resourceNames</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;admin&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;edit&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;view&quot;</span><span class="token punctuation">]</span>
+
+ <span class="token punctuation">-</span> <span class="token punctuation">-</span> <span class="token punctuation">-</span>
+
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> rbac.authorization.k8s.io/v1
+
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> RoleBinding
+
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">name</span><span class="token punctuation">:</span> role<span class="token punctuation">-</span>grantor<span class="token punctuation">-</span>binding
+
+<span class="token key atrule">namespace</span><span class="token punctuation">:</span> user<span class="token punctuation">-</span>1<span class="token punctuation">-</span>namespace
+
+<span class="token key atrule">roleRef</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">apiGroup</span><span class="token punctuation">:</span> rbac.authorization.k8s.io
+
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> ClusterRole
+
+<span class="token key atrule">name</span><span class="token punctuation">:</span> role<span class="token punctuation">-</span>grantor
+
+<span class="token key atrule">subjects</span><span class="token punctuation">:</span>
+
+ <span class="token punctuation">-</span> <span class="token key atrule">apiGroup</span><span class="token punctuation">:</span> rbac.authorization.k8s.io
+
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> User
+
+<span class="token key atrule">name</span><span class="token punctuation">:</span> user<span class="token punctuation">-</span><span class="token number">1</span>
+</code></pre></div><p>在进行第一个角色和角色绑定时，必须让初始用户具备其尚未被授予的权限，要进行初始的角色和角色绑定设置，有以下两种方法：</p> <ul><li>使用属于 system:masters 组的身份，这一群组默认具有 cluster-admin 这一超级角色的绑定。</li></ul> <p>如果 API Server 以--insecure-port 参数运行，则客户端通过这个非安全端口进行接口调用，这一端口没有认证鉴权的限制。</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">5/21/2021, 7:41:24 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/系统组件与架构设计/K8S/19kubernetes 核心技术-调度器.html" class="prev">
+        核心技术-调度器
+      </a></span> <span class="next"><a href="/系统组件与架构设计/K8S/22kubernetes 核心技术-Helm.html">
+        核心技术-Helm
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.a1883da8.js" defer></script><script src="/assets/js/3.21e2e031.js" defer></script><script src="/assets/js/61.c57dc954.js" defer></script>
+  </body>
+</html>

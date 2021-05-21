@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>映射参数 | 一名GO+PHP工程师</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/assets/css/0.styles.4089f489.css" as="style"><link rel="preload" href="/assets/js/app.a1883da8.js" as="script"><link rel="preload" href="/assets/js/3.21e2e031.js" as="script"><link rel="preload" href="/assets/js/152.6a733b47.js" as="script"><link rel="prefetch" href="/assets/js/10.0db5da5f.js"><link rel="prefetch" href="/assets/js/100.d5cb88cb.js"><link rel="prefetch" href="/assets/js/101.6bbce255.js"><link rel="prefetch" href="/assets/js/102.968ea43c.js"><link rel="prefetch" href="/assets/js/103.a362f49e.js"><link rel="prefetch" href="/assets/js/104.a207d395.js"><link rel="prefetch" href="/assets/js/105.eaae1ece.js"><link rel="prefetch" href="/assets/js/106.9b961ba0.js"><link rel="prefetch" href="/assets/js/107.df9ba599.js"><link rel="prefetch" href="/assets/js/108.1e4967d1.js"><link rel="prefetch" href="/assets/js/109.bab44539.js"><link rel="prefetch" href="/assets/js/11.9fc4d877.js"><link rel="prefetch" href="/assets/js/110.975b5aeb.js"><link rel="prefetch" href="/assets/js/111.4db6087d.js"><link rel="prefetch" href="/assets/js/112.bb76db96.js"><link rel="prefetch" href="/assets/js/113.9b314292.js"><link rel="prefetch" href="/assets/js/114.b05dc902.js"><link rel="prefetch" href="/assets/js/115.b693bf1e.js"><link rel="prefetch" href="/assets/js/116.35ffe409.js"><link rel="prefetch" href="/assets/js/117.193b54e8.js"><link rel="prefetch" href="/assets/js/118.d91f7ec2.js"><link rel="prefetch" href="/assets/js/119.857d484f.js"><link rel="prefetch" href="/assets/js/12.5955fae6.js"><link rel="prefetch" href="/assets/js/120.c2fc1bab.js"><link rel="prefetch" href="/assets/js/121.c3bed7c3.js"><link rel="prefetch" href="/assets/js/122.a0e26719.js"><link rel="prefetch" href="/assets/js/123.feb52a49.js"><link rel="prefetch" href="/assets/js/124.ca59f8f6.js"><link rel="prefetch" href="/assets/js/125.8bba790f.js"><link rel="prefetch" href="/assets/js/126.9ef7f1bd.js"><link rel="prefetch" href="/assets/js/127.7d06eb7f.js"><link rel="prefetch" href="/assets/js/128.9b247099.js"><link rel="prefetch" href="/assets/js/129.b5d91607.js"><link rel="prefetch" href="/assets/js/13.b1c22ead.js"><link rel="prefetch" href="/assets/js/130.3fa988b7.js"><link rel="prefetch" href="/assets/js/131.ff0058e6.js"><link rel="prefetch" href="/assets/js/132.9fd5bbe5.js"><link rel="prefetch" href="/assets/js/133.749040d4.js"><link rel="prefetch" href="/assets/js/134.6a6cf86d.js"><link rel="prefetch" href="/assets/js/135.16d61a44.js"><link rel="prefetch" href="/assets/js/136.2c3aff88.js"><link rel="prefetch" href="/assets/js/137.50106a44.js"><link rel="prefetch" href="/assets/js/138.b434395c.js"><link rel="prefetch" href="/assets/js/139.b13aa419.js"><link rel="prefetch" href="/assets/js/14.48fb5c32.js"><link rel="prefetch" href="/assets/js/140.c2741475.js"><link rel="prefetch" href="/assets/js/141.85f894e1.js"><link rel="prefetch" href="/assets/js/142.e385a422.js"><link rel="prefetch" href="/assets/js/143.002698c9.js"><link rel="prefetch" href="/assets/js/144.6e3b56cf.js"><link rel="prefetch" href="/assets/js/145.95b58ec4.js"><link rel="prefetch" href="/assets/js/146.c5ff12f5.js"><link rel="prefetch" href="/assets/js/147.5817049d.js"><link rel="prefetch" href="/assets/js/148.f24cd187.js"><link rel="prefetch" href="/assets/js/149.0941e789.js"><link rel="prefetch" href="/assets/js/15.5523616c.js"><link rel="prefetch" href="/assets/js/150.cab7c460.js"><link rel="prefetch" href="/assets/js/151.9b1a9135.js"><link rel="prefetch" href="/assets/js/153.1a5b425b.js"><link rel="prefetch" href="/assets/js/154.59a5cdd0.js"><link rel="prefetch" href="/assets/js/155.6906efc0.js"><link rel="prefetch" href="/assets/js/156.14a1e6f8.js"><link rel="prefetch" href="/assets/js/157.2a90db8a.js"><link rel="prefetch" href="/assets/js/158.71dda3a8.js"><link rel="prefetch" href="/assets/js/159.33fa138a.js"><link rel="prefetch" href="/assets/js/16.bc45c675.js"><link rel="prefetch" href="/assets/js/160.41012461.js"><link rel="prefetch" href="/assets/js/161.029d6fef.js"><link rel="prefetch" href="/assets/js/162.d7e72e4d.js"><link rel="prefetch" href="/assets/js/163.33c153d8.js"><link rel="prefetch" href="/assets/js/164.cbd2db78.js"><link rel="prefetch" href="/assets/js/165.8d99fa18.js"><link rel="prefetch" href="/assets/js/166.5bcaa3dd.js"><link rel="prefetch" href="/assets/js/167.2349d4bb.js"><link rel="prefetch" href="/assets/js/168.03f7c431.js"><link rel="prefetch" href="/assets/js/169.662db72b.js"><link rel="prefetch" href="/assets/js/17.6b0481e2.js"><link rel="prefetch" href="/assets/js/170.4469c187.js"><link rel="prefetch" href="/assets/js/171.58868926.js"><link rel="prefetch" href="/assets/js/172.afe06d5f.js"><link rel="prefetch" href="/assets/js/173.a36e004f.js"><link rel="prefetch" href="/assets/js/174.849bcbbd.js"><link rel="prefetch" href="/assets/js/175.deb32fb8.js"><link rel="prefetch" href="/assets/js/176.45f7d6a8.js"><link rel="prefetch" href="/assets/js/177.fb85b7c2.js"><link rel="prefetch" href="/assets/js/178.7f4bf5e6.js"><link rel="prefetch" href="/assets/js/18.e70cc004.js"><link rel="prefetch" href="/assets/js/19.e954bc7a.js"><link rel="prefetch" href="/assets/js/2.aec18661.js"><link rel="prefetch" href="/assets/js/20.94381428.js"><link rel="prefetch" href="/assets/js/21.5058af0e.js"><link rel="prefetch" href="/assets/js/22.d9c7ba8d.js"><link rel="prefetch" href="/assets/js/23.9773e373.js"><link rel="prefetch" href="/assets/js/24.a012e542.js"><link rel="prefetch" href="/assets/js/25.c1e53297.js"><link rel="prefetch" href="/assets/js/26.60c27d52.js"><link rel="prefetch" href="/assets/js/27.9ff6e463.js"><link rel="prefetch" href="/assets/js/28.e4955e68.js"><link rel="prefetch" href="/assets/js/29.8c0a7989.js"><link rel="prefetch" href="/assets/js/30.8d2c51b9.js"><link rel="prefetch" href="/assets/js/31.77daad09.js"><link rel="prefetch" href="/assets/js/32.763b7b98.js"><link rel="prefetch" href="/assets/js/33.a35d3f49.js"><link rel="prefetch" href="/assets/js/34.3b42b1e2.js"><link rel="prefetch" href="/assets/js/35.770b0123.js"><link rel="prefetch" href="/assets/js/36.aecfaf6e.js"><link rel="prefetch" href="/assets/js/37.bd49ca59.js"><link rel="prefetch" href="/assets/js/38.fed1555d.js"><link rel="prefetch" href="/assets/js/39.ba12b4f9.js"><link rel="prefetch" href="/assets/js/4.c2d1d771.js"><link rel="prefetch" href="/assets/js/40.ad0b908b.js"><link rel="prefetch" href="/assets/js/41.e5c2a903.js"><link rel="prefetch" href="/assets/js/42.bd11772d.js"><link rel="prefetch" href="/assets/js/43.26dc2a52.js"><link rel="prefetch" href="/assets/js/44.c0141c7c.js"><link rel="prefetch" href="/assets/js/45.328fda2a.js"><link rel="prefetch" href="/assets/js/46.0bd04509.js"><link rel="prefetch" href="/assets/js/47.853f7f02.js"><link rel="prefetch" href="/assets/js/48.7e30092c.js"><link rel="prefetch" href="/assets/js/49.d7c41614.js"><link rel="prefetch" href="/assets/js/5.1f2ba3e8.js"><link rel="prefetch" href="/assets/js/50.bbc144de.js"><link rel="prefetch" href="/assets/js/51.29fb5c68.js"><link rel="prefetch" href="/assets/js/52.d2042f8d.js"><link rel="prefetch" href="/assets/js/53.8a5c3d60.js"><link rel="prefetch" href="/assets/js/54.0f846846.js"><link rel="prefetch" href="/assets/js/55.85b62bcc.js"><link rel="prefetch" href="/assets/js/56.c2bf89f1.js"><link rel="prefetch" href="/assets/js/57.3187bec1.js"><link rel="prefetch" href="/assets/js/58.ba87c684.js"><link rel="prefetch" href="/assets/js/59.b40c3148.js"><link rel="prefetch" href="/assets/js/6.c31c16f8.js"><link rel="prefetch" href="/assets/js/60.04a8298f.js"><link rel="prefetch" href="/assets/js/61.c57dc954.js"><link rel="prefetch" href="/assets/js/62.24bf6999.js"><link rel="prefetch" href="/assets/js/63.2f87f55d.js"><link rel="prefetch" href="/assets/js/64.68cd3b45.js"><link rel="prefetch" href="/assets/js/65.255d0e52.js"><link rel="prefetch" href="/assets/js/66.1148b749.js"><link rel="prefetch" href="/assets/js/67.1d93ad03.js"><link rel="prefetch" href="/assets/js/68.0a66e8af.js"><link rel="prefetch" href="/assets/js/69.21fb7c12.js"><link rel="prefetch" href="/assets/js/7.9e783835.js"><link rel="prefetch" href="/assets/js/70.52af12e9.js"><link rel="prefetch" href="/assets/js/71.b920fbd7.js"><link rel="prefetch" href="/assets/js/72.765b0fde.js"><link rel="prefetch" href="/assets/js/73.9d1a0227.js"><link rel="prefetch" href="/assets/js/74.3c8755ec.js"><link rel="prefetch" href="/assets/js/75.5800081d.js"><link rel="prefetch" href="/assets/js/76.a0981293.js"><link rel="prefetch" href="/assets/js/77.606766d0.js"><link rel="prefetch" href="/assets/js/78.41729cec.js"><link rel="prefetch" href="/assets/js/79.96c2852e.js"><link rel="prefetch" href="/assets/js/8.4f13117f.js"><link rel="prefetch" href="/assets/js/80.2120e0e9.js"><link rel="prefetch" href="/assets/js/81.04f50a1e.js"><link rel="prefetch" href="/assets/js/82.db879ca5.js"><link rel="prefetch" href="/assets/js/83.e89b8863.js"><link rel="prefetch" href="/assets/js/84.07410b58.js"><link rel="prefetch" href="/assets/js/85.d46c8682.js"><link rel="prefetch" href="/assets/js/86.3869d59e.js"><link rel="prefetch" href="/assets/js/87.e7860b15.js"><link rel="prefetch" href="/assets/js/88.2b183553.js"><link rel="prefetch" href="/assets/js/89.36e67a82.js"><link rel="prefetch" href="/assets/js/9.a64cd1e6.js"><link rel="prefetch" href="/assets/js/90.391f76ed.js"><link rel="prefetch" href="/assets/js/91.b9d1bb73.js"><link rel="prefetch" href="/assets/js/92.a65aa479.js"><link rel="prefetch" href="/assets/js/93.bc850b53.js"><link rel="prefetch" href="/assets/js/94.7dc858d7.js"><link rel="prefetch" href="/assets/js/95.83afadb6.js"><link rel="prefetch" href="/assets/js/96.bd648be3.js"><link rel="prefetch" href="/assets/js/97.b6312544.js"><link rel="prefetch" href="/assets/js/98.fdb7d67a.js"><link rel="prefetch" href="/assets/js/99.c4b1cfd7.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.4089f489.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">一名GO+PHP工程师</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="https://gitee.com/ColinWWL/blog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  码云Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="https://gitee.com/ColinWWL/blog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  码云Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/数据库/Elasticsearch/1Elasticsearch概述" class="sidebar-heading clickable"><span>Elasticsearch</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/数据库/Elasticsearch/1Elasticsearch概述.html" class="sidebar-link">概述</a></li><li><a href="/数据库/Elasticsearch/2Elasticsearch入门.html" class="sidebar-link">入门</a></li><li><a href="/数据库/Elasticsearch/3EFK集群环境.html" class="sidebar-link">集群环境</a></li><li><a href="/数据库/Elasticsearch/4Elasticsearch进阶.html" class="sidebar-link">进阶</a></li><li><a href="/数据库/Elasticsearch/6Elasticsearch优化.html" class="sidebar-link">优化</a></li><li><a href="/数据库/Elasticsearch/7Elasticsearch面试题.html" class="sidebar-link">面试题</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/数据库/Elasticsearch/深入学习/搜索-1.查询DSL" class="sidebar-heading clickable open"><span>深入学习</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/数据库/Elasticsearch/深入学习/搜索-1.查询DSL.html" class="sidebar-link">查询DSL</a></li><li><a href="/数据库/Elasticsearch/深入学习/映射-1.动态字段映射.html" class="sidebar-link">动态字段映射</a></li><li><a href="/数据库/Elasticsearch/深入学习/映射-2.动态模版.html" class="sidebar-link">动态模版</a></li><li><a href="/数据库/Elasticsearch/深入学习/映射-3.元字段.html" class="sidebar-link">元字段</a></li><li><a href="/数据库/Elasticsearch/深入学习/映射-4.映射参数.html" class="active sidebar-link">映射参数</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/数据库/Elasticsearch/深入学习/索引.html" class="sidebar-link">索引管理</a></li><li><a href="/数据库/Elasticsearch/深入学习/聚合-Pipeline 聚合分析.html" class="sidebar-link">Pipeline 聚合分析</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="映射参数"><a href="#映射参数" class="header-anchor">#</a> 映射参数</h1> <h3 id="_1-1-analyzer"><a href="#_1-1-analyzer" class="header-anchor">#</a> 1.1 analyzer</h3> <p>定义文本字段的分词器。默认对索引和查询都是有效的。</p> <p>假设不用分词器，我们先来看一下索引的结果，创建一个索引并添加一个文档：</p> <div class="language- extra-class"><pre class="language-text"><code>
+PUT blog/_doc/1
+{
+  &quot;title&quot;:&quot;定义文本字段的分词器。默认对索引和查询都是有效的。&quot;
+}
+</code></pre></div><p>查看词条向量（term vectors）</p> <div class="language- extra-class"><pre class="language-text"><code>
+GET blog/_termvectors/1
+{
+  &quot;fields&quot;: [&quot;title&quot;]
+}
+</code></pre></div><p>查看结果如下：</p> <div class="language- extra-class"><pre class="language-text"><code>
+{
+  &quot;_index&quot; : &quot;blog&quot;,
+  &quot;_type&quot; : &quot;_doc&quot;,
+  &quot;_id&quot; : &quot;1&quot;,
+  &quot;_version&quot; : 1,
+  &quot;found&quot; : true,
+  &quot;took&quot; : 0,
+  &quot;term_vectors&quot; : {
+    &quot;title&quot; : {
+      &quot;field_statistics&quot; : {
+        &quot;sum_doc_freq&quot; : 22,
+        &quot;doc_count&quot; : 1,
+        &quot;sum_ttf&quot; : 23
+      },
+      &quot;terms&quot; : {
+        &quot;义&quot; : {
+          &quot;term_freq&quot; : 1,
+          &quot;tokens&quot; : [
+            {
+              &quot;position&quot; : 1,
+              &quot;start_offset&quot; : 1,
+              &quot;end_offset&quot; : 2
+            }
+          ]
+        },
+        &quot;分&quot; : {
+          &quot;term_freq&quot; : 1,
+          &quot;tokens&quot; : [
+            {
+              &quot;position&quot; : 7,
+              &quot;start_offset&quot; : 7,
+              &quot;end_offset&quot; : 8
+            }
+          ]
+        },
+        &quot;和&quot; : {
+          &quot;term_freq&quot; : 1,
+          &quot;tokens&quot; : [
+            {
+              &quot;position&quot; : 15,
+              &quot;start_offset&quot; : 16,
+              &quot;end_offset&quot; : 17
+            }
+          ]
+        },
+        &quot;器&quot; : {
+          &quot;term_freq&quot; : 1,
+          &quot;tokens&quot; : [
+            {
+              &quot;position&quot; : 9,
+              &quot;start_offset&quot; : 9,
+              &quot;end_offset&quot; : 10
+            }
+          ]
+        },
+        &quot;字&quot; : {
+          &quot;term_freq&quot; : 1,
+          &quot;tokens&quot; : [
+            {
+              &quot;position&quot; : 4,
+              &quot;start_offset&quot; : 4,
+              &quot;end_offset&quot; : 5
+            }
+          ]
+        },
+        &quot;定&quot; : {
+          &quot;term_freq&quot; : 1,
+          &quot;tokens&quot; : [
+            {
+              &quot;position&quot; : 0,
+              &quot;start_offset&quot; : 0,
+              &quot;end_offset&quot; : 1
+            }
+          ]
+        },
+        &quot;对&quot; : {
+          &quot;term_freq&quot; : 1,
+          &quot;tokens&quot; : [
+            {
+              &quot;position&quot; : 12,
+              &quot;start_offset&quot; : 13,
+              &quot;end_offset&quot; : 14
+            }
+          ]
+        },
+        &quot;引&quot; : {
+          &quot;term_freq&quot; : 1,
+          &quot;tokens&quot; : [
+            {
+              &quot;position&quot; : 14,
+              &quot;start_offset&quot; : 15,
+              &quot;end_offset&quot; : 16
+            }
+          ]
+        },
+        &quot;效&quot; : {
+          &quot;term_freq&quot; : 1,
+          &quot;tokens&quot; : [
+            {
+              &quot;position&quot; : 21,
+              &quot;start_offset&quot; : 22,
+              &quot;end_offset&quot; : 23
+            }
+          ]
+        },
+        &quot;文&quot; : {
+          &quot;term_freq&quot; : 1,
+          &quot;tokens&quot; : [
+            {
+              &quot;position&quot; : 2,
+              &quot;start_offset&quot; : 2,
+              &quot;end_offset&quot; : 3
+            }
+          ]
+        },
+        &quot;是&quot; : {
+          &quot;term_freq&quot; : 1,
+          &quot;tokens&quot; : [
+            {
+              &quot;position&quot; : 19,
+              &quot;start_offset&quot; : 20,
+              &quot;end_offset&quot; : 21
+            }
+          ]
+        },
+        &quot;有&quot; : {
+          &quot;term_freq&quot; : 1,
+          &quot;tokens&quot; : [
+            {
+              &quot;position&quot; : 20,
+              &quot;start_offset&quot; : 21,
+              &quot;end_offset&quot; : 22
+            }
+          ]
+        },
+        &quot;本&quot; : {
+          &quot;term_freq&quot; : 1,
+          &quot;tokens&quot; : [
+            {
+              &quot;position&quot; : 3,
+              &quot;start_offset&quot; : 3,
+              &quot;end_offset&quot; : 4
+            }
+          ]
+        },
+        &quot;查&quot; : {
+          &quot;term_freq&quot; : 1,
+          &quot;tokens&quot; : [
+            {
+              &quot;position&quot; : 16,
+              &quot;start_offset&quot; : 17,
+              &quot;end_offset&quot; : 18
+            }
+          ]
+        },
+        &quot;段&quot; : {
+          &quot;term_freq&quot; : 1,
+          &quot;tokens&quot; : [
+            {
+              &quot;position&quot; : 5,
+              &quot;start_offset&quot; : 5,
+              &quot;end_offset&quot; : 6
+            }
+          ]
+        },
+        &quot;的&quot; : {
+          &quot;term_freq&quot; : 2,
+          &quot;tokens&quot; : [
+            {
+              &quot;position&quot; : 6,
+              &quot;start_offset&quot; : 6,
+              &quot;end_offset&quot; : 7
+            },
+            {
+              &quot;position&quot; : 22,
+              &quot;start_offset&quot; : 23,
+              &quot;end_offset&quot; : 24
+            }
+          ]
+        },
+        &quot;索&quot; : {
+          &quot;term_freq&quot; : 1,
+          &quot;tokens&quot; : [
+            {
+              &quot;position&quot; : 13,
+              &quot;start_offset&quot; : 14,
+              &quot;end_offset&quot; : 15
+            }
+          ]
+        },
+        &quot;认&quot; : {
+          &quot;term_freq&quot; : 1,
+          &quot;tokens&quot; : [
+            {
+              &quot;position&quot; : 11,
+              &quot;start_offset&quot; : 12,
+              &quot;end_offset&quot; : 13
+            }
+          ]
+        },
+        &quot;词&quot; : {
+          &quot;term_freq&quot; : 1,
+          &quot;tokens&quot; : [
+            {
+              &quot;position&quot; : 8,
+              &quot;start_offset&quot; : 8,
+              &quot;end_offset&quot; : 9
+            }
+          ]
+        },
+        &quot;询&quot; : {
+          &quot;term_freq&quot; : 1,
+          &quot;tokens&quot; : [
+            {
+              &quot;position&quot; : 17,
+              &quot;start_offset&quot; : 18,
+              &quot;end_offset&quot; : 19
+            }
+          ]
+        },
+        &quot;都&quot; : {
+          &quot;term_freq&quot; : 1,
+          &quot;tokens&quot; : [
+            {
+              &quot;position&quot; : 18,
+              &quot;start_offset&quot; : 19,
+              &quot;end_offset&quot; : 20
+            }
+          ]
+        },
+        &quot;默&quot; : {
+          &quot;term_freq&quot; : 1,
+          &quot;tokens&quot; : [
+            {
+              &quot;position&quot; : 10,
+              &quot;start_offset&quot; : 11,
+              &quot;end_offset&quot; : 12
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+</code></pre></div><p>可以看到，默认情况下，中文就是一个字一个字的分，这种分词方式没有任何意义。如果这样分词，查询就只能按照一个字一个字来查，像下面这样：</p> <div class="language- extra-class"><pre class="language-text"><code>
+GET blog/_search
+{
+  &quot;query&quot;: {
+    &quot;term&quot;: {
+      &quot;title&quot;: &quot;定&quot;
+    }
+  }
+}
+</code></pre></div><p>无意义！！！</p> <p>所以，我们要根据实际情况，配置合适的分词器。</p> <p>给字段设定分词器：</p> <div class="language- extra-class"><pre class="language-text"><code>
+PUT blog {
+  &quot;mappings&quot;: {
+    &quot;properties&quot;: {
+      &quot;title&quot;:{
+        &quot;type&quot;:&quot;text&quot;,
+        &quot;analyzer&quot;: &quot;ik_smart&quot;
+      }
+    }
+  }
+}
+</code></pre></div><p>存储文档：</p> <div class="language- extra-class"><pre class="language-text"><code>
+PUT blog/_doc/1
+{
+  &quot;title&quot;:&quot;定义文本字段的分词器。默认对索引和查询都是有效的。&quot;
+}
+</code></pre></div><p>查看词条向量：</p> <div class="language- extra-class"><pre class="language-text"><code>
+GET blog/_termvectors/1
+{
+  &quot;fields&quot;: [&quot;title&quot;]
+}
+</code></pre></div><p>查询结果如下：</p> <div class="language- extra-class"><pre class="language-text"><code>
+{
+  &quot;_index&quot; : &quot;blog&quot;,
+  &quot;_type&quot; : &quot;_doc&quot;,
+  &quot;_id&quot; : &quot;1&quot;,
+  &quot;_version&quot; : 1,
+  &quot;found&quot; : true,
+  &quot;took&quot; : 1,
+  &quot;term_vectors&quot; : {
+    &quot;title&quot; : {
+      &quot;field_statistics&quot; : {
+        &quot;sum_doc_freq&quot; : 12,
+        &quot;doc_count&quot; : 1,
+        &quot;sum_ttf&quot; : 13
+      },
+      &quot;terms&quot; : {
+        &quot;分词器&quot; : {
+          &quot;term_freq&quot; : 1,
+          &quot;tokens&quot; : [
+            {
+              &quot;position&quot; : 4,
+              &quot;start_offset&quot; : 7,
+              &quot;end_offset&quot; : 10
+            }
+          ]
+        },
+        &quot;和&quot; : {
+          &quot;term_freq&quot; : 1,
+          &quot;tokens&quot; : [
+            {
+              &quot;position&quot; : 8,
+              &quot;start_offset&quot; : 16,
+              &quot;end_offset&quot; : 17
+            }
+          ]
+        },
+        &quot;字段&quot; : {
+          &quot;term_freq&quot; : 1,
+          &quot;tokens&quot; : [
+            {
+              &quot;position&quot; : 2,
+              &quot;start_offset&quot; : 4,
+              &quot;end_offset&quot; : 6
+            }
+          ]
+        },
+        &quot;定义&quot; : {
+          &quot;term_freq&quot; : 1,
+          &quot;tokens&quot; : [
+            {
+              &quot;position&quot; : 0,
+              &quot;start_offset&quot; : 0,
+              &quot;end_offset&quot; : 2
+            }
+          ]
+        },
+        &quot;对&quot; : {
+          &quot;term_freq&quot; : 1,
+          &quot;tokens&quot; : [
+            {
+              &quot;position&quot; : 6,
+              &quot;start_offset&quot; : 13,
+              &quot;end_offset&quot; : 14
+            }
+          ]
+        },
+        &quot;文本&quot; : {
+          &quot;term_freq&quot; : 1,
+          &quot;tokens&quot; : [
+            {
+              &quot;position&quot; : 1,
+              &quot;start_offset&quot; : 2,
+              &quot;end_offset&quot; : 4
+            }
+          ]
+        },
+        &quot;有效&quot; : {
+          &quot;term_freq&quot; : 1,
+          &quot;tokens&quot; : [
+            {
+              &quot;position&quot; : 11,
+              &quot;start_offset&quot; : 21,
+              &quot;end_offset&quot; : 23
+            }
+          ]
+        },
+        &quot;查询&quot; : {
+          &quot;term_freq&quot; : 1,
+          &quot;tokens&quot; : [
+            {
+              &quot;position&quot; : 9,
+              &quot;start_offset&quot; : 17,
+              &quot;end_offset&quot; : 19
+            }
+          ]
+        },
+        &quot;的&quot; : {
+          &quot;term_freq&quot; : 2,
+          &quot;tokens&quot; : [
+            {
+              &quot;position&quot; : 3,
+              &quot;start_offset&quot; : 6,
+              &quot;end_offset&quot; : 7
+            },
+            {
+              &quot;position&quot; : 12,
+              &quot;start_offset&quot; : 23,
+              &quot;end_offset&quot; : 24
+            }
+          ]
+        },
+        &quot;索引&quot; : {
+          &quot;term_freq&quot; : 1,
+          &quot;tokens&quot; : [
+            {
+              &quot;position&quot; : 7,
+              &quot;start_offset&quot; : 14,
+              &quot;end_offset&quot; : 16
+            }
+          ]
+        },
+        &quot;都是&quot; : {
+          &quot;term_freq&quot; : 1,
+          &quot;tokens&quot; : [
+            {
+              &quot;position&quot; : 10,
+              &quot;start_offset&quot; : 19,
+              &quot;end_offset&quot; : 21
+            }
+          ]
+        },
+        &quot;默认&quot; : {
+          &quot;term_freq&quot; : 1,
+          &quot;tokens&quot; : [
+            {
+              &quot;position&quot; : 5,
+              &quot;start_offset&quot; : 11,
+              &quot;end_offset&quot; : 13
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+</code></pre></div><p>然后就可以通过词去搜索了：</p> <div class="language- extra-class"><pre class="language-text"><code>
+GET blog/_search
+{
+  &quot;query&quot;: {
+    &quot;term&quot;: {
+      &quot;title&quot;: &quot;索引&quot;
+    }
+  }
+}
+</code></pre></div><h3 id="_1-2-search-analyzer"><a href="#_1-2-search-analyzer" class="header-anchor">#</a> 1.2 search_analyzer</h3> <p>查询时候的分词器。默认情况下，如果没有配置 search_analyzer，则查询时，首先查看有没有 search_analyzer，有的话，就用 search_analyzer 来进行分词，如果没有，则看有没有 analyzer，如果有，则用 analyzer 来进行分词，否则使用 es 默认的分词器。</p> <h3 id="_1-3-normalizer"><a href="#_1-3-normalizer" class="header-anchor">#</a> 1.3 normalizer</h3> <p>normalizer 参数用于解析前（索引或者查询）的标准化配置。</p> <p>比如，在 es 中，对于一些我们不想切分的字符串，我们通常会将其设置为 keyword，搜索时候也是使用整个词进行搜索。如果在索引前没有做好数据清洗，导致大小写不一致，例如 javaboy 和 JAVABOY，此时，我们就可以使用 normalizer 在索引之前以及查询之前进行文档的标准化。</p> <p>先来一个反例，创建一个名为 blog 的索引，设置 author 字段类型为 keyword：</p> <div class="language- extra-class"><pre class="language-text"><code>
+PUT blog {
+  &quot;mappings&quot;: {
+    &quot;properties&quot;: {
+      &quot;author&quot;:{
+        &quot;type&quot;: &quot;keyword&quot;
+      }
+    }
+  }
+}
+</code></pre></div><p>添加两个文档：</p> <div class="language- extra-class"><pre class="language-text"><code>
+PUT blog/_doc/1
+{
+  &quot;author&quot;:&quot;javaboy&quot;
+}
+
+PUT blog/_doc/2
+{
+  &quot;author&quot;:&quot;JAVABOY&quot;
+}
+</code></pre></div><p>然后进行搜索：</p> <div class="language- extra-class"><pre class="language-text"><code>
+GET blog/_search
+{
+  &quot;query&quot;: {
+    &quot;term&quot;: {
+      &quot;author&quot;: &quot;JAVABOY&quot;
+    }
+  }
+}
+</code></pre></div><p>大写关键字可以搜到大写的文档，小写关键字可以搜到小写的文档。</p> <p>如果使用了 normalizer，可以在索引和查询时，分别对文档进行预处理。</p> <p>normalizer 定义方式如下：</p> <div class="language- extra-class"><pre class="language-text"><code>
+PUT blog {
+  &quot;settings&quot;: {
+    &quot;analysis&quot;: {
+      &quot;normalizer&quot;:{
+        &quot;my_normalizer&quot;:{
+          &quot;type&quot;:&quot;custom&quot;,
+          &quot;filter&quot;:[&quot;lowercase&quot;]
+        }
+      }
+    }
+  },
+  &quot;mappings&quot;: {
+    &quot;properties&quot;: {
+      &quot;author&quot;:{
+        &quot;type&quot;: &quot;keyword&quot;,
+        &quot;normalizer&quot;:&quot;my_normalizer&quot;
+      }
+    }
+  }
+}
+</code></pre></div><p>在 settings 中定义 normalizer，然后在 mappings 中引用。</p> <p>测试方式和前面一致。此时查询的时候，大写关键字也可以查询到小写文档，因为无论是索引还是查询，都会将大写转为小写。</p> <h3 id="_1-4-boost"><a href="#_1-4-boost" class="header-anchor">#</a> 1.4 boost</h3> <p>boost 参数可以设置字段的权重。</p> <p>boost 有两种使用思路，一种就是在定义 mappings 的时候使用，在指定字段类型时使用；另一种就是在查询时使用。</p> <p>实际开发中建议使用后者，前者有问题：如果不重新索引文档，权重无法修改。</p> <p>mapping 中使用 boost（不推荐）：</p> <div class="language- extra-class"><pre class="language-text"><code>
+PUT blog {
+  &quot;mappings&quot;: {
+    &quot;properties&quot;: {
+      &quot;content&quot;:{
+        &quot;type&quot;: &quot;text&quot;,
+        &quot;boost&quot;: 2
+      }
+    }
+  }
+}
+</code></pre></div><p>另一种方式就是在查询的时候，指定 boost</p> <div class="language- extra-class"><pre class="language-text"><code>
+GET blog/_search
+{
+  &quot;query&quot;: {
+    &quot;match&quot;: {
+      &quot;content&quot;: {
+        &quot;query&quot;: &quot;你好&quot;,
+        &quot;boost&quot;: 2
+      }
+    }
+  }
+}
+</code></pre></div><h3 id="_1-5-coerce"><a href="#_1-5-coerce" class="header-anchor">#</a> 1.5 coerce</h3> <p>coerce 用来清除脏数据，默认为 true。</p> <p>例如一个数字，在 JSON 中，用户可能写错了：</p> <div class="language- extra-class"><pre class="language-text"><code>
+&lt;code style=&quot;box-sizing: border-box; font-family: SFMono-Regular, Menlo, Monaco, Consolas, &amp;quot;Liberation Mono&amp;quot;, &amp;quot;Courier New&amp;quot;, monospace; font-size: inherit; color: inherit; overflow-wrap: normal; word-break: break-word; white-space: initial;&quot;&gt;{&quot;age&quot;:&quot;99&quot;}
+</code></pre></div><p>或者 ：</p> <div class="language- extra-class"><pre class="language-text"><code>
+&lt;code style=&quot;box-sizing: border-box; font-family: SFMono-Regular, Menlo, Monaco, Consolas, &amp;quot;Liberation Mono&amp;quot;, &amp;quot;Courier New&amp;quot;, monospace; font-size: inherit; color: inherit; overflow-wrap: normal; word-break: break-word; white-space: initial;&quot;&gt;{&quot;age&quot;:&quot;99.0&quot;}
+</code></pre></div><p>这些都不是正确的数字格式。</p> <p>通过 coerce 可以解决该问题。</p> <p>默认情况下，以下操作没问题，就是 coerce 起作用：</p> <div class="language- extra-class"><pre class="language-text"><code>
+PUT blog {
+  &quot;mappings&quot;: {
+    &quot;properties&quot;: {
+      &quot;age&quot;:{
+        &quot;type&quot;: &quot;integer&quot;
+      }
+    }
+  }
+}
+
+POST blog/_doc {
+  &quot;age&quot;:&quot;99.0&quot;
+}
+</code></pre></div><p>如果需要修改 coerce ，方式如下：</p> <div class="language- extra-class"><pre class="language-text"><code>
+PUT blog
+{
+  &quot;mappings&quot;: {
+    &quot;properties&quot;: {
+      &quot;age&quot;:{
+        &quot;type&quot;: &quot;integer&quot;,
+        &quot;coerce&quot;: false
+      }
+    }
+  }
+}
+
+POST blog/_doc
+{
+  &quot;age&quot;:99
+}
+</code></pre></div><p>当 coerce 修改为 false 之后，数字就只能是数字了，不可以是字符串，该字段传入字符串会报错。</p> <h3 id="_1-6-copy-to"><a href="#_1-6-copy-to" class="header-anchor">#</a> 1.6 copy_to</h3> <p>这个属性，可以将多个字段的值，复制到同一个字段中。</p> <p>定义方式如下：</p> <div class="language- extra-class"><pre class="language-text"><code>
+PUT blog {
+  &quot;mappings&quot;: {
+    &quot;properties&quot;: {
+      &quot;title&quot;:{
+        &quot;type&quot;: &quot;text&quot;,
+        &quot;copy_to&quot;: &quot;full_content&quot;
+      },
+      &quot;content&quot;:{
+        &quot;type&quot;: &quot;text&quot;,
+        &quot;copy_to&quot;: &quot;full_content&quot;
+      },
+      &quot;full_content&quot;:{
+        &quot;type&quot;: &quot;text&quot;
+      }
+    }
+  }
+}
+
+PUT blog/_doc/1 {
+  &quot;title&quot;:&quot;你好江南一点雨&quot;,
+  &quot;content&quot;:&quot;当 coerce 修改为 false 之后，数字就只能是数字了，不可以是字符串，该字段传入字符串会报错。&quot;
+}
+
+GET blog/_search {
+  &quot;query&quot;: {
+    &quot;term&quot;: {
+      &quot;full_content&quot;: &quot;当&quot;
+    }
+  }
+}
+</code></pre></div><h3 id="_1-7-doc-values-和-fielddata"><a href="#_1-7-doc-values-和-fielddata" class="header-anchor">#</a> 1.7 doc_values 和 fielddata</h3> <p>es 中的搜索主要是用到倒排索引，doc_values 参数是为了加快排序、聚合操作而生的。当建立倒排索引的时候，会额外增加列式存储映射。</p> <p>doc_values 默认是开启的，如果确定某个字段不需要排序或者不需要聚合，那么可以关闭 doc_values。</p> <p>大部分的字段在索引时都会生成 doc_values，除了 text。text 字段在查询时会生成一个 fielddata 的数据结构，fieldata 在字段首次被聚合、排序的时候生成。</p> <table><thead><tr><th>doc_values</th> <th>fielddata</th></tr></thead> <tbody><tr><td>索引时创建</td> <td>使用时动态创建</td></tr> <tr><td>磁盘</td> <td>内存</td></tr> <tr><td>不占用内存</td> <td>不占用磁盘</td></tr> <tr><td>索引速度稍微低一点</td> <td>文档很多时，动态创建慢，占内存</td></tr></tbody></table> <p>doc_values 默认开启，fielddata 默认关闭。</p> <p>doc_values 演示：</p> <div class="language- extra-class"><pre class="language-text"><code>
+PUT users
+
+PUT users/_doc/1
+{
+  &quot;age&quot;:100
+}
+
+PUT users/_doc/2
+{
+  &quot;age&quot;:99
+}
+
+PUT users/_doc/3
+{
+  &quot;age&quot;:98
+}
+
+PUT users/_doc/4
+{
+  &quot;age&quot;:101
+}
+
+GET users/_search
+{
+  &quot;query&quot;: {
+    &quot;match_all&quot;: {}
+  },
+  &quot;sort&quot;:[
+    {
+      &quot;age&quot;:{
+        &quot;order&quot;: &quot;desc&quot;
+      }
+    }
+    ]
+}
+</code></pre></div><p>由于 doc_values 默认时开启的，所以可以直接使用该字段排序，如果想关闭 doc_values ，如下：</p> <div class="language- extra-class"><pre class="language-text"><code>
+PUT users
+{
+  &quot;mappings&quot;: {
+    &quot;properties&quot;: {
+      &quot;age&quot;:{
+        &quot;type&quot;: &quot;integer&quot;,
+        &quot;doc_values&quot;: false
+      }
+    }
+  }
+}
+
+PUT users/_doc/1
+{
+  &quot;age&quot;:100
+}
+
+PUT users/_doc/2
+{
+  &quot;age&quot;:99
+}
+
+PUT users/_doc/3
+{
+  &quot;age&quot;:98
+}
+
+PUT users/_doc/4
+{
+  &quot;age&quot;:101
+}
+
+GET users/_search
+{
+  &quot;query&quot;: {
+    &quot;match_all&quot;: {}
+  },
+  &quot;sort&quot;:[
+    {
+      &quot;age&quot;:{
+        &quot;order&quot;: &quot;desc&quot;
+      }
+    }
+    ]
+}
+</code></pre></div><h3 id="_1-8-dynamic"><a href="#_1-8-dynamic" class="header-anchor">#</a> 1.8 dynamic</h3> <h3 id="_1-9-enabled"><a href="#_1-9-enabled" class="header-anchor">#</a> 1.9 enabled</h3> <p>es 默认会索引所有的字段，但是有的字段可能只需要存储，不需要索引。此时可以通过 enabled 字段来控制：</p> <div class="language- extra-class"><pre class="language-text"><code>
+PUT blog
+{
+  &quot;mappings&quot;: {
+    &quot;properties&quot;: {
+      &quot;title&quot;:{
+        &quot;enabled&quot;: false
+      }
+    }
+  }
+}
+
+PUT blog/_doc/1
+{
+  &quot;title&quot;:&quot;javaboy&quot;
+}
+
+GET blog/_search
+{
+  &quot;query&quot;: {
+    &quot;term&quot;: {
+      &quot;title&quot;: &quot;javaboy&quot;
+    }
+  }
+}
+</code></pre></div><p>设置了 enabled 为 false 之后，就可以再通过该字段进行搜索了。</p> <h3 id="_1-10-format"><a href="#_1-10-format" class="header-anchor">#</a> 1.10 format</h3> <p>日期格式。format 可以规范日期格式，而且一次可以定义多个 format。</p> <div class="language- extra-class"><pre class="language-text"><code>
+PUT users
+{
+  &quot;mappings&quot;: {
+    &quot;properties&quot;: {
+      &quot;birthday&quot;:{
+        &quot;type&quot;: &quot;date&quot;,
+        &quot;format&quot;: &quot;yyyy-MM-dd||yyyy-MM-dd HH:mm:ss&quot;
+      }
+    }
+  }
+}
+
+PUT users/_doc/1
+{
+  &quot;birthday&quot;:&quot;2020-11-11&quot;
+}
+
+PUT users/_doc/2
+{
+  &quot;birthday&quot;:&quot;2020-11-11 11:11:11&quot;
+}
+</code></pre></div><ul><li>多个日期格式之间，使用 || 符号连接，注意没有空格。</li> <li>如果用户没有指定日期的 format，默认的日期格式是 <code>strict_date_optional_time||epoch_mills</code></li></ul> <p>另外，所有的日期格式，可以在 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-date-format.html" target="_blank" rel="noopener noreferrer">https://www.elastic.co/guide/...<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 网址查看。</p> <h3 id="_1-11-ignore-above"><a href="#_1-11-ignore-above" class="header-anchor">#</a> 1.11 ignore_above</h3> <p>igbore_above 用于指定分词和索引的字符串最大长度，超过最大长度的话，该字段将不会被索引，这个字段只适用于 keyword 类型。</p> <div class="language- extra-class"><pre class="language-text"><code>
+PUT blog
+{
+  &quot;mappings&quot;: {
+    &quot;properties&quot;: {
+      &quot;title&quot;:{
+        &quot;type&quot;: &quot;keyword&quot;,
+        &quot;ignore_above&quot;: 10
+      }
+    }
+  }
+}
+
+PUT blog/_doc/1
+{
+  &quot;title&quot;:&quot;javaboy&quot;
+}
+
+PUT blog/_doc/2
+{
+  &quot;title&quot;:&quot;javaboyjavaboyjavaboy&quot;
+}
+
+GET blog/_search
+{
+  &quot;query&quot;: {
+    &quot;term&quot;: {
+      &quot;title&quot;: &quot;javaboyjavaboyjavaboy&quot;
+    }
+  }
+}
+</code></pre></div><h3 id="_1-12-ignore-malformed"><a href="#_1-12-ignore-malformed" class="header-anchor">#</a> 1.12 ignore_malformed</h3> <p>ignore_malformed 可以忽略不规则的数据，该参数默认为 false。</p> <div class="language- extra-class"><pre class="language-text"><code>
+PUT users
+{
+  &quot;mappings&quot;: {
+    &quot;properties&quot;: {
+      &quot;birthday&quot;:{
+        &quot;type&quot;: &quot;date&quot;,
+        &quot;format&quot;: &quot;yyyy-MM-dd||yyyy-MM-dd HH:mm:ss&quot;
+      },
+      &quot;age&quot;:{
+        &quot;type&quot;: &quot;integer&quot;,
+        &quot;ignore_malformed&quot;: true
+      }
+    }
+  }
+}
+
+PUT users/_doc/1
+{
+  &quot;birthday&quot;:&quot;2020-11-11&quot;,
+  &quot;age&quot;:99
+}
+
+PUT users/_doc/2
+{
+  &quot;birthday&quot;:&quot;2020-11-11 11:11:11&quot;,
+  &quot;age&quot;:&quot;abc&quot;
+}
+
+PUT users/_doc/2
+{
+  &quot;birthday&quot;:&quot;2020-11-11 11:11:11aaa&quot;,
+  &quot;age&quot;:&quot;abc&quot;
+}
+</code></pre></div><h3 id="_1-13-include-in-all"><a href="#_1-13-include-in-all" class="header-anchor">#</a> 1.13 include_in_all</h3> <p>这个是针对  <code>_all</code>  字段的，但是在 es7 中，该字段已经被废弃了。</p> <h3 id="_1-14-index"><a href="#_1-14-index" class="header-anchor">#</a> 1.14 index</h3> <p>index 属性指定一个字段是否被索引，该属性为 true 表示字段被索引，false 表示字段不被索引。</p> <div class="language- extra-class"><pre class="language-text"><code>
+PUT users {
+  &quot;mappings&quot;: {
+    &quot;properties&quot;: {
+      &quot;age&quot;:{
+        &quot;type&quot;: &quot;integer&quot;,
+        &quot;index&quot;: false
+      }
+    }
+  }
+}
+
+PUT users/_doc/1
+{
+  &quot;age&quot;:99
+}
+
+GET users/_search
+{
+  &quot;query&quot;: {
+    &quot;term&quot;: {
+      &quot;age&quot;: 99
+    }
+  }
+}
+</code></pre></div><ul><li>如果 index 为 false，则不能通过对应的字段搜索。</li></ul> <h3 id="_1-15-index-options"><a href="#_1-15-index-options" class="header-anchor">#</a> 1.15 index_options</h3> <p>index_options 控制索引时哪些信息被存储到倒排索引中（用在 text 字段中），有四种取值：</p> <table><thead><tr><th>index_options</th> <th>备注</th></tr></thead> <tbody><tr><td>docs</td> <td>只存储文档编号，默认即此</td></tr> <tr><td>freqs</td> <td>在 docs 基础上，存储词项频率</td></tr> <tr><td>positions</td> <td>在 freqs 基础上，存储词项偏移位置</td></tr> <tr><td>offsets</td> <td>在 positions 基础上，存储词项开始和结束的字符位置</td></tr></tbody></table> <h3 id="_1-16-norms"><a href="#_1-16-norms" class="header-anchor">#</a> 1.16 norms</h3> <p>norms 对字段评分有用，text 默认开启 norms，如果不是特别需要，不要开启 norms。</p> <h3 id="_1-17-null-value"><a href="#_1-17-null-value" class="header-anchor">#</a> 1.17 null_value</h3> <p>在 es 中，值为 null 的字段不索引也不可以被搜索，null_value 可以让值为 null 的字段显式的可索引、可搜索：</p> <div class="language- extra-class"><pre class="language-text"><code>
+PUT users
+{
+  &quot;mappings&quot;: {
+    &quot;properties&quot;: {
+      &quot;name&quot;:{
+        &quot;type&quot;: &quot;keyword&quot;,
+        &quot;null_value&quot;: &quot;javaboy_null&quot;
+      }
+    }
+  }
+}
+
+PUT users/_doc/1
+{
+  &quot;name&quot;:null,
+  &quot;age&quot;:99
+}
+
+GET users/_search
+{
+  &quot;query&quot;: {
+    &quot;term&quot;: {
+      &quot;name&quot;: &quot;javaboy_null&quot;
+    }
+  }
+}
+</code></pre></div><h3 id="_1-18-position-increment-gap"><a href="#_1-18-position-increment-gap" class="header-anchor">#</a> 1.18 position_increment_gap</h3> <p>被解析的 text 字段会将 term 的位置考虑进去，目的是为了支持近似查询和短语查询，当我们去索引一个含有多个值的 text 字段时，会在各个值之间添加一个假想的空间，将值隔开，这样就可以有效避免一些无意义的短语匹配，间隙大小通过 position_increment_gap 来控制，默认是 100。</p> <div class="language- extra-class"><pre class="language-text"><code>
+PUT users
+PUT users/_doc/1
+{
+  &quot;name&quot;:[&quot;zhang san&quot;,&quot;li si&quot;]
+}
+
+GET users/_search
+{
+  &quot;query&quot;: {
+    &quot;match_phrase&quot;: {
+      &quot;name&quot;: {
+        &quot;query&quot;: &quot;sanli&quot;
+      }
+    }
+  }
+}
+</code></pre></div><ul><li><code>sanli</code> 搜索不到，因为两个短语之间有一个假想的空隙，为 100。</li></ul> <div class="language- extra-class"><pre class="language-text"><code>
+GET users/_search
+{
+  &quot;query&quot;: {
+    &quot;match_phrase&quot;: {
+      &quot;name&quot;: {
+        &quot;query&quot;: &quot;san li&quot;,
+        &quot;slop&quot;: 101
+      }
+    }
+  }
+}
+</code></pre></div><p>可以通过 slop 指定空隙大小。</p> <p>也可以在定义索引的时候，指定空隙：</p> <div class="language- extra-class"><pre class="language-text"><code>
+PUT users {
+  &quot;mappings&quot;: {
+    &quot;properties&quot;: {
+      &quot;name&quot;:{
+        &quot;type&quot;: &quot;text&quot;,
+        &quot;position_increment_gap&quot;: 0
+      }
+    }
+  }
+}
+
+PUT users/_doc/1
+{
+  &quot;name&quot;:[&quot;zhang san&quot;,&quot;li si&quot;]
+}
+
+GET users/_search
+{
+  &quot;query&quot;: {
+    &quot;match_phrase&quot;: {
+      &quot;name&quot;: {
+        &quot;query&quot;: &quot;san li&quot;
+      }
+    }
+  }
+}
+</code></pre></div><h3 id="_1-19-properties"><a href="#_1-19-properties" class="header-anchor">#</a> 1.19 properties</h3> <h3 id="_1-20-similarity"><a href="#_1-20-similarity" class="header-anchor">#</a> 1.20 similarity</h3> <p>similarity 指定文档的评分模型，默认有三种：</p> <table><thead><tr><th>similarity</th> <th>备注</th></tr></thead> <tbody><tr><td>BM25</td> <td>es 和 lucene 默认的评分模型</td></tr> <tr><td>classic</td> <td>TF/IDF 评分</td></tr> <tr><td>boolean</td> <td>boolean 模型评分</td></tr></tbody></table> <h3 id="_1-21-store"><a href="#_1-21-store" class="header-anchor">#</a> 1.21 store</h3> <p>默认情况下，字段会被索引，也可以搜索，但是不会存储，虽然不会被存储的，但是  <code>_source</code>  中有一个字段的备份。如果想将字段存储下来，可以通过配置 store 来实现。</p> <h3 id="_1-22-term-vectors"><a href="#_1-22-term-vectors" class="header-anchor">#</a> 1.22 term_vectors</h3> <p>term_vectors 是通过分词器产生的信息，包括：</p> <ul><li>一组 terms</li> <li>每个 term 的位置</li> <li>term 的首字符/尾字符与原始字符串原点的偏移量</li></ul> <p>term_vectors 取值：</p> <table><thead><tr><th>取值</th> <th>备注</th></tr></thead> <tbody><tr><td>no</td> <td>不存储信息，默认即此</td></tr> <tr><td>yes</td> <td>term 被存储</td></tr> <tr><td>with_positions</td> <td>在 yes 的基础上增加位置信息</td></tr> <tr><td>with_offset</td> <td>在 yes 的基础上增加偏移信息</td></tr> <tr><td>with_positions_offsets</td> <td>term、位置、偏移量都存储</td></tr></tbody></table> <h3 id="_1-23-fields"><a href="#_1-23-fields" class="header-anchor">#</a> 1.23 fields</h3> <p>fields 参数可以让同一字段有多种不同的索引方式。例如：</p> <div class="language- extra-class"><pre class="language-text"><code>
+PUT blog {
+  &quot;mappings&quot;: {
+    &quot;properties&quot;: {
+      &quot;title&quot;:{
+        &quot;type&quot;: &quot;text&quot;,
+        &quot;fields&quot;: {
+          &quot;raw&quot;:{
+            &quot;type&quot;:&quot;keyword&quot;
+          }
+        }
+      }
+    }
+  }
+}
+
+PUT blog/_doc/1 {
+  &quot;title&quot;:&quot;javaboy&quot;
+}
+
+GET blog/_search {
+  &quot;query&quot;: {
+    &quot;term&quot;: {
+      &quot;title.raw&quot;: &quot;javaboy&quot;
+    }
+  }
+}
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">5/21/2021, 7:41:24 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/数据库/Elasticsearch/深入学习/映射-3.元字段.html" class="prev">
+        元字段
+      </a></span> <span class="next"><a href="/数据库/Elasticsearch/深入学习/索引.html">
+        索引管理
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.a1883da8.js" defer></script><script src="/assets/js/3.21e2e031.js" defer></script><script src="/assets/js/152.6a733b47.js" defer></script>
+  </body>
+</html>

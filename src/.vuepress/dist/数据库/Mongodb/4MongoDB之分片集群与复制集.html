@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>分片集群 | 一名GO+PHP工程师</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/assets/css/0.styles.4089f489.css" as="style"><link rel="preload" href="/assets/js/app.a1883da8.js" as="script"><link rel="preload" href="/assets/js/3.21e2e031.js" as="script"><link rel="preload" href="/assets/js/158.71dda3a8.js" as="script"><link rel="prefetch" href="/assets/js/10.0db5da5f.js"><link rel="prefetch" href="/assets/js/100.d5cb88cb.js"><link rel="prefetch" href="/assets/js/101.6bbce255.js"><link rel="prefetch" href="/assets/js/102.968ea43c.js"><link rel="prefetch" href="/assets/js/103.a362f49e.js"><link rel="prefetch" href="/assets/js/104.a207d395.js"><link rel="prefetch" href="/assets/js/105.eaae1ece.js"><link rel="prefetch" href="/assets/js/106.9b961ba0.js"><link rel="prefetch" href="/assets/js/107.df9ba599.js"><link rel="prefetch" href="/assets/js/108.1e4967d1.js"><link rel="prefetch" href="/assets/js/109.bab44539.js"><link rel="prefetch" href="/assets/js/11.9fc4d877.js"><link rel="prefetch" href="/assets/js/110.975b5aeb.js"><link rel="prefetch" href="/assets/js/111.4db6087d.js"><link rel="prefetch" href="/assets/js/112.bb76db96.js"><link rel="prefetch" href="/assets/js/113.9b314292.js"><link rel="prefetch" href="/assets/js/114.b05dc902.js"><link rel="prefetch" href="/assets/js/115.b693bf1e.js"><link rel="prefetch" href="/assets/js/116.35ffe409.js"><link rel="prefetch" href="/assets/js/117.193b54e8.js"><link rel="prefetch" href="/assets/js/118.d91f7ec2.js"><link rel="prefetch" href="/assets/js/119.857d484f.js"><link rel="prefetch" href="/assets/js/12.5955fae6.js"><link rel="prefetch" href="/assets/js/120.c2fc1bab.js"><link rel="prefetch" href="/assets/js/121.c3bed7c3.js"><link rel="prefetch" href="/assets/js/122.a0e26719.js"><link rel="prefetch" href="/assets/js/123.feb52a49.js"><link rel="prefetch" href="/assets/js/124.ca59f8f6.js"><link rel="prefetch" href="/assets/js/125.8bba790f.js"><link rel="prefetch" href="/assets/js/126.9ef7f1bd.js"><link rel="prefetch" href="/assets/js/127.7d06eb7f.js"><link rel="prefetch" href="/assets/js/128.9b247099.js"><link rel="prefetch" href="/assets/js/129.b5d91607.js"><link rel="prefetch" href="/assets/js/13.b1c22ead.js"><link rel="prefetch" href="/assets/js/130.3fa988b7.js"><link rel="prefetch" href="/assets/js/131.ff0058e6.js"><link rel="prefetch" href="/assets/js/132.9fd5bbe5.js"><link rel="prefetch" href="/assets/js/133.749040d4.js"><link rel="prefetch" href="/assets/js/134.6a6cf86d.js"><link rel="prefetch" href="/assets/js/135.16d61a44.js"><link rel="prefetch" href="/assets/js/136.2c3aff88.js"><link rel="prefetch" href="/assets/js/137.50106a44.js"><link rel="prefetch" href="/assets/js/138.b434395c.js"><link rel="prefetch" href="/assets/js/139.b13aa419.js"><link rel="prefetch" href="/assets/js/14.48fb5c32.js"><link rel="prefetch" href="/assets/js/140.c2741475.js"><link rel="prefetch" href="/assets/js/141.85f894e1.js"><link rel="prefetch" href="/assets/js/142.e385a422.js"><link rel="prefetch" href="/assets/js/143.002698c9.js"><link rel="prefetch" href="/assets/js/144.6e3b56cf.js"><link rel="prefetch" href="/assets/js/145.95b58ec4.js"><link rel="prefetch" href="/assets/js/146.c5ff12f5.js"><link rel="prefetch" href="/assets/js/147.5817049d.js"><link rel="prefetch" href="/assets/js/148.f24cd187.js"><link rel="prefetch" href="/assets/js/149.0941e789.js"><link rel="prefetch" href="/assets/js/15.5523616c.js"><link rel="prefetch" href="/assets/js/150.cab7c460.js"><link rel="prefetch" href="/assets/js/151.9b1a9135.js"><link rel="prefetch" href="/assets/js/152.6a733b47.js"><link rel="prefetch" href="/assets/js/153.1a5b425b.js"><link rel="prefetch" href="/assets/js/154.59a5cdd0.js"><link rel="prefetch" href="/assets/js/155.6906efc0.js"><link rel="prefetch" href="/assets/js/156.14a1e6f8.js"><link rel="prefetch" href="/assets/js/157.2a90db8a.js"><link rel="prefetch" href="/assets/js/159.33fa138a.js"><link rel="prefetch" href="/assets/js/16.bc45c675.js"><link rel="prefetch" href="/assets/js/160.41012461.js"><link rel="prefetch" href="/assets/js/161.029d6fef.js"><link rel="prefetch" href="/assets/js/162.d7e72e4d.js"><link rel="prefetch" href="/assets/js/163.33c153d8.js"><link rel="prefetch" href="/assets/js/164.cbd2db78.js"><link rel="prefetch" href="/assets/js/165.8d99fa18.js"><link rel="prefetch" href="/assets/js/166.5bcaa3dd.js"><link rel="prefetch" href="/assets/js/167.2349d4bb.js"><link rel="prefetch" href="/assets/js/168.03f7c431.js"><link rel="prefetch" href="/assets/js/169.662db72b.js"><link rel="prefetch" href="/assets/js/17.6b0481e2.js"><link rel="prefetch" href="/assets/js/170.4469c187.js"><link rel="prefetch" href="/assets/js/171.58868926.js"><link rel="prefetch" href="/assets/js/172.afe06d5f.js"><link rel="prefetch" href="/assets/js/173.a36e004f.js"><link rel="prefetch" href="/assets/js/174.849bcbbd.js"><link rel="prefetch" href="/assets/js/175.deb32fb8.js"><link rel="prefetch" href="/assets/js/176.45f7d6a8.js"><link rel="prefetch" href="/assets/js/177.fb85b7c2.js"><link rel="prefetch" href="/assets/js/178.7f4bf5e6.js"><link rel="prefetch" href="/assets/js/18.e70cc004.js"><link rel="prefetch" href="/assets/js/19.e954bc7a.js"><link rel="prefetch" href="/assets/js/2.aec18661.js"><link rel="prefetch" href="/assets/js/20.94381428.js"><link rel="prefetch" href="/assets/js/21.5058af0e.js"><link rel="prefetch" href="/assets/js/22.d9c7ba8d.js"><link rel="prefetch" href="/assets/js/23.9773e373.js"><link rel="prefetch" href="/assets/js/24.a012e542.js"><link rel="prefetch" href="/assets/js/25.c1e53297.js"><link rel="prefetch" href="/assets/js/26.60c27d52.js"><link rel="prefetch" href="/assets/js/27.9ff6e463.js"><link rel="prefetch" href="/assets/js/28.e4955e68.js"><link rel="prefetch" href="/assets/js/29.8c0a7989.js"><link rel="prefetch" href="/assets/js/30.8d2c51b9.js"><link rel="prefetch" href="/assets/js/31.77daad09.js"><link rel="prefetch" href="/assets/js/32.763b7b98.js"><link rel="prefetch" href="/assets/js/33.a35d3f49.js"><link rel="prefetch" href="/assets/js/34.3b42b1e2.js"><link rel="prefetch" href="/assets/js/35.770b0123.js"><link rel="prefetch" href="/assets/js/36.aecfaf6e.js"><link rel="prefetch" href="/assets/js/37.bd49ca59.js"><link rel="prefetch" href="/assets/js/38.fed1555d.js"><link rel="prefetch" href="/assets/js/39.ba12b4f9.js"><link rel="prefetch" href="/assets/js/4.c2d1d771.js"><link rel="prefetch" href="/assets/js/40.ad0b908b.js"><link rel="prefetch" href="/assets/js/41.e5c2a903.js"><link rel="prefetch" href="/assets/js/42.bd11772d.js"><link rel="prefetch" href="/assets/js/43.26dc2a52.js"><link rel="prefetch" href="/assets/js/44.c0141c7c.js"><link rel="prefetch" href="/assets/js/45.328fda2a.js"><link rel="prefetch" href="/assets/js/46.0bd04509.js"><link rel="prefetch" href="/assets/js/47.853f7f02.js"><link rel="prefetch" href="/assets/js/48.7e30092c.js"><link rel="prefetch" href="/assets/js/49.d7c41614.js"><link rel="prefetch" href="/assets/js/5.1f2ba3e8.js"><link rel="prefetch" href="/assets/js/50.bbc144de.js"><link rel="prefetch" href="/assets/js/51.29fb5c68.js"><link rel="prefetch" href="/assets/js/52.d2042f8d.js"><link rel="prefetch" href="/assets/js/53.8a5c3d60.js"><link rel="prefetch" href="/assets/js/54.0f846846.js"><link rel="prefetch" href="/assets/js/55.85b62bcc.js"><link rel="prefetch" href="/assets/js/56.c2bf89f1.js"><link rel="prefetch" href="/assets/js/57.3187bec1.js"><link rel="prefetch" href="/assets/js/58.ba87c684.js"><link rel="prefetch" href="/assets/js/59.b40c3148.js"><link rel="prefetch" href="/assets/js/6.c31c16f8.js"><link rel="prefetch" href="/assets/js/60.04a8298f.js"><link rel="prefetch" href="/assets/js/61.c57dc954.js"><link rel="prefetch" href="/assets/js/62.24bf6999.js"><link rel="prefetch" href="/assets/js/63.2f87f55d.js"><link rel="prefetch" href="/assets/js/64.68cd3b45.js"><link rel="prefetch" href="/assets/js/65.255d0e52.js"><link rel="prefetch" href="/assets/js/66.1148b749.js"><link rel="prefetch" href="/assets/js/67.1d93ad03.js"><link rel="prefetch" href="/assets/js/68.0a66e8af.js"><link rel="prefetch" href="/assets/js/69.21fb7c12.js"><link rel="prefetch" href="/assets/js/7.9e783835.js"><link rel="prefetch" href="/assets/js/70.52af12e9.js"><link rel="prefetch" href="/assets/js/71.b920fbd7.js"><link rel="prefetch" href="/assets/js/72.765b0fde.js"><link rel="prefetch" href="/assets/js/73.9d1a0227.js"><link rel="prefetch" href="/assets/js/74.3c8755ec.js"><link rel="prefetch" href="/assets/js/75.5800081d.js"><link rel="prefetch" href="/assets/js/76.a0981293.js"><link rel="prefetch" href="/assets/js/77.606766d0.js"><link rel="prefetch" href="/assets/js/78.41729cec.js"><link rel="prefetch" href="/assets/js/79.96c2852e.js"><link rel="prefetch" href="/assets/js/8.4f13117f.js"><link rel="prefetch" href="/assets/js/80.2120e0e9.js"><link rel="prefetch" href="/assets/js/81.04f50a1e.js"><link rel="prefetch" href="/assets/js/82.db879ca5.js"><link rel="prefetch" href="/assets/js/83.e89b8863.js"><link rel="prefetch" href="/assets/js/84.07410b58.js"><link rel="prefetch" href="/assets/js/85.d46c8682.js"><link rel="prefetch" href="/assets/js/86.3869d59e.js"><link rel="prefetch" href="/assets/js/87.e7860b15.js"><link rel="prefetch" href="/assets/js/88.2b183553.js"><link rel="prefetch" href="/assets/js/89.36e67a82.js"><link rel="prefetch" href="/assets/js/9.a64cd1e6.js"><link rel="prefetch" href="/assets/js/90.391f76ed.js"><link rel="prefetch" href="/assets/js/91.b9d1bb73.js"><link rel="prefetch" href="/assets/js/92.a65aa479.js"><link rel="prefetch" href="/assets/js/93.bc850b53.js"><link rel="prefetch" href="/assets/js/94.7dc858d7.js"><link rel="prefetch" href="/assets/js/95.83afadb6.js"><link rel="prefetch" href="/assets/js/96.bd648be3.js"><link rel="prefetch" href="/assets/js/97.b6312544.js"><link rel="prefetch" href="/assets/js/98.fdb7d67a.js"><link rel="prefetch" href="/assets/js/99.c4b1cfd7.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.4089f489.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">一名GO+PHP工程师</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="https://gitee.com/ColinWWL/blog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  码云Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="https://gitee.com/ColinWWL/blog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  码云Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/数据库/Mongodb/1基本操作之CRUD" class="sidebar-heading clickable open"><span>Mongodb</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/数据库/Mongodb/1基本操作之CRUD.html" class="sidebar-link">基本操作之CRUD</a></li><li><a href="/数据库/Mongodb/2centos7安装mongodb和设置开机自动启动.html" class="sidebar-link">centos7安装mongodb和设置开机自动启动</a></li><li><a href="/数据库/Mongodb/3mongodb添加账号密码.html" class="sidebar-link">添加账号密码</a></li><li><a href="/数据库/Mongodb/4MongoDB之分片集群与复制集.html" class="active sidebar-link">分片集群</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/数据库/Mongodb/4MongoDB之分片集群与复制集.html#_1-1、概念" class="sidebar-link">1.1、概念</a></li><li class="sidebar-sub-header"><a href="/数据库/Mongodb/4MongoDB之分片集群与复制集.html#_1-2、如何维护数据均衡分布" class="sidebar-link">1.2、如何维护数据均衡分布</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/数据库/Mongodb/4MongoDB之分片集群与复制集.html#分割器" class="sidebar-link">分割器</a></li><li class="sidebar-sub-header"><a href="/数据库/Mongodb/4MongoDB之分片集群与复制集.html#平衡器" class="sidebar-link">平衡器</a></li></ul></li><li class="sidebar-sub-header"><a href="/数据库/Mongodb/4MongoDB之分片集群与复制集.html#_1-3数据块如何存储在相应分片上" class="sidebar-link">1.3数据块如何存储在相应分片上</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/数据库/Mongodb/4MongoDB之分片集群与复制集.html#区间分区" class="sidebar-link">区间分区</a></li><li class="sidebar-sub-header"><a href="/数据库/Mongodb/4MongoDB之分片集群与复制集.html#哈希分区" class="sidebar-link">哈希分区</a></li></ul></li><li class="sidebar-sub-header"><a href="/数据库/Mongodb/4MongoDB之分片集群与复制集.html#_1-4、数据迁移过程" class="sidebar-link">1.4、数据迁移过程</a></li><li class="sidebar-sub-header"><a href="/数据库/Mongodb/4MongoDB之分片集群与复制集.html#_1-5、备份数据" class="sidebar-link">1.5、备份数据</a></li><li class="sidebar-sub-header"><a href="/数据库/Mongodb/4MongoDB之分片集群与复制集.html#_2-1、概念与特性" class="sidebar-link">2.1、概念与特性</a></li><li class="sidebar-sub-header"><a href="/数据库/Mongodb/4MongoDB之分片集群与复制集.html#_2-2、复制集成员" class="sidebar-link">2.2、复制集成员</a></li><li class="sidebar-sub-header"><a href="/数据库/Mongodb/4MongoDB之分片集群与复制集.html#_2-3、复制集管理" class="sidebar-link">2.3、复制集管理</a></li><li class="sidebar-sub-header"><a href="/数据库/Mongodb/4MongoDB之分片集群与复制集.html#_2-4、大多数原则" class="sidebar-link">2.4、大多数原则</a></li><li class="sidebar-sub-header"><a href="/数据库/Mongodb/4MongoDB之分片集群与复制集.html#_2-5、选举" class="sidebar-link">2.5、选举</a></li><li class="sidebar-sub-header"><a href="/数据库/Mongodb/4MongoDB之分片集群与复制集.html#_2-6、数据回滚" class="sidebar-link">2.6、数据回滚</a></li><li class="sidebar-sub-header"><a href="/数据库/Mongodb/4MongoDB之分片集群与复制集.html#_2-7、读写策略" class="sidebar-link">2.7、读写策略</a></li><li class="sidebar-sub-header"><a href="/数据库/Mongodb/4MongoDB之分片集群与复制集.html#_2-8、复制集优缺点" class="sidebar-link">2.8、复制集优缺点</a></li></ul></li><li><a href="/数据库/Mongodb/5MongoDB-分片片键.html" class="sidebar-link">分片片键</a></li><li><a href="/数据库/Mongodb/6MongoDB中各种类型的索引.html" class="sidebar-link">MongoDB中各种类型的索引</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="分片集群"><a href="#分片集群" class="header-anchor">#</a> 分片集群</h1> <h2 id="_1-1、概念"><a href="#_1-1、概念" class="header-anchor">#</a> 1.1、概念</h2> <p>分片集群是将数据存储在多台机器上的操作，主要由查询路由mongos、分片、配置服务器组成。<br>
+●查询路由根据配置服务器上的元数据将请求分发到相应的分片上，本身不存储集群的元数据，只是缓存在内存中。<br>
+●分片用来存储数据块。数据集根据分片键将集合分割为数据块，存储在不同的分片上。在生产环境下，通常一个分片由一个复制集组成。<br>
+●配置服务器存储集群的元数据，包括数据与分片的映射关系，配置服务器一旦挂掉，集群将无法工作。<br> <strong>注意：</strong><br>
+●当mongos重启时，会从配置服务器读取元数据更新自己缓存的元数据<br>
+●当分割数据时或者在分片间移动数据时会写配置服务器。<br>
+●在分片集群中，配置服务器可以采用复制集的架构，但复制集中不允许有仲裁节点和延时节点，且buildindexes必须设为true。<br>
+●集合的数据分布在多个分片上，如果某个分片失效，查询会返回错误，可以通过为查询指定partial选项，允许接受不完整的数据<br> <strong>作用</strong><br> <strong>单台机器无法满足存储需求，内存、磁盘空间不够，读写吞吐量不够。</strong></p> <h2 id="_1-2、如何维护数据均衡分布"><a href="#_1-2、如何维护数据均衡分布" class="header-anchor">#</a> 1.2、如何维护数据均衡分布</h2> <p><strong>集群使用分割器和平衡器两个后台进程维护数据均匀分布。</strong></p> <h3 id="分割器"><a href="#分割器" class="header-anchor">#</a> 分割器</h3> <p>●分割器的作用是防止数据块变大，数据块大小默认是64MB，当超过64MB时，分割器会将其一分为二。<br>
+●分割的对象不是实际的数据，而是元数据，只是在逻辑上进行逻辑块的划分，不会影响到实际数据的分布<br>
+●数据块太小会产生大量块，容易使集群不平衡，导致数据块频繁移动，降低集群性能，元数据增加，降低查询效率<br>
+●数据块太大，会减小移动频率，元数据少，有利于数据查询，但一旦移动，会花费很长时间<br>
+●并不是所有的集合都会分片，没有被分片的集合都存储在同一个主分片上<br>
+●只有对数据库和集合开启分片后，数据才会在不同分片上分布，否则只存储在主分片上<br>
+●插入和更新操作都有可能引发分割</p> <h3 id="平衡器"><a href="#平衡器" class="header-anchor">#</a> 平衡器</h3> <p>●平衡器的作用是管理数据块的移动。<br>
+●当集群中数据块的分布达到移动阈值时，平衡器会移动数据块。<br>
+●增加或减少分片或增删数据也会使平衡器移动数据块</p> <h2 id="_1-3数据块如何存储在相应分片上"><a href="#_1-3数据块如何存储在相应分片上" class="header-anchor">#</a> 1.3数据块如何存储在相应分片上</h2> <p>每个需要被分片的集合都需要指定索引字段作为分片键，mongodb使用<strong>区间分区</strong>或<strong>哈希分区</strong>算法根据分片键将数据分割为数据块。</p> <h3 id="区间分区"><a href="#区间分区" class="header-anchor">#</a> 区间分区</h3> <p><strong>数据块覆盖一段子区间，任何分片键都会被某一段覆盖</strong><br> <strong>优缺点</strong><br> <strong>区间分区支持更好的range查询，通过分片键查询，查询路由可以很容易的判断出哪些数据块含有查询需要数据，并将请求分配到的分片上。</strong><br> <strong>区间分区使数据分布不均匀</strong></p> <h3 id="哈希分区"><a href="#哈希分区" class="header-anchor">#</a> 哈希分区</h3> <p><strong>根据分片键的哈希值进行数据的分配。<br>
+优缺点<br>
+数据随机分配到不同的数据块<br>
+在进行range查询时，由于相邻数据分布在不同分片上，导致访问很多分片</strong><br> <strong>注意</strong><br>
+●分片键不能是多键索引，即索引字段的值不能是数组<br>
+●分片键一旦被指定，不能被修改为其他字段，同时分片键的字段值也不能被修改<br>
+●如果集群的写操作比较多，可以使用哈希分区，将数据均匀分配到节点上，将写操作均匀应用与集群，<br>
+如果集群读操作比较多，可以使用区间分区，将相邻数据分到同一节点上，便于查询<br>
+●如果查询时没有指定索引字段，查询路由会将请求分发到所有节点上，等待返回结果，查询效率低<br>
+如果查询时指定了索引字段，查询路由会将请求分发到少数节点上，查询效率高</p> <h2 id="_1-4、数据迁移过程"><a href="#_1-4、数据迁移过程" class="header-anchor">#</a> 1.4、数据迁移过程</h2> <p>●平衡器向源节点发送movechunk指令<br>
+●源节点移动指定数据块，在迁移期间，数据块的读写操作仍路由到源节点<br>
+●目的节点如果没有需要的索引，此时会构建索引<br>
+●目的节点开始请求数据块中的数据，保存在本地<br>
+●在迁移期间，源节点上的数据如果发生变化，在迁移完之后，目的节点会同步源节点上变更的数据<br>
+●同步结束后，目的节点会与配置服务器建立连接，配置服务器更新元数据，此期间源节点阻塞写操作<br>
+●源节点上的旧数据被删除</p> <h2 id="_1-5、备份数据"><a href="#_1-5、备份数据" class="header-anchor">#</a> 1.5、备份数据</h2> <div class="language- extra-class"><pre class="language-text"><code>mongodump -h dbhost -d dbname -o directory 命令格式
+mongodump -h 127.0.0.1：28002 -d test -o /home/backup
+</code></pre></div><p>将本机数据库test中数据备份到/home/backup下<br>
+恢复数据<br>
+mongorestore -h dbhost -d dbname –directoryperdb dbdirectory dbdirectory为备份数据所在位置</p> <h1 id="复制集"><a href="#复制集" class="header-anchor">#</a> 复制集</h1> <h2 id="_2-1、概念与特性"><a href="#_2-1、概念与特性" class="header-anchor">#</a> 2.1、概念与特性</h2> <p><strong>概念<br>
+复制集是一组具有相同数据的mongod实例，包含主节点以及从节点。集群中任何时候只有一个主节点，主节点将数据变更操作写到oplog（封顶表）中，从节点读取oplog，并将oplog中的操作应用的本地数据，从而实现数据同步。</strong></p> <p><strong>特性</strong><br>
+●<strong>异步复制</strong><br>
+从节点并不是实时复制主节点中的数据<br> <strong>●自动容灾</strong><br>
+主节点宕机，主动发起选举<br> <strong>●读操作</strong><br>
+从从节点上读到的数据可能并不是最新的</p> <h2 id="_2-2、复制集成员"><a href="#_2-2、复制集成员" class="header-anchor">#</a> 2.2、复制集成员</h2> <p>复** <strong>制集最多包含</strong>50个节点**，最多<strong>只能有7个可以投票</strong>。包含以下节点类型<br>
+●<strong>主节点primary</strong><br>
+可以执行读写操作，所有节点均可以执行读操作。默认情况下，读请求只会发送给主节点，可以通过read preference设置。主节点的优先级priority至少为1。<br>
+●<strong>从节点secondary</strong><br>
+只可以执行读操作。从节点通过与主节点同步，实现备份数据的功能，复制集至少有一个从节点。通过配置复制集的配置文件可以设置从节点是否参与选举（vote=0）以及是否可以被选举为主节点（priority=0）优先级priority为0的节点不能发起选举，不能被选举为主节点，但可以投票。<br>
+●<strong>隐藏节点</strong><br>
+通过设置从节点的hidden属性，可以对客户端隐藏节点，不接受读写请求，无法被选举为主节点（priority=0），只能投票，主要用于备份数据。<br>
+●<strong>延时节点</strong><br>
+通过设置隐藏节点的slaveDelay属性可以使节点延时一定时间从主节点复制数据，可以起到保护数据的作用。延时节点是在隐藏节点的基础上，多了一个延时属性。<br>
+●<strong>仲裁节点Arbiter</strong><br>
+本身不存储数据，不能被选举为主节点，只能投票，仲裁节点主要用于使复制集中节点个数为奇数，从而容易达到多数派。仲裁节点只消耗极少的资源，但不要与主节点、从节点部署在同一个物理节点上。<br>
+●<strong>非投票节点</strong><br>
+不参与投票，但存储数据，可以接受读操作</p> <h2 id="_2-3、复制集管理"><a href="#_2-3、复制集管理" class="header-anchor">#</a> 2.3、复制集管理</h2> <p>●use admin切换到admin数据库<br>
+●config={_id:”myset”,members:[{“_id”:0,”host”:”127.0.0.1:28001”,”priority”:2},{“_id”:1,”host”:”127.0.0.1:28002”,”priority”:1}]}<br>
+●rs.initiate(config)<br>
+修改复制集配置<br>
+●cfg=rs.conf()<br>
+●cfg.members[0].priority=1<br>
+●rs.reconfig(cfg)<br>
+复制集维护<br>
+将配置文件中的replset注释掉，从而以单机模式启动复制集，维护完毕后再加入复制集。</p> <h2 id="_2-4、大多数原则"><a href="#_2-4、大多数原则" class="header-anchor">#</a> 2.4、大多数原则</h2> <p><strong>概念</strong><br>
+如果复制集中的节点个数为N，则大多数为N/2+1（N/2向下取整），当复制集中存活节点数小于大多数时，不存在主节点，无法提供写服务。</p> <p><strong>作用</strong><br>
+大多数原则保证了，在任何时刻复制集中的主节点个数不会超过一个。比如复制集部署在两个机房，两个机房通信发生故障，不含有主节点的机房会选举出一个主节点，等到故障恢复，复制集就会存在两个主节点，无法保证数据的一致性。</p> <h2 id="_2-5、选举"><a href="#_2-5、选举" class="header-anchor">#</a> 2.5、选举</h2> <p><strong>选举的前提条件</strong><br>
+复制集满足大多数原则。在选举的过程中，复制集无法进行写操作。</p> <p><strong>何时会引发选举</strong><br>
+●复制集初始化时或被重新配置后<br>
+●主节点宕机或主节点网络不可达，即大多数节点无法连接主节点<br>
+●人为将主节点降为从节点，执行rs.stepDown(n)命令<br>
+●有更高优先级的节点加入复制集</p> <p><strong>选举特点</strong><br>
+●优先级高的节点优先被选为主节点<br>
+●具有最高optime的节点被选为主节点<br>
+●如果优先级高的节点不具有最新的optime，那么首先会同步主节点的oplog<br>
+●优先级为0的节点无法发起选举，且无法成为主节点，只能投票。<br>
+●所有成员都可以否决选举，包括不投票的节点Non-voting</p> <p><strong>何时否决选举</strong><br>
+●发起选举的节点不包含最新数据<br>
+●发起选举的节点优先级比其他节点低<br>
+●发起选举的节点没有持有最高的optime</p> <h2 id="_2-6、数据回滚"><a href="#_2-6、数据回滚" class="header-anchor">#</a> 2.6、数据回滚</h2> <p>概念：在主节点失效之前，从节点并未全部复制主节点上的数据，原先的主节点在选举出新的主节点后重新加入复制集，会导致旧主节点与新主节点数据不一致，旧主节点会将不一致的数据回滚，从而与主节点数据保持一致。</p> <p>避免数据回滚<br>
+默认情况下，在主节点上写入成功后，就会向客户端返回结果，可能造成回滚，客户端可以修改写策略writeconcern为向大多数节点写入成功后才返回结果。</p> <h2 id="_2-7、读写策略"><a href="#_2-7、读写策略" class="header-anchor">#</a> 2.7、读写策略</h2> <p>writeconcern：不等待主节点写入成功，客户端就返回结果；等待主节点写入成功，就返回结果；等到大多数节点写入成功，才返回结果<br>
+readconcern：只读主节点、只读从节点、优先主节点、优先从节点、读网络延迟最小的节点</p> <h2 id="_2-8、复制集优缺点"><a href="#_2-8、复制集优缺点" class="header-anchor">#</a> 2.8、复制集优缺点</h2> <p><strong>优点</strong><br>
+●自动容灾。主节点宕机，通过投票选举主节点，保证数据安全<br>
+●自动备份数据，无需人工干预<br>
+●易于扩展<br>
+●数据可靠性高<br> <strong>缺点</strong><br>
+●消耗资源高<br>
+●不能解决负载均衡的问题<br>
+●客户端读到的数据可能并未持久化 ，比如：客户端可以读到最新写入的数据，但数据有可能存在磁盘写入失败的可能；客户端读到的数据可能发生rolled back</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">5/21/2021, 7:41:24 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/数据库/Mongodb/3mongodb添加账号密码.html" class="prev">
+        添加账号密码
+      </a></span> <span class="next"><a href="/数据库/Mongodb/5MongoDB-分片片键.html">
+        分片片键
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.a1883da8.js" defer></script><script src="/assets/js/3.21e2e031.js" defer></script><script src="/assets/js/158.71dda3a8.js" defer></script>
+  </body>
+</html>
