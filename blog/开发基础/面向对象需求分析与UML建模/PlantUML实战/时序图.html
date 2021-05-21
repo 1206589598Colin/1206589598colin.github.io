@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>时序图 | 一名GO+PHP工程师</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.b3aba94c.css" as="style"><link rel="preload" href="/blog/assets/js/app.e96a3795.js" as="script"><link rel="preload" href="/blog/assets/js/3.21e2e031.js" as="script"><link rel="preload" href="/blog/assets/js/146.f2a8a077.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.f0d17f98.js"><link rel="prefetch" href="/blog/assets/js/100.d5cb88cb.js"><link rel="prefetch" href="/blog/assets/js/101.6bbce255.js"><link rel="prefetch" href="/blog/assets/js/102.968ea43c.js"><link rel="prefetch" href="/blog/assets/js/103.c5c5130e.js"><link rel="prefetch" href="/blog/assets/js/104.161b590d.js"><link rel="prefetch" href="/blog/assets/js/105.d99dabdd.js"><link rel="prefetch" href="/blog/assets/js/106.4813a429.js"><link rel="prefetch" href="/blog/assets/js/107.973e5efb.js"><link rel="prefetch" href="/blog/assets/js/108.0e6710c9.js"><link rel="prefetch" href="/blog/assets/js/109.0dca298c.js"><link rel="prefetch" href="/blog/assets/js/11.9a0b460c.js"><link rel="prefetch" href="/blog/assets/js/110.91c6d5de.js"><link rel="prefetch" href="/blog/assets/js/111.4db6087d.js"><link rel="prefetch" href="/blog/assets/js/112.bb76db96.js"><link rel="prefetch" href="/blog/assets/js/113.9b314292.js"><link rel="prefetch" href="/blog/assets/js/114.f28a4d47.js"><link rel="prefetch" href="/blog/assets/js/115.6a21a21a.js"><link rel="prefetch" href="/blog/assets/js/116.1fd8cdf3.js"><link rel="prefetch" href="/blog/assets/js/117.193b54e8.js"><link rel="prefetch" href="/blog/assets/js/118.a54057c2.js"><link rel="prefetch" href="/blog/assets/js/119.f0742def.js"><link rel="prefetch" href="/blog/assets/js/12.2704636b.js"><link rel="prefetch" href="/blog/assets/js/120.c2fc1bab.js"><link rel="prefetch" href="/blog/assets/js/121.4300e0d3.js"><link rel="prefetch" href="/blog/assets/js/122.0ea0246a.js"><link rel="prefetch" href="/blog/assets/js/123.daa76433.js"><link rel="prefetch" href="/blog/assets/js/124.ca59f8f6.js"><link rel="prefetch" href="/blog/assets/js/125.6439d284.js"><link rel="prefetch" href="/blog/assets/js/126.8b8a9b2d.js"><link rel="prefetch" href="/blog/assets/js/127.06c981b6.js"><link rel="prefetch" href="/blog/assets/js/128.cf7b9eec.js"><link rel="prefetch" href="/blog/assets/js/129.b4fdbe4d.js"><link rel="prefetch" href="/blog/assets/js/13.13621de1.js"><link rel="prefetch" href="/blog/assets/js/130.4acdc8e4.js"><link rel="prefetch" href="/blog/assets/js/131.ff0058e6.js"><link rel="prefetch" href="/blog/assets/js/132.1f9b4bbb.js"><link rel="prefetch" href="/blog/assets/js/133.a417b118.js"><link rel="prefetch" href="/blog/assets/js/134.6a6cf86d.js"><link rel="prefetch" href="/blog/assets/js/135.16d61a44.js"><link rel="prefetch" href="/blog/assets/js/136.12ac5b39.js"><link rel="prefetch" href="/blog/assets/js/137.574e5c35.js"><link rel="prefetch" href="/blog/assets/js/138.fb99b34c.js"><link rel="prefetch" href="/blog/assets/js/139.b13aa419.js"><link rel="prefetch" href="/blog/assets/js/14.af5cd84c.js"><link rel="prefetch" href="/blog/assets/js/140.e504645c.js"><link rel="prefetch" href="/blog/assets/js/141.b0090c83.js"><link rel="prefetch" href="/blog/assets/js/142.8f3573aa.js"><link rel="prefetch" href="/blog/assets/js/143.fd923e68.js"><link rel="prefetch" href="/blog/assets/js/144.30c7d351.js"><link rel="prefetch" href="/blog/assets/js/145.95b58ec4.js"><link rel="prefetch" href="/blog/assets/js/147.9d236468.js"><link rel="prefetch" href="/blog/assets/js/148.f24cd187.js"><link rel="prefetch" href="/blog/assets/js/149.a864dbcc.js"><link rel="prefetch" href="/blog/assets/js/15.f3fe1b79.js"><link rel="prefetch" href="/blog/assets/js/150.17ad60e0.js"><link rel="prefetch" href="/blog/assets/js/151.544c42cb.js"><link rel="prefetch" href="/blog/assets/js/152.210743dc.js"><link rel="prefetch" href="/blog/assets/js/153.ed0b4aea.js"><link rel="prefetch" href="/blog/assets/js/154.3108e3fe.js"><link rel="prefetch" href="/blog/assets/js/155.9b88d76c.js"><link rel="prefetch" href="/blog/assets/js/156.e514afd4.js"><link rel="prefetch" href="/blog/assets/js/157.480617c1.js"><link rel="prefetch" href="/blog/assets/js/158.f649eaa4.js"><link rel="prefetch" href="/blog/assets/js/159.40693a16.js"><link rel="prefetch" href="/blog/assets/js/16.d5ef369f.js"><link rel="prefetch" href="/blog/assets/js/160.0c296e5b.js"><link rel="prefetch" href="/blog/assets/js/161.47fb88c7.js"><link rel="prefetch" href="/blog/assets/js/162.d7e72e4d.js"><link rel="prefetch" href="/blog/assets/js/163.35e7409e.js"><link rel="prefetch" href="/blog/assets/js/164.ebc9b6a7.js"><link rel="prefetch" href="/blog/assets/js/165.f7cbff8f.js"><link rel="prefetch" href="/blog/assets/js/166.5bcaa3dd.js"><link rel="prefetch" href="/blog/assets/js/167.b4296d08.js"><link rel="prefetch" href="/blog/assets/js/168.27dc81ce.js"><link rel="prefetch" href="/blog/assets/js/169.e3875c04.js"><link rel="prefetch" href="/blog/assets/js/17.85a6f3bd.js"><link rel="prefetch" href="/blog/assets/js/170.e41001f5.js"><link rel="prefetch" href="/blog/assets/js/171.8a988969.js"><link rel="prefetch" href="/blog/assets/js/172.ba4dc7a7.js"><link rel="prefetch" href="/blog/assets/js/173.84e3606e.js"><link rel="prefetch" href="/blog/assets/js/174.849bcbbd.js"><link rel="prefetch" href="/blog/assets/js/175.29aea4e3.js"><link rel="prefetch" href="/blog/assets/js/176.2380b0cf.js"><link rel="prefetch" href="/blog/assets/js/177.67fa30a9.js"><link rel="prefetch" href="/blog/assets/js/178.7f4bf5e6.js"><link rel="prefetch" href="/blog/assets/js/18.5b1abab1.js"><link rel="prefetch" href="/blog/assets/js/19.64702ecc.js"><link rel="prefetch" href="/blog/assets/js/2.b704f7ef.js"><link rel="prefetch" href="/blog/assets/js/20.ee94d049.js"><link rel="prefetch" href="/blog/assets/js/21.c4b2e86b.js"><link rel="prefetch" href="/blog/assets/js/22.5e0c0059.js"><link rel="prefetch" href="/blog/assets/js/23.8d21497f.js"><link rel="prefetch" href="/blog/assets/js/24.0d62d925.js"><link rel="prefetch" href="/blog/assets/js/25.f2cfc928.js"><link rel="prefetch" href="/blog/assets/js/26.454d8bc0.js"><link rel="prefetch" href="/blog/assets/js/27.64a56852.js"><link rel="prefetch" href="/blog/assets/js/28.86140af5.js"><link rel="prefetch" href="/blog/assets/js/29.cb7d4c15.js"><link rel="prefetch" href="/blog/assets/js/30.ead3f08b.js"><link rel="prefetch" href="/blog/assets/js/31.0b9f18b2.js"><link rel="prefetch" href="/blog/assets/js/32.666cd74a.js"><link rel="prefetch" href="/blog/assets/js/33.be963dc5.js"><link rel="prefetch" href="/blog/assets/js/34.29e8d5d9.js"><link rel="prefetch" href="/blog/assets/js/35.770b0123.js"><link rel="prefetch" href="/blog/assets/js/36.3ebc18d1.js"><link rel="prefetch" href="/blog/assets/js/37.1b4b8870.js"><link rel="prefetch" href="/blog/assets/js/38.434945a5.js"><link rel="prefetch" href="/blog/assets/js/39.5649856d.js"><link rel="prefetch" href="/blog/assets/js/4.8abadb0c.js"><link rel="prefetch" href="/blog/assets/js/40.90c1fb7b.js"><link rel="prefetch" href="/blog/assets/js/41.bdaf363e.js"><link rel="prefetch" href="/blog/assets/js/42.bd11772d.js"><link rel="prefetch" href="/blog/assets/js/43.451622f4.js"><link rel="prefetch" href="/blog/assets/js/44.711b0b23.js"><link rel="prefetch" href="/blog/assets/js/45.3478f0e8.js"><link rel="prefetch" href="/blog/assets/js/46.0bd04509.js"><link rel="prefetch" href="/blog/assets/js/47.b05a79df.js"><link rel="prefetch" href="/blog/assets/js/48.e3917371.js"><link rel="prefetch" href="/blog/assets/js/49.cffe09bd.js"><link rel="prefetch" href="/blog/assets/js/5.d85c4ea7.js"><link rel="prefetch" href="/blog/assets/js/50.10849ea7.js"><link rel="prefetch" href="/blog/assets/js/51.29fb5c68.js"><link rel="prefetch" href="/blog/assets/js/52.c183fd4d.js"><link rel="prefetch" href="/blog/assets/js/53.cd6fc1ff.js"><link rel="prefetch" href="/blog/assets/js/54.1f32a761.js"><link rel="prefetch" href="/blog/assets/js/55.8b1c97ea.js"><link rel="prefetch" href="/blog/assets/js/56.b1d06de1.js"><link rel="prefetch" href="/blog/assets/js/57.0f3887f6.js"><link rel="prefetch" href="/blog/assets/js/58.ddd651ef.js"><link rel="prefetch" href="/blog/assets/js/59.88810128.js"><link rel="prefetch" href="/blog/assets/js/6.66823a83.js"><link rel="prefetch" href="/blog/assets/js/60.6405b5ee.js"><link rel="prefetch" href="/blog/assets/js/61.2fe87550.js"><link rel="prefetch" href="/blog/assets/js/62.24bf6999.js"><link rel="prefetch" href="/blog/assets/js/63.2f87f55d.js"><link rel="prefetch" href="/blog/assets/js/64.68cd3b45.js"><link rel="prefetch" href="/blog/assets/js/65.7dc0ee8b.js"><link rel="prefetch" href="/blog/assets/js/66.b8d26700.js"><link rel="prefetch" href="/blog/assets/js/67.ac26e1fe.js"><link rel="prefetch" href="/blog/assets/js/68.5b88c98a.js"><link rel="prefetch" href="/blog/assets/js/69.134a204b.js"><link rel="prefetch" href="/blog/assets/js/7.aeaa2fae.js"><link rel="prefetch" href="/blog/assets/js/70.780e9a6e.js"><link rel="prefetch" href="/blog/assets/js/71.d6bb3142.js"><link rel="prefetch" href="/blog/assets/js/72.78fc6941.js"><link rel="prefetch" href="/blog/assets/js/73.b2283872.js"><link rel="prefetch" href="/blog/assets/js/74.b1d33341.js"><link rel="prefetch" href="/blog/assets/js/75.c342eea5.js"><link rel="prefetch" href="/blog/assets/js/76.19907955.js"><link rel="prefetch" href="/blog/assets/js/77.619843d6.js"><link rel="prefetch" href="/blog/assets/js/78.b41b3078.js"><link rel="prefetch" href="/blog/assets/js/79.e7418aeb.js"><link rel="prefetch" href="/blog/assets/js/8.f72dc925.js"><link rel="prefetch" href="/blog/assets/js/80.c1884ffd.js"><link rel="prefetch" href="/blog/assets/js/81.04f50a1e.js"><link rel="prefetch" href="/blog/assets/js/82.db879ca5.js"><link rel="prefetch" href="/blog/assets/js/83.e89b8863.js"><link rel="prefetch" href="/blog/assets/js/84.07410b58.js"><link rel="prefetch" href="/blog/assets/js/85.d46c8682.js"><link rel="prefetch" href="/blog/assets/js/86.3869d59e.js"><link rel="prefetch" href="/blog/assets/js/87.e7860b15.js"><link rel="prefetch" href="/blog/assets/js/88.09fc332a.js"><link rel="prefetch" href="/blog/assets/js/89.8b302469.js"><link rel="prefetch" href="/blog/assets/js/9.9a1ee48f.js"><link rel="prefetch" href="/blog/assets/js/90.391f76ed.js"><link rel="prefetch" href="/blog/assets/js/91.d1662d38.js"><link rel="prefetch" href="/blog/assets/js/92.a65aa479.js"><link rel="prefetch" href="/blog/assets/js/93.bc850b53.js"><link rel="prefetch" href="/blog/assets/js/94.7dc858d7.js"><link rel="prefetch" href="/blog/assets/js/95.83afadb6.js"><link rel="prefetch" href="/blog/assets/js/96.85084d66.js"><link rel="prefetch" href="/blog/assets/js/97.68a76e8c.js"><link rel="prefetch" href="/blog/assets/js/98.169e3a46.js"><link rel="prefetch" href="/blog/assets/js/99.3235f388.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.b3aba94c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">一名GO+PHP工程师</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="https://gitee.com/ColinWWL/blog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  码云Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="https://gitee.com/ColinWWL/blog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  码云Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/blog/开发基础/面向对象需求分析与UML建模/2可视化建模技术" class="sidebar-heading clickable"><span>面向对象需求分析与UML建模</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/开发基础/面向对象需求分析与UML建模/2可视化建模技术.html" class="sidebar-link">UML 2概念模型</a></li><li><a href="/blog/开发基础/面向对象需求分析与UML建模/3业务建模.html" class="sidebar-link">业务建模</a></li><li><a href="/blog/开发基础/面向对象需求分析与UML建模/4用例建模.html" class="sidebar-link">用例建模</a></li><li><a href="/blog/开发基础/面向对象需求分析与UML建模/5用例分析.html" class="sidebar-link">用例分析</a></li><li><a href="/blog/开发基础/面向对象需求分析与UML建模/6面向对象的设计原则.html" class="sidebar-link">面向对象的设计原则</a></li><li><a href="/blog/开发基础/面向对象需求分析与UML建模/7面向对象的设计模式.html" class="sidebar-link">面向对象的设计模式</a></li><li><a href="/blog/开发基础/面向对象需求分析与UML建模/8架构设计.html" class="sidebar-link">架构设计</a></li><li><a href="/blog/开发基础/面向对象需求分析与UML建模/9构件设计.html" class="sidebar-link">构件设计</a></li><li><a href="/blog/开发基础/面向对象需求分析与UML建模/Mermaid实战.html" class="sidebar-link">Mermaid实战</a></li><li><a href="/blog/开发基础/面向对象需求分析与UML建模/UML建模图实战笔记.html" class="sidebar-link">UML建模图实战笔记</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/时序图" class="sidebar-heading clickable open active"><span>PlantUML实战</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/时序图.html" class="active sidebar-link">时序图</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/时序图.html#简单示例" class="sidebar-link">简单示例</a></li><li class="sidebar-sub-header"><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/时序图.html#声明参与者" class="sidebar-link">声明参与者</a></li><li class="sidebar-sub-header"><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/时序图.html#在参与者中使用非字母符号" class="sidebar-link">在参与者中使用非字母符号</a></li><li class="sidebar-sub-header"><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/时序图.html#给自己发消息" class="sidebar-link">给自己发消息</a></li><li class="sidebar-sub-header"><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/时序图.html#文本对齐" class="sidebar-link">文本对齐</a></li><li class="sidebar-sub-header"><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/时序图.html#修改箭头样式" class="sidebar-link">修改箭头样式</a></li><li class="sidebar-sub-header"><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/时序图.html#修改箭头颜色" class="sidebar-link">修改箭头颜色</a></li><li class="sidebar-sub-header"><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/时序图.html#对消息序列编号" class="sidebar-link">对消息序列编号</a></li><li class="sidebar-sub-header"><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/时序图.html#页面标题-页眉-页脚" class="sidebar-link">页面标题, 页眉, 页脚</a></li><li class="sidebar-sub-header"><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/时序图.html#分割示意图" class="sidebar-link">分割示意图</a></li><li class="sidebar-sub-header"><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/时序图.html#组合消息" class="sidebar-link">组合消息</a></li><li class="sidebar-sub-header"><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/时序图.html#次级分组标签" class="sidebar-link">次级分组标签</a></li><li class="sidebar-sub-header"><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/时序图.html#给消息添加注释" class="sidebar-link">给消息添加注释</a></li><li class="sidebar-sub-header"><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/时序图.html#其他的注释" class="sidebar-link">其他的注释</a></li><li class="sidebar-sub-header"><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/时序图.html#改变备注框的形状-hnote和rnote" class="sidebar-link">改变备注框的形状 [hnote和rnote]</a></li><li class="sidebar-sub-header"><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/时序图.html#在多个参与者添加备注" class="sidebar-link">在多个参与者添加备注</a></li><li class="sidebar-sub-header"><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/时序图.html#在同一级对齐多个备注" class="sidebar-link">在同一级对齐多个备注 [/]</a></li><li class="sidebar-sub-header"><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/时序图.html#creole和html" class="sidebar-link">Creole和HTML</a></li><li class="sidebar-sub-header"><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/时序图.html#分隔符" class="sidebar-link">分隔符</a></li><li class="sidebar-sub-header"><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/时序图.html#引用" class="sidebar-link">引用</a></li><li class="sidebar-sub-header"><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/时序图.html#延迟" class="sidebar-link">延迟</a></li><li class="sidebar-sub-header"><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/时序图.html#空间" class="sidebar-link">空间</a></li><li class="sidebar-sub-header"><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/时序图.html#生命线的激活与撤销" class="sidebar-link">生命线的激活与撤销</a></li><li class="sidebar-sub-header"><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/时序图.html#返回" class="sidebar-link">返回</a></li><li class="sidebar-sub-header"><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/时序图.html#创建参与者" class="sidebar-link">创建参与者</a></li><li class="sidebar-sub-header"><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/时序图.html#激活、撤销和创建的快捷语法" class="sidebar-link">激活、撤销和创建的快捷语法</a></li><li class="sidebar-sub-header"><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/时序图.html#进入和发出消息" class="sidebar-link">进入和发出消息</a></li><li class="sidebar-sub-header"><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/时序图.html#缩短的进入信息与发出信息箭头" class="sidebar-link">缩短的进入信息与发出信息箭头</a></li><li class="sidebar-sub-header"><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/时序图.html#锚定和持续时间" class="sidebar-link">锚定和持续时间</a></li><li class="sidebar-sub-header"><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/时序图.html#构造类型和圈点" class="sidebar-link">构造类型和圈点</a></li><li class="sidebar-sub-header"><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/时序图.html#更多标题信息" class="sidebar-link">更多标题信息</a></li><li class="sidebar-sub-header"><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/时序图.html#包裹参与者" class="sidebar-link">包裹参与者</a></li><li class="sidebar-sub-header"><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/时序图.html#移除脚注" class="sidebar-link">移除脚注</a></li><li class="sidebar-sub-header"><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/时序图.html#外观参数" class="sidebar-link">外观参数</a></li><li class="sidebar-sub-header"><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/时序图.html#附录-箭头类型大全" class="sidebar-link">附录：箭头类型大全</a></li><li class="sidebar-sub-header"><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/时序图.html#隐藏孤立参与者" class="sidebar-link">隐藏孤立参与者</a></li></ul></li><li><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/用例图.html" class="sidebar-link">用例图</a></li><li><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/类图.html" class="sidebar-link">类图</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="时序图"><a href="#时序图" class="header-anchor">#</a> 时序图</h1> <h2 id="简单示例"><a href="#简单示例" class="header-anchor">#</a> 简单示例</h2> <img src="http://172.18.0.3:8080/png/SoWkIImgAStDuNA0ivvFMV6iOxk2hft2YtLBNgnlVB9ZxTFzpLOApsVkVhftwhF9lK_spk52bW8fVRvdyjErCwmKWCIpAViqibChRKloirFpj3CBTCeISqfJ8LnDCCa5iyD65yKE1Iiezrd7XATTyr_id_9qzZo83boEUhAZ-zcQXI_MxNyvVTtJ9LjUDgzuDc7NqntBmBeWIb7T2hGIvbPaHxxes_wqVnh4hgUjsvxidlPiJk_JheNeJWJxyEcS5KzsJ7csOE7BLJqGfpxjcFbY--ONUzSyxTW0SUgBzTkVRMnwFgi5sJHKeq711bOBzCR-XSyQrtCvfEQbW2C3GWC0" alt="uml diagram"> <h2 id="声明参与者"><a href="#声明参与者" class="header-anchor">#</a> 声明参与者</h2> <p><code>关键字participant 声明参与者</code></p> <p><code>也可以使用以下关键字声明参与者，并改变对应参与者的外观</code></p> <ul><li><code>actor</code>（角色）</li> <li><code>boundary</code>（边界）</li> <li><code>control</code>（控制）</li> <li><code>entity</code>（实体）</li> <li><code>database</code>（数据库）</li> <li><code>collections</code>（集合）</li> <li><code>queue</code>（队列）</li></ul> <div class="language- extra-class"><pre class="language-text"><code>
+participant participant
+actor actor
+boundary boundary
+control control
+entity entity
+database database
+collections collections
+queue queue
+
+participant -&gt; actor : to actor
+participant -&gt; boundary: to boundary
+participant -&gt; control : to control
+participant -&gt; entity : to entity
+participant -&gt; database: to database
+participant -&gt; collections: to collections
+participant -&gt; queue: to queue
+</code></pre></div><img src="http://172.18.0.3:8080/png/PP5B3iCW30NtFeKlq0jqKUKg3h10eZW5iyZjYyod2TtOJs8aln5R5afItW6Ekhtn1qN1ImOomWbrmiubMaedZW26eoGEs3UuA5vER0ii2UsK7OvG-H2S4SynuoN3fxZYK2VSgZnUxJO-KRZNMDv76ILcimKQHHKQRHUcbrUa6op4y51aIlsTcbxzsizpGLLOeQQ-kMZhPtm1" alt="uml diagram"> <p><code>关键字 as ,重命名参与者</code></p> <p><code>使用颜色RGB或颜色名称改变actor或参与者背景颜色</code></p> <div class="language- extra-class"><pre class="language-text"><code>
+actor Bob #red
+participant Alice
+participant &quot;很长很长很长的名字&quot; as L #99FF99
+
+Alice -&gt; Bob : 认证请求
+Bob -&gt; Alice : 认证响应
+Bob -&gt; L : 记录事物日志
+</code></pre></div><img src="http://172.18.0.3:8080/png/SoWkIImgAStDuKfCBialKd3AJr9GBafDuIe02cScPnOavfKeEEPa9gUYY2WztTVnSkf-PFBvh9Qd4tgVhfskf91OhE2Ze6nfwUPcQSd51TQje6i7DjjAuSMw9I_MDxvOl_tPnYOka11G1g849lTqSk_JNLDWSZvWyGrFzqvziglxUUVAPzENFjq_dSiXDIy5w6m0" alt="uml diagram"> <p><code>关键字order自定义参与者顺序</code></p> <div class="language- extra-class"><pre class="language-text"><code>
+participant 中间 order 20
+participant 最后 order 30
+participant 首个 order 10
+</code></pre></div><img src="http://172.18.0.3:8080/png/SoWkIImgAStDuIe0qfd9cGM9UIKAJtQiVJbzYq9-KKfgaOAH0OhSipaDJoVqGUMCKULUBflsPCSgg9oX0PT3QbuAq6m0" alt="uml diagram"> <h2 id="在参与者中使用非字母符号"><a href="#在参与者中使用非字母符号" class="header-anchor">#</a> 在参与者中使用非字母符号</h2> <div class="language- extra-class"><pre class="language-text"><code>
+participant Alice
+participant &quot;Bob()&quot; as Bob
+participant &quot;This is very\n long&quot; as This
+
+Alice -&gt; Bob : Hello
+Bob -&gt; This
+This --&gt; Bob : ok
+</code></pre></div><img src="http://172.18.0.3:8080/png/SoWkIImgAStDuIe0qfd9cGM9UIKAZZcPoQae8afE-KaQcaeAYSKAG1QgL4X6Ph4249Mb5bN6v2davEUbWnM2nBcum6OfwDg1z2bOANYavkJaSu7OG26m2h1sNRY2_6mkXzIy5A2J0000" alt="uml diagram"> <h2 id="给自己发消息"><a href="#给自己发消息" class="header-anchor">#</a> 给自己发消息</h2> <img src="http://172.18.0.3:8080/png/9Oqn3i9030JxUyL-W3o00eKoFUKrLcB0aiyNnHk9vtC2QJMZgNPEoi6pUTc7RRLTWhYxhLf-nENsJrpnU5jYJ93s2d6m8zMVKus54C-EJLkFv27KhD5Efxc5eWRrmr9cZMsyVG40" alt=""> <h2 id="文本对齐"><a href="#文本对齐" class="header-anchor">#</a> 文本对齐</h2> <p><code>让响应信息显示在箭头下面</code></p> <img src="http://172.18.0.3:8080/png/LOqn3eD030Hxly8Vu0CK4L2boICSiefEcFF9DkBxkOYAScP7sYbIF8zTARPIcxZix8XcDV12X7onGEsStUtaz0FKeonhQLAJ5tlVUDQoWhhbuN41Z_o4gj55G_V_UMJRQ4BzzEiV" alt="uml diagram"> <h2 id="修改箭头样式"><a href="#修改箭头样式" class="header-anchor">#</a> 修改箭头样式</h2> <p><code>修改箭头样式方式：</code></p> <ul><li>表示一条丢失的消息：末尾加 <code>x</code></li> <li>让箭头只有上半部分或者下半部分：将<code>&lt;</code>和<code>&gt;</code>替换成<code>\</code>或者 <code>/</code></li> <li>细箭头：将箭头标记写两次 (如 <code>&gt;&gt;</code> 或 <code>//</code>)</li> <li>虚线箭头：用 <code>--</code> 替代 <code>-</code></li> <li>箭头末尾加圈：<code>-&gt;o</code></li> <li>双向箭头：<code>&lt;-&gt;</code></li></ul> <div class="language- extra-class"><pre class="language-text"><code>
+participant Bob
+participant Alice
+
+Bob -&gt;x Alice
+Bob -&gt; Alice
+Bob -&gt;&gt; Alice
+Bob -\ Alice
+Bob \\- Alice
+Bob //-- Alice
+
+Bob -&gt;o Alice
+Bob o\\-- Alice
+
+Bob &lt;-&gt; Alice
+Bob &lt;-&gt;o Alice
+</code></pre></div><img src="http://172.18.0.3:8080/png/SoWkIImgAStDuIe0qfd9cGM9UIKAJlb9A7p7dCpaL2ukeB22hbq5b0lXeN1GU358d9WONIIUlhwkBggP-KYo-K35AD8sABRO85GxfEQb09qE0000" alt="uml diagram"> <h2 id="修改箭头颜色"><a href="#修改箭头颜色" class="header-anchor">#</a> 修改箭头颜色</h2> <div class="language- extra-class"><pre class="language-text"><code>
+participant Bob
+participant Alice
+Bob -[#red]&gt; Alice : hello
+Alice -[#0000FF]-&gt; Bob : ok  
+</code></pre></div><img src="http://172.18.0.3:8080/png/SoWkIImgAStDuIe0qfd9cGM9UIKAJlb9A7p7dCpaL2wWg89kj79HQagi7KH8mKeX8pKd9vyBmWDA6W21crkihXt83A1qVhQ20fT3QbuAq0e0" alt="uml diagram"> <h2 id="对消息序列编号"><a href="#对消息序列编号" class="header-anchor">#</a> 对消息序列编号</h2> <p><code>关键字autonumber</code></p> <div class="language- extra-class"><pre class="language-text"><code>
+autonumber
+Bob -&gt; Alice : Authentication Request
+Bob &lt;- Alice : Authentication Response
+</code></pre></div><img src="http://172.18.0.3:8080/png/TSp13O0W3030FrDq0HOmne0Zk05W4qYWLThkh_7l_t91D4srqLqoPRAHSRgTC_WDOcy5OO5eMf6qbQID2Gwy3KK_jVf_9HUJe0j8v_i_" alt="uml diagram"> <p><code>可以指定编号初始值和每次增加的值</code></p> <div class="language- extra-class"><pre class="language-text"><code>
+autonumber
+Bob -&gt; Alice : Authentication Request
+Bob &lt;- Alice : Authentication Response
+
+autonumber 15
+Bob -&gt; Alice : Another authentication Request
+Bob &lt;- Alice : Another authentication Response
+
+autonumber 40 10
+Bob -&gt; Alice : Yet another authentication Request
+Bob &lt;- Alice : Yet another authentication Response
+</code></pre></div><img src="http://172.18.0.3:8080/png/SoWkIImgAStDuKeiBSdFAyrDIYtYSifFKj2rKt3CoKnELR1IS2mjoKZDAybCJYp9pCzJ24ejB4qjBW6hij75hQgu83-lE9KBoM05GrCCi_FoWTgA51A9imENQYnscHWe61gWMnUPMgAGI9ALU7L0hNL8pKi11Y40" alt="uml diagram"> <p><code>可以在双引号内指定编号的格式，格式是由 Java 的DecimalFormat类实现的： (0 表示数字；# 也表示数字，但默认为0)，也可使用html标签指定格式</code></p> <img src="http://172.18.0.3:8080/png/bP0n2y8m44Rt_egZNNGGKz15OcZTNTn47DBsr49xfydb_nkAWr0hkh_ltkCABzP9wBl41c4AVOKEKbsParBgd2Oxhc1XeEpQ6c43PP0RahIrbPO93lW8w6MWz6AQydScZycx8ryFcfaE9ilqCfZvM4OSxpYmlqcdw0_obO9SHV-5IQ3cZjtMOMDYpnwzjrS4DQevee3zg-ZhubLL83Nn-qy0" alt="uml diagram"> <p><code>关键字autostart和autostop 表示自动编号开始和结束</code></p> <div class="language- extra-class"><pre class="language-text"><code>
+autonumber 10 10 &quot;&lt;b&gt;[000]&quot;
+Bob -&gt; Alice : Authentication Request
+Bob &lt;- Alice : Authentication Response
+
+autonumber stop
+Bob -&gt; Alice : dummy
+
+autonumber resume &quot;&lt;font color=red&gt;&lt;b&gt;Message 0  &quot;
+Bob -&gt; Alice : Yet another authentication Request
+Bob &lt;- Alice : Yet another authentication Response
+
+autonumber stop
+Bob -&gt; Alice : dummy
+
+autonumber resume 1 &quot;&lt;font color=blue&gt;&lt;b&gt;Message 0  &quot;
+Bob -&gt; Alice : Yet another authentication Request
+Bob &lt;- Alice : Yet another authentication Response
+</code></pre></div><img src="http://172.18.0.3:8080/png/nS-n2i9030RWlKyHkXUkgzJIkhkuYJZSjL4BTvTwIGRVtkfa5KLm43B-IRw_OR59DFZCgb3Ku311QMwJLwxU6MFsUROY1qKDhHywX0MqAYUCCdHM1egmmRCYoprL5UzJF59ap1u_iT3uVBtN42wpL4BMW1FeG56W8qzfcR2l9-0QcUqHmG2yCBSeO2DDYWJsA_B7ZL_vvRo0yuh_QT1Wd93-2W00" alt="uml diagram"> <h2 id="页面标题-页眉-页脚"><a href="#页面标题-页眉-页脚" class="header-anchor">#</a> 页面标题, 页眉, 页脚</h2> <ul><li>使用<code>title</code>关键词增加标题</li> <li>使用<code>header</code>关键词增加页眉</li> <li>使用<code>footer</code>关键词增加页脚</li></ul> <img src="http://172.18.0.3:8080/png/SoWkIImgAStDuIh9BCb9LN2jICmj0D8X81vNHcfYIcgHWWUOuahBpoy1yW8IqrCL31Noqu045rS1K7jcScP1Obw9WcDEPdAg0egGKtuI5nT4NDSEn5EmKiXDBIu6cc68Gzo8YyiXDIy5w2O0" alt="uml diagram"> <h2 id="分割示意图"><a href="#分割示意图" class="header-anchor">#</a> 分割示意图</h2> <p><code>关键字 newpage 用于把一张图分割成多张。 在 newpage 之后添加文字，作为新的示意图的标题。 这样就能很方便地在 Word 中将长图分几页打印。</code></p> <div class="language- extra-class"><pre class="language-text"><code>
+Alice -&gt; Bob : message 1
+Alice -&gt; Bob : message 2
+
+newpage
+
+Alice -&gt; Bob : message 3
+Alice -&gt; Bob : message 4
+
+newpage A title for the\nlast page
+
+Alice -&gt; Bob : message 5
+Alice -&gt; Bob : message 6
+</code></pre></div><img src="http://172.18.0.3:8080/png/SoWkIImgAStDuNBCoKnELT2rKt3AJrAmKiXDBIvEJ4zLCCGbOSJ5bPTQNW1aSk5IOenBmWIkLy5HeIIp92TL8Is_IA4a8pKcBoUnk4G1hx6ck2JCk1nIyrA0dW40" alt="uml diagram"> <h2 id="组合消息"><a href="#组合消息" class="header-anchor">#</a> 组合消息</h2> <p><code>关键词:</code></p> <ul><li><code>alt/else</code></li> <li><code>opt</code></li> <li><code>loop</code></li> <li><code>par</code></li> <li><code>break</code></li> <li><code>critical</code></li> <li><code>group</code>, 后面紧跟着消息内容</li></ul> <p><code>示例：</code></p> <div class="language- extra-class"><pre class="language-text"><code>
+participant Alice
+participant Bob
+participant Log
+
+Alice -&gt; Bob : 认证请求
+alt 成功情况
+    Bob -&gt; Alice : 认证接受
+else 某种失败情况
+    Bob -&gt; Alice : 认证失败
+
+    group 我自己的标签
+        Alice -&gt; Log :开始记录攻击日志
+        loop 1000次
+            Alice -&gt; Bob : DNS攻击
+        end
+        Alice -&gt; Log : 结束记录攻击日志
+    end
+else 另一种失败
+    Bob -&gt; Alice : 请重复
+end
+</code></pre></div><img src="http://172.18.0.3:8080/png/SoWkIImgAStDuIe0qfd9cGM9UIKAZZcPoQae8axvIIXyd_nqBYwmCWLTEv2iWfN2YtLBNgnlVB5--xEDJLo9EIKAppecFEsQ_wovzMdRLYu5802f0og7w8DfUDQtz6d_TAxKdE9KXMVp9pnVtljqoSONMvOIqWTHnGLMa5wKNre0j6_YY_PLJxTlV3whvTc2zkThzu4bGG3kLA335QoUxcbukhpxnReDJ_TEVJPbzzFstS-cBtswVpfSUKv-Ve62eO61mRCr2-62AEP0lEpY5mpH3rUKcfU2mrA5vxidFvix7uUj87tW87ZQl-p9ZWPuA63r__hjBzk1yhrS85qEG08OWG00" alt="uml diagram"> <h2 id="次级分组标签"><a href="#次级分组标签" class="header-anchor">#</a> 次级分组标签</h2> <p><code>关键字group，在标头处的[]之间显示次级文本和标签</code></p> <div class="language- extra-class"><pre class="language-text"><code>
+participant Alice
+participant Bob
+participant Log
+
+Alice -&gt; Bob : 认证请求
+Bob -&gt; Alice : 认证失败
+group 我自己的标签 [我自己的标签2]
+    Alice -&gt; Log : 开始记录攻击日志
+    loop 1000 次
+        Alice -&gt; Bob : DNS攻击
+    end
+    Alice -&gt; Log : 结束记录攻击日志
+end
+</code></pre></div><img src="http://172.18.0.3:8080/png/SoWkIImgAStDuIe0qfd9cGM9UIKAZZcPoQae8axvIIXyd_nqBYwmCWLTEv2iWfN2YtLBNgnlVB5--xEDJLmW8Q0CH0bCxkcIZI-sBELAByelBL1urZ7nHVkgfzitFf_Lycn1-_Er-nIYCSMCOhaKW01k5T1Ye75FzpGyNTxzOjs6ftkdFfko-sdxxcVJbpxTFnsiDYS_lq31qC30GE7PceLW4HGJ88vryGk6Q0GhICrBmMRDyzsJdysTZyKQa7e7804CE000" alt="uml diagram"> <h2 id="给消息添加注释"><a href="#给消息添加注释" class="header-anchor">#</a> 给消息添加注释</h2> <p><code>关键字：</code></p> <ul><li><code>note left</code> 消息左边添加注释</li> <li><code>note right</code> 消息右边添加注释</li> <li>以 <code>note left</code> 或 <code>note right</code> 开头，<code>end note</code> 结尾，添加多行注释</li></ul> <div class="language- extra-class"><pre class="language-text"><code>
+participant Alice 
+participant Bob
+
+Alice -&gt; Bob : hello 
+note left : this is a first note
+
+Bob -&gt; Alice : ok
+note right : this is another note
+
+Bob -&gt; Bob : I am thinking
+note left 
+    a note
+    can alse be defined
+    on saveral lines
+end note
+
+</code></pre></div><img src="http://172.18.0.3:8080/png/LP313S8m34Nldk8lm08z8E3666xhDb5Tfqe2y-CG3ZIo5Fl5Jr_AhLJEzRKh7Nx7AHvi5NUDa-247caawlnoRHC6155D84jLeB9KHpN40Y_64dEfQ6z4RTsjhWz8MtToNCD9SXeadwKUzGJlRS-sQEjV8i4FTwEr4njOYs0KpB94a_dBaw7mMp8hr64XiVcNS_FMF-03" alt="uml diagram"> <h2 id="其他的注释"><a href="#其他的注释" class="header-anchor">#</a> 其他的注释</h2> <p><code>关键字</code></p> <ul><li><code>note left of</code> 在节点左边添加关键字</li> <li><code>note right of</code> 在节点右边添加关键字</li> <li><code>note over</code> 在一个或多个节点之间添加关键字</li> <li><code>end note</code> 添加多行注释</li></ul> <p><strong>修改注释<a href="https://plantuml.com/zh/color" target="_blank" rel="noopener noreferrer">背景色<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></strong></p> <div class="language- extra-class"><pre class="language-text"><code>
+participant Alice 
+participant Bob
+note left of Alice #aqua
+This is displayed
+left of Alice.
+end note 
+
+note right of Alice : This is displayed right of Alice
+note over Alice : This is displayed over Alice
+note over Alice, Bob #FFAAAA: This is displayed\n over Bob and Alice.
+
+note over Bob,Alice 
+This is yet another
+example of 
+a long note
+end note
+
+</code></pre></div><img src="http://172.18.0.3:8080/png/VP1D3e8m48NtSuf9s18Fu0fSS0ANRaOwG9FIrbACtDxXHmKqDaqwwNplvSraNQGG-zQ0brUNsfEDc1jTCcw-JkuAraL6mrL4LorCGhUUuDpe3kKgtNb30olOK0TWgt1ImsmITDsiN8xuvR13PfcxS_WZ-RJtU3hcnwGeSZa_f1SxmoD5adM9lRAHJhgivQKUE0hiOiC1-46jDppc1KBZR3tD-nuSCgbapKy0" alt="uml diagram"> <h2 id="改变备注框的形状-hnote和rnote"><a href="#改变备注框的形状-hnote和rnote" class="header-anchor">#</a> 改变备注框的形状 [hnote和rnote]</h2> <p><code>关键字</code></p> <ul><li><code>hnote</code> 代表六边形的备注框</li> <li><code>rnote</code> 代表正方形的备注框</li></ul> <div class="language- extra-class"><pre class="language-text"><code>
+participant caller 
+participant server
+
+caller -&gt; server : conReq
+hnote over caller : 空闲
+
+server -&gt; caller : conConf
+rnote over server
+&quot;r&quot;是正边形
+&quot;h&quot;是六边形
+end note
+
+rnote over server
+多
+行
+文本
+end note
+
+hnote over caller
+多
+行
+文本
+end note
+
+</code></pre></div><img src="http://172.18.0.3:8080/png/SoWkIImgAStDuIe0qfd9cGM9UIKAoOavEQb52YXYnQb5PQb5N5nGELqxg8Y2bK9oVbvGQY5NHbv-IQf2FaWCgiXAuVdANI-dR-BYWge5we9B0NKvv-UbSHKXj47jK2fIUZPZ_RErYr_is_bqxo8kfGmG_sdhMYW_DIz50QI92ulUfqjcSRrOsCFrR5hxipbha9HYk0wtKWSW4nWa0000" alt="uml diagram"> <h2 id="在多个参与者添加备注"><a href="#在多个参与者添加备注" class="header-anchor">#</a> 在多个参与者添加备注</h2> <p><code>关键字</code></p> <ul><li>note across : 备注描述 跨越所有参与者的备注</li> <li>note over 参与者start, 参与者end: 备注描述</li></ul> <div class="language- extra-class"><pre class="language-text"><code>
+participant Alice
+participant Bob
+participant Charlie
+
+Alice -&gt; Bob : m1
+Bob -&gt; Charlie : m2
+
+note over Alice, Charlie : 创建跨越所有参与者的备注的旧方法：\n &quot;&quot;note over //FirstPart, LastPart//&quot;&quot;.
+
+note across : 新方法：\n&quot;&quot;note across&quot;&quot;
+
+Bob -&gt; Alice
+hnote across : 跨越所有参与者的备注
+
+</code></pre></div><img src="http://172.18.0.3:8080/png/SoWkIImgAStDuIe0qfd9cGM9UIKAZZcPoQae8axvIIXyvup4efpCL2uki585NJkG2WKhXLn3BX03o8Ug08aPSN7bvPUaAkINfHP1pDP1adxQCVlfxbqljgzuiQthMMV3ipcTJ_kRdkpeUz7G-dnMozCbxSyshm0odarV_cpQpcURfxxVCoicJq592M6alhvRPb5nIG3GVJeAFeaGbhw-af8UrEB4vAByucAWNS-cRK0o16e6H5P9YGlcT8ZtCr2rudSW5vT3QbuAC1m1" alt="uml diagram"> <h2 id="在同一级对齐多个备注"><a href="#在同一级对齐多个备注" class="header-anchor">#</a> 在同一级对齐多个备注 [/]</h2> <img src="http://172.18.0.3:8080/png/SoWkIImgAStDuIe0qfd9cGM9UIKAZZcPoQae8axvILnSUVabgGhvPQb540KALX3w-QoMfnrpdoxlVjwrxLb38vU-0a8XK1zG6OX4LyK5CKFN3g8a8pKd9v-Boo4rBmNe6W00" alt="uml diagram"> <h2 id="creole和html"><a href="#creole和html" class="header-anchor">#</a> Creole和HTML</h2> <p><a href="https://plantuml.com/zh/creole" target="_blank" rel="noopener noreferrer">可以使用creole格式。<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <div class="language- extra-class"><pre class="language-text"><code>
+participant Alice
+participant &quot;The **Famous** Bob&quot; as Bob
+
+Alice -&gt; Bob : hello --there--
+... Some ~~long delay~~ ...
+Bob -&gt; Alice : ok
+note left
+  This is **bold**
+  This is //italics//
+  This is &quot;&quot;monospaced&quot;&quot;
+  This is --stroked--
+  This is __underlined__
+  This is ~~waved~~
+end note
+
+Alice -&gt; Bob : A //well formatted// message
+note right of Alice
+ This is &lt;back:cadetblue&gt;&lt;size:18&gt;displayed&lt;/size&gt;&lt;/back&gt;
+ __left of__ Alice.
+end note
+note left of Bob
+ &lt;u:red&gt;This&lt;/u&gt; is &lt;color #118888&gt;displayed&lt;/color&gt;
+ **&lt;color purple&gt;left of&lt;/color&gt; &lt;s:red&gt;Alice&lt;/strike&gt; Bob**.
+end note
+note over Alice, Bob
+ &lt;w:#FF33FF&gt;This is hosted&lt;/w&gt; by &lt;img sourceforge.jpg&gt;
+end note
+</code></pre></div><img src="http://172.18.0.3:8080/png/PLB1Rgim4BpxArRqPZsmebugXAos1twWlIE3D-36iCWsZTe3trwRf0slHKY6sTsPsO577vGBosZP74_JcLbD0PwiwV0_97iT43YlrKYBvnoUgSr0-NGojhL3BjCRb32WjGHv7WPqcEUiA0fueH5XNIrDFMYqwcDT8U8iJSJ12qC9T68J1GIBny00NWVZ8TwSjsGrvpj821DKdF92xD0i6saYFwiETPRj2ddkWwCJwkZdXZRDCcbqraoecsPNMDUpUaUzhWmd3SdIdosVeeLpt1IEv4OL0ceXO4JlLO-N9PpfXm1qlCRvGrwrgZkLdT8OMhkWhBpvnFBm8BNnSum6TIKI92kHEYMBFbCWaQffBcJ5pTTFNaafVGwebjAXback4elS93kovE3kS7Y8rrveAqG9pgyzy-9cY_BA-Dq0bTz8D_LeBpXpmYqApd-ReNTq5vl_heREvLrTtz_NjVpEO20ValnPGli1bHbxyBIu3cEQFHPlSozlh8_nAVwYNm00" alt="uml diagram"> <h2 id="分隔符"><a href="#分隔符" class="header-anchor">#</a> 分隔符</h2> <p><code>关键字</code></p> <ul><li><code>==</code> 将图标分割成多个逻辑步骤</li></ul> <div class="language- extra-class"><pre class="language-text"><code>
+participant Alice
+participant Bob
+
+== 初始化 ==
+Alice -&gt; Bob : 认证请求
+Bob --&gt; Alice : 认证响应
+
+== 重复 ==
+Alice -&gt; Bob : 认证请求
+Bob --&gt; Alice : 认证响应
+</code></pre></div><img src="http://172.18.0.3:8080/png/SoWkIImgAStDuIe0qfd9cGM9UIKAZZcPoQae8axvILnSjhOAJplcFbtU_RHdceAjBHTOcOAk7KXMmKhXnRebBzOtlbY__Td69YwGa2vG2g869lbqSk_JNLF09hrixtswf9SYOnnIyrA0JWS0" alt="uml diagram"> <h2 id="引用"><a href="#引用" class="header-anchor">#</a> 引用</h2> <p><code>关键字</code></p> <ul><li><code>ref over</code> 实现引用</li></ul> <div class="language- extra-class"><pre class="language-text"><code>
+participant Alice
+actor Bob
+
+ref over Alice, Bob : init 
+
+Alice -&gt; Bob : hello
+
+ref over Bob
+This can be on
+serveral lines
+end ref
+</code></pre></div><img src="http://172.18.0.3:8080/png/JOv13i9024NtdE8VG2_WmbJFu0NeI5CIX8OPFRzKNRY2lFSXV-g3SpmVHbjDRRgn3rnCcn2t4Obhp4Gf2-8b-JM77U84THqW-Z0Spp-wYbdydUmFRgjsD7RCWd3gacNOOEhIIVoEYjDKIrLv0m00" alt="uml diagram"> <h2 id="延迟"><a href="#延迟" class="header-anchor">#</a> 延迟</h2> <p><code>关键字</code></p> <ul><li><code>...</code> 表示延迟，并且还可以给延迟添加注释</li></ul> <div class="language- extra-class"><pre class="language-text"><code>
+participant Alice
+participant Bob
+
+Alice -&gt; Bob : 认证请求
+...
+
+Bob --&gt; Alice : 认证响应
+...
+
+Bob -&gt; Alice : 再见！
+</code></pre></div><img src="http://172.18.0.3:8080/png/SoWkIImgAStDuIe0qfd9cGM9UIKAZZcPoQae8axvILnSO645NJiGJy5AuSMw9I_MDxvOl_tPnYOkFJqzBYwGk2vG7g8GfkBfvDwdkwOWgK0eUDhM-s9vu_izZLnS3gbvAK1t0000" alt="uml diagram"> <h2 id="空间"><a href="#空间" class="header-anchor">#</a> 空间</h2> <p><code>可以使用 ||| 来增加空间</code></p> <p><code>还可以使用数字指定增加的像素数量</code></p> <div class="language- extra-class"><pre class="language-text"><code>
+Alice -&gt; Bob: message 1
+Bob --&gt; Alice: ok
+|||
+Alice -&gt; Bob: message 2
+Bob --&gt; Alice: ok
+||45||
+Alice -&gt; Bob: message 3
+Bob --&gt; Alice: ok
+</code></pre></div><img src="http://172.18.0.3:8080/png/SoWkIImgAStDuNBCoKnELT2rKt3AJx9Io4qjBavCJrKmv09o5NI1mc1vAuNyRAwQcXeSgesmgZOnnQd168i6XzIy5A230000" alt="uml diagram"> <h2 id="生命线的激活与撤销"><a href="#生命线的激活与撤销" class="header-anchor">#</a> 生命线的激活与撤销</h2> <p><code>使用关键字activate和deactivate用来表示参与者的生命活动</code></p> <p><code>destroy表示一个参与者的生命线结束</code></p> <div class="language- extra-class"><pre class="language-text"><code>
+participant User
+participant A
+participant B
+participant C
+
+User -&gt; A : Dowork
+activate A
+
+A -&gt; B : &lt;&lt; createRequest &gt;&gt;
+activate B
+
+B -&gt; C : DoWork
+activate C
+
+C --&gt; B : WorkDone
+destroy C
+
+B --&gt; A : RequestCreated
+deactivate B
+
+A -&gt; User : Done
+deactivate A
+
+</code></pre></div><img src="http://172.18.0.3:8080/png/LP112iCW44NtSugvG2vGWaJD2GgbQz5PI5jDZMdexJiZWSQLpFpl-v-PrkfAtLvFMFYDFYukLRojLBg5xYRJJHP0_3Wer7Z1EU-vFC3v6Z-k4dy5BPfXRHpH5-BjbTuRhHML-XiDW16ZRP1x1-4CYyD14MdEYI0mekIlgAQfad-WRSi9x3a7j2QjhMGqnBdeH2dmBNu0" alt="uml diagram"> <p><code>使用嵌套的生命线，并且运行给生命线添加颜色。</code></p> <div class="language- extra-class"><pre class="language-text"><code>
+participant User
+participant A
+participant B
+
+User -&gt; A : DoWork
+activate A #FFBBBB
+
+A -&gt; A : Internal call
+activate A #DarkSalmon
+
+A -&gt; B : &lt;&lt; createRequest &gt;&gt;
+activate B
+
+B --&gt; A : RequestCreated
+deactivate A
+deactivate B
+
+A -&gt; User :Done 
+deactivate A
+
+</code></pre></div><img src="http://172.18.0.3:8080/png/LT312eCm30RWUvuYiBCl82BQYR3hnjWvr1p4shesxlcNYUAQIqduyXFQ9A4ew-nWqNUquq9Uy9auPeCswmp0Js1HOuibTk4LuWHaPVoGiCukVM-q0Dh3tBnmzEJGadCPxIXE3t9py3itogiARMGLTtwld0Jh-bpIN8F57ho3wwO76FZC_c-EMxQxoovunjn2mtxGV_W2" alt="uml diagram"> <p><code>使用关键字 autoactivate 自动激活，需要配合关键字 return</code></p> <div class="language- extra-class"><pre class="language-text"><code>
+autoactivate on
+participant alice
+participant bob
+participant bill
+
+alice -&gt; bob : hello
+bob -&gt; bob : seft call
+bill -&gt; bob : hello form thread 2
+bob -&gt; george : create
+bob --&gt; bill : done in thread 2
+bob --&gt; bob : rc
+bob -&gt; george !! : delete
+bob --&gt; alice : success 
+
+</code></pre></div><img src="http://172.18.0.3:8080/png/NP313eCW38RlVOgQdPUG9LuyBBvAhLL940pKFVzW1ZEzmSV_VstearBKVNL0kmPYjHzImU1XozootSWhahCi5pA4uNgtpW7ySlXybsViS17d0fJpYP9CYamvN1gLFunfMsDg1QSGLzGb2etuge9PGfmbPpXpbGCNGH5rE0OlQFsjTWwEVFCqJIc9ap_LiN_UScUMb12W5p_ct_a2" alt=""> <h2 id="返回"><a href="#返回" class="header-anchor">#</a> 返回</h2> <p><code>新命令return可以用于生成一个带有可选文本标签的返回信息。返回的点是导致最近一次激活生命线的点。语法是简单的返回标签，其中标签（如果提供）可以是传统信息中可以接受的任何字符串。</code></p> <div class="language- extra-class"><pre class="language-text"><code>
+Bob -&gt; Alice : hello
+activate Alice
+Alice -&gt; Alice : some action
+return bye
+
+</code></pre></div><pre>undefined</pre><h2 id="创建参与者"><a href="#创建参与者" class="header-anchor">#</a> 创建参与者</h2> <p><code>关键字</code></p> <ul><li><code>create</code> 放在第一次接收到消息之前，以强调本次消息实际上是在创建新的对象。</li></ul> <div class="language- extra-class"><pre class="language-text"><code>
+participant Bob
+participant Alice
+participant Other
+control String
+
+Bob -&gt; Alice : hello
+
+create Other
+Alice -&gt; Other : new 
+
+create String
+Alice -&gt; String
+
+note right String : You can also put notes!
+Alice -&gt; Bob : ok
+
+</code></pre></div><img src="http://172.18.0.3:8080/png/LOyn3i8m34Ltdy8SW0jqG8KBC30nXc0r4S6E4aTSlouDHPsix__-bprMTKNREq6s6NtCZXKlyjZfSugUTfkh1YhWXRL8mfkMo1E0vV1uMd4SC51A0k0BEQKUMJs3lj8WfWzkJ2_Qe5ynYvabJa7xoe9tQUWTeqjLC3V51Qg7VtYvPa1v0Op4J_jn1W00" alt="uml diagram"> <h2 id="激活、撤销和创建的快捷语法"><a href="#激活、撤销和创建的快捷语法" class="header-anchor">#</a> 激活、撤销和创建的快捷语法</h2> <p>在指定目标参与者后，可以立即使用以下语法：</p> <ul><li><code>++</code> 激活目标（可选择在后面加上<a href="https://plantuml.com/zh/color" target="_blank" rel="noopener noreferrer">#color<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>）</li> <li><code>--</code> 撤销激活源</li> <li><code>**</code> 创建目标实例</li> <li><code>!!</code> 摧毁目标实例</li></ul> <img src="http://172.18.0.3:8080/png/NOyn3eCm34LtdyAe6wXI5fOE5LT9d5yQoKrG4kxVm40Ba_t_UnuybMfpNJzAIvj1mc9ZPQj1S6fSSkSS7D6kyVsvKHu6Vl0Rgecs-DyMw8l5gXuax8HlneoZCTV36IdFuBvlG39i1MNKDKVsAHvxbelVTSttKFpyiegW5A89qRSllm00" alt="uml diagram"> <p><code>在一行上同时激活和撤销</code></p> <div class="language- extra-class"><pre class="language-text"><code>
+participant alice
+participant bob
+participant charlie 
+
+alice -&gt; bob ++: hello1
+bob -&gt; charlie --++ : hello2
+charlie --&gt; alice : ok
+</code></pre></div><img src="http://172.18.0.3:8080/png/SoWkIImgAStDuIe0qfd9cGM9UIKAYJcPoQae8advIIZyv8p4efpCL0KkBh1Q1Lqxa185RMqhXOpKd9nyGouG5oWAKwYhgwsj09KquaA8sa4i0qhbPtCvfEQb0Dq20000" alt="uml diagram"> <h2 id="进入和发出消息"><a href="#进入和发出消息" class="header-anchor">#</a> 进入和发出消息</h2> <p><code>如果只想关注部分图示，你可以使用进入和发出箭头</code></p> <p><code>使用方括号[和]表示图示的左、右两侧</code></p> <div class="language- extra-class"><pre class="language-text"><code>
+participant A
+
+[-&gt; A : Dowork
+activate A 
+
+A -&gt; A : Internal call
+activate A
+
+A -&gt;] : &lt;&lt; createRequest &gt;&gt;
+
+A&lt;--] : RequestCreated
+
+[&lt;- A: Done
+deactivate A
+</code></pre></div><img src="http://172.18.0.3:8080/png/JOun3eCm34Ltdy8No0MgA29gbwvTAmOhyH0r61eCNB-6CZ1PUl_fVtUpKjDbg33PBQbC98eHuEq2HhpXOzp6zW5AMbPIDWOGyGoVejo4AYQgzUBybTuCxp4rDlZYxyApOWWMUkVsy6JtGyYswHt6VL8OCb_gEfPiF_u0" alt="uml diagram"> <h2 id="缩短的进入信息与发出信息箭头"><a href="#缩短的进入信息与发出信息箭头" class="header-anchor">#</a> 缩短的进入信息与发出信息箭头</h2> <p><code>使用? 来显示缩短的箭头</code></p> <div class="language- extra-class"><pre class="language-text"><code>
+participant Alice
+participant Bob
+
+?-&gt; Alice : ?-&gt;\nshow to actor1
+?-&gt; Bob : [-&gt;\nfrom start to actor1
+[-&gt; Bob : [-&gt;\nfrom start to actor2
+?-&gt; Bob : ?-&gt;\nshort to actor1
+Alice -&gt;] : -&gt;]\nfrom actor1 to end
+Alice -&gt;? : -&gt;?\nshort from actor1
+Alice -&gt; Bob : -&gt;/nfrom actor1 to actor2
+</code></pre></div><img src="http://172.18.0.3:8080/png/SoWkIImgAStDuIe0qfd9cGM9UIKAZZcPoQae8axvILnSzhfs42a5AmKWEoQlE2E_NA4aNo4nkII_o10i3rG8b8q6oQOLvUSgWCr7KXDDK8qHaZamMr2CW3X1rouMg018GWs1I8AKfUQbmDNOWzNOmmn1KWbN0hLArquVtI2eSno01W932000" alt="uml diagram"> <h2 id="锚定和持续时间"><a href="#锚定和持续时间" class="header-anchor">#</a> 锚定和持续时间</h2> <p><code>使用teoz在图表中添加锚定，从而指定持续时间</code></p> <img src="http://172.18.0.3:8080/png/LOzB3i8m34JtFeKv01Ue42hiEKHeJMEf-IXn9KJLkzT94AYRH3D-CudxB2R9ucOunMGcPr0eV53IGW1HHpnmD5xmDlD01-SUdWVzC6-0jVPj3SVpjL3OONLn3Emd5Ajdnd59HUbbX8E70YglBOKFZYe7HVzhrBPIOZHdWfNykE4ts5xiyCMUi_rzvAAZnhKu2ZjThLTBjzu1" alt="uml diagram"> <h2 id="构造类型和圈点"><a href="#构造类型和圈点" class="header-anchor">#</a> 构造类型和圈点</h2> <p><code>可以使用&lt;&lt;和&gt;&gt;给参与者添加构造类型</code></p> <p><code>在构造类型中，你可以使用(X,color)格式的语法添加一个圆圈圈起来的字符</code></p> <div class="language- extra-class"><pre class="language-text"><code>
+participant &quot;Famous Bob&quot; as Bob &lt;&lt; Generated &gt;&gt;
+participant Alice &lt;&lt; (C,#ADD1B2) Testable &gt;&gt;
+
+Bob-&gt;Alice: First message
+</code></pre></div><img src="http://172.18.0.3:8080/png/SoWkIImgAStDuIe0qfd9cGM9UIKAIcw9kVcbnGfE-KbA2ebWMi76Hi4zDI-rAB4aDKN1pWv5lMDEPd8gI8M6iuwoeukBePEHfa98Aj3if9nKa68ke0cwTc1bLWfkcKN59GgvgSN5YUcfN0wfUIb0-m40" alt="uml diagram"> <p><code>默认使用 guillemet 字符来显示构造类型。 你可以使用外观参数 guillemet 来修改显示行</code></p> <div class="language- extra-class"><pre class="language-text"><code>
+skinparam guillemet false
+participant &quot;Famous Bob&quot; as Bob &lt;&lt; Generated &gt;&gt;
+participant Alice &lt;&lt; (C,#ADD1B2) Testable &gt;&gt;
+
+Bob-&gt;Alice: First message
+</code></pre></div><img src="http://172.18.0.3:8080/png/LSvD2i9030NW_PmYr8s2BdGffVIFUW4laBQn13FJCidStsbthWAFZ_TIgs6qvCNfbyE64JqiYKN8ay47HSdbr7ZY3OD1CQ1VaqAxZWNWSQ4iuKM18XhDK5L_lX6UQ1Vdxdfg-lxUFYxmfhmw2ktOvOPRTR0d31pLm9CgBkHg2dF-x0S0" alt="uml diagram"> <h2 id="更多标题信息"><a href="#更多标题信息" class="header-anchor">#</a> 更多标题信息</h2> <p>你可以在标题中使用<a href="https://plantuml.com/zh/creole" target="_blank" rel="noopener noreferrer">creole<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>格式。</p> <div class="language- extra-class"><pre class="language-text"><code>
+title __Simple__ **communication** example
+
+Alice -&gt; Bob: Authentication Request
+Bob -&gt; Alice: Authentication Response
+</code></pre></div><img src="http://172.18.0.3:8080/png/RSr12eCm44RX_PnYrW4lq8MeHsWF4DBuGmUIYJKJwF6DqgNhzy6RgeNTMavaOWdi_Klobk0zEnTBpaqb1fEYpZ5-uMn4Sv887aPUoll1SxCFrFwEd_WsLAFUJdBP6rIteXKqGTU-Fm00" alt="uml diagram"> <p><code>还可以使用关键字title和end title定义多行标题</code></p> <div class="language- extra-class"><pre class="language-text"><code>
+title
+ &lt;u&gt;Simple&lt;/u&gt; communication example
+ on &lt;i&gt;several&lt;/i&gt; lines and using &lt;font color=red&gt;html&lt;/font&gt;
+ This is hosted by &lt;img:sourceforge.jpg&gt;
+end title
+
+Alice -&gt; Bob: Authentication Request
+Bob -&gt; Alice: Authentication Response
+</code></pre></div><img src="http://172.18.0.3:8080/png/ROz13i8m30JlUOK_0DnHY80d01z8MzCQ9N697GI_nmLnG_B1yevNktlHMBNbv9GqeGFVmfdodD1lMe2USsw5-gZ41V0P5yM1xPw2u0DhJ7v30H8L58XbW2PKHl1NBchlYUkkuX0cpGOkn-3WCf60pSIYE43tChSyReLRxV7ATSJrRHw3GxFxndA7H3t2Ai2HkoqScavOz9VhXFU6eiwq1VcmVo2PkGYwlTbQuJS0" alt="uml diagram"> <h2 id="包裹参与者"><a href="#包裹参与者" class="header-anchor">#</a> 包裹参与者</h2> <p>可以使用 <code>box</code> 和 <code>end box</code> 画一个盒子将参与者包裹起来。</p> <p>还可以在 <code>box</code> 关键字之后添加标题或者背景颜色。</p> <div class="language- extra-class"><pre class="language-text"><code>
+box &quot;Internal Service&quot; #LightBlue
+    participant Bob
+    participant Alice
+end box
+
+participant Other
+Bob -&gt; Alice : hello
+Alice -&gt; Other : hello
+</code></pre></div><img src="http://172.18.0.3:8080/png/SoWkIImgAStDuU9AogzGKFBCAqajoalCKGXEBIhBJ4vLKb3soKpFA77AAKtbKW220g3opEJCWiIy4WMd_2GCCSSSe2wkrBmK1Q1vN5p8Klub6Qb5N41D2hfs47KALWePgJav-LmG7b0Oh0OkpEK0D0ZeE000" alt="uml diagram"> <h2 id="移除脚注"><a href="#移除脚注" class="header-anchor">#</a> 移除脚注</h2> <p><code>关键字</code></p> <ul><li><code>hide footbox</code> 用来移除脚注</li></ul> <div class="language- extra-class"><pre class="language-text"><code>
+hide footbox
+title Footer removed
+
+Alice -&gt; Bob: Authentication Request
+Bob --&gt; Alice: Authentication Response
+</code></pre></div><img src="http://172.18.0.3:8080/png/RSt13OCm44JH-rQn3T103WWuf81q07WGAnbliCSevSVYp77qdpH3uPnPZoYx1UZcpiL_GcE4ljj2rep3BmIHCTeAxNgTV7dfMBaZqTQPvaa_E2iAfJNjchdnWofVJmKo88Ls-mS0" alt="uml diagram"> <h2 id="外观参数"><a href="#外观参数" class="header-anchor">#</a> 外观参数</h2> <p>用<a href="https://plantuml.com/zh/skinparam" target="_blank" rel="noopener noreferrer">skinparam<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>改变字体和颜色。可以在如下场景中使用：</p> <ul><li>在图示的定义中，</li> <li><a href="https://plantuml.com/zh/preprocessing" target="_blank" rel="noopener noreferrer">在引入的文件中<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>，</li> <li>在<a href="https://plantuml.com/zh/command-line" target="_blank" rel="noopener noreferrer">命令行<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>或者<a href="https://plantuml.com/zh/ant-task" target="_blank" rel="noopener noreferrer">ANT任务<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>提供的配置文件中。</li></ul> <p>你也可以修改其他渲染元素，如以下示例：</p> <div class="language- extra-class"><pre class="language-text"><code>
+skinparam sequenceArrowThickness 2
+skinparam roundcorner 20
+skinparam maxmessagesize 60
+skinparam sequenceParticipant underline
+
+actor User
+participant &quot;First Class&quot; as A
+participant &quot;Second Class&quot; as B
+participant &quot;Last Class&quot; as C
+
+User -&gt; A: DoWork
+activate A
+
+A -&gt; B: Create Request
+activate B
+
+B -&gt; C: DoWork
+activate C
+C --&gt; B: WorkDone
+destroy C
+
+B --&gt; A: Request Created
+deactivate B
+
+A --&gt; User: Done
+deactivate A
+</code></pre></div><img src="http://172.18.0.3:8080/png/RP6xRiCm34LtVGMHFK2GeKE68fA2JXcAFj2Pa8bMi2svfDpNrrTq0rH6k_hSUmy57wKWbtaSZFGnJSWuWj3hJ2cGPSxl3oynz8b4ODz4EC-f2vaJCUnt3HZnOwnXV2Q9NmHNktzsRwinXZXXAb1dY8UOo1WC9JCy2h6PciJc9h8Ky0EAR005x1hVKyYfQxXRypEksjuOLS3s6km1JlafSw_g-8Q5whQnYjm1F9D-kTEZfVn6d35E8_vlsniFsv-sWbEkp-fgcVEdUjq2g_MoUL5qDTEksoMcHwfXcMZkErBgwk_w1W00" alt="uml diagram"> <div class="language- extra-class"><pre class="language-text"><code>
+skinparam backgroundColor #EEEBDC
+skinparam handwritten true
+
+skinparam sequence {
+ArrowColor DeepSkyBlue
+ActorBorderColor DeepSkyBlue
+LifeLineBorderColor blue
+LifeLineBackgroundColor #A9DCDF
+
+ParticipantBorderColor DeepSkyBlue
+ParticipantBackgroundColor DodgerBlue
+ParticipantFontName Impact
+ParticipantFontSize 17
+ParticipantFontColor #A9DCDF
+
+ActorBackgroundColor aqua
+ActorFontColor DeepSkyBlue
+ActorFontSize 17
+ActorFontName Aapex
+}
+
+actor User
+participant &quot;First Class&quot; as A
+participant &quot;Second Class&quot; as B
+participant &quot;Last Class&quot; as C
+
+User -&gt; A: DoWork
+activate A
+
+A -&gt; B: Create Request
+activate B
+
+B -&gt; C: DoWork
+activate C
+C --&gt; B: WorkDone
+destroy C
+
+B --&gt; A: Request Created
+deactivate B
+
+A --&gt; User: Done
+deactivate A
+</code></pre></div><img src="http://172.18.0.3:8080/png/TPB1JiCm44Jl_Wghd7lWXEW1rNPQ2Qb2Y0fntiOBM4diTErG2kBViPEAEgcuxfkTcRMyz04eT4tDV6Li2mGDtq5PlP7hh5QkTiIlLgkLB5IcU0Uh3sH2GCi3TSWovd7VeIsHVpD1v0w3Hu7ORgkZhADObC6HTAIHBk76lEB6MCpvRWIcxSHjeOerOu_n45EQ5cpuppoNJ6mAfz-Gfggri-416kJtJGjbcAAj-K9-VJCTJueDzqxoOD_1GCuR5u-KP_mD-Zu2MlnaFun16lDdZyJQSmi-MnloWQiQl9zny5oCyHPBPtN6vPXlOBIj64iHV7x7nIA-rOkZAaMR3mYnJBmn8RdWYZ1Ddj8dyE4iaOp9956NsuefFX-s4oYSHQRZChbZofKzZAadprE4ZfhSNVIoL38bz1PPloLQ7J_vBm00" alt="uml diagram"> <p><code>填充区设置</code></p> <div class="language- extra-class"><pre class="language-text"><code>
+skinparam ParticipantPadding 20
+skinparam BoxPadding 10
+
+box &quot;Foo1&quot;
+participant Alice1
+participant Alice2
+end box
+box &quot;Foo2&quot;
+participant Bob1
+participant Bob2
+end box
+Alice1 -&gt; Bob1 : hello
+Alice1 -&gt; Out : out
+</code></pre></div><img src="http://172.18.0.3:8080/png/PS_13e8m383XUv-YuMx2TlHWa8DNUON25bqSwm9TmkFJQ1JKwzz-JThCGfEKCSBy22dJH2DsMi8GCYNfoBcGRcZhtRpbvTrD3T3pWjM5sLIGDudd60Pl_fC5dnmg-a3x3LlkpM_OqEii7axFFJpYtSV8ktmjefMBGAD6Fri1" alt="uml diagram"> <h2 id="附录-箭头类型大全"><a href="#附录-箭头类型大全" class="header-anchor">#</a> 附录：箭头类型大全</h2> <div class="language- extra-class"><pre class="language-text"><code>
+participant Alice as a
+participant Bob   as b
+a -&gt;     b : &quot;&quot;-&gt;   &quot;&quot;
+a -&gt;&gt;    b : &quot;&quot;-&gt;&gt;  &quot;&quot;
+a -\     b : &quot;&quot;-\   &quot;&quot;
+a -\\    b : &quot;&quot;-\\\\&quot;&quot;
+a -/     b : &quot;&quot;-/   &quot;&quot;
+a -//    b : &quot;&quot;-//  &quot;&quot;
+a -&gt;x    b : &quot;&quot;-&gt;x  &quot;&quot;
+a x-&gt;    b : &quot;&quot;x-&gt;  &quot;&quot;
+a o-&gt;    b : &quot;&quot;o-&gt;  &quot;&quot;
+a -&gt;o    b : &quot;&quot;-&gt;o  &quot;&quot;
+a o-&gt;o   b : &quot;&quot;o-&gt;o &quot;&quot;
+a &lt;-&gt;    b : &quot;&quot;&lt;-&gt;  &quot;&quot;
+a o&lt;-&gt;o  b : &quot;&quot;o&lt;-&gt;o&quot;&quot;
+a x&lt;-&gt;x  b : &quot;&quot;x&lt;-&gt;x&quot;&quot;
+a -&gt;&gt;o   b : &quot;&quot;-&gt;&gt;o &quot;&quot;
+a -\o    b : &quot;&quot;-\o  &quot;&quot;
+a -\\o   b : &quot;&quot;-\\\\o&quot;&quot;
+a -/o    b : &quot;&quot;-/o  &quot;&quot;
+a -//o   b : &quot;&quot;-//o &quot;&quot;
+a x-&gt;o   b : &quot;&quot;x-&gt;o &quot;&quot;
+
+</code></pre></div><img src="http://172.18.0.3:8080/png/LPBB2eCm54JtViKbUyc-X63x7Tb4wqAmZbGBVdxDmsJC9jp3S3CSqcsx_-w_pzoivpqDq-gNNPxpD8pYD_4t_48l4d3VU6cjXDFBGvIAWr8HMyRsmexJhgITOtoUX3MdTKbhpLYN9mz-yiZuQAb97286OnJSMl0Ir3GuZOGDBp5rjudnd0v3Qc9Ygzma39Sgi2fSJhY9GrM5kofaAHpNgAx0hb2aWAL4t7JZyZx_m1y0" alt="uml diagram"> <p><code>进入信息和发出信息（使用'[', ']'）</code></p> <p><code>进入信息（使用'['）</code></p> <div class="language- extra-class"><pre class="language-text"><code>
+ participant Alice as a
+participant Bob   as b
+[-&gt;      b : &quot;&quot;[-&gt;   &quot;&quot;
+[-&gt;&gt;     b : &quot;&quot;[-&gt;&gt;  &quot;&quot;
+[-\      b : &quot;&quot;[-\   &quot;&quot;
+[-\\     b : &quot;&quot;[-\\\\&quot;&quot;
+[-/      b : &quot;&quot;[-/   &quot;&quot;
+[-//     b : &quot;&quot;[-//  &quot;&quot;
+[-&gt;x     b : &quot;&quot;[-&gt;x  &quot;&quot;
+[x-&gt;     b : &quot;&quot;[x-&gt;  &quot;&quot;
+[o-&gt;     b : &quot;&quot;[o-&gt;  &quot;&quot;
+[-&gt;o     b : &quot;&quot;[-&gt;o  &quot;&quot;
+[o-&gt;o    b : &quot;&quot;[o-&gt;o &quot;&quot;
+[&lt;-&gt;     b : &quot;&quot;[&lt;-&gt;  &quot;&quot;
+[o&lt;-&gt;o   b : &quot;&quot;[o&lt;-&gt;o&quot;&quot;
+[x&lt;-&gt;x   b : &quot;&quot;[x&lt;-&gt;x&quot;&quot;
+[-&gt;&gt;o    b : &quot;&quot;[-&gt;&gt;o &quot;&quot;
+[-\o     b : &quot;&quot;[-\o  &quot;&quot;
+[-\\o    b : &quot;&quot;[-\\\\o&quot;&quot;
+[-/o     b : &quot;&quot;[-/o  &quot;&quot;
+[-//o    b : &quot;&quot;[-//o &quot;&quot;
+[x-&gt;o    b : &quot;&quot;[x-&gt;o &quot;&quot;
+</code></pre></div><img src="http://172.18.0.3:8080/png/NPB12eCm44JlViMIk-HUGh3zZUOIhGV1Ej9QyFDh4ZTqcfFxc6o6XzrxYw_jyvmRMO-FQPZMk6nodQTXbFYMsFpY6tgHXFlctdh9fvUB65D6OnBtpFt90-U3vaDWVfpCBUUjvgrbRlNTdT_T2zzRwfF7nC4SobiFteEQ1-UHkUCzhkvtvOBcqvZxkD9K-wJnz0RsXjCFzmcetl3l3KKGNx2eui3Ye8B0WZBlnkLn_1TV" alt="uml diagram"> <p><code>发出信息（使用']'）</code></p> <div class="language- extra-class"><pre class="language-text"><code>
+participant Alice as a
+participant Bob   as b
+a -&gt;]      : &quot;&quot;-&gt;]   &quot;&quot;
+a -&gt;&gt;]     : &quot;&quot;-&gt;&gt;]  &quot;&quot;
+a -\]      : &quot;&quot;-\]   &quot;&quot;
+a -\\]     : &quot;&quot;-\\\\]&quot;&quot;
+a -/]      : &quot;&quot;-/]   &quot;&quot;
+a -//]     : &quot;&quot;-//]  &quot;&quot;
+a -&gt;x]     : &quot;&quot;-&gt;x]  &quot;&quot;
+a x-&gt;]     : &quot;&quot;x-&gt;]  &quot;&quot;
+a o-&gt;]     : &quot;&quot;o-&gt;]  &quot;&quot;
+a -&gt;o]     : &quot;&quot;-&gt;o]  &quot;&quot;
+a o-&gt;o]    : &quot;&quot;o-&gt;o] &quot;&quot;
+a &lt;-&gt;]     : &quot;&quot;&lt;-&gt;]  &quot;&quot;
+a o&lt;-&gt;o]   : &quot;&quot;o&lt;-&gt;o]&quot;&quot;
+a x&lt;-&gt;x]   : &quot;&quot;x&lt;-&gt;x]&quot;&quot;
+a -&gt;&gt;o]    : &quot;&quot;-&gt;&gt;o] &quot;&quot;
+a -\o]     : &quot;&quot;-\o]  &quot;&quot;
+a -\\o]    : &quot;&quot;-\\\\o]&quot;&quot;
+a -/o]     : &quot;&quot;-/o]  &quot;&quot;
+a -//o]    : &quot;&quot;-//o] &quot;&quot;
+a x-&gt;o]    : &quot;&quot;x-&gt;o] &quot;&quot;
+</code></pre></div><img src="http://172.18.0.3:8080/png/LPAz3iCW38JtF8N57dclK9JsESX0VeP8QOYQLEBnIsmGLnPq7sTZJlJdvJ_NzxqrHzhNQJtyVj5pMwU5_4d-3x_2I7JZiV7KTWF9Uf0nAemHdW-KtqAvGx-hVkV0xz8Qb3FwkVgPmIyYtnlntbXuR64U5S83yb1vsmNi4y2l1zcVX72BVIpqjxb0_29q7fidbNb4bDngVnKv7vp7XPgd0_-TMoZ1OG7N0cOe4542gZoMX_NBFgTlyGC0" alt="uml diagram"> <p><code>短进入信息和短发出信息（使用'?'）</code></p> <p><code>短进入信息（使用'?'）</code></p> <div class="language- extra-class"><pre class="language-text"><code>
+participant Alice as a
+participant Bob   as b
+a -&gt;     b : //Long long label//
+?-&gt;      b : &quot;&quot;?-&gt;   &quot;&quot;
+?-&gt;&gt;     b : &quot;&quot;?-&gt;&gt;  &quot;&quot;
+?-\      b : &quot;&quot;?-\   &quot;&quot;
+?-\\     b : &quot;&quot;?-\\\\&quot;&quot;
+?-/      b : &quot;&quot;?-/   &quot;&quot;
+?-//     b : &quot;&quot;?-//  &quot;&quot;
+?-&gt;x     b : &quot;&quot;?-&gt;x  &quot;&quot;
+?x-&gt;     b : &quot;&quot;?x-&gt;  &quot;&quot;
+?o-&gt;     b : &quot;&quot;?o-&gt;  &quot;&quot;
+?-&gt;o     b : &quot;&quot;?-&gt;o  &quot;&quot;
+?o-&gt;o    b : &quot;&quot;?o-&gt;o &quot;&quot;
+?&lt;-&gt;     b : &quot;&quot;?&lt;-&gt;  &quot;&quot;
+?o&lt;-&gt;o   b : &quot;&quot;?o&lt;-&gt;o&quot;&quot;
+?x&lt;-&gt;x   b : &quot;&quot;?x&lt;-&gt;x&quot;&quot;
+?-&gt;&gt;o    b : &quot;&quot;?-&gt;&gt;o &quot;&quot;
+?-\o     b : &quot;&quot;?-\o  &quot;&quot;
+?-\\o    b : &quot;&quot;?-\\\\o &quot;&quot;
+?-/o     b : &quot;&quot;?-/o  &quot;&quot;
+?-//o    b : &quot;&quot;?-//o &quot;&quot;
+?x-&gt;o    b : &quot;&quot;?x-&gt;o &quot;&quot;
+</code></pre></div><img src="http://172.18.0.3:8080/png/NPBD2iCW48JlUOh5UzXx4Plst4Vmecae0PiDJGfv_CPVc7fGzdDs7GQ7RNUV_ViEtNgUypYlRjdf5kPn8hUH0tmNJnInxnprXkBoT27cXoml2cbpVWhCtRNS9u5IkLGgSeFS56vHRwlUMkJdIfnHprNFZ9phkmU-UsH-zE0dbP4BSgcyDu9pfEa5zPAunZcwpTUveUfZcVpexBJwYMN9JJ0tAVcW7oijD_dFhNGmTh2qv0IJavgGO4A93zFoF3_E3m00" alt="uml diagram"> <p><code>短发出信息（使用'?'）</code></p> <div class="language- extra-class"><pre class="language-text"><code>
+participant Alice as a
+participant Bob   as b
+a -&gt;     b : //Long long label//
+a -&gt;?      : &quot;&quot;-&gt;?   &quot;&quot;
+a -&gt;&gt;?     : &quot;&quot;-&gt;&gt;?  &quot;&quot;
+a -\?      : &quot;&quot;-\?   &quot;&quot;
+a -\\?     : &quot;&quot;-\\\\?&quot;&quot;
+a -/?      : &quot;&quot;-/?   &quot;&quot;
+a -//?     : &quot;&quot;-//?  &quot;&quot;
+a -&gt;x?     : &quot;&quot;-&gt;x?  &quot;&quot;
+a x-&gt;?     : &quot;&quot;x-&gt;?  &quot;&quot;
+a o-&gt;?     : &quot;&quot;o-&gt;?  &quot;&quot;
+a -&gt;o?     : &quot;&quot;-&gt;o?  &quot;&quot;
+a o-&gt;o?    : &quot;&quot;o-&gt;o? &quot;&quot;
+a &lt;-&gt;?     : &quot;&quot;&lt;-&gt;?  &quot;&quot;
+a o&lt;-&gt;o?   : &quot;&quot;o&lt;-&gt;o?&quot;&quot;
+a x&lt;-&gt;x?   : &quot;&quot;x&lt;-&gt;x?&quot;&quot;
+a -&gt;&gt;o?    : &quot;&quot;-&gt;&gt;o? &quot;&quot;
+a -\o?     : &quot;&quot;-\o?  &quot;&quot;
+a -\\o?    : &quot;&quot;-\\\\o?&quot;&quot;
+a -/o?     : &quot;&quot;-/o?  &quot;&quot;
+a -//o?    : &quot;&quot;-//o? &quot;&quot;
+a x-&gt;o?    : &quot;&quot;x-&gt;o? &quot;&quot;
+</code></pre></div><img src="http://172.18.0.3:8080/png/LPB12iCW38RlVOhWlUG-Ijljl4VmebqP1TUKhGCVVveePXui_--N67ywVqxtFh-lq1tfkotRuVOJhc5RLd0VS7_sZJn0jdtde1yXBmyNGBpJ_eJ0c_DhG6HWOY81neWmXlro87uMublDsyPRgtYRrYG-QXuRZwXu5kNUgE-DrO-zcaS4-wHzQdu_akv3YfU3mYV1_g3x3Ah_K0gOPo7p36LIdeT5pQtr5r7oqVDOQdbQnUVSg0Qd2x0L8Ae25ZMWviVwi7dT7-c_-G40" alt="uml diagram"> <h2 id="隐藏孤立参与者"><a href="#隐藏孤立参与者" class="header-anchor">#</a> 隐藏孤立参与者</h2> <p><code>关键字</code></p> <ul><li><code>hide unlinked</code> 隐藏未被链接到的参与者</li></ul> <div class="language- extra-class"><pre class="language-text"><code>
+hide unlinked
+participant Alice
+participant Bob
+participant Carol
+
+Alice -&gt; Bob : hello
+</code></pre></div><img src="http://172.18.0.3:8080/png/SoWkIImgAStDuSh8J4bLACtBoSpBJatXAW2APYPd5YJcbIWuvcGcfwA8EEKdeV2T4uloSxYum0eLTEr0yWfM2XcfEJdvN0wfUIb0ym40" alt="uml diagram"></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">5/21/2021, 1:25:38 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/开发基础/面向对象需求分析与UML建模/UML建模图实战笔记.html" class="prev">
+        UML建模图实战笔记
+      </a></span> <span class="next"><a href="/blog/开发基础/面向对象需求分析与UML建模/PlantUML实战/用例图.html">
+        用例图
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.e96a3795.js" defer></script><script src="/blog/assets/js/3.21e2e031.js" defer></script><script src="/blog/assets/js/146.f2a8a077.js" defer></script>
+  </body>
+</html>

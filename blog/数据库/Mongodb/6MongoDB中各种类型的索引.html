@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>MongoDB中各种类型的索引 | 一名GO+PHP工程师</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.b3aba94c.css" as="style"><link rel="preload" href="/blog/assets/js/app.e96a3795.js" as="script"><link rel="preload" href="/blog/assets/js/3.21e2e031.js" as="script"><link rel="preload" href="/blog/assets/js/74.b1d33341.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.f0d17f98.js"><link rel="prefetch" href="/blog/assets/js/100.d5cb88cb.js"><link rel="prefetch" href="/blog/assets/js/101.6bbce255.js"><link rel="prefetch" href="/blog/assets/js/102.968ea43c.js"><link rel="prefetch" href="/blog/assets/js/103.c5c5130e.js"><link rel="prefetch" href="/blog/assets/js/104.161b590d.js"><link rel="prefetch" href="/blog/assets/js/105.d99dabdd.js"><link rel="prefetch" href="/blog/assets/js/106.4813a429.js"><link rel="prefetch" href="/blog/assets/js/107.973e5efb.js"><link rel="prefetch" href="/blog/assets/js/108.0e6710c9.js"><link rel="prefetch" href="/blog/assets/js/109.0dca298c.js"><link rel="prefetch" href="/blog/assets/js/11.9a0b460c.js"><link rel="prefetch" href="/blog/assets/js/110.91c6d5de.js"><link rel="prefetch" href="/blog/assets/js/111.4db6087d.js"><link rel="prefetch" href="/blog/assets/js/112.bb76db96.js"><link rel="prefetch" href="/blog/assets/js/113.9b314292.js"><link rel="prefetch" href="/blog/assets/js/114.f28a4d47.js"><link rel="prefetch" href="/blog/assets/js/115.6a21a21a.js"><link rel="prefetch" href="/blog/assets/js/116.1fd8cdf3.js"><link rel="prefetch" href="/blog/assets/js/117.193b54e8.js"><link rel="prefetch" href="/blog/assets/js/118.a54057c2.js"><link rel="prefetch" href="/blog/assets/js/119.f0742def.js"><link rel="prefetch" href="/blog/assets/js/12.2704636b.js"><link rel="prefetch" href="/blog/assets/js/120.c2fc1bab.js"><link rel="prefetch" href="/blog/assets/js/121.4300e0d3.js"><link rel="prefetch" href="/blog/assets/js/122.0ea0246a.js"><link rel="prefetch" href="/blog/assets/js/123.daa76433.js"><link rel="prefetch" href="/blog/assets/js/124.ca59f8f6.js"><link rel="prefetch" href="/blog/assets/js/125.6439d284.js"><link rel="prefetch" href="/blog/assets/js/126.8b8a9b2d.js"><link rel="prefetch" href="/blog/assets/js/127.06c981b6.js"><link rel="prefetch" href="/blog/assets/js/128.cf7b9eec.js"><link rel="prefetch" href="/blog/assets/js/129.b4fdbe4d.js"><link rel="prefetch" href="/blog/assets/js/13.13621de1.js"><link rel="prefetch" href="/blog/assets/js/130.4acdc8e4.js"><link rel="prefetch" href="/blog/assets/js/131.ff0058e6.js"><link rel="prefetch" href="/blog/assets/js/132.1f9b4bbb.js"><link rel="prefetch" href="/blog/assets/js/133.a417b118.js"><link rel="prefetch" href="/blog/assets/js/134.6a6cf86d.js"><link rel="prefetch" href="/blog/assets/js/135.16d61a44.js"><link rel="prefetch" href="/blog/assets/js/136.12ac5b39.js"><link rel="prefetch" href="/blog/assets/js/137.574e5c35.js"><link rel="prefetch" href="/blog/assets/js/138.fb99b34c.js"><link rel="prefetch" href="/blog/assets/js/139.b13aa419.js"><link rel="prefetch" href="/blog/assets/js/14.af5cd84c.js"><link rel="prefetch" href="/blog/assets/js/140.e504645c.js"><link rel="prefetch" href="/blog/assets/js/141.b0090c83.js"><link rel="prefetch" href="/blog/assets/js/142.8f3573aa.js"><link rel="prefetch" href="/blog/assets/js/143.fd923e68.js"><link rel="prefetch" href="/blog/assets/js/144.30c7d351.js"><link rel="prefetch" href="/blog/assets/js/145.95b58ec4.js"><link rel="prefetch" href="/blog/assets/js/146.f2a8a077.js"><link rel="prefetch" href="/blog/assets/js/147.9d236468.js"><link rel="prefetch" href="/blog/assets/js/148.f24cd187.js"><link rel="prefetch" href="/blog/assets/js/149.a864dbcc.js"><link rel="prefetch" href="/blog/assets/js/15.f3fe1b79.js"><link rel="prefetch" href="/blog/assets/js/150.17ad60e0.js"><link rel="prefetch" href="/blog/assets/js/151.544c42cb.js"><link rel="prefetch" href="/blog/assets/js/152.210743dc.js"><link rel="prefetch" href="/blog/assets/js/153.ed0b4aea.js"><link rel="prefetch" href="/blog/assets/js/154.3108e3fe.js"><link rel="prefetch" href="/blog/assets/js/155.9b88d76c.js"><link rel="prefetch" href="/blog/assets/js/156.e514afd4.js"><link rel="prefetch" href="/blog/assets/js/157.480617c1.js"><link rel="prefetch" href="/blog/assets/js/158.f649eaa4.js"><link rel="prefetch" href="/blog/assets/js/159.40693a16.js"><link rel="prefetch" href="/blog/assets/js/16.d5ef369f.js"><link rel="prefetch" href="/blog/assets/js/160.0c296e5b.js"><link rel="prefetch" href="/blog/assets/js/161.47fb88c7.js"><link rel="prefetch" href="/blog/assets/js/162.d7e72e4d.js"><link rel="prefetch" href="/blog/assets/js/163.35e7409e.js"><link rel="prefetch" href="/blog/assets/js/164.ebc9b6a7.js"><link rel="prefetch" href="/blog/assets/js/165.f7cbff8f.js"><link rel="prefetch" href="/blog/assets/js/166.5bcaa3dd.js"><link rel="prefetch" href="/blog/assets/js/167.b4296d08.js"><link rel="prefetch" href="/blog/assets/js/168.27dc81ce.js"><link rel="prefetch" href="/blog/assets/js/169.e3875c04.js"><link rel="prefetch" href="/blog/assets/js/17.85a6f3bd.js"><link rel="prefetch" href="/blog/assets/js/170.e41001f5.js"><link rel="prefetch" href="/blog/assets/js/171.8a988969.js"><link rel="prefetch" href="/blog/assets/js/172.ba4dc7a7.js"><link rel="prefetch" href="/blog/assets/js/173.84e3606e.js"><link rel="prefetch" href="/blog/assets/js/174.849bcbbd.js"><link rel="prefetch" href="/blog/assets/js/175.29aea4e3.js"><link rel="prefetch" href="/blog/assets/js/176.2380b0cf.js"><link rel="prefetch" href="/blog/assets/js/177.67fa30a9.js"><link rel="prefetch" href="/blog/assets/js/178.7f4bf5e6.js"><link rel="prefetch" href="/blog/assets/js/18.5b1abab1.js"><link rel="prefetch" href="/blog/assets/js/19.64702ecc.js"><link rel="prefetch" href="/blog/assets/js/2.b704f7ef.js"><link rel="prefetch" href="/blog/assets/js/20.ee94d049.js"><link rel="prefetch" href="/blog/assets/js/21.c4b2e86b.js"><link rel="prefetch" href="/blog/assets/js/22.5e0c0059.js"><link rel="prefetch" href="/blog/assets/js/23.8d21497f.js"><link rel="prefetch" href="/blog/assets/js/24.0d62d925.js"><link rel="prefetch" href="/blog/assets/js/25.f2cfc928.js"><link rel="prefetch" href="/blog/assets/js/26.454d8bc0.js"><link rel="prefetch" href="/blog/assets/js/27.64a56852.js"><link rel="prefetch" href="/blog/assets/js/28.86140af5.js"><link rel="prefetch" href="/blog/assets/js/29.cb7d4c15.js"><link rel="prefetch" href="/blog/assets/js/30.ead3f08b.js"><link rel="prefetch" href="/blog/assets/js/31.0b9f18b2.js"><link rel="prefetch" href="/blog/assets/js/32.666cd74a.js"><link rel="prefetch" href="/blog/assets/js/33.be963dc5.js"><link rel="prefetch" href="/blog/assets/js/34.29e8d5d9.js"><link rel="prefetch" href="/blog/assets/js/35.770b0123.js"><link rel="prefetch" href="/blog/assets/js/36.3ebc18d1.js"><link rel="prefetch" href="/blog/assets/js/37.1b4b8870.js"><link rel="prefetch" href="/blog/assets/js/38.434945a5.js"><link rel="prefetch" href="/blog/assets/js/39.5649856d.js"><link rel="prefetch" href="/blog/assets/js/4.8abadb0c.js"><link rel="prefetch" href="/blog/assets/js/40.90c1fb7b.js"><link rel="prefetch" href="/blog/assets/js/41.bdaf363e.js"><link rel="prefetch" href="/blog/assets/js/42.bd11772d.js"><link rel="prefetch" href="/blog/assets/js/43.451622f4.js"><link rel="prefetch" href="/blog/assets/js/44.711b0b23.js"><link rel="prefetch" href="/blog/assets/js/45.3478f0e8.js"><link rel="prefetch" href="/blog/assets/js/46.0bd04509.js"><link rel="prefetch" href="/blog/assets/js/47.b05a79df.js"><link rel="prefetch" href="/blog/assets/js/48.e3917371.js"><link rel="prefetch" href="/blog/assets/js/49.cffe09bd.js"><link rel="prefetch" href="/blog/assets/js/5.d85c4ea7.js"><link rel="prefetch" href="/blog/assets/js/50.10849ea7.js"><link rel="prefetch" href="/blog/assets/js/51.29fb5c68.js"><link rel="prefetch" href="/blog/assets/js/52.c183fd4d.js"><link rel="prefetch" href="/blog/assets/js/53.cd6fc1ff.js"><link rel="prefetch" href="/blog/assets/js/54.1f32a761.js"><link rel="prefetch" href="/blog/assets/js/55.8b1c97ea.js"><link rel="prefetch" href="/blog/assets/js/56.b1d06de1.js"><link rel="prefetch" href="/blog/assets/js/57.0f3887f6.js"><link rel="prefetch" href="/blog/assets/js/58.ddd651ef.js"><link rel="prefetch" href="/blog/assets/js/59.88810128.js"><link rel="prefetch" href="/blog/assets/js/6.66823a83.js"><link rel="prefetch" href="/blog/assets/js/60.6405b5ee.js"><link rel="prefetch" href="/blog/assets/js/61.2fe87550.js"><link rel="prefetch" href="/blog/assets/js/62.24bf6999.js"><link rel="prefetch" href="/blog/assets/js/63.2f87f55d.js"><link rel="prefetch" href="/blog/assets/js/64.68cd3b45.js"><link rel="prefetch" href="/blog/assets/js/65.7dc0ee8b.js"><link rel="prefetch" href="/blog/assets/js/66.b8d26700.js"><link rel="prefetch" href="/blog/assets/js/67.ac26e1fe.js"><link rel="prefetch" href="/blog/assets/js/68.5b88c98a.js"><link rel="prefetch" href="/blog/assets/js/69.134a204b.js"><link rel="prefetch" href="/blog/assets/js/7.aeaa2fae.js"><link rel="prefetch" href="/blog/assets/js/70.780e9a6e.js"><link rel="prefetch" href="/blog/assets/js/71.d6bb3142.js"><link rel="prefetch" href="/blog/assets/js/72.78fc6941.js"><link rel="prefetch" href="/blog/assets/js/73.b2283872.js"><link rel="prefetch" href="/blog/assets/js/75.c342eea5.js"><link rel="prefetch" href="/blog/assets/js/76.19907955.js"><link rel="prefetch" href="/blog/assets/js/77.619843d6.js"><link rel="prefetch" href="/blog/assets/js/78.b41b3078.js"><link rel="prefetch" href="/blog/assets/js/79.e7418aeb.js"><link rel="prefetch" href="/blog/assets/js/8.f72dc925.js"><link rel="prefetch" href="/blog/assets/js/80.c1884ffd.js"><link rel="prefetch" href="/blog/assets/js/81.04f50a1e.js"><link rel="prefetch" href="/blog/assets/js/82.db879ca5.js"><link rel="prefetch" href="/blog/assets/js/83.e89b8863.js"><link rel="prefetch" href="/blog/assets/js/84.07410b58.js"><link rel="prefetch" href="/blog/assets/js/85.d46c8682.js"><link rel="prefetch" href="/blog/assets/js/86.3869d59e.js"><link rel="prefetch" href="/blog/assets/js/87.e7860b15.js"><link rel="prefetch" href="/blog/assets/js/88.09fc332a.js"><link rel="prefetch" href="/blog/assets/js/89.8b302469.js"><link rel="prefetch" href="/blog/assets/js/9.9a1ee48f.js"><link rel="prefetch" href="/blog/assets/js/90.391f76ed.js"><link rel="prefetch" href="/blog/assets/js/91.d1662d38.js"><link rel="prefetch" href="/blog/assets/js/92.a65aa479.js"><link rel="prefetch" href="/blog/assets/js/93.bc850b53.js"><link rel="prefetch" href="/blog/assets/js/94.7dc858d7.js"><link rel="prefetch" href="/blog/assets/js/95.83afadb6.js"><link rel="prefetch" href="/blog/assets/js/96.85084d66.js"><link rel="prefetch" href="/blog/assets/js/97.68a76e8c.js"><link rel="prefetch" href="/blog/assets/js/98.169e3a46.js"><link rel="prefetch" href="/blog/assets/js/99.3235f388.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.b3aba94c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">一名GO+PHP工程师</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="https://gitee.com/ColinWWL/blog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  码云Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="https://gitee.com/ColinWWL/blog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  码云Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/blog/数据库/Mongodb/1基本操作之CRUD" class="sidebar-heading clickable open"><span>Mongodb</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/数据库/Mongodb/1基本操作之CRUD.html" class="sidebar-link">基本操作之CRUD</a></li><li><a href="/blog/数据库/Mongodb/2centos7安装mongodb和设置开机自动启动.html" class="sidebar-link">centos7安装mongodb和设置开机自动启动</a></li><li><a href="/blog/数据库/Mongodb/3mongodb添加账号密码.html" class="sidebar-link">添加账号密码</a></li><li><a href="/blog/数据库/Mongodb/4MongoDB之分片集群与复制集.html" class="sidebar-link">分片集群</a></li><li><a href="/blog/数据库/Mongodb/5MongoDB-分片片键.html" class="sidebar-link">分片片键</a></li><li><a href="/blog/数据库/Mongodb/6MongoDB中各种类型的索引.html" class="active sidebar-link">MongoDB中各种类型的索引</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/数据库/Mongodb/6MongoDB中各种类型的索引.html#_1、单字段索引" class="sidebar-link">1、单字段索引</a></li><li class="sidebar-sub-header"><a href="/blog/数据库/Mongodb/6MongoDB中各种类型的索引.html#_2、复合索引" class="sidebar-link">2、复合索引</a></li><li class="sidebar-sub-header"><a href="/blog/数据库/Mongodb/6MongoDB中各种类型的索引.html#_3、多键值索引" class="sidebar-link">3、多键值索引</a></li><li class="sidebar-sub-header"><a href="/blog/数据库/Mongodb/6MongoDB中各种类型的索引.html#_4、散列索引" class="sidebar-link">4、散列索引</a></li><li class="sidebar-sub-header"><a href="/blog/数据库/Mongodb/6MongoDB中各种类型的索引.html#_5、过期索引" class="sidebar-link">5、过期索引</a></li><li class="sidebar-sub-header"><a href="/blog/数据库/Mongodb/6MongoDB中各种类型的索引.html#_6、全文索引" class="sidebar-link">6、全文索引</a></li><li class="sidebar-sub-header"><a href="/blog/数据库/Mongodb/6MongoDB中各种类型的索引.html#_7、地理空间索引" class="sidebar-link">7、地理空间索引</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/数据库/Mongodb/6MongoDB中各种类型的索引.html#_2d索引" class="sidebar-link">2d索引</a></li><li class="sidebar-sub-header"><a href="/blog/数据库/Mongodb/6MongoDB中各种类型的索引.html#_2d-sphere索引" class="sidebar-link">2d sphere索引</a></li></ul></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="mongodb中各种类型的索引"><a href="#mongodb中各种类型的索引" class="header-anchor">#</a> MongoDB中各种类型的索引</h1> <p>MongoDB 中索引的类型大致包含单键索引、复合索引、多键值索引、地理索引、全文索引、 散列索引等，下面简单介绍各类索引的用法。</p> <h2 id="_1、单字段索引"><a href="#_1、单字段索引" class="header-anchor">#</a> 1、单字段索引</h2> <p>这个是最简单最常用的索引类型，比如我们上边的例子，为id建立一个单独的索引就是此种类型。</p> <div class="language- extra-class"><pre class="language-text"><code> # 为id field建立索引，1表示升序，-1表示降序，没有差别
+db.employee.createIndex({'id': 1})
+</code></pre></div><p>需要注意的是通常MongoDB会自动为我们的文档插入’_id’ field，且已经按照升序进行索引，如果我们插入的文档中包含有’_id’ field，则MongoDB就不会自动创建’_id’ field，但是需要我们自己来保证唯一性从而唯一标识一个文档</p> <h2 id="_2、复合索引"><a href="#_2、复合索引" class="header-anchor">#</a> 2、复合索引</h2> <p><img src="/blog/assets/img/20200503234104706.47f60d45.png" alt="在这里插入图片描述"><br>
+上图查询索引的时候会先查询userid，再查询score，然后就可以找到对应的文档。<br>
+对于复合索引需要注意以下几点：</p> <p><strong>索引field的先后顺序很关键，影响有两方面</strong>：<br>
+1、MongoDB在复合索引中是根据prefix排序查询，就是说排在前面的可以单独使用。<br>
+我们创建一个如下的索引</p> <div class="language- extra-class"><pre class="language-text"><code>db.collection.createIndex({'id': 1, 'city': 1, 'score': 1})
+</code></pre></div><p>我们如下的查询可以利用索引</p> <div class="language- extra-class"><pre class="language-text"><code>db.collection.find({'id': xxx})
+db.collection.find({'id': xxx, 'city': xxx})
+db.collection.find({'id': xxx, 'city':xxx, 'score': xxxx})
+</code></pre></div><p>但是如下的查询无法利用该索引</p> <div class="language- extra-class"><pre class="language-text"><code>db.collection.find({'city': xxx})
+db.collection.find({'city':xxx, 'score': xxxx})
+</code></pre></div><p>还有一种特殊的情况，就是如下查询：</p> <div class="language- extra-class"><pre class="language-text"><code>db.collection.find({'id': xxx, 'score': xxxx})
+</code></pre></div><p>这个查询也可以利用索引的前缀’id’来查询，但是却不能针对score进行查询，你可以说是部分利用了索引，因此其效率可能不如如下索引：</p> <div class="language- extra-class"><pre class="language-text"><code>db.collection.createIndex({'id': 1, 'score': 1})
+</code></pre></div><p>2.过滤出的document越少的field越应该放在前面，比如此例中id如果是唯一的，那么就应该放在最前面，因为这样通过id就可以锁定唯一一个文档。而如果通过city或者score过滤完成后还是会有大量文档，这就会影响最终的性能。</p> <p><strong>索引的排序顺序不同</strong><br>
+复合索引最末尾的field，其排序顺序不同对于MongoDB的查询排序操作是有影响的。<br>
+比如：</p> <div class="language- extra-class"><pre class="language-text"><code>db.events.createIndex( { username: 1, date: -1 } )
+</code></pre></div><p>这种情况下， 如下的query可以利用索引：</p> <div class="language- extra-class"><pre class="language-text"><code>db.events.find().sort( { username: 1, date: -1 } )
+</code></pre></div><p>但是如下query则无法利用index进行排序</p> <div class="language- extra-class"><pre class="language-text"><code>db.events.find().sort( { username: 1, date: 1 } )
+</code></pre></div><h2 id="_3、多键值索引"><a href="#_3、多键值索引" class="header-anchor">#</a> 3、多键值索引</h2> <p>这个主要是针对数据类型为数组的类型，如下示例：</p> <div class="language- extra-class"><pre class="language-text"><code>{&quot;name&quot; : &quot;jack&quot;, &quot;age&quot; : 19, habbit: [&quot;football, runnning&quot;]}
+db.person.createIndex( {habbit: 1} )  // 自动创建多key索引
+db.person.find( {habbit: &quot;football&quot;} )
+</code></pre></div><h2 id="_4、散列索引"><a href="#_4、散列索引" class="header-anchor">#</a> 4、散列索引</h2> <p>散列（Hashed）索引是指按照某个字段的散列值来建立索引，目前主要用于 MongoDB Sharded Cluster 的散列分片，散列索引只能用于字段完全匹配的查询，不能用于范围查询等。<br>
+散列其语法如下：</p> <div class="language- extra-class"><pre class="language-text"><code>db.collection.createlndex( { _id : &quot;hashed&quot; })
+</code></pre></div><p>MongoDB 支持散列任何单个字段的索引，但是不支持多键（即数组）索引。</p> <p>需要说明的是，MongoDB 在进行散列索引之前，需要将浮点数截断为 64 位整数。例如，散列将对 2.3、2.2 和 2.9 这些值产生同样的返回值。</p> <h2 id="_5、过期索引"><a href="#_5、过期索引" class="header-anchor">#</a> 5、过期索引</h2> <p>顾名思义，过期索引就是一种会过期的索引，在索引过期之后，索引对应的数据会被删除，创建方式如下：</p> <div class="language- extra-class"><pre class="language-text"><code>db.sang_collect.ensureIndex({time:1},{expireAfterSeconds:30})
+</code></pre></div><p>expireAfterSeconds表示索引的过期时间，单位为秒。time表示索引的字段，time的数据类型必须是ISODate或者ISODate数组，否则的话，当索引过期之后，time的数据就不会被删除。</p> <h2 id="_6、全文索引"><a href="#_6、全文索引" class="header-anchor">#</a> 6、全文索引</h2> <p>全文索引虽然好用，可惜不支持中文，我们这里就先做一个简单的了解。</p> <p>比如，我的数据集如下：</p> <div class="language- extra-class"><pre class="language-text"><code>{
+    &quot;_id&quot; : ObjectId(&quot;59f5a3da1f9e8e181ffc3189&quot;),
+    &quot;x&quot; : &quot;Java C# Python PHP&quot;
+}
+{
+    &quot;_id&quot; : ObjectId(&quot;59f5a3da1f9e8e181ffc318a&quot;),
+    &quot;x&quot; : &quot;Java C#&quot;
+}
+{
+    &quot;_id&quot; : ObjectId(&quot;59f5a3da1f9e8e181ffc318b&quot;),
+    &quot;x&quot; : &quot;Java Python&quot;
+}
+{
+    &quot;_id&quot; : ObjectId(&quot;59f5a3da1f9e8e181ffc318c&quot;),
+    &quot;x&quot; : &quot;PHP Python&quot;
+}
+{
+    &quot;_id&quot; : ObjectId(&quot;59f5a4541f9e8e181ffc318d&quot;),
+    &quot;x&quot; : &quot;C C++&quot;
+}
+</code></pre></div><p>我们可以给x字段建立一个全文索引，创建方式如下：</p> <div class="language- extra-class"><pre class="language-text"><code>db.sang_collect.ensureIndex({x:&quot;text&quot;})
+</code></pre></div><p>MongoDB会自动对x字段的数据进行分词，然后我们就可以通过如下语句进行查询：</p> <div class="language- extra-class"><pre class="language-text"><code>db.sang_collect.find({$text:{$search:&quot;Java&quot;}})
+</code></pre></div><p>此时x中包含Java的文档都会被查询出来。如果想查询既包含Java又包含C#的文档，操作如下：</p> <div class="language- extra-class"><pre class="language-text"><code>db.sang_collect.find({$text:{$search:&quot;\&quot;Java C#\&quot;&quot;}})
+</code></pre></div><p>用一对双引号将查询条件括起来，如果想查询包含PHP或者Python的文档，操作如下：</p> <div class="language- extra-class"><pre class="language-text"><code>db.sang_collect.find({$text:{$search:&quot;PHP Python&quot;}})
+</code></pre></div><p>如果想查询既有PHP，又有Python，但是又不包括Java的文档，如下：</p> <div class="language- extra-class"><pre class="language-text"><code>db.sang_collect.find({$text:{$search:&quot;PHP Python -Java&quot;}})
+</code></pre></div><p>建立了全文索引之后，我们也可以查看查询结果的相似度，使用$meta，如下：</p> <div class="language- extra-class"><pre class="language-text"><code>db.sang_collect.find({$text:{$search:&quot;PHP Python&quot;}},{score:{$meta:&quot;textScore&quot;}})
+</code></pre></div><p>此时查询结果中会多出一个score字段，该字段的值越大，表示相似度越高，我们可以根据score利用sort来对其进行排序，如下：</p> <div class="language- extra-class"><pre class="language-text"><code>db.sang_collect.find({$text:{$search:&quot;PHP Python&quot;}},{score:{$meta:&quot;textScore&quot;}}).sort({score:{$meta:&quot;textScore&quot;}})
+</code></pre></div><p>全文索引目前看起来功能还是很强大，可惜暂时不支持中文，不过网上对此也有很多解决方案，小伙伴们可以自行搜索查看。</p> <h2 id="_7、地理空间索引"><a href="#_7、地理空间索引" class="header-anchor">#</a> 7、地理空间索引</h2> <p>地理空间索引类型<br> <strong>地理空间索引可以分为两类：</strong></p> <p>1.<strong>2d索引</strong>，可以用来存储和查找平面上的点。<br>
+2.<strong>2d sphere索引</strong>，可以用来存储和查找球面上的点。</p> <h3 id="_2d索引"><a href="#_2d索引" class="header-anchor">#</a> <strong>2d索引</strong></h3> <p>2d索引一般我们可以用在游戏地图中。<br>
+向集合中插入一条记录点的数据：</p> <div class="language- extra-class"><pre class="language-text"><code>db.sang_collect.insert({x:[90,0]})
+</code></pre></div><p>插入数据的格式为[经度,纬度]，取值范围，经度[-180,180]，纬度[-90,90]。数据插入成功之后，我们先通过如下命令创建索引：</p> <div class="language- extra-class"><pre class="language-text"><code>db.sang_collect.ensureIndex({x:&quot;2d&quot;})
+</code></pre></div><p>然后通过$near我们可以查询某一个点附近的点，如下:</p> <div class="language- extra-class"><pre class="language-text"><code>db.sang_collect.find({x:{$near:[90,0]}})
+</code></pre></div><p>默认情况下返回该点附近100个点，我们可以通过$maxDistance来设置返回的最远距离：</p> <div class="language- extra-class"><pre class="language-text"><code>db.sang_collect.find({x:{$near:[90,0],$maxDistance:99}})
+</code></pre></div><p>我们也可以通过$geoWithin查询某个形状内的点，比如查询矩形中的点：</p> <div class="language- extra-class"><pre class="language-text"><code>db.sang_collect.find({x:{$geoWithin:{$box:[[0,0],[91,1]]}}})
+</code></pre></div><p>两个坐标点用来确定矩形的位置。</p> <p>查询圆中的点：</p> <div class="language- extra-class"><pre class="language-text"><code>db.sang_collect.find({x:{$geoWithin:{$center:[[0,0],90]}}})
+</code></pre></div><p>参数分别表示圆的圆心和半径。</p> <p>查询多边形中的点：</p> <div class="language- extra-class"><pre class="language-text"><code>db.sang_collect.find({x:{$geoWithin:{$polygon:[[0,0],[100,0],[100,1],[0,1]]}}})
+</code></pre></div><p>这里可以填入任意多个点，表示多边形中的各个点。</p> <h3 id="_2d-sphere索引"><a href="#_2d-sphere索引" class="header-anchor">#</a> <strong>2d sphere索引</strong></h3> <p>2dsphere适用于球面类型的地图，它的数据类型是GeoJSON格式的，我们可以在http://geojson.org/地址上查看GeoJSON格式的样式，比如我们描述一个点，GeoJSON如下：</p> <div class="language- extra-class"><pre class="language-text"><code>{
+    &quot;_id&quot; : ObjectId(&quot;59f5e0571f9e8e181ffc3196&quot;),
+    &quot;name&quot; : &quot;shenzhen&quot;,
+    &quot;location&quot; : {
+        &quot;type&quot; : &quot;Point&quot;,
+        &quot;coordinates&quot; : [ 
+            90.0, 
+            0.0
+        ]
+    }
+}
+</code></pre></div><p>描述线，GeoJSON格式如下：</p> <div class="language- extra-class"><pre class="language-text"><code>{
+    &quot;_id&quot; : ObjectId(&quot;59f5e0d01f9e8e181ffc3199&quot;),
+    &quot;name&quot; : &quot;shenzhen&quot;,
+    &quot;location&quot; : {
+        &quot;type&quot; : &quot;LineString&quot;,
+        &quot;coordinates&quot; : [ 
+            [ 
+                90.0, 
+                0.0
+            ], 
+            [ 
+                90.0, 
+                1.0
+            ], 
+            [ 
+                90.0, 
+                2.0
+            ]
+        ]
+    }
+}
+</code></pre></div><p>描述多边形，GeoJSON格式如下：</p> <div class="language- extra-class"><pre class="language-text"><code>{
+    &quot;_id&quot; : ObjectId(&quot;59f5e3f91f9e8e181ffc31d0&quot;),
+    &quot;name&quot; : &quot;beijing&quot;,
+    &quot;location&quot; : {
+        &quot;type&quot; : &quot;Polygon&quot;,
+        &quot;coordinates&quot; : [ 
+            [ 
+                [ 
+                    0.0, 
+                    1.0
+                ], 
+                [ 
+                    0.0, 
+                    2.0
+                ], 
+                [ 
+                    1.0, 
+                    2.0
+                ], 
+                [ 
+                    0.0, 
+                    1.0
+                ]
+            ]
+        ]
+    }
+}
+</code></pre></div><p>还有其他的类型，具体小伙伴们可以参考http://geojson.org/。有了数据之后，我们可以通过如下操作来创建地理空间索引了：</p> <div class="language- extra-class"><pre class="language-text"><code>db.sang_collect.ensureIndex({location:&quot;2dsphere&quot;})
+</code></pre></div><p>比如我想查询和深圳这个区域有交集的文档，如下：</p> <div class="language- extra-class"><pre class="language-text"><code>var shenzhen = db.sang_collect.findOne({name:&quot;shenzhen&quot;})
+db.sang_collect.find({location:{$geoIntersects:{$geometry:shenzhen.location}}})
+</code></pre></div><p>这里的查询结果是和深圳这个区域有交集的都会查到(比如经过深圳的高速公路、铁路等)，我们也可以只查询深圳市内的区域(比如深圳市内所有的学校)，如下：</p> <div class="language- extra-class"><pre class="language-text"><code>var shenzhen = db.sang_collect.findOne({name:&quot;shenzhen&quot;})
+db.sang_collect.find({location:{$within:{$geometry:shenzhen.location}}})
+</code></pre></div><p>也可以查询腾讯附近的其他位置，如下：</p> <div class="language- extra-class"><pre class="language-text"><code>var QQ = db.sang_collect.findOne({name:&quot;QQ&quot;})
+db.sang_collect.find({location:{$near:{$geometry:QQ.location}}})
+</code></pre></div><p>复合地理空间索引<br>
+位置往往只是我们查询的一个条件，比如我要查询深圳市内所有的学校，那我得再增加一个查询条件，如下：</p> <div class="language- extra-class"><pre class="language-text"><code>var shenzhen = db.sang_collect.findOne({name:&quot;shenzhen&quot;})
+db.sang_collect.find({location:{$within:{$geometry:shenzhen.location}},name:&quot;QQ&quot;})
+</code></pre></div><p>其他的查询条件跟在后面就行了。</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">5/21/2021, 1:25:38 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/数据库/Mongodb/5MongoDB-分片片键.html" class="prev">
+        分片片键
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.e96a3795.js" defer></script><script src="/blog/assets/js/3.21e2e031.js" defer></script><script src="/blog/assets/js/74.b1d33341.js" defer></script>
+  </body>
+</html>

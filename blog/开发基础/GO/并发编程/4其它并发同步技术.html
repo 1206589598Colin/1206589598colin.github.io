@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>sync 标准库包中提供的并发同步技术 | 一名GO+PHP工程师</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.b3aba94c.css" as="style"><link rel="preload" href="/blog/assets/js/app.e96a3795.js" as="script"><link rel="preload" href="/blog/assets/js/3.21e2e031.js" as="script"><link rel="preload" href="/blog/assets/js/115.6a21a21a.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.f0d17f98.js"><link rel="prefetch" href="/blog/assets/js/100.d5cb88cb.js"><link rel="prefetch" href="/blog/assets/js/101.6bbce255.js"><link rel="prefetch" href="/blog/assets/js/102.968ea43c.js"><link rel="prefetch" href="/blog/assets/js/103.c5c5130e.js"><link rel="prefetch" href="/blog/assets/js/104.161b590d.js"><link rel="prefetch" href="/blog/assets/js/105.d99dabdd.js"><link rel="prefetch" href="/blog/assets/js/106.4813a429.js"><link rel="prefetch" href="/blog/assets/js/107.973e5efb.js"><link rel="prefetch" href="/blog/assets/js/108.0e6710c9.js"><link rel="prefetch" href="/blog/assets/js/109.0dca298c.js"><link rel="prefetch" href="/blog/assets/js/11.9a0b460c.js"><link rel="prefetch" href="/blog/assets/js/110.91c6d5de.js"><link rel="prefetch" href="/blog/assets/js/111.4db6087d.js"><link rel="prefetch" href="/blog/assets/js/112.bb76db96.js"><link rel="prefetch" href="/blog/assets/js/113.9b314292.js"><link rel="prefetch" href="/blog/assets/js/114.f28a4d47.js"><link rel="prefetch" href="/blog/assets/js/116.1fd8cdf3.js"><link rel="prefetch" href="/blog/assets/js/117.193b54e8.js"><link rel="prefetch" href="/blog/assets/js/118.a54057c2.js"><link rel="prefetch" href="/blog/assets/js/119.f0742def.js"><link rel="prefetch" href="/blog/assets/js/12.2704636b.js"><link rel="prefetch" href="/blog/assets/js/120.c2fc1bab.js"><link rel="prefetch" href="/blog/assets/js/121.4300e0d3.js"><link rel="prefetch" href="/blog/assets/js/122.0ea0246a.js"><link rel="prefetch" href="/blog/assets/js/123.daa76433.js"><link rel="prefetch" href="/blog/assets/js/124.ca59f8f6.js"><link rel="prefetch" href="/blog/assets/js/125.6439d284.js"><link rel="prefetch" href="/blog/assets/js/126.8b8a9b2d.js"><link rel="prefetch" href="/blog/assets/js/127.06c981b6.js"><link rel="prefetch" href="/blog/assets/js/128.cf7b9eec.js"><link rel="prefetch" href="/blog/assets/js/129.b4fdbe4d.js"><link rel="prefetch" href="/blog/assets/js/13.13621de1.js"><link rel="prefetch" href="/blog/assets/js/130.4acdc8e4.js"><link rel="prefetch" href="/blog/assets/js/131.ff0058e6.js"><link rel="prefetch" href="/blog/assets/js/132.1f9b4bbb.js"><link rel="prefetch" href="/blog/assets/js/133.a417b118.js"><link rel="prefetch" href="/blog/assets/js/134.6a6cf86d.js"><link rel="prefetch" href="/blog/assets/js/135.16d61a44.js"><link rel="prefetch" href="/blog/assets/js/136.12ac5b39.js"><link rel="prefetch" href="/blog/assets/js/137.574e5c35.js"><link rel="prefetch" href="/blog/assets/js/138.fb99b34c.js"><link rel="prefetch" href="/blog/assets/js/139.b13aa419.js"><link rel="prefetch" href="/blog/assets/js/14.af5cd84c.js"><link rel="prefetch" href="/blog/assets/js/140.e504645c.js"><link rel="prefetch" href="/blog/assets/js/141.b0090c83.js"><link rel="prefetch" href="/blog/assets/js/142.8f3573aa.js"><link rel="prefetch" href="/blog/assets/js/143.fd923e68.js"><link rel="prefetch" href="/blog/assets/js/144.30c7d351.js"><link rel="prefetch" href="/blog/assets/js/145.95b58ec4.js"><link rel="prefetch" href="/blog/assets/js/146.f2a8a077.js"><link rel="prefetch" href="/blog/assets/js/147.9d236468.js"><link rel="prefetch" href="/blog/assets/js/148.f24cd187.js"><link rel="prefetch" href="/blog/assets/js/149.a864dbcc.js"><link rel="prefetch" href="/blog/assets/js/15.f3fe1b79.js"><link rel="prefetch" href="/blog/assets/js/150.17ad60e0.js"><link rel="prefetch" href="/blog/assets/js/151.544c42cb.js"><link rel="prefetch" href="/blog/assets/js/152.210743dc.js"><link rel="prefetch" href="/blog/assets/js/153.ed0b4aea.js"><link rel="prefetch" href="/blog/assets/js/154.3108e3fe.js"><link rel="prefetch" href="/blog/assets/js/155.9b88d76c.js"><link rel="prefetch" href="/blog/assets/js/156.e514afd4.js"><link rel="prefetch" href="/blog/assets/js/157.480617c1.js"><link rel="prefetch" href="/blog/assets/js/158.f649eaa4.js"><link rel="prefetch" href="/blog/assets/js/159.40693a16.js"><link rel="prefetch" href="/blog/assets/js/16.d5ef369f.js"><link rel="prefetch" href="/blog/assets/js/160.0c296e5b.js"><link rel="prefetch" href="/blog/assets/js/161.47fb88c7.js"><link rel="prefetch" href="/blog/assets/js/162.d7e72e4d.js"><link rel="prefetch" href="/blog/assets/js/163.35e7409e.js"><link rel="prefetch" href="/blog/assets/js/164.ebc9b6a7.js"><link rel="prefetch" href="/blog/assets/js/165.f7cbff8f.js"><link rel="prefetch" href="/blog/assets/js/166.5bcaa3dd.js"><link rel="prefetch" href="/blog/assets/js/167.b4296d08.js"><link rel="prefetch" href="/blog/assets/js/168.27dc81ce.js"><link rel="prefetch" href="/blog/assets/js/169.e3875c04.js"><link rel="prefetch" href="/blog/assets/js/17.85a6f3bd.js"><link rel="prefetch" href="/blog/assets/js/170.e41001f5.js"><link rel="prefetch" href="/blog/assets/js/171.8a988969.js"><link rel="prefetch" href="/blog/assets/js/172.ba4dc7a7.js"><link rel="prefetch" href="/blog/assets/js/173.84e3606e.js"><link rel="prefetch" href="/blog/assets/js/174.849bcbbd.js"><link rel="prefetch" href="/blog/assets/js/175.29aea4e3.js"><link rel="prefetch" href="/blog/assets/js/176.2380b0cf.js"><link rel="prefetch" href="/blog/assets/js/177.67fa30a9.js"><link rel="prefetch" href="/blog/assets/js/178.7f4bf5e6.js"><link rel="prefetch" href="/blog/assets/js/18.5b1abab1.js"><link rel="prefetch" href="/blog/assets/js/19.64702ecc.js"><link rel="prefetch" href="/blog/assets/js/2.b704f7ef.js"><link rel="prefetch" href="/blog/assets/js/20.ee94d049.js"><link rel="prefetch" href="/blog/assets/js/21.c4b2e86b.js"><link rel="prefetch" href="/blog/assets/js/22.5e0c0059.js"><link rel="prefetch" href="/blog/assets/js/23.8d21497f.js"><link rel="prefetch" href="/blog/assets/js/24.0d62d925.js"><link rel="prefetch" href="/blog/assets/js/25.f2cfc928.js"><link rel="prefetch" href="/blog/assets/js/26.454d8bc0.js"><link rel="prefetch" href="/blog/assets/js/27.64a56852.js"><link rel="prefetch" href="/blog/assets/js/28.86140af5.js"><link rel="prefetch" href="/blog/assets/js/29.cb7d4c15.js"><link rel="prefetch" href="/blog/assets/js/30.ead3f08b.js"><link rel="prefetch" href="/blog/assets/js/31.0b9f18b2.js"><link rel="prefetch" href="/blog/assets/js/32.666cd74a.js"><link rel="prefetch" href="/blog/assets/js/33.be963dc5.js"><link rel="prefetch" href="/blog/assets/js/34.29e8d5d9.js"><link rel="prefetch" href="/blog/assets/js/35.770b0123.js"><link rel="prefetch" href="/blog/assets/js/36.3ebc18d1.js"><link rel="prefetch" href="/blog/assets/js/37.1b4b8870.js"><link rel="prefetch" href="/blog/assets/js/38.434945a5.js"><link rel="prefetch" href="/blog/assets/js/39.5649856d.js"><link rel="prefetch" href="/blog/assets/js/4.8abadb0c.js"><link rel="prefetch" href="/blog/assets/js/40.90c1fb7b.js"><link rel="prefetch" href="/blog/assets/js/41.bdaf363e.js"><link rel="prefetch" href="/blog/assets/js/42.bd11772d.js"><link rel="prefetch" href="/blog/assets/js/43.451622f4.js"><link rel="prefetch" href="/blog/assets/js/44.711b0b23.js"><link rel="prefetch" href="/blog/assets/js/45.3478f0e8.js"><link rel="prefetch" href="/blog/assets/js/46.0bd04509.js"><link rel="prefetch" href="/blog/assets/js/47.b05a79df.js"><link rel="prefetch" href="/blog/assets/js/48.e3917371.js"><link rel="prefetch" href="/blog/assets/js/49.cffe09bd.js"><link rel="prefetch" href="/blog/assets/js/5.d85c4ea7.js"><link rel="prefetch" href="/blog/assets/js/50.10849ea7.js"><link rel="prefetch" href="/blog/assets/js/51.29fb5c68.js"><link rel="prefetch" href="/blog/assets/js/52.c183fd4d.js"><link rel="prefetch" href="/blog/assets/js/53.cd6fc1ff.js"><link rel="prefetch" href="/blog/assets/js/54.1f32a761.js"><link rel="prefetch" href="/blog/assets/js/55.8b1c97ea.js"><link rel="prefetch" href="/blog/assets/js/56.b1d06de1.js"><link rel="prefetch" href="/blog/assets/js/57.0f3887f6.js"><link rel="prefetch" href="/blog/assets/js/58.ddd651ef.js"><link rel="prefetch" href="/blog/assets/js/59.88810128.js"><link rel="prefetch" href="/blog/assets/js/6.66823a83.js"><link rel="prefetch" href="/blog/assets/js/60.6405b5ee.js"><link rel="prefetch" href="/blog/assets/js/61.2fe87550.js"><link rel="prefetch" href="/blog/assets/js/62.24bf6999.js"><link rel="prefetch" href="/blog/assets/js/63.2f87f55d.js"><link rel="prefetch" href="/blog/assets/js/64.68cd3b45.js"><link rel="prefetch" href="/blog/assets/js/65.7dc0ee8b.js"><link rel="prefetch" href="/blog/assets/js/66.b8d26700.js"><link rel="prefetch" href="/blog/assets/js/67.ac26e1fe.js"><link rel="prefetch" href="/blog/assets/js/68.5b88c98a.js"><link rel="prefetch" href="/blog/assets/js/69.134a204b.js"><link rel="prefetch" href="/blog/assets/js/7.aeaa2fae.js"><link rel="prefetch" href="/blog/assets/js/70.780e9a6e.js"><link rel="prefetch" href="/blog/assets/js/71.d6bb3142.js"><link rel="prefetch" href="/blog/assets/js/72.78fc6941.js"><link rel="prefetch" href="/blog/assets/js/73.b2283872.js"><link rel="prefetch" href="/blog/assets/js/74.b1d33341.js"><link rel="prefetch" href="/blog/assets/js/75.c342eea5.js"><link rel="prefetch" href="/blog/assets/js/76.19907955.js"><link rel="prefetch" href="/blog/assets/js/77.619843d6.js"><link rel="prefetch" href="/blog/assets/js/78.b41b3078.js"><link rel="prefetch" href="/blog/assets/js/79.e7418aeb.js"><link rel="prefetch" href="/blog/assets/js/8.f72dc925.js"><link rel="prefetch" href="/blog/assets/js/80.c1884ffd.js"><link rel="prefetch" href="/blog/assets/js/81.04f50a1e.js"><link rel="prefetch" href="/blog/assets/js/82.db879ca5.js"><link rel="prefetch" href="/blog/assets/js/83.e89b8863.js"><link rel="prefetch" href="/blog/assets/js/84.07410b58.js"><link rel="prefetch" href="/blog/assets/js/85.d46c8682.js"><link rel="prefetch" href="/blog/assets/js/86.3869d59e.js"><link rel="prefetch" href="/blog/assets/js/87.e7860b15.js"><link rel="prefetch" href="/blog/assets/js/88.09fc332a.js"><link rel="prefetch" href="/blog/assets/js/89.8b302469.js"><link rel="prefetch" href="/blog/assets/js/9.9a1ee48f.js"><link rel="prefetch" href="/blog/assets/js/90.391f76ed.js"><link rel="prefetch" href="/blog/assets/js/91.d1662d38.js"><link rel="prefetch" href="/blog/assets/js/92.a65aa479.js"><link rel="prefetch" href="/blog/assets/js/93.bc850b53.js"><link rel="prefetch" href="/blog/assets/js/94.7dc858d7.js"><link rel="prefetch" href="/blog/assets/js/95.83afadb6.js"><link rel="prefetch" href="/blog/assets/js/96.85084d66.js"><link rel="prefetch" href="/blog/assets/js/97.68a76e8c.js"><link rel="prefetch" href="/blog/assets/js/98.169e3a46.js"><link rel="prefetch" href="/blog/assets/js/99.3235f388.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.b3aba94c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">一名GO+PHP工程师</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="https://gitee.com/ColinWWL/blog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  码云Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="https://gitee.com/ColinWWL/blog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  码云Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/blog/开发基础/GO/Go类型系统/1Go类型系统概述" class="sidebar-heading clickable"><span>Go类型系统</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/开发基础/GO/Go类型系统/1Go类型系统概述.html" class="sidebar-link">Go类型系统概述</a></li><li><a href="/blog/开发基础/GO/Go类型系统/2指针.html" class="sidebar-link">指针</a></li><li><a href="/blog/开发基础/GO/Go类型系统/3结构体.html" class="sidebar-link">结构体</a></li><li><a href="/blog/开发基础/GO/Go类型系统/4值部.html" class="sidebar-link">值部</a></li><li><a href="/blog/开发基础/GO/Go类型系统/5数组、切片和映射.html" class="sidebar-link">数组、切片和映射</a></li><li><a href="/blog/开发基础/GO/Go类型系统/6通道.html" class="sidebar-link">通道</a></li><li><a href="/blog/开发基础/GO/Go类型系统/7方法.html" class="sidebar-link">方法</a></li><li><a href="/blog/开发基础/GO/Go类型系统/8接口.html" class="sidebar-link">接口</a></li><li><a href="/blog/开发基础/GO/Go类型系统/9类型内嵌.html" class="sidebar-link">类型内嵌</a></li><li><a href="/blog/开发基础/GO/Go类型系统/10非类型安全指针.html" class="sidebar-link">非类型安全指针</a></li><li><a href="/blog/开发基础/GO/Go类型系统/11泛型.html" class="sidebar-link">泛型</a></li><li><a href="/blog/开发基础/GO/Go类型系统/12反射.html" class="sidebar-link">反射</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/blog/开发基础/GO/Go编程入门/1程序源代码基本元素介绍" class="sidebar-heading clickable"><span>Go编程入门</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/开发基础/GO/Go编程入门/1程序源代码基本元素介绍.html" class="sidebar-link">程序源代码基本元素介绍</a></li><li><a href="/blog/开发基础/GO/Go编程入门/2关键字和标识符.html" class="sidebar-link">关键字和标识符</a></li><li><a href="/blog/开发基础/GO/Go编程入门/3基本类型和它们的字面量表示.html" class="sidebar-link">基本类型和它们的字面量表示</a></li><li><a href="/blog/开发基础/GO/Go编程入门/4常量和变量.html" class="sidebar-link">常量和变量</a></li><li><a href="/blog/开发基础/GO/Go编程入门/5运算操作符.html" class="sidebar-link">运算操作符</a></li><li><a href="/blog/开发基础/GO/Go编程入门/6函数声明和调用.html" class="sidebar-link">函数声明和调用</a></li><li><a href="/blog/开发基础/GO/Go编程入门/7代码包和包引入.html" class="sidebar-link">代码包和包引入</a></li><li><a href="/blog/开发基础/GO/Go编程入门/8表达式、语句和简单语句.html" class="sidebar-link">表达式、语句和简单语句</a></li><li><a href="/blog/开发基础/GO/Go编程入门/9基本流程控制语法.html" class="sidebar-link">基本流程控制语法</a></li><li><a href="/blog/开发基础/GO/Go编程入门/10协程、延迟函数调用、以及恐慌和恢复.html" class="sidebar-link">协程、延迟函数调用、以及恐慌和恢复</a></li><li><a href="/blog/开发基础/GO/Go编程入门/GO官方链接工具.html" class="sidebar-link">GO官方链接工具</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/blog/开发基础/GO/其他文章/Go技巧" class="sidebar-heading clickable"><span>其他文章</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/开发基础/GO/其他文章/Go技巧.html" class="sidebar-link">Go技巧</a></li><li><a href="/blog/开发基础/GO/其他文章/Go细节.html" class="sidebar-link">Go细节</a></li><li><a href="/blog/开发基础/GO/其他文章/Go问答.html" class="sidebar-link">Go问答</a></li><li><a href="/blog/开发基础/GO/其他文章/命令-mod.html" class="sidebar-link">命令-mod</a></li><li><a href="/blog/开发基础/GO/其他文章/基础-Golang的time.NewTimer单次定时器使用案例.html" class="sidebar-link">基础-Golang的time. NewTimer单次定时器使用案例</a></li><li><a href="/blog/开发基础/GO/其他文章/基础-Go中的nil.html" class="sidebar-link">Go中的 nil</a></li><li><a href="/blog/开发基础/GO/其他文章/基础-Go代码断行规则.html" class="sidebar-link">Go代码断行规则</a></li><li><a href="/blog/开发基础/GO/其他文章/基础-表达式估值顺序规则.html" class="sidebar-link">表达式估值顺序规则</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/blog/开发基础/GO/学习资料" class="sidebar-heading clickable"><span>GO</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/开发基础/GO/学习资料.html" class="sidebar-link">教学书籍</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/blog/开发基础/GO/并发编程/1并发同步概述" class="sidebar-heading clickable open"><span>并发编程</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/开发基础/GO/并发编程/1并发同步概述.html" class="sidebar-link">并发同步概述</a></li><li><a href="/blog/开发基础/GO/并发编程/2通道用例大全.html" class="sidebar-link">通道用例大全</a></li><li><a href="/blog/开发基础/GO/并发编程/3如何优雅地关闭通道.html" class="sidebar-link">如何优雅地关闭通道</a></li><li><a href="/blog/开发基础/GO/并发编程/4其它并发同步技术.html" class="active sidebar-link">sync 标准库包中提供的并发同步技术</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/开发基础/GO/并发编程/4其它并发同步技术.html#sync-waitgroup-等待组-类型" class="sidebar-link">sync. WaitGroup （等待组）类型</a></li><li class="sidebar-sub-header"><a href="/blog/开发基础/GO/并发编程/4其它并发同步技术.html#sync-once-类型" class="sidebar-link">sync. Once 类型</a></li><li class="sidebar-sub-header"><a href="/blog/开发基础/GO/并发编程/4其它并发同步技术.html#sync-mutex-互斥锁-和-sync-rwmutex-读写锁-类型" class="sidebar-link">sync. Mutex （互斥锁）和 sync. RWMutex （读写锁）类型</a></li><li class="sidebar-sub-header"><a href="/blog/开发基础/GO/并发编程/4其它并发同步技术.html#sync-cond-类型" class="sidebar-link">sync. Cond 类型</a></li></ul></li><li><a href="/blog/开发基础/GO/并发编程/5原子操作 .html" class="sidebar-link">sync/atomic 标准库包中提供的原子操作</a></li><li><a href="/blog/开发基础/GO/并发编程/6Go中的内存顺序保证.html" class="sidebar-link">Go中的内存顺序保证</a></li><li><a href="/blog/开发基础/GO/并发编程/7一些常见并发编程错误.html" class="sidebar-link">一些常见并发编程错误</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/blog/开发基础/GO/开发环境搭建/Docker和VS Code的Go开发环境" class="sidebar-heading clickable"><span>开发环境搭建</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/开发基础/GO/开发环境搭建/Docker和VS Code的Go开发环境.html" class="sidebar-link">Docker和VS Code的Go开发环境</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="sync-标准库包中提供的并发同步技术"><a href="#sync-标准库包中提供的并发同步技术" class="header-anchor">#</a> <code>sync</code> 标准库包中提供的并发同步技术</h1> <p><a href="https://gfw.go101.org/article/channel-use-cases.html" target="_blank" rel="noopener noreferrer">通道用例大全<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>一文中介绍了很多通过使用通道来实现并发同步的用例。 事实上，通道并不是Go支持的唯一的一种并发同步技术。而且对于一些特定的情形，通道并不是最有效和可读性最高的同步技术。 本文下面将介绍 <code>sync</code> 标准库包中提供的各种并发同步技术。相对于通道，这些技术对于某些情形更加适用。</p> <p><code>sync</code> 标准库包提供了一些用于实现并发同步的类型。这些类型适用于各种不同的内存顺序需求。 对于这些特定的需求，这些类型使用起来比通道效率更高，代码实现更简洁。</p> <p><em>（请注意：为了避免各种异常行为，最好不要复制 <code>sync</code> 标准库包中提供的类型的值。）</em></p> <h2 id="sync-waitgroup-等待组-类型"><a href="#sync-waitgroup-等待组-类型" class="header-anchor">#</a> <code>sync. WaitGroup</code> （等待组）类型</h2> <p>每个 <code>sync. WaitGroup</code> 值在内部维护着一个计数，此计数的初始默认值为零。</p> <p><code>*sync. WaitGroup</code> 类型有<a href="https://golang.google.cn/pkg/sync/#WaitGroup" target="_blank" rel="noopener noreferrer">三个方法<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>： <code>Add(delta int)</code> 、 <code>Done()</code> 和 <code>Wait()</code> 。</p> <p>对于一个可寻址的 <code>sync. WaitGroup</code> 值 <code>wg</code> ，</p> <ul><li><p>我们可以使用方法调用<code>wg. Add(delta)</code>来改变值<code>wg</code>维护的计数。</p></li> <li><p>方法调用<code>wg. Done()</code>和<code>wg. Add(-1)</code>是完全等价的。</p></li> <li><p>如果一个<code>wg. Add(delta)</code>或者<code>wg. Done()</code>调用将<code>wg</code>维护的计数更改成一个负数，一个恐慌将产生。</p></li> <li><p>当一个协程调用了</p></li></ul> <div class="language- extra-class"><pre class="language-text"><code>  wg.Wait()
+</code></pre></div><p>时，</p> <ul><li>如果此时<code>wg</code>维护的计数为零，则此<code>wg. Wait()</code>此操作为一个空操作（no-op）；</li> <li>否则（计数为一个正整数），此协程将进入阻塞状态。 当以后其它某个协程将此计数更改至0时（一般通过调用<code>wg. Done()</code>），此协程将重新进入运行状态（即<code>wg. Wait()</code>将返回）。</li></ul> <p>请注意 <code>wg. Add(delta)</code> 、 <code>wg. Done()</code> 和 <code>wg. Wait()</code> 分别是 <code>(&amp;wg). Add(delta)</code> 、 <code>(&amp;wg). Done()</code> 和 <code>(&amp;wg). Wait()</code> 的简写形式。</p> <p>一般，一个 <code>sync. WaitGroup</code> 值用来让某个协程等待其它若干协程都先完成它们各自的任务。 一个例子：</p> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">&quot;fmt&quot;</span>
+	<span class="token string">&quot;math/rand&quot;</span>
+	<span class="token string">&quot;sync&quot;</span>
+	<span class="token string">&quot;time&quot;</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	rand<span class="token punctuation">.</span><span class="token function">Seed</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span><span class="token function">Now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">UnixNano</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+	<span class="token keyword">const</span> N <span class="token operator">=</span> <span class="token number">5</span>
+	<span class="token keyword">var</span> values <span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token builtin">int32</span>
+
+	<span class="token keyword">var</span> wg sync<span class="token punctuation">.</span>WaitGroup
+	wg<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span>N<span class="token punctuation">)</span>
+	<span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> N<span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
+		i <span class="token operator">:=</span> i
+		<span class="token keyword">go</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			values<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">50</span> <span class="token operator">+</span> rand<span class="token punctuation">.</span><span class="token function">Int31n</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span>
+			fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">&quot;Done:&quot;</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span>
+			wg<span class="token punctuation">.</span><span class="token function">Done</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// &lt;=&gt; wg.Add(-1)</span>
+		<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+
+	wg<span class="token punctuation">.</span><span class="token function">Wait</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token comment">// 所有的元素都保证被初始化了。</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">&quot;values:&quot;</span><span class="token punctuation">,</span> values<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>在此例中，主协程等待着直到其它5个协程已经将各自负责的元素初始化完毕此会打印出各个元素值。 这里是一个可能的程序执行输出结果：</p> <div class="language- extra-class"><pre class="language-text"><code>Done: 4
+Done: 1
+Done: 3
+Done: 0
+Done: 2
+values: [71 89 50 62 60]
+</code></pre></div><p>我们可以将上例中的 <code>Add</code> 方法调用拆分成多次调用：</p> <div class="language-go extra-class"><pre class="language-go"><code><span class="token operator">...</span>
+	<span class="token keyword">var</span> wg sync<span class="token punctuation">.</span>WaitGroup
+	<span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> N<span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
+		wg<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment">// 将被执行5次</span>
+		i <span class="token operator">:=</span> i
+		<span class="token keyword">go</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			values<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">50</span> <span class="token operator">+</span> rand<span class="token punctuation">.</span><span class="token function">Int31n</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span>
+			wg<span class="token punctuation">.</span><span class="token function">Done</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+		<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+<span class="token operator">...</span>
+</code></pre></div><p>一个 <code>*sync. WaitGroup</code> 值的 <code>Wait</code> 方法可以在多个协程中调用。 当对应的 <code>sync. WaitGroup</code> 值维护的计数降为0，这些协程都将得到一个（广播）通知而结束阻塞状态。</p> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	rand<span class="token punctuation">.</span><span class="token function">Seed</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span><span class="token function">Now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">UnixNano</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+	<span class="token keyword">const</span> N <span class="token operator">=</span> <span class="token number">5</span>
+	<span class="token keyword">var</span> values <span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token builtin">int32</span>
+
+	<span class="token keyword">var</span> wgA<span class="token punctuation">,</span> wgB sync<span class="token punctuation">.</span>WaitGroup
+	wgA<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span>N<span class="token punctuation">)</span>
+	wgB<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+	<span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> N<span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
+		i <span class="token operator">:=</span> i
+		<span class="token keyword">go</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			wgB<span class="token punctuation">.</span><span class="token function">Wait</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 等待广播通知</span>
+			log<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">&quot;values[%v]=%v \n&quot;</span><span class="token punctuation">,</span> i<span class="token punctuation">,</span> values<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+			wgA<span class="token punctuation">.</span><span class="token function">Done</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+		<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token comment">// 下面这个循环保证将在上面的任何一个</span>
+	<span class="token comment">// wg.Wait调用结束之前执行。</span>
+	<span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> N<span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
+		values<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">50</span> <span class="token operator">+</span> rand<span class="token punctuation">.</span><span class="token function">Int31n</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+	wgB<span class="token punctuation">.</span><span class="token function">Done</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 发出一个广播通知</span>
+	wgA<span class="token punctuation">.</span><span class="token function">Wait</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>一个 <code>WaitGroup</code> 可以在它的一个 <code>Wait</code> 方法返回之后被重用。 但是请注意，当一个 <code>WaitGroup</code> 值维护的基数为零时，它的带有正整数实参的 <code>Add</code> 方法调用不能和它的 <code>Wait</code> 方法调用并发运行，否则将可能出现数据竞争。</p> <h2 id="sync-once-类型"><a href="#sync-once-类型" class="header-anchor">#</a> <code>sync. Once</code> 类型</h2> <p>每个 <code>*sync. Once</code> 值有一个 <code>Do(f func())</code> 方法。 此方法只有一个类型为 <code>func()</code> 的参数。</p> <p>对一个可寻址的 <code>sync. Once</code> 值 <code>o</code> ， <code>o. Do()</code> （即 <code>(&amp;o). Do()</code> 的简写形式）方法调用可以在多个协程中被多次并发地执行， 这些方法调用的实参应该（但并不强制）为同一个函数值。 在这些方法调用中，有且只有一个调用的实参函数（值）将得到调用。 此被调用的实参函数保证在任何 <code>o. Do()</code> 方法调用返回之前退出。 换句话说，被调用的实参函数内的代码将在任何 <code>o. Do()</code> 方法返回调用之前被执行。</p> <p>一般来说，一个 <code>sync. Once</code> 值被用来确保一段代码在一个并发程序中被执行且仅被执行一次。</p> <p>一个例子：</p> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">&quot;log&quot;</span>
+	<span class="token string">&quot;sync&quot;</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	log<span class="token punctuation">.</span><span class="token function">SetFlags</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+
+	x <span class="token operator">:=</span> <span class="token number">0</span>
+	doSomething <span class="token operator">:=</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		x<span class="token operator">++</span>
+		log<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">&quot;Hello&quot;</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token keyword">var</span> wg sync<span class="token punctuation">.</span>WaitGroup
+	<span class="token keyword">var</span> once sync<span class="token punctuation">.</span>Once
+	<span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
+		wg<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+		<span class="token keyword">go</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">defer</span> wg<span class="token punctuation">.</span><span class="token function">Done</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+			once<span class="token punctuation">.</span><span class="token function">Do</span><span class="token punctuation">(</span>doSomething<span class="token punctuation">)</span>
+			log<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">&quot;world!&quot;</span><span class="token punctuation">)</span>
+		<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+
+	wg<span class="token punctuation">.</span><span class="token function">Wait</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	log<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">&quot;x =&quot;</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span> <span class="token comment">// x = 1</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>在此例中， <code>Hello</code> 将仅被输出一次，而 <code>world!</code> 将被输出5次，并且 <code>Hello</code> 肯定在所有的5个 <code>world!</code> 之前输出。</p> <h2 id="sync-mutex-互斥锁-和-sync-rwmutex-读写锁-类型"><a href="#sync-mutex-互斥锁-和-sync-rwmutex-读写锁-类型" class="header-anchor">#</a> <code>sync. Mutex</code> （互斥锁）和 <code>sync. RWMutex</code> （读写锁）类型</h2> <p><code>*sync. Mutex</code> 和 <code>*sync. RWMutex</code> 类型都实现了<a href="https://golang.google.cn/pkg/sync/#Locker" target="_blank" rel="noopener noreferrer"><code>sync. Locker</code> 接口类型<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>。 所以这两个类型都有两个方法： <code>Lock()</code> 和 <code>Unlock()</code> ，用来保护一份数据不会被多个使用者同时读取和修改。</p> <p>除了 <code>Lock()</code> 和 <code>Unlock()</code> 这两个方法， <code>*sync. RWMutex</code> 类型还有两个另外的方法： <code>RLock()</code> 和 <code>RUnlock()</code> ，用来支持多个读取者并发读取一份数据但防止此份数据被某个数据写入者和其它数据访问者（包括读取者和写入者）同时使用。</p> <p>（注意：这里的***数据读取者*<strong>和</strong>*数据写入者***不应该从字面上理解。有时候某些数据读取者可能修改数据，而有些数据写入者可能只读取数据。）</p> <p>一个 <code>Mutex</code> 值常称为一个互斥锁。 一个 <code>Mutex</code> 零值为一个尚未加锁的互斥锁。 一个（可寻址的） <code>Mutex</code> 值 <code>m</code> 只有在未加锁状态时才能通过 <code>m. Lock()</code> 方法调用被成功加锁。 换句话说，一旦 <code>m</code> 值被加了锁（亦即某个 <code>m. Lock()</code> 方法调用成功返回）， 一个新的加锁试图将导致当前协程进入阻塞状态，直到此 <code>Mutex</code> 值被解锁为止（通过 <code>m. Unlock()</code> 方法调用）。</p> <p>注意： <code>m. Lock()</code> 和 <code>m. Unlock()</code> 分别是 <code>(&amp;m). Lock()</code> 和 <code>(&amp;m). Unlock()</code> 的简写形式。</p> <p>一个使用 <code>sync. Mutex</code> 的例子：</p> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">&quot;fmt&quot;</span>
+	<span class="token string">&quot;runtime&quot;</span>
+	<span class="token string">&quot;sync&quot;</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">type</span> Counter <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+	m sync<span class="token punctuation">.</span>Mutex
+	n <span class="token builtin">uint64</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token punctuation">(</span>c <span class="token operator">*</span>Counter<span class="token punctuation">)</span> <span class="token function">Value</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token builtin">uint64</span> <span class="token punctuation">{</span>
+	c<span class="token punctuation">.</span>m<span class="token punctuation">.</span><span class="token function">Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">defer</span> c<span class="token punctuation">.</span>m<span class="token punctuation">.</span><span class="token function">Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">return</span> c<span class="token punctuation">.</span>n
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token punctuation">(</span>c <span class="token operator">*</span>Counter<span class="token punctuation">)</span> <span class="token function">Increase</span><span class="token punctuation">(</span>delta <span class="token builtin">uint64</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	c<span class="token punctuation">.</span>m<span class="token punctuation">.</span><span class="token function">Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	c<span class="token punctuation">.</span>n <span class="token operator">+=</span> delta
+	c<span class="token punctuation">.</span>m<span class="token punctuation">.</span><span class="token function">Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">var</span> c Counter
+	<span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">100</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
+		<span class="token keyword">go</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">for</span> k <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> k <span class="token operator">&lt;</span> <span class="token number">100</span><span class="token punctuation">;</span> k<span class="token operator">++</span> <span class="token punctuation">{</span>
+				c<span class="token punctuation">.</span><span class="token function">Increase</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token comment">// 此循环仅为演示目的。</span>
+	<span class="token keyword">for</span> c<span class="token punctuation">.</span><span class="token function">Value</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">10000</span> <span class="token punctuation">{</span>
+		runtime<span class="token punctuation">.</span><span class="token function">Gosched</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>c<span class="token punctuation">.</span><span class="token function">Value</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 10000</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>在上面这个例子中，一个 <code>Counter</code> 值使用了一个 <code>Mutex</code> 字段来确保它的字段 <code>n</code> 永远不会被多个协程同时使用。</p> <p>一个 <code>RWMutex</code> 值常称为一个读写互斥锁，它的内部包含两个锁：一个写锁和一个读锁。 对于一个可寻址的 <code>RWMutex</code> 值 <code>rwm</code> ，数据写入者可以通过方法调用 <code>rwm. Lock()</code> 对 <code>rwm</code> 加写锁，或者通过 <code>rwm. RLock()</code> 方法调用对 <code>rwm</code> 加读锁。 方法调用 <code>rwm. Unlock()</code> 和 <code>rwm. RUnlock()</code> 用来解开 <code>rwm</code> 的写锁和读锁。 <code>rwm</code> 的读锁维护着一个计数。当 <code>rwm. RLock()</code> 调用成功时，此计数增1；当 <code>rwm. Unlock()</code> 调用成功时，此计数减1； 一个零计数表示 <code>rwm</code> 的读锁处于未加锁状态；反之，一个非零计数（肯定大于零）表示 <code>rwm</code> 的读锁处于加锁状态。</p> <p>注意 <code>rwm. Lock()</code> 、 <code>rwm. Unlock()</code> 、 <code>rwm. RLock()</code> 和 <code>rwm. RUnlock()</code> 分别是 <code>(&amp;rwm). Lock()</code> 、 <code>(&amp;rwm). Unlock()</code> 、 <code>(&amp;rwm). RLock()</code> 和 <code>(&amp;rwm). RUnlock()</code> 的简写形式。</p> <p>对于一个可寻址的 <code>RWMutex</code> 值 <code>rwm</code> ，下列规则存在：</p> <ul><li><code>rwm</code>的写锁只有在它的写锁和读锁都处于未加锁状态时才能被成功加锁。 换句话说，<code>rwm</code>的写锁在任何时刻最多只能被一个数据写入者成功加锁，并且<code>rwm</code>的写锁和读锁不能同时处于加锁状态。</li> <li>当<code>rwm</code>的写锁正处于加锁状态的时候，任何新的对之加写锁或者加读锁的操作试图都将导致当前协程进入阻塞状态，直到此写锁被解锁，这样的操作试图才有机会成功。</li> <li>当<code>rwm</code>的读锁正处于加锁状态的时候，新的加写锁的操作试图将导致当前协程进入阻塞状态。 但是，一个新的加读锁的操作试图将成功，只要此操作试图发生在任何被阻塞的加写锁的操作试图之前（见下一条规则）。 换句话说，一个读写互斥锁的读锁可以同时被多个数据读取者同时加锁而持有。 当<code>rwm</code>的读锁维护的计数清零时，读锁将返回未加锁状态。</li> <li>假设<code>rwm</code>的读锁正处于加锁状态的时候，为了防止后续数据写入者没有机会成功加写锁，后续发生在某个被阻塞的加写锁操作试图之后的所有加读锁的试图都将被阻塞。</li> <li>假设<code>rwm</code>的写锁正处于加锁状态的时候，（至少对于标准编译器来说，）为了防止后续数据读取者没有机会成功加读锁，发生在此写锁下一次被解锁之前的所有加读锁的试图都将在此写锁下一次被解锁之后肯定取得成功，即使所有这些加读锁的试图发生在一些仍被阻塞的加写锁的试图之后。</li></ul> <p>后两条规则是为了确保数据读取者和写入者都有机会执行它们的操作。</p> <p>请注意：一个锁并不会绑定到一个协程上，即一个锁并不记录哪个协程成功地加锁了它。 换句话说，一个锁的加锁者和此锁的解锁者可以不是同一个协程，尽管在实践中这种情况并不多见。</p> <p>在上一个例子中，如果 <code>Value</code> 方法被十分频繁调用而 <code>Increase</code> 方法并不频繁被调用，则 <code>Counter</code> 类型的 <code>m</code> 字段的类型可以更改为 <code>sync. RWMutex</code> ，从而使得执行效率更高，如下面的代码所示。</p> <div class="language-go extra-class"><pre class="language-go"><code><span class="token operator">...</span>
+<span class="token keyword">type</span> Counter <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+	<span class="token comment">//m sync.Mutex</span>
+	m sync<span class="token punctuation">.</span>RWMutex
+	n <span class="token builtin">uint64</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token punctuation">(</span>c <span class="token operator">*</span>Counter<span class="token punctuation">)</span> <span class="token function">Value</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token builtin">uint64</span> <span class="token punctuation">{</span>
+	<span class="token comment">//c.m.Lock()</span>
+	<span class="token comment">//defer c.m.Unlock()</span>
+	c<span class="token punctuation">.</span>m<span class="token punctuation">.</span><span class="token function">RLock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">defer</span> c<span class="token punctuation">.</span>m<span class="token punctuation">.</span><span class="token function">RUnlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">return</span> c<span class="token punctuation">.</span>n
+<span class="token punctuation">}</span>
+<span class="token operator">...</span>
+</code></pre></div><p><code>sync. RWMutex</code> 值的另一个应用场景是将一个写任务分隔成若干小的写任务。下一节中展示了一个这样的例子。</p> <p>根据上面列出的后两条规则，下面这个程序最有可能输出 <code>abdc</code> 。</p> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">&quot;fmt&quot;</span>
+	<span class="token string">&quot;time&quot;</span>
+	<span class="token string">&quot;sync&quot;</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">var</span> m sync<span class="token punctuation">.</span>RWMutex
+	<span class="token keyword">go</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		m<span class="token punctuation">.</span><span class="token function">RLock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+		fmt<span class="token punctuation">.</span><span class="token function">Print</span><span class="token punctuation">(</span><span class="token string">&quot;a&quot;</span><span class="token punctuation">)</span>
+		time<span class="token punctuation">.</span><span class="token function">Sleep</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>Second<span class="token punctuation">)</span>
+		m<span class="token punctuation">.</span><span class="token function">RUnlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">go</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		time<span class="token punctuation">.</span><span class="token function">Sleep</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>Second <span class="token operator">*</span> <span class="token number">1</span> <span class="token operator">/</span> <span class="token number">4</span><span class="token punctuation">)</span>
+		m<span class="token punctuation">.</span><span class="token function">Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+		fmt<span class="token punctuation">.</span><span class="token function">Print</span><span class="token punctuation">(</span><span class="token string">&quot;b&quot;</span><span class="token punctuation">)</span>
+		time<span class="token punctuation">.</span><span class="token function">Sleep</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>Second<span class="token punctuation">)</span>
+		m<span class="token punctuation">.</span><span class="token function">Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">go</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		time<span class="token punctuation">.</span><span class="token function">Sleep</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>Second <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">/</span> <span class="token number">4</span><span class="token punctuation">)</span>
+		m<span class="token punctuation">.</span><span class="token function">Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+		fmt<span class="token punctuation">.</span><span class="token function">Print</span><span class="token punctuation">(</span><span class="token string">&quot;c&quot;</span><span class="token punctuation">)</span>
+		m<span class="token punctuation">.</span><span class="token function">Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">go</span> <span class="token keyword">func</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		time<span class="token punctuation">.</span><span class="token function">Sleep</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>Second <span class="token operator">*</span> <span class="token number">3</span> <span class="token operator">/</span> <span class="token number">4</span><span class="token punctuation">)</span>
+		m<span class="token punctuation">.</span><span class="token function">RLock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+		fmt<span class="token punctuation">.</span><span class="token function">Print</span><span class="token punctuation">(</span><span class="token string">&quot;d&quot;</span><span class="token punctuation">)</span>
+		m<span class="token punctuation">.</span><span class="token function">RUnlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	time<span class="token punctuation">.</span><span class="token function">Sleep</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>Second <span class="token operator">*</span> <span class="token number">3</span><span class="token punctuation">)</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>请注意，上例这个程序仅仅是为了解释和验证上面列出的读写锁的后两条加锁规则。 此程序使用了 <code>time. Sleep</code> 调用来做协程间的同步。<a href="https://gfw.go101.org/article/concurrent-common-mistakes.html#sleep" target="_blank" rel="noopener noreferrer">这种所谓的同步方法不应该被使用在生产代码中<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>。</p> <p><code>sync. Mutex</code> 和 <code>sync. RWMutex</code> 值也可以用来实现通知，尽管这不是Go中最优雅的方法来实现通知。 下面是一个使用了 <code>Mutex</code> 值来实现通知的例子。</p> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">&quot;fmt&quot;</span>
+	<span class="token string">&quot;sync&quot;</span>
+	<span class="token string">&quot;time&quot;</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">var</span> m sync<span class="token punctuation">.</span>Mutex
+	m<span class="token punctuation">.</span><span class="token function">Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">go</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		time<span class="token punctuation">.</span><span class="token function">Sleep</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>Second<span class="token punctuation">)</span>
+		fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">&quot;Hi&quot;</span><span class="token punctuation">)</span>
+		m<span class="token punctuation">.</span><span class="token function">Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 发出一个通知</span>
+	<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	m<span class="token punctuation">.</span><span class="token function">Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 等待通知</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">&quot;Bye&quot;</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>在此例中， <code>Hi</code> 将确保在 <code>Bye</code> 之前打印出来。 关于 <code>sync. Mutex</code> 和 <code>sync. RWMutex</code> 值相关的内存顺序保证，请阅读<a href="https://gfw.go101.org/article/memory-model.html#mutex" target="_blank" rel="noopener noreferrer">Go中的内存顺序保证<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>一文。</p> <h2 id="sync-cond-类型"><a href="#sync-cond-类型" class="header-anchor">#</a> <code>sync. Cond</code> 类型</h2> <p><code>sync. Cond</code> 类型提供了一种有效的方式来实现多个协程间的通知。</p> <p>每个 <code>sync. Cond</code> 值拥有一个 <code>sync. Locker</code> 类型的名为 <code>L</code> 的字段。 此字段的具体值常常为一个 <code>*sync. Mutex</code> 值或者 <code>*sync. RWMutex</code> 值。</p> <p><code>*sync. Cond</code> 类型有<a href="https://golang.google.cn/pkg/sync/#Cond" target="_blank" rel="noopener noreferrer">三个方法<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>： <code>Wait()</code> 、 <code>Signal()</code> 和 <code>Broadcast()</code> 。</p> <p>每个 <code>Cond</code> 值维护着一个先进先出等待协程队列。 对于一个可寻址的 <code>Cond</code> 值 <code>c</code> ，</p> <ul><li></li></ul> <div class="language- extra-class"><pre class="language-text"><code>
+  c.Wait()
+</code></pre></div><p>必须在</p> <div class="language- extra-class"><pre class="language-text"><code>  c.L
+</code></pre></div><p>字段值的锁处于加锁状态的时候调用；否则，</p> <div class="language- extra-class"><pre class="language-text"><code>  c.Wait()
+</code></pre></div><p>调用将造成一个恐慌。 一个</p> <div class="language- extra-class"><pre class="language-text"><code>  c.Wait()
+</code></pre></div><p>调用将</p> <ol><li><p>首先将当前协程推入到<code>c</code>所维护的等待协程队列；</p></li> <li><p>然后调用<code>c.L.Unlock()</code>对<code>c.L</code>的锁解锁；</p></li> <li><p>然后使当前协程进入阻塞状态；</p> <p><em>（当前协程将被另一个协程通过 <code>c.Signal()</code> 或 <code>c.Broadcast()</code> 调用唤醒而重新进入运行状态。）</em></p> <p>一旦当前协程重新进入运行状态，</p></li></ol> <p>$mdFormatter$50$mdFormatter$</p> <div class="language- extra-class"><pre class="language-text"><code>     c.L.Lock()
+     ```
+
+     将被调用以试图重新对
+
+$mdFormatter$50$mdFormatter$
+
+</code></pre></div><div class="language- extra-class"><pre><code> c.L
+ ```
+
+ 字段值的锁加锁。 此
+</code></pre></div><p>$mdFormatter$50$mdFormatter$</p> <div class="language- extra-class"><pre class="language-text"><code>     c.Wait()
+     ```
+
+     调用将在此试图成功之后退出。
+
+* 一个`c. Signal()`调用将唤醒并移除`c`所维护的等待协程队列中的第一个协程（如果此队列不为空的话）。
+
+* 一个`c. Broadcast()`调用将唤醒并移除`c`所维护的等待协程队列中的所有协程（如果此队列不为空的话）。
+
+请注意： `c. Wait()` 、 `c. Signal()` 和 `c. Broadcast()` 分别为 `(&amp;c). Wait()` 、 `(&amp;c). Signal()` 和 `(&amp;c). Broadcast()` 的简写形式。
+
+`c. Signal()` 和 `c. Broadcast()` 调用常用来通知某个条件的状态发生了变化。 一般说来， `c. Wait()` 应该在一个检查某个条件是否已经得到满足的循环中调用。
+
+下面是一个典型的 `sync. Cond` 用例。
+
+``` go
+package main
+
+import (
+	&quot;fmt&quot;
+	&quot;math/rand&quot;
+	&quot;sync&quot;
+	&quot;time&quot;
+)
+
+func main() {
+	rand.Seed(time.Now().UnixNano())
+
+	const N = 10
+	var values [N]string
+
+	cond := sync.NewCond(&amp;sync.Mutex{})
+
+	for i := 0; i &lt; N; i++ {
+		d := time.Second * time.Duration(rand.Intn(10)) / 10
+		go func(i int) {
+			time.Sleep(d) // 模拟一个工作负载
+			cond.L.Lock()
+			// 下面的修改必须在cond.L被锁定的时候执行
+			values[i] = string('a' + i)
+			cond.Broadcast() // 可以在cond.L被解锁后发出通知
+			cond.L.Unlock()
+			// 上面的通知也可以在cond.L未锁定的时候发出。
+			//cond.Broadcast() // 上面的调用也可以放在这里
+		}(i)
+	}
+
+	// 此函数必须在cond.L被锁定的时候调用。
+	checkCondition := func() bool {
+		fmt.Println(values)
+		for i := 0; i &lt; N; i++ {
+			if values[i] == &quot;&quot; {
+				return false
+			}
+		}
+		return true
+	}
+
+	cond.L.Lock()
+	defer cond.L.Unlock()
+	for !checkCondition() {
+		cond.Wait() // 必须在cond.L被锁定的时候调用
+	}
+}
+</code></pre></div><p>一个可能的输出：</p> <div class="language- extra-class"><pre class="language-text"><code>[         ]
+[     f    ]
+[  c   f    ]
+[  c   f  h  ]
+[ b c   f  h  ]
+[a b c   f  h  j]
+[a b c   f g h i j]
+[a b c  e f g h i j]
+[a b c d e f g h i j]
+</code></pre></div><p>因为上例中只有一个协程（主协程）在等待通知，所以其中的 <code>cond. Broadcast()</code> 调用也可以换为 <code>cond. Signal()</code> 。 如上例中的注释所示， <code>cond. Broadcast()</code> 和 <code>cond. Signal()</code> 不必在 <code>cond. L</code> 的锁处于加锁状态时调用。</p> <p>为了防止数据竞争，对自定义条件的修改必须在 <code>cond. L</code> 的锁处于加锁状态时才能执行。 另外， <code>checkCondition</code> 函数和 <code>cond. Wait</code> 方法也必须在 <code>cond. L</code> 的锁处于加锁状态时才可被调用。</p> <p>事实上，对于上面这个特定的例子， <code>cond. L</code> 字段的也可以为一个 <code>*sync. RWMutex</code> 值。 对自定义条件的十个部分的修改可以在 <code>RWMutex</code> 值的读锁处于加锁状态时执行。这十个修改可以并发进行，因为它们是互不干扰的。 如下面的代码所示：</p> <div class="language-go extra-class"><pre class="language-go"><code><span class="token operator">...</span>
+	cond <span class="token operator">:=</span> sync<span class="token punctuation">.</span><span class="token function">NewCond</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>sync<span class="token punctuation">.</span>RWMutex<span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+	cond<span class="token punctuation">.</span>L<span class="token punctuation">.</span><span class="token function">Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+	<span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> N<span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
+		d <span class="token operator">:=</span> time<span class="token punctuation">.</span>Second <span class="token operator">*</span> time<span class="token punctuation">.</span><span class="token function">Duration</span><span class="token punctuation">(</span>rand<span class="token punctuation">.</span><span class="token function">Intn</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">10</span>
+		<span class="token keyword">go</span> <span class="token keyword">func</span><span class="token punctuation">(</span>i <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			time<span class="token punctuation">.</span><span class="token function">Sleep</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span>
+			cond<span class="token punctuation">.</span>L<span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token operator">*</span>sync<span class="token punctuation">.</span>RWMutex<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">RLock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+			values<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">string</span><span class="token punctuation">(</span><span class="token string">'a'</span> <span class="token operator">+</span> i<span class="token punctuation">)</span>
+			cond<span class="token punctuation">.</span>L<span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token operator">*</span>sync<span class="token punctuation">.</span>RWMutex<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">RUnlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+			cond<span class="token punctuation">.</span><span class="token function">Signal</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+		<span class="token punctuation">}</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+<span class="token operator">...</span>
+</code></pre></div><p>在上面的代码中，此 <code>sync. RWMutex</code> 值的用法有些不符常规。 它的读锁被一些修改数组元素的协程所加锁并持有，而它的写锁被主协程加锁持有用来读取并检查各个数组元素的值。</p> <p><code>Cond</code> 值所表示的自定义条件可以是一个虚无。对于这种情况，此 <code>Cond</code> 值纯粹被用来实现通知。 比如，下面这个程序将打印出 <code>abc</code> 或者 <code>bac</code> 。</p> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">&quot;fmt&quot;</span>
+	<span class="token string">&quot;sync&quot;</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	wg <span class="token operator">:=</span> sync<span class="token punctuation">.</span>WaitGroup<span class="token punctuation">{</span><span class="token punctuation">}</span>
+	wg<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+	cond <span class="token operator">:=</span> sync<span class="token punctuation">.</span><span class="token function">NewCond</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>sync<span class="token punctuation">.</span>Mutex<span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+	cond<span class="token punctuation">.</span>L<span class="token punctuation">.</span><span class="token function">Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">go</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		cond<span class="token punctuation">.</span>L<span class="token punctuation">.</span><span class="token function">Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+		<span class="token keyword">go</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			cond<span class="token punctuation">.</span>L<span class="token punctuation">.</span><span class="token function">Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+			cond<span class="token punctuation">.</span><span class="token function">Broadcast</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+			cond<span class="token punctuation">.</span>L<span class="token punctuation">.</span><span class="token function">Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+		<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+		cond<span class="token punctuation">.</span><span class="token function">Wait</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+		fmt<span class="token punctuation">.</span><span class="token function">Print</span><span class="token punctuation">(</span><span class="token string">&quot;a&quot;</span><span class="token punctuation">)</span>
+		cond<span class="token punctuation">.</span>L<span class="token punctuation">.</span><span class="token function">Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+		wg<span class="token punctuation">.</span><span class="token function">Done</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	cond<span class="token punctuation">.</span><span class="token function">Wait</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Print</span><span class="token punctuation">(</span><span class="token string">&quot;b&quot;</span><span class="token punctuation">)</span>
+	cond<span class="token punctuation">.</span>L<span class="token punctuation">.</span><span class="token function">Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	wg<span class="token punctuation">.</span><span class="token function">Wait</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">&quot;c&quot;</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>如果需要，多个 <code>sync. Cond</code> 值可以共享一个 <code>sync. Locker</code> 值。但是这种情形在实践中并不多见。</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">5/21/2021, 1:25:38 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/开发基础/GO/并发编程/3如何优雅地关闭通道.html" class="prev">
+        如何优雅地关闭通道
+      </a></span> <span class="next"><a href="/blog/开发基础/GO/并发编程/5原子操作 .html">
+        sync/atomic 标准库包中提供的原子操作
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.e96a3795.js" defer></script><script src="/blog/assets/js/3.21e2e031.js" defer></script><script src="/blog/assets/js/115.6a21a21a.js" defer></script>
+  </body>
+</html>

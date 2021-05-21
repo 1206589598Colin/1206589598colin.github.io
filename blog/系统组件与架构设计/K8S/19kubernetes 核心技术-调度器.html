@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>核心技术-调度器 | 一名GO+PHP工程师</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.b3aba94c.css" as="style"><link rel="preload" href="/blog/assets/js/app.e96a3795.js" as="script"><link rel="preload" href="/blog/assets/js/3.21e2e031.js" as="script"><link rel="preload" href="/blog/assets/js/60.6405b5ee.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.f0d17f98.js"><link rel="prefetch" href="/blog/assets/js/100.d5cb88cb.js"><link rel="prefetch" href="/blog/assets/js/101.6bbce255.js"><link rel="prefetch" href="/blog/assets/js/102.968ea43c.js"><link rel="prefetch" href="/blog/assets/js/103.c5c5130e.js"><link rel="prefetch" href="/blog/assets/js/104.161b590d.js"><link rel="prefetch" href="/blog/assets/js/105.d99dabdd.js"><link rel="prefetch" href="/blog/assets/js/106.4813a429.js"><link rel="prefetch" href="/blog/assets/js/107.973e5efb.js"><link rel="prefetch" href="/blog/assets/js/108.0e6710c9.js"><link rel="prefetch" href="/blog/assets/js/109.0dca298c.js"><link rel="prefetch" href="/blog/assets/js/11.9a0b460c.js"><link rel="prefetch" href="/blog/assets/js/110.91c6d5de.js"><link rel="prefetch" href="/blog/assets/js/111.4db6087d.js"><link rel="prefetch" href="/blog/assets/js/112.bb76db96.js"><link rel="prefetch" href="/blog/assets/js/113.9b314292.js"><link rel="prefetch" href="/blog/assets/js/114.f28a4d47.js"><link rel="prefetch" href="/blog/assets/js/115.6a21a21a.js"><link rel="prefetch" href="/blog/assets/js/116.1fd8cdf3.js"><link rel="prefetch" href="/blog/assets/js/117.193b54e8.js"><link rel="prefetch" href="/blog/assets/js/118.a54057c2.js"><link rel="prefetch" href="/blog/assets/js/119.f0742def.js"><link rel="prefetch" href="/blog/assets/js/12.2704636b.js"><link rel="prefetch" href="/blog/assets/js/120.c2fc1bab.js"><link rel="prefetch" href="/blog/assets/js/121.4300e0d3.js"><link rel="prefetch" href="/blog/assets/js/122.0ea0246a.js"><link rel="prefetch" href="/blog/assets/js/123.daa76433.js"><link rel="prefetch" href="/blog/assets/js/124.ca59f8f6.js"><link rel="prefetch" href="/blog/assets/js/125.6439d284.js"><link rel="prefetch" href="/blog/assets/js/126.8b8a9b2d.js"><link rel="prefetch" href="/blog/assets/js/127.06c981b6.js"><link rel="prefetch" href="/blog/assets/js/128.cf7b9eec.js"><link rel="prefetch" href="/blog/assets/js/129.b4fdbe4d.js"><link rel="prefetch" href="/blog/assets/js/13.13621de1.js"><link rel="prefetch" href="/blog/assets/js/130.4acdc8e4.js"><link rel="prefetch" href="/blog/assets/js/131.ff0058e6.js"><link rel="prefetch" href="/blog/assets/js/132.1f9b4bbb.js"><link rel="prefetch" href="/blog/assets/js/133.a417b118.js"><link rel="prefetch" href="/blog/assets/js/134.6a6cf86d.js"><link rel="prefetch" href="/blog/assets/js/135.16d61a44.js"><link rel="prefetch" href="/blog/assets/js/136.12ac5b39.js"><link rel="prefetch" href="/blog/assets/js/137.574e5c35.js"><link rel="prefetch" href="/blog/assets/js/138.fb99b34c.js"><link rel="prefetch" href="/blog/assets/js/139.b13aa419.js"><link rel="prefetch" href="/blog/assets/js/14.af5cd84c.js"><link rel="prefetch" href="/blog/assets/js/140.e504645c.js"><link rel="prefetch" href="/blog/assets/js/141.b0090c83.js"><link rel="prefetch" href="/blog/assets/js/142.8f3573aa.js"><link rel="prefetch" href="/blog/assets/js/143.fd923e68.js"><link rel="prefetch" href="/blog/assets/js/144.30c7d351.js"><link rel="prefetch" href="/blog/assets/js/145.95b58ec4.js"><link rel="prefetch" href="/blog/assets/js/146.f2a8a077.js"><link rel="prefetch" href="/blog/assets/js/147.9d236468.js"><link rel="prefetch" href="/blog/assets/js/148.f24cd187.js"><link rel="prefetch" href="/blog/assets/js/149.a864dbcc.js"><link rel="prefetch" href="/blog/assets/js/15.f3fe1b79.js"><link rel="prefetch" href="/blog/assets/js/150.17ad60e0.js"><link rel="prefetch" href="/blog/assets/js/151.544c42cb.js"><link rel="prefetch" href="/blog/assets/js/152.210743dc.js"><link rel="prefetch" href="/blog/assets/js/153.ed0b4aea.js"><link rel="prefetch" href="/blog/assets/js/154.3108e3fe.js"><link rel="prefetch" href="/blog/assets/js/155.9b88d76c.js"><link rel="prefetch" href="/blog/assets/js/156.e514afd4.js"><link rel="prefetch" href="/blog/assets/js/157.480617c1.js"><link rel="prefetch" href="/blog/assets/js/158.f649eaa4.js"><link rel="prefetch" href="/blog/assets/js/159.40693a16.js"><link rel="prefetch" href="/blog/assets/js/16.d5ef369f.js"><link rel="prefetch" href="/blog/assets/js/160.0c296e5b.js"><link rel="prefetch" href="/blog/assets/js/161.47fb88c7.js"><link rel="prefetch" href="/blog/assets/js/162.d7e72e4d.js"><link rel="prefetch" href="/blog/assets/js/163.35e7409e.js"><link rel="prefetch" href="/blog/assets/js/164.ebc9b6a7.js"><link rel="prefetch" href="/blog/assets/js/165.f7cbff8f.js"><link rel="prefetch" href="/blog/assets/js/166.5bcaa3dd.js"><link rel="prefetch" href="/blog/assets/js/167.b4296d08.js"><link rel="prefetch" href="/blog/assets/js/168.27dc81ce.js"><link rel="prefetch" href="/blog/assets/js/169.e3875c04.js"><link rel="prefetch" href="/blog/assets/js/17.85a6f3bd.js"><link rel="prefetch" href="/blog/assets/js/170.e41001f5.js"><link rel="prefetch" href="/blog/assets/js/171.8a988969.js"><link rel="prefetch" href="/blog/assets/js/172.ba4dc7a7.js"><link rel="prefetch" href="/blog/assets/js/173.84e3606e.js"><link rel="prefetch" href="/blog/assets/js/174.849bcbbd.js"><link rel="prefetch" href="/blog/assets/js/175.29aea4e3.js"><link rel="prefetch" href="/blog/assets/js/176.2380b0cf.js"><link rel="prefetch" href="/blog/assets/js/177.67fa30a9.js"><link rel="prefetch" href="/blog/assets/js/178.7f4bf5e6.js"><link rel="prefetch" href="/blog/assets/js/18.5b1abab1.js"><link rel="prefetch" href="/blog/assets/js/19.64702ecc.js"><link rel="prefetch" href="/blog/assets/js/2.b704f7ef.js"><link rel="prefetch" href="/blog/assets/js/20.ee94d049.js"><link rel="prefetch" href="/blog/assets/js/21.c4b2e86b.js"><link rel="prefetch" href="/blog/assets/js/22.5e0c0059.js"><link rel="prefetch" href="/blog/assets/js/23.8d21497f.js"><link rel="prefetch" href="/blog/assets/js/24.0d62d925.js"><link rel="prefetch" href="/blog/assets/js/25.f2cfc928.js"><link rel="prefetch" href="/blog/assets/js/26.454d8bc0.js"><link rel="prefetch" href="/blog/assets/js/27.64a56852.js"><link rel="prefetch" href="/blog/assets/js/28.86140af5.js"><link rel="prefetch" href="/blog/assets/js/29.cb7d4c15.js"><link rel="prefetch" href="/blog/assets/js/30.ead3f08b.js"><link rel="prefetch" href="/blog/assets/js/31.0b9f18b2.js"><link rel="prefetch" href="/blog/assets/js/32.666cd74a.js"><link rel="prefetch" href="/blog/assets/js/33.be963dc5.js"><link rel="prefetch" href="/blog/assets/js/34.29e8d5d9.js"><link rel="prefetch" href="/blog/assets/js/35.770b0123.js"><link rel="prefetch" href="/blog/assets/js/36.3ebc18d1.js"><link rel="prefetch" href="/blog/assets/js/37.1b4b8870.js"><link rel="prefetch" href="/blog/assets/js/38.434945a5.js"><link rel="prefetch" href="/blog/assets/js/39.5649856d.js"><link rel="prefetch" href="/blog/assets/js/4.8abadb0c.js"><link rel="prefetch" href="/blog/assets/js/40.90c1fb7b.js"><link rel="prefetch" href="/blog/assets/js/41.bdaf363e.js"><link rel="prefetch" href="/blog/assets/js/42.bd11772d.js"><link rel="prefetch" href="/blog/assets/js/43.451622f4.js"><link rel="prefetch" href="/blog/assets/js/44.711b0b23.js"><link rel="prefetch" href="/blog/assets/js/45.3478f0e8.js"><link rel="prefetch" href="/blog/assets/js/46.0bd04509.js"><link rel="prefetch" href="/blog/assets/js/47.b05a79df.js"><link rel="prefetch" href="/blog/assets/js/48.e3917371.js"><link rel="prefetch" href="/blog/assets/js/49.cffe09bd.js"><link rel="prefetch" href="/blog/assets/js/5.d85c4ea7.js"><link rel="prefetch" href="/blog/assets/js/50.10849ea7.js"><link rel="prefetch" href="/blog/assets/js/51.29fb5c68.js"><link rel="prefetch" href="/blog/assets/js/52.c183fd4d.js"><link rel="prefetch" href="/blog/assets/js/53.cd6fc1ff.js"><link rel="prefetch" href="/blog/assets/js/54.1f32a761.js"><link rel="prefetch" href="/blog/assets/js/55.8b1c97ea.js"><link rel="prefetch" href="/blog/assets/js/56.b1d06de1.js"><link rel="prefetch" href="/blog/assets/js/57.0f3887f6.js"><link rel="prefetch" href="/blog/assets/js/58.ddd651ef.js"><link rel="prefetch" href="/blog/assets/js/59.88810128.js"><link rel="prefetch" href="/blog/assets/js/6.66823a83.js"><link rel="prefetch" href="/blog/assets/js/61.2fe87550.js"><link rel="prefetch" href="/blog/assets/js/62.24bf6999.js"><link rel="prefetch" href="/blog/assets/js/63.2f87f55d.js"><link rel="prefetch" href="/blog/assets/js/64.68cd3b45.js"><link rel="prefetch" href="/blog/assets/js/65.7dc0ee8b.js"><link rel="prefetch" href="/blog/assets/js/66.b8d26700.js"><link rel="prefetch" href="/blog/assets/js/67.ac26e1fe.js"><link rel="prefetch" href="/blog/assets/js/68.5b88c98a.js"><link rel="prefetch" href="/blog/assets/js/69.134a204b.js"><link rel="prefetch" href="/blog/assets/js/7.aeaa2fae.js"><link rel="prefetch" href="/blog/assets/js/70.780e9a6e.js"><link rel="prefetch" href="/blog/assets/js/71.d6bb3142.js"><link rel="prefetch" href="/blog/assets/js/72.78fc6941.js"><link rel="prefetch" href="/blog/assets/js/73.b2283872.js"><link rel="prefetch" href="/blog/assets/js/74.b1d33341.js"><link rel="prefetch" href="/blog/assets/js/75.c342eea5.js"><link rel="prefetch" href="/blog/assets/js/76.19907955.js"><link rel="prefetch" href="/blog/assets/js/77.619843d6.js"><link rel="prefetch" href="/blog/assets/js/78.b41b3078.js"><link rel="prefetch" href="/blog/assets/js/79.e7418aeb.js"><link rel="prefetch" href="/blog/assets/js/8.f72dc925.js"><link rel="prefetch" href="/blog/assets/js/80.c1884ffd.js"><link rel="prefetch" href="/blog/assets/js/81.04f50a1e.js"><link rel="prefetch" href="/blog/assets/js/82.db879ca5.js"><link rel="prefetch" href="/blog/assets/js/83.e89b8863.js"><link rel="prefetch" href="/blog/assets/js/84.07410b58.js"><link rel="prefetch" href="/blog/assets/js/85.d46c8682.js"><link rel="prefetch" href="/blog/assets/js/86.3869d59e.js"><link rel="prefetch" href="/blog/assets/js/87.e7860b15.js"><link rel="prefetch" href="/blog/assets/js/88.09fc332a.js"><link rel="prefetch" href="/blog/assets/js/89.8b302469.js"><link rel="prefetch" href="/blog/assets/js/9.9a1ee48f.js"><link rel="prefetch" href="/blog/assets/js/90.391f76ed.js"><link rel="prefetch" href="/blog/assets/js/91.d1662d38.js"><link rel="prefetch" href="/blog/assets/js/92.a65aa479.js"><link rel="prefetch" href="/blog/assets/js/93.bc850b53.js"><link rel="prefetch" href="/blog/assets/js/94.7dc858d7.js"><link rel="prefetch" href="/blog/assets/js/95.83afadb6.js"><link rel="prefetch" href="/blog/assets/js/96.85084d66.js"><link rel="prefetch" href="/blog/assets/js/97.68a76e8c.js"><link rel="prefetch" href="/blog/assets/js/98.169e3a46.js"><link rel="prefetch" href="/blog/assets/js/99.3235f388.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.b3aba94c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">一名GO+PHP工程师</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="https://gitee.com/ColinWWL/blog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  码云Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="https://gitee.com/ColinWWL/blog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  码云Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/blog/系统组件与架构设计/K8S/1kubernetes 概述" class="sidebar-heading clickable open"><span>K8S</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/系统组件与架构设计/K8S/1kubernetes 概述.html" class="sidebar-link">概述</a></li><li><a href="/blog/系统组件与架构设计/K8S/2kubernetes 集群搭建-kubeadm方式 .html" class="sidebar-link">集群搭建(kubeadm 方式)</a></li><li><a href="/blog/系统组件与架构设计/K8S/4kubernetes 集群 YAML 文件详解.html" class="sidebar-link">集群 YAML 文件详解</a></li><li><a href="/blog/系统组件与架构设计/K8S/5kubernetes 集群命令行工具 kubectl.html" class="sidebar-link">集群命令行工具 kubectl</a></li><li><a href="/blog/系统组件与架构设计/K8S/6kubernetes 核心技术-Pod.html" class="sidebar-link">核心技术-Pod</a></li><li><a href="/blog/系统组件与架构设计/K8S/7kubernetes 核心技术-Label.html" class="sidebar-link">核心技术-Label</a></li><li><a href="/blog/系统组件与架构设计/K8S/8kubernetes 核心技术-Controller 控制器.html" class="sidebar-link">核心技术-Controller 控制器</a></li><li><a href="/blog/系统组件与架构设计/K8S/9kubernetes 核心技术-Volume.html" class="sidebar-link">核心技术-Volume</a></li><li><a href="/blog/系统组件与架构设计/K8S/10 kubernetes 核心技术-PVC 和 PV.html" class="sidebar-link">核心技术-PVC 和 PV</a></li><li><a href="/blog/系统组件与架构设计/K8S/11kubernetes 核心技术-Secret.html" class="sidebar-link">核心技术-Secret</a></li><li><a href="/blog/系统组件与架构设计/K8S/12kubernetes 核心技术-configMap.html" class="sidebar-link">核心技术-configMap</a></li><li><a href="/blog/系统组件与架构设计/K8S/13kubernetes 核心技术-Namespace.html" class="sidebar-link">核心技术-Namespace</a></li><li><a href="/blog/系统组件与架构设计/K8S/14kubernetes 核心技术-Service.html" class="sidebar-link">核心技术-Service</a></li><li><a href="/blog/系统组件与架构设计/K8S/18kubernetes 核心技术-探针.html" class="sidebar-link">核心技术-探针</a></li><li><a href="/blog/系统组件与架构设计/K8S/19kubernetes 核心技术-调度器.html" class="active sidebar-link">核心技术-调度器</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/系统组件与架构设计/K8S/19kubernetes 核心技术-调度器.html#概述" class="sidebar-link">概述</a></li><li class="sidebar-sub-header"><a href="/blog/系统组件与架构设计/K8S/19kubernetes 核心技术-调度器.html#k8s-调度工作方式" class="sidebar-link">k8s 调度工作方式</a></li><li class="sidebar-sub-header"><a href="/blog/系统组件与架构设计/K8S/19kubernetes 核心技术-调度器.html#k8s-调度器" class="sidebar-link">k8s 调度器</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/系统组件与架构设计/K8S/19kubernetes 核心技术-调度器.html#调度主要分为以下几个部分" class="sidebar-link">调度主要分为以下几个部分：</a></li><li class="sidebar-sub-header"><a href="/blog/系统组件与架构设计/K8S/19kubernetes 核心技术-调度器.html#更详细的流程是这样的" class="sidebar-link">更详细的流程是这样的：</a></li></ul></li><li class="sidebar-sub-header"><a href="/blog/系统组件与架构设计/K8S/19kubernetes 核心技术-调度器.html#节点调度亲和性" class="sidebar-link">节点调度亲和性</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/系统组件与架构设计/K8S/19kubernetes 核心技术-调度器.html#节点硬亲和性" class="sidebar-link">节点硬亲和性</a></li><li class="sidebar-sub-header"><a href="/blog/系统组件与架构设计/K8S/19kubernetes 核心技术-调度器.html#节点软亲和性" class="sidebar-link">节点软亲和性</a></li></ul></li><li class="sidebar-sub-header"><a href="/blog/系统组件与架构设计/K8S/19kubernetes 核心技术-调度器.html#pod-资源亲和调度" class="sidebar-link">Pod 资源亲和调度</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/系统组件与架构设计/K8S/19kubernetes 核心技术-调度器.html#pod-硬亲和调度" class="sidebar-link">Pod 硬亲和调度</a></li><li class="sidebar-sub-header"><a href="/blog/系统组件与架构设计/K8S/19kubernetes 核心技术-调度器.html#pod-软亲和调度" class="sidebar-link">Pod 软亲和调度</a></li><li class="sidebar-sub-header"><a href="/blog/系统组件与架构设计/K8S/19kubernetes 核心技术-调度器.html#pod-反亲和调度" class="sidebar-link">Pod 反亲和调度</a></li><li class="sidebar-sub-header"><a href="/blog/系统组件与架构设计/K8S/19kubernetes 核心技术-调度器.html#污点和容忍度" class="sidebar-link">污点和容忍度</a></li></ul></li><li class="sidebar-sub-header"><a href="/blog/系统组件与架构设计/K8S/19kubernetes 核心技术-调度器.html#问题节点标识" class="sidebar-link">问题节点标识</a></li></ul></li><li><a href="/blog/系统组件与架构设计/K8S/20kubernetes 核心技术-集群安全机制 RBAC.html" class="sidebar-link">核心技术-集群安全机制 RBAC</a></li><li><a href="/blog/系统组件与架构设计/K8S/22kubernetes 核心技术-Helm.html" class="sidebar-link">核心技术-Helm</a></li><li><a href="/blog/系统组件与架构设计/K8S/23kubernetes 高可用集群搭建.html" class="sidebar-link">高可用集群搭建</a></li><li><a href="/blog/系统组件与架构设计/K8S/24kubernetes 部署项目.html" class="sidebar-link">部署项目</a></li><li><a href="/blog/系统组件与架构设计/K8S/25kubernetes-部署性能监控平台.html" class="sidebar-link">部署性能监控平台</a></li><li><a href="/blog/系统组件与架构设计/K8S/Web界面Dashboard.html" class="sidebar-link">Web界面Dashboard</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="核心技术-调度器"><a href="#核心技术-调度器" class="header-anchor">#</a> 核心技术-调度器</h1> <h2 id="概述"><a href="#概述" class="header-anchor">#</a> 概述</h2> <p>一个容器平台的主要功能就是为容器分配运行时所需要的计算，存储和网络资源。容器调度系统负责选择在最合适的主机上启动容器，并且将它们关联起来。它必须能够自动的处理容器故障并且能够在更多的主机上自动启动更多的容器来应对更多的应用访问。</p> <p>目前三大主流的容器平台 Swarm, Mesos 和 Kubernetes 具有不同的容器调度系统。</p> <ul><li><p>Swarm 的特点是直接调度 Docker 容器，并且提供和标准 Docker API 一致的 API。</p></li> <li><p>Mesos 针对不同的运行框架采用相对独立的调度系统，其中 Marathon 框架提供了 Docker容器的原生支持。</p></li> <li><p>Kubernetes 则采用了 Pod 和 Label 这样的概念把容器组合成一个个的互相存在依赖关系的逻辑单元。相关容器被组合成 Pod 后被共同部署和调度，形成服务（Service）。</p></li></ul> <p>这个是 Kubernetes 和 Swarm，Mesos 的主要区别。相对来说，Kubernetes 采用这样的方式简化了集群范围内相关容器被共同调度管理的复杂性。换一种角度来看，Kubernetes 采用这种方式能够相对容易的支持更强大，更复杂的容器调度算法。</p> <h2 id="k8s-调度工作方式"><a href="#k8s-调度工作方式" class="header-anchor">#</a> k8s 调度工作方式</h2> <p>Kubernetes 调度器作为集群的大脑，在如何提高集群的资源利用率、保证集群中服务的稳定运行中也会变得越来越重要</p> <p>Kubernetes 的资源分为两种属性。</p> <ul><li><p>可压缩资源（例如 CPU 循环，Disk I/O 带宽）都是可以被限制和被回收的，对于一个Pod 来说可以降低这些资源的使用量而不去杀掉 Pod。</p></li> <li><p>不可压缩资源（例如内存、硬盘空间）一般来说不杀掉 Pod 就没法回收。未来Kubernetes 会加入更多资源，如网络带宽，存储 IOPS 的支持。</p></li></ul> <h2 id="k8s-调度器"><a href="#k8s-调度器" class="header-anchor">#</a> k8s 调度器</h2> <ul><li><p>kube-scheduler 是 kubernetes 系统的核心组件之一，主要负责整个集群资源的调度功能，根据特定的调度算法和策略，将 Pod 调度到最优的工作节点上面去，从而更加合理、更加充分的利用集群的资源，这也是选择使用 kubernetes 一个非常重要的理由。如果一门新的技术不能帮助企业节约成本、提供效率，我相信是很难推进的。</p></li> <li><p>调度流程默认情况下，kube-scheduler 提供的默认调度器能够满足我们绝大多数的要求，之前接触的示例也基本上用的默认的策略，都可以保证我们的 Pod 可以被分配到资源充足的节点上运行。但是在实际的线上项目中，可能我们自己会比 kubernetes 更加了解我们自己的应用，比如我们希望一个 Pod 只能运行在特定的几个节点上，或者这几个节点只能用来运行特定类型的应用，这就需要我们的调度器能够可控。</p></li> <li><p>kube-scheduler 是 kubernetes 的调度器，它的主要作用就是根据特定的调度算法和调度策略将 Pod 调度到合适的 Node 节点上去，是一个独立的二进制程序，启动之后会一直监听 API Server，获取到 PodSpec. NodeName 为空的 Pod，对每个 Pod 都会创建一个binding。</p></li></ul> <p><img src="/blog/assets/img/2021-04-22-21-46-29.1de6b0f4.png" alt=""></p> <h3 id="调度主要分为以下几个部分"><a href="#调度主要分为以下几个部分" class="header-anchor">#</a> 调度主要分为以下几个部分：</h3> <ul><li><p>首先是预选过程，过滤掉不满足条件的节点，这个过程称为 Predicates</p></li> <li><p>然后是优选过程，对通过的节点按照优先级排序，称之为 Priorities</p></li> <li><p>最后从中选择优先级最高的节点，如果中间任何一步骤有错误，就直接返回错误</p></li></ul> <p>Predicates 阶段首先遍历全部节点，过滤掉不满足条件的节点，属于强制性规则，这一阶段输出的所有满足要求的 Node 将被记录并作为第二阶段的输入，如果所有的节点都不满足条件，那么 Pod 将会一直处于 Pending 状态，直到有节点满足条件，在这期间调度器会不断的重试。所以我们在部署应用的时候，如果发现有 Pod 一直处于 Pending 状态，那么就是没有满足调度条件的节点，这个时候可以去检查下节点资源是否可用。</p> <p>Priorities 阶段即再次对节点进行筛选，如果有多个节点都满足条件的话，那么系统会按照节点的优先级(priorites)大小对节点进行排序，最后选择优先级最高的节点来部署 Pod应用。</p> <p>下面是调度过程的简单示意图：<br> <img src="/blog/assets/img/2021-04-22-21-47-14.da3e32df.png" alt=""><br> <img src="/blog/assets/img/2021-04-22-21-47-24.3114bdb2.png" alt=""></p> <h3 id="更详细的流程是这样的"><a href="#更详细的流程是这样的" class="header-anchor">#</a> 更详细的流程是这样的：</h3> <p>首先，客户端通过 API Server 的 REST API 或者 kubectl 工具创建 Pod 资源API Server 收到用户请求后，存储相关数据到 etcd 数据库中调度器监听 API Server 查看为调度(bind)的 Pod 列表，循环遍历地为每个 Pod 尝试分配节点，这个分配过程就是我们上面提到的两个阶段：</p> <ul><li><p>预选阶段(Predicates)，过滤节点，调度器用一组规则过滤掉不符合要求的 Node 节点，比如 Pod 设置了资源的 request，那么可用资源比 Pod 需要的资源少的主机显然就会被过滤掉</p></li> <li><p>优选阶段(Priorities)，为节点的优先级打分，将上一阶段过滤出来的 Node 列表进行打分，调度器会考虑一些整体的优化策略，比如把 Deployment 控制的多个 Pod 副本分布到不同的主机上，使用最低负载的主机等等策略，经过上面的阶段过滤后选择打分最高的 Node 节点和 Pod 进行 binding 操作，然后将结果存储到 etcd 中，最后被选择出来的 Node 节点对应的 kubelet 去执行创建 Pod 的相关操作</p></li></ul> <p>其中 Predicates 过滤有一系列的算法可以使用，我们这里简单列举几个：</p> <ul><li><p>PodFitsResources：节点上剩余的资源是否大于 Pod 请求的资源</p></li> <li><p>PodFitsHost：如果 Pod 指定了 NodeName，检查节点名称是否和 NodeName 匹配</p></li> <li><p>PodFitsHostPorts：节点上已经使用的 port 是否和 Pod 申请的 port 冲突</p></li> <li><p>PodSelectorMatches：过滤掉和 Pod 指定的 label 不匹配的节点</p></li> <li><p>NoDiskConflict：已经 mount 的 volume 和 Pod 指定的 volume 不冲突，除非它们都是只读的</p></li> <li><p>CheckNodeDiskPressure：检查节点磁盘空间是否符合要求</p></li> <li><p>CheckNodeMemoryPressure：检查节点内存是否够用</p></li></ul> <p>除了这些过滤算法之外，还有一些其他的算法，更多更详细的我们可以查看源码文件：</p> <p>k8s.io/kubernetes/pkg/scheduler/algorithm/predicates/predicates.go。</p> <p>而 Priorities 优先级是由一系列键值对组成的，键是该优先级的名称，值是它的权重值，同样，我们这里给大家列举几个具有代表性的选项：</p> <ul><li>LeastRequestedPriority：通过计算 CPU 和内存的使用率来决定权重，使用率越低权重越</li></ul> <p>高，当然正常肯定也是资源是使用率越低权重越高，能给别的 Pod 运行的可能性就越大</p> <ul><li><p>SelectorSpreadPriority：为了更好的高可用，对同属于一个 Deployment 或者 RC 下面的多个 Pod 副本，尽量调度到多个不同的节点上，当一个 Pod 被调度的时候，会先去查找该 Pod 对应的 controller，然后查看该 controller 下面的已存在的 Pod，运行 Pod越少的节点权重越高</p></li> <li><p>ImageLocalityPriority：就是如果在某个节点上已经有要使用的镜像节点了，镜像总大小值越大，权重就越高</p></li> <li><p>NodeAffinityPriority：这个就是根据节点的亲和性来计算一个权重值，后面我们会详细讲解亲和性的使用方法</p></li></ul> <h2 id="节点调度亲和性"><a href="#节点调度亲和性" class="header-anchor">#</a> 节点调度亲和性</h2> <p>节点亲和性规则：硬亲和性 required 、软亲和性 preferred。</p> <p>硬亲和性规则不满足时，Pod 会置于 Pending 状态，软亲和性规则不满足时，会选择一个不匹配的节点。当节点标签改变而不再符合此节点亲和性规则时，不会将 Pod 从该节点移出，仅对新建的 Pod 对象生效</p> <h3 id="节点硬亲和性"><a href="#节点硬亲和性" class="header-anchor">#</a> 节点硬亲和性</h3> <ul><li><p>方式一：Pod 使用 spec.nodeSelector (基于等值关系)</p></li> <li><p>方式二：Pod 使用 spec.affinity 支持 matchExpressions 属性 (复杂标签选择机制)</p></li></ul> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token comment"># 调度至 zone = foo 的节点</span>
+
+kubectllabelnodeskube<span class="token punctuation">-</span>node1zone=foo
+
+apiVersion<span class="token punctuation">:</span>v1
+
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Pod
+
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+
+name<span class="token punctuation">:</span>with<span class="token punctuation">-</span>required<span class="token punctuation">-</span>nodeaffinity
+
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">affinity</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">nodeAffinity</span><span class="token punctuation">:</span>
+
+requiredDuringSchedulingIgnoredDuringExecution<span class="token punctuation">:</span><span class="token comment"># 定义硬亲和性</span>
+
+<span class="token key atrule">nodeSelectorTerms</span><span class="token punctuation">:</span>
+
+ <span class="token punctuation">-</span> matchExpressions<span class="token punctuation">:</span><span class="token comment">#集合选择器</span>
+
+<span class="token punctuation">-</span><span class="token punctuation">{</span>key<span class="token punctuation">:</span>zone<span class="token punctuation">,</span> <span class="token key atrule">operator</span><span class="token punctuation">:</span> In<span class="token punctuation">,</span> values<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">&quot;foo&quot;</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+
+<span class="token key atrule">containers</span><span class="token punctuation">:</span>
+
+ <span class="token punctuation">-</span> name<span class="token punctuation">:</span>myapp
+
+image<span class="token punctuation">:</span>ikubernetes/myapp<span class="token punctuation">:</span>v1
+
+</code></pre></div><h3 id="节点软亲和性"><a href="#节点软亲和性" class="header-anchor">#</a> 节点软亲和性</h3> <p>柔性控制逻辑，当条件不满足时，能接受被编排于其他不符合条件的节点之上权重 weight 定义优先级，1-100 值越大优先级越高</p> <div class="language-yaml extra-class"><pre class="language-yaml"><code>apiVersion<span class="token punctuation">:</span>apps/v1
+
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Deployment
+
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+
+name<span class="token punctuation">:</span>myapp<span class="token punctuation">-</span>deploy<span class="token punctuation">-</span>with<span class="token punctuation">-</span>node<span class="token punctuation">-</span>affinity
+
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+
+replicas<span class="token punctuation">:</span><span class="token number">2</span>
+
+<span class="token key atrule">selector</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">matchLabels</span><span class="token punctuation">:</span>
+
+app<span class="token punctuation">:</span>myapp
+
+<span class="token key atrule">template</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+
+name<span class="token punctuation">:</span>myapp<span class="token punctuation">-</span>pod
+
+<span class="token key atrule">labels</span><span class="token punctuation">:</span>
+
+app<span class="token punctuation">:</span>myapp
+
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">affinity</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">nodeAffinity</span><span class="token punctuation">:</span>
+
+preferredDuringSchedulingIgnoredDuringExecution<span class="token punctuation">:</span><span class="token comment">#节点软亲和性</span>
+
+ <span class="token punctuation">-</span> weight<span class="token punctuation">:</span><span class="token number">60</span>
+
+<span class="token key atrule">preference</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">matchExpressions</span><span class="token punctuation">:</span>
+
+<span class="token punctuation">-</span><span class="token punctuation">{</span>key<span class="token punctuation">:</span>zone<span class="token punctuation">,</span> <span class="token key atrule">operator</span><span class="token punctuation">:</span> In<span class="token punctuation">,</span> values<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">&quot;foo&quot;</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+
+ <span class="token punctuation">-</span> weight<span class="token punctuation">:</span><span class="token number">30</span>
+
+<span class="token key atrule">preference</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">matchExpressions</span><span class="token punctuation">:</span>
+
+<span class="token punctuation">-</span><span class="token punctuation">{</span>key<span class="token punctuation">:</span>ssd<span class="token punctuation">,</span> <span class="token key atrule">operator</span><span class="token punctuation">:</span> Exists<span class="token punctuation">,</span> values<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+
+<span class="token key atrule">containers</span><span class="token punctuation">:</span>
+
+ <span class="token punctuation">-</span> name<span class="token punctuation">:</span>myapp
+
+image<span class="token punctuation">:</span>ikubernetes/myapp<span class="token punctuation">:</span>v1
+
+</code></pre></div><h2 id="pod-资源亲和调度"><a href="#pod-资源亲和调度" class="header-anchor">#</a> Pod 资源亲和调度</h2> <p>Pod 对象间亲和性，将一些 Pod 对象组织在相近的位置(同一节点、机架、区域、地区)</p> <p>Pod 对象间反亲和性，将一些 Pod 在运行位置上隔开</p> <h3 id="pod-硬亲和调度"><a href="#pod-硬亲和调度" class="header-anchor">#</a> Pod 硬亲和调度</h3> <p>Pod 亲和性描述一个 Pod 与具有某特征的现存 Pod 运行位置的依赖关系；即需要事先存在被依赖的 Pod 对象</p> <div class="language-yaml extra-class"><pre class="language-yaml"><code>
+<span class="token comment"># 被依赖 Pod</span>
+kubectlruntomcat<span class="token punctuation">-</span>lapp=tomcat<span class="token punctuation">-</span><span class="token punctuation">-</span>imagetomcat<span class="token punctuation">:</span>alpine
+
+kubectlexplain
+
+pod.spec.affinity.podAffinity.requiredDuringSchedulingIgnoredDuringExecution.to
+
+pologyKey
+
+apiVersion<span class="token punctuation">:</span>v1
+
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Pod
+
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+
+name<span class="token punctuation">:</span>with<span class="token punctuation">-</span>pod<span class="token punctuation">-</span>affinity
+
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">affinity</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">podAffinity</span><span class="token punctuation">:</span>
+
+requiredDuringSchedulingIgnoredDuringExecution<span class="token punctuation">:</span><span class="token comment"># 硬亲和调度</span>
+
+ <span class="token punctuation">-</span> <span class="token key atrule">labelSelector</span><span class="token punctuation">:</span>
+
+matchExpressions<span class="token punctuation">:</span><span class="token comment">#集合选择器</span>
+
+<span class="token punctuation">-</span><span class="token punctuation">{</span>key<span class="token punctuation">:</span>app<span class="token punctuation">,</span> <span class="token key atrule">operator</span><span class="token punctuation">:</span> In<span class="token punctuation">,</span> values<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">&quot;tomcat&quot;</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token comment"># 选择被依赖 Pod</span>
+
+\<span class="token comment"># 上面意思是，当前 pod 要跟标签为 app 值为 tomcat 的 pod 在一起</span>
+
+topologyKey<span class="token punctuation">:</span>kubernetes.io/hostname<span class="token comment"># 根据挑选出的 Pod 所有节点的 hostname</span>
+
+作为同一位置的判定
+
+<span class="token key atrule">containers</span><span class="token punctuation">:</span>
+
+ <span class="token punctuation">-</span> name<span class="token punctuation">:</span>myapp
+
+image<span class="token punctuation">:</span>ikubernetes/myapp<span class="token punctuation">:</span>v1
+</code></pre></div><h3 id="pod-软亲和调度"><a href="#pod-软亲和调度" class="header-anchor">#</a> Pod 软亲和调度</h3> <div class="language-yaml extra-class"><pre class="language-yaml"><code>
+apiVersion<span class="token punctuation">:</span>apps/v1
+
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Deployment
+
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+
+name<span class="token punctuation">:</span>myapp<span class="token punctuation">-</span>with<span class="token punctuation">-</span>preferred<span class="token punctuation">-</span>pod<span class="token punctuation">-</span>affinity
+
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+
+replicas<span class="token punctuation">:</span><span class="token number">3</span>
+
+<span class="token key atrule">selector</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">matchLabels</span><span class="token punctuation">:</span>
+
+app<span class="token punctuation">:</span>myapp
+
+<span class="token key atrule">template</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+
+name<span class="token punctuation">:</span>myapp
+
+<span class="token key atrule">labels</span><span class="token punctuation">:</span>
+
+app<span class="token punctuation">:</span>myapp
+
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">affinity</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">podAffinity</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">preferredDuringSchedulingIgnoredDuringExecution</span><span class="token punctuation">:</span>
+
+ <span class="token punctuation">-</span> weight<span class="token punctuation">:</span><span class="token number">80</span>
+
+<span class="token key atrule">podAffinityTerm</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">labelSelector</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">matchExpressions</span><span class="token punctuation">:</span>
+
+<span class="token punctuation">-</span><span class="token punctuation">{</span>key<span class="token punctuation">:</span>app<span class="token punctuation">,</span> <span class="token key atrule">operator</span><span class="token punctuation">:</span> In<span class="token punctuation">,</span> values<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">&quot;cache&quot;</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+
+topologyKey<span class="token punctuation">:</span>zone
+
+ <span class="token punctuation">-</span> weight<span class="token punctuation">:</span><span class="token number">20</span>
+
+<span class="token key atrule">podAffinityTerm</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">labelSelector</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">matchExpressions</span><span class="token punctuation">:</span>
+
+<span class="token punctuation">-</span><span class="token punctuation">{</span>key<span class="token punctuation">:</span>app<span class="token punctuation">,</span> <span class="token key atrule">operator</span><span class="token punctuation">:</span> In<span class="token punctuation">,</span> values<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">&quot;db&quot;</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+
+topologyKey<span class="token punctuation">:</span>zone
+
+<span class="token key atrule">containers</span><span class="token punctuation">:</span>
+
+ <span class="token punctuation">-</span> name<span class="token punctuation">:</span>myapp
+
+image<span class="token punctuation">:</span>ikubernetes/myapp<span class="token punctuation">:</span>v1
+
+</code></pre></div><h3 id="pod-反亲和调度"><a href="#pod-反亲和调度" class="header-anchor">#</a> Pod 反亲和调度</h3> <p>Pod 反亲和调度用于分散同一类应用，调度至不同的区域、机架或节点等将 spec.affinity.podAffinity 替换为 spec.affinity.podAntiAffinity反亲和调度也分为柔性约束和强制约束</p> <div class="language-yaml extra-class"><pre class="language-yaml"><code>
+apiVersion<span class="token punctuation">:</span>v1
+
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Pod
+
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+
+name<span class="token punctuation">:</span>pod<span class="token punctuation">-</span>first
+
+<span class="token key atrule">labels</span><span class="token punctuation">:</span>
+
+app<span class="token punctuation">:</span>myapp
+
+tier<span class="token punctuation">:</span>fronted
+
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">containers</span><span class="token punctuation">:</span>
+
+ <span class="token punctuation">-</span> name<span class="token punctuation">:</span>myapp
+
+image<span class="token punctuation">:</span>ikubernetes/myapp<span class="token punctuation">:</span>v1
+
+ <span class="token punctuation">-</span> <span class="token punctuation">-</span> <span class="token punctuation">-</span>
+
+apiVersion<span class="token punctuation">:</span>v1
+
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Pod
+
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+
+name<span class="token punctuation">:</span>pod<span class="token punctuation">-</span>second
+
+<span class="token key atrule">labels</span><span class="token punctuation">:</span>
+
+app<span class="token punctuation">:</span>backend
+
+tier<span class="token punctuation">:</span>db
+
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">containers</span><span class="token punctuation">:</span>
+
+ <span class="token punctuation">-</span> name<span class="token punctuation">:</span>busybox
+
+image<span class="token punctuation">:</span>busybox<span class="token punctuation">:</span>latest
+
+<span class="token key atrule">imagePullPolicy</span><span class="token punctuation">:</span> IfNotPresent
+
+command<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">&quot;/bin/sh&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;-c&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;sleep 3600&quot;</span><span class="token punctuation">]</span>
+
+<span class="token key atrule">affinity</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">podAntiAffinity</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">requiredDuringSchedulingIgnoredDuringExecution</span><span class="token punctuation">:</span>
+
+ <span class="token punctuation">-</span> <span class="token key atrule">labelSelector</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">matchExpressions</span><span class="token punctuation">:</span>
+
+<span class="token punctuation">-</span><span class="token punctuation">{</span>key<span class="token punctuation">:</span>app<span class="token punctuation">,</span> <span class="token key atrule">operator</span><span class="token punctuation">:</span> In<span class="token punctuation">,</span> values<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">&quot;myapp&quot;</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+
+topologyKey<span class="token punctuation">:</span>zone
+
+</code></pre></div><h3 id="污点和容忍度"><a href="#污点和容忍度" class="header-anchor">#</a> 污点和容忍度</h3> <p>污点 taints 是定义在节点上的键值型属性数据，用于让节点拒绝将 Pod 调度运行于其上，除非 Pod 有接纳节点污点的容忍度容忍度 tolerations 是定义在 Pod 上的键值属性数据，用于配置可容忍的污点，且调度器将 Pod 调度至其能容忍该节点污点的节点上或没有污点的节点上</p> <p>使用 PodToleratesNodeTaints 预选策略和 TaintTolerationPriority 优选函数完成该机制</p> <p>节点亲和性使得 Pod 对象被吸引到一类特定的节点 (nodeSelector 和 affinity)</p> <p>污点提供让节点排斥特定 Pod 对象的能力</p> <h4 id="定义污点和容忍度"><a href="#定义污点和容忍度" class="header-anchor">#</a> 定义污点和容忍度</h4> <p>污点定义于 nodes.spec.taints 容忍度定义于 pods.spec.tolerations</p> <p>语法： key=value:effect</p> <h4 id="effect-定义排斥等级"><a href="#effect-定义排斥等级" class="header-anchor">#</a> effect 定义排斥等级：</h4> <p>NoSchedule，不能容忍，但仅影响调度过程，已调度上去的 pod 不受影响，仅对新增加的pod 生效。</p> <p>PreferNoSchedule，柔性约束，节点现存 Pod 不受影响，如果实在是没有符合的节点，也可以调度上来</p> <p>NoExecute，不能容忍，当污点变动时，Pod 对象会被驱逐</p> <h4 id="在-pod-上定义容忍度时"><a href="#在-pod-上定义容忍度时" class="header-anchor">#</a> 在 Pod 上定义容忍度时：</h4> <ul><li><p>等值比较 容忍度与污点在 key、value、effect 三者完全匹配</p></li> <li><p>存在性判断 key、effect 完全匹配，value 使用空值</p></li> <li><p>一个节点可配置多个污点，一个 Pod 也可有多个容忍度</p></li></ul> <h4 id="管理节点的污点"><a href="#管理节点的污点" class="header-anchor">#</a> 管理节点的污点</h4> <p>同一个键值数据，effect 不同，也属于不同的污点</p> <p>给节点添加污点：</p> <div class="language-bash extra-class"><pre class="language-bash"><code>kubectl taint node <span class="token operator">&lt;</span>node-name<span class="token operator">&gt;</span><span class="token operator">&lt;</span>key<span class="token operator">&gt;</span><span class="token operator">=</span><span class="token operator">&lt;</span>value<span class="token operator">&gt;</span>:<span class="token operator">&lt;</span>effect<span class="token operator">&gt;</span>
+
+kubectl taint node node2 node-type<span class="token operator">=</span>production: NoShedule <span class="token comment">#举例</span>
+</code></pre></div><p>查看节点污点：</p> <div class="language-bash extra-class"><pre class="language-bash"><code>kubectl get nodes <span class="token operator">&lt;</span>nodename<span class="token operator">&gt;</span> -o go-template<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span>.spec.taints<span class="token punctuation">}</span><span class="token punctuation">}</span>
+</code></pre></div><p>删除节点污点：</p> <div class="language-bash extra-class"><pre class="language-bash"><code>kubectl taint node <span class="token operator">&lt;</span>node-name<span class="token operator">&gt;</span><span class="token operator">&lt;</span>key<span class="token operator">&gt;</span><span class="token punctuation">[</span>:<span class="token operator">&lt;</span>effect<span class="token operator">&gt;</span><span class="token punctuation">]</span>-
+
+kubectl patch nodes <span class="token operator">&lt;</span>node-name<span class="token operator">&gt;</span> -p <span class="token string">'{&quot;spec&quot;:{&quot;taints&quot;:[]}}'</span>
+
+kubectl taint node kube-node1 node-type<span class="token operator">=</span>production: NoSchedule
+
+kubectl get nodes kube-node1 -o go-template<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span>.spec.taints<span class="token punctuation">}</span><span class="token punctuation">}</span>
+
+<span class="token comment"># 删除 key 为 node-type，effect 为 NoSchedule 的污点</span>
+
+kubectl taint node kube-node1 node-type: NoSchedule-
+
+<span class="token comment"># 删除 key 为 node-type 的所有污点</span>
+
+kubectl taint node kube-node1 node-type-
+
+<span class="token comment"># 删除所有污点</span>
+
+kubectl patch nodes kube-node1 -p <span class="token string">'{&quot;spec&quot;:{&quot;taints&quot;:[]}}'</span>
+
+</code></pre></div><p>给 Pod 对象容忍度</p> <p>spec.tolerations 字段添加</p> <p>tolerationSeconds 用于定义延迟驱逐 Pod 的时长</p> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token comment"># 等值判断</span>
+
+<span class="token key atrule">tolerations</span><span class="token punctuation">:</span>
+
+ <span class="token punctuation">-</span> key<span class="token punctuation">:</span><span class="token string">&quot;key1&quot;</span>
+
+operator<span class="token punctuation">:</span><span class="token string">&quot;Equal&quot;</span><span class="token comment">#判断条件为 Equal</span>
+
+value<span class="token punctuation">:</span><span class="token string">&quot;value1&quot;</span>
+
+effect<span class="token punctuation">:</span><span class="token string">&quot;NoExecute&quot;</span>
+
+tolerationSeconds<span class="token punctuation">:</span><span class="token number">3600</span>
+
+<span class="token comment"># 存在性判断</span>
+
+<span class="token key atrule">tolerations</span><span class="token punctuation">:</span>
+
+ <span class="token punctuation">-</span> key<span class="token punctuation">:</span><span class="token string">&quot;key1&quot;</span>
+
+operator<span class="token punctuation">:</span><span class="token string">&quot;Exists&quot;</span><span class="token comment">#存在性判断，只要污点键存在，就可以匹配</span>
+
+effect<span class="token punctuation">:</span><span class="token string">&quot;NoExecute&quot;</span>
+
+tolerationSeconds<span class="token punctuation">:</span><span class="token number">3600</span>
+
+apiVersion<span class="token punctuation">:</span>v1
+
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Deployment
+
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+
+name<span class="token punctuation">:</span>myapp<span class="token punctuation">-</span>deploy
+
+namespace<span class="token punctuation">:</span>default
+
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+
+replicas<span class="token punctuation">:</span><span class="token number">3</span>
+
+<span class="token key atrule">selector</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">matchLabels</span><span class="token punctuation">:</span>
+
+app<span class="token punctuation">:</span>myapp
+
+release<span class="token punctuation">:</span>canary
+
+<span class="token key atrule">template</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">labels</span><span class="token punctuation">:</span>
+
+app<span class="token punctuation">:</span>myapp
+
+release<span class="token punctuation">:</span>canary
+
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">containers</span><span class="token punctuation">:</span>
+
+ <span class="token punctuation">-</span> name<span class="token punctuation">:</span>myapp
+
+image<span class="token punctuation">:</span>ikubernetes/myapp<span class="token punctuation">:</span>v1
+
+<span class="token key atrule">ports</span><span class="token punctuation">:</span>
+
+ <span class="token punctuation">-</span> name<span class="token punctuation">:</span>http
+
+containerPort<span class="token punctuation">:</span><span class="token number">80</span>
+
+<span class="token key atrule">tolerations</span><span class="token punctuation">:</span>
+
+ <span class="token punctuation">-</span> key<span class="token punctuation">:</span><span class="token string">&quot;node-type&quot;</span>
+
+operator<span class="token punctuation">:</span><span class="token string">&quot;Equal&quot;</span>
+
+<span class="token key atrule">value:&quot;production&quot;</span><span class="token punctuation">:</span>
+
+effect<span class="token punctuation">:</span><span class="token string">&quot;NoExecute&quot;</span>
+
+tolerationSeconds<span class="token punctuation">:</span><span class="token number">3600</span>
+
+</code></pre></div><h2 id="问题节点标识"><a href="#问题节点标识" class="header-anchor">#</a> 问题节点标识</h2> <p>自动为节点添加污点信息，使用 NoExecute 效用标识，会驱逐现有 Pod</p> <p>K8s 核心组件通常都容忍此类污点</p> <p>node.kubernetes.io/not-ready 节点进入 NotReady 状态时自动添加</p> <p>node.alpha.kubernetes.io/unreachable 节点进入 NotReachable 状态时自动添加</p> <p>node.kubernetes.io/out-of-disk 节点进入 OutOfDisk 状态时自动添加</p> <p>node.kubernetes.io/memory-pressure 节点内存资源面临压力</p> <p>node.kubernetes.io/disk-pressure 节点磁盘面临压力</p> <p>node.kubernetes.io/network-unavailable 节点网络不可用</p> <p>node.cloudprovider.kubernetes.io/uninitialized kubelet 由外部云环境程序启动时，</p> <p>自动添加，待到去控制器初始化此节点时再将其删除</p> <p>Pod 优选级和抢占式调度</p> <p>优选级，Pod 对象的重要程度</p> <p>优选级会影响节点上 Pod 的调度顺序和驱逐次序</p> <p>一个 Pod 对象无法被调度时，调度器会尝试抢占(驱逐)较低优先级的 Pod 对象，以便可以调度当前 Pod</p> <p>Pod 优选级和抢占机制默认处于禁用状态</p> <p>启用：同时为 kube-apiserver、kube-scheduler、kubelet 程序的 --feature-gates 添加</p> <p>PodPriority=true</p> <p>使用：事先创建优先级类别，并在创建 Pod 资源时通过 priorityClassName 属性指定所属优选级类别</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">5/21/2021, 1:25:38 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/系统组件与架构设计/K8S/18kubernetes 核心技术-探针.html" class="prev">
+        核心技术-探针
+      </a></span> <span class="next"><a href="/blog/系统组件与架构设计/K8S/20kubernetes 核心技术-集群安全机制 RBAC.html">
+        核心技术-集群安全机制 RBAC
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.e96a3795.js" defer></script><script src="/blog/assets/js/3.21e2e031.js" defer></script><script src="/blog/assets/js/60.6405b5ee.js" defer></script>
+  </body>
+</html>

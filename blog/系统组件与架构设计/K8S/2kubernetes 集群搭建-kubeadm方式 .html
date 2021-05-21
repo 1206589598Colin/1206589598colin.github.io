@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>集群搭建(kubeadm 方式) | 一名GO+PHP工程师</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.b3aba94c.css" as="style"><link rel="preload" href="/blog/assets/js/app.e96a3795.js" as="script"><link rel="preload" href="/blog/assets/js/3.21e2e031.js" as="script"><link rel="preload" href="/blog/assets/js/80.c1884ffd.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.f0d17f98.js"><link rel="prefetch" href="/blog/assets/js/100.d5cb88cb.js"><link rel="prefetch" href="/blog/assets/js/101.6bbce255.js"><link rel="prefetch" href="/blog/assets/js/102.968ea43c.js"><link rel="prefetch" href="/blog/assets/js/103.c5c5130e.js"><link rel="prefetch" href="/blog/assets/js/104.161b590d.js"><link rel="prefetch" href="/blog/assets/js/105.d99dabdd.js"><link rel="prefetch" href="/blog/assets/js/106.4813a429.js"><link rel="prefetch" href="/blog/assets/js/107.973e5efb.js"><link rel="prefetch" href="/blog/assets/js/108.0e6710c9.js"><link rel="prefetch" href="/blog/assets/js/109.0dca298c.js"><link rel="prefetch" href="/blog/assets/js/11.9a0b460c.js"><link rel="prefetch" href="/blog/assets/js/110.91c6d5de.js"><link rel="prefetch" href="/blog/assets/js/111.4db6087d.js"><link rel="prefetch" href="/blog/assets/js/112.bb76db96.js"><link rel="prefetch" href="/blog/assets/js/113.9b314292.js"><link rel="prefetch" href="/blog/assets/js/114.f28a4d47.js"><link rel="prefetch" href="/blog/assets/js/115.6a21a21a.js"><link rel="prefetch" href="/blog/assets/js/116.1fd8cdf3.js"><link rel="prefetch" href="/blog/assets/js/117.193b54e8.js"><link rel="prefetch" href="/blog/assets/js/118.a54057c2.js"><link rel="prefetch" href="/blog/assets/js/119.f0742def.js"><link rel="prefetch" href="/blog/assets/js/12.2704636b.js"><link rel="prefetch" href="/blog/assets/js/120.c2fc1bab.js"><link rel="prefetch" href="/blog/assets/js/121.4300e0d3.js"><link rel="prefetch" href="/blog/assets/js/122.0ea0246a.js"><link rel="prefetch" href="/blog/assets/js/123.daa76433.js"><link rel="prefetch" href="/blog/assets/js/124.ca59f8f6.js"><link rel="prefetch" href="/blog/assets/js/125.6439d284.js"><link rel="prefetch" href="/blog/assets/js/126.8b8a9b2d.js"><link rel="prefetch" href="/blog/assets/js/127.06c981b6.js"><link rel="prefetch" href="/blog/assets/js/128.cf7b9eec.js"><link rel="prefetch" href="/blog/assets/js/129.b4fdbe4d.js"><link rel="prefetch" href="/blog/assets/js/13.13621de1.js"><link rel="prefetch" href="/blog/assets/js/130.4acdc8e4.js"><link rel="prefetch" href="/blog/assets/js/131.ff0058e6.js"><link rel="prefetch" href="/blog/assets/js/132.1f9b4bbb.js"><link rel="prefetch" href="/blog/assets/js/133.a417b118.js"><link rel="prefetch" href="/blog/assets/js/134.6a6cf86d.js"><link rel="prefetch" href="/blog/assets/js/135.16d61a44.js"><link rel="prefetch" href="/blog/assets/js/136.12ac5b39.js"><link rel="prefetch" href="/blog/assets/js/137.574e5c35.js"><link rel="prefetch" href="/blog/assets/js/138.fb99b34c.js"><link rel="prefetch" href="/blog/assets/js/139.b13aa419.js"><link rel="prefetch" href="/blog/assets/js/14.af5cd84c.js"><link rel="prefetch" href="/blog/assets/js/140.e504645c.js"><link rel="prefetch" href="/blog/assets/js/141.b0090c83.js"><link rel="prefetch" href="/blog/assets/js/142.8f3573aa.js"><link rel="prefetch" href="/blog/assets/js/143.fd923e68.js"><link rel="prefetch" href="/blog/assets/js/144.30c7d351.js"><link rel="prefetch" href="/blog/assets/js/145.95b58ec4.js"><link rel="prefetch" href="/blog/assets/js/146.f2a8a077.js"><link rel="prefetch" href="/blog/assets/js/147.9d236468.js"><link rel="prefetch" href="/blog/assets/js/148.f24cd187.js"><link rel="prefetch" href="/blog/assets/js/149.a864dbcc.js"><link rel="prefetch" href="/blog/assets/js/15.f3fe1b79.js"><link rel="prefetch" href="/blog/assets/js/150.17ad60e0.js"><link rel="prefetch" href="/blog/assets/js/151.544c42cb.js"><link rel="prefetch" href="/blog/assets/js/152.210743dc.js"><link rel="prefetch" href="/blog/assets/js/153.ed0b4aea.js"><link rel="prefetch" href="/blog/assets/js/154.3108e3fe.js"><link rel="prefetch" href="/blog/assets/js/155.9b88d76c.js"><link rel="prefetch" href="/blog/assets/js/156.e514afd4.js"><link rel="prefetch" href="/blog/assets/js/157.480617c1.js"><link rel="prefetch" href="/blog/assets/js/158.f649eaa4.js"><link rel="prefetch" href="/blog/assets/js/159.40693a16.js"><link rel="prefetch" href="/blog/assets/js/16.d5ef369f.js"><link rel="prefetch" href="/blog/assets/js/160.0c296e5b.js"><link rel="prefetch" href="/blog/assets/js/161.47fb88c7.js"><link rel="prefetch" href="/blog/assets/js/162.d7e72e4d.js"><link rel="prefetch" href="/blog/assets/js/163.35e7409e.js"><link rel="prefetch" href="/blog/assets/js/164.ebc9b6a7.js"><link rel="prefetch" href="/blog/assets/js/165.f7cbff8f.js"><link rel="prefetch" href="/blog/assets/js/166.5bcaa3dd.js"><link rel="prefetch" href="/blog/assets/js/167.b4296d08.js"><link rel="prefetch" href="/blog/assets/js/168.27dc81ce.js"><link rel="prefetch" href="/blog/assets/js/169.e3875c04.js"><link rel="prefetch" href="/blog/assets/js/17.85a6f3bd.js"><link rel="prefetch" href="/blog/assets/js/170.e41001f5.js"><link rel="prefetch" href="/blog/assets/js/171.8a988969.js"><link rel="prefetch" href="/blog/assets/js/172.ba4dc7a7.js"><link rel="prefetch" href="/blog/assets/js/173.84e3606e.js"><link rel="prefetch" href="/blog/assets/js/174.849bcbbd.js"><link rel="prefetch" href="/blog/assets/js/175.29aea4e3.js"><link rel="prefetch" href="/blog/assets/js/176.2380b0cf.js"><link rel="prefetch" href="/blog/assets/js/177.67fa30a9.js"><link rel="prefetch" href="/blog/assets/js/178.7f4bf5e6.js"><link rel="prefetch" href="/blog/assets/js/18.5b1abab1.js"><link rel="prefetch" href="/blog/assets/js/19.64702ecc.js"><link rel="prefetch" href="/blog/assets/js/2.b704f7ef.js"><link rel="prefetch" href="/blog/assets/js/20.ee94d049.js"><link rel="prefetch" href="/blog/assets/js/21.c4b2e86b.js"><link rel="prefetch" href="/blog/assets/js/22.5e0c0059.js"><link rel="prefetch" href="/blog/assets/js/23.8d21497f.js"><link rel="prefetch" href="/blog/assets/js/24.0d62d925.js"><link rel="prefetch" href="/blog/assets/js/25.f2cfc928.js"><link rel="prefetch" href="/blog/assets/js/26.454d8bc0.js"><link rel="prefetch" href="/blog/assets/js/27.64a56852.js"><link rel="prefetch" href="/blog/assets/js/28.86140af5.js"><link rel="prefetch" href="/blog/assets/js/29.cb7d4c15.js"><link rel="prefetch" href="/blog/assets/js/30.ead3f08b.js"><link rel="prefetch" href="/blog/assets/js/31.0b9f18b2.js"><link rel="prefetch" href="/blog/assets/js/32.666cd74a.js"><link rel="prefetch" href="/blog/assets/js/33.be963dc5.js"><link rel="prefetch" href="/blog/assets/js/34.29e8d5d9.js"><link rel="prefetch" href="/blog/assets/js/35.770b0123.js"><link rel="prefetch" href="/blog/assets/js/36.3ebc18d1.js"><link rel="prefetch" href="/blog/assets/js/37.1b4b8870.js"><link rel="prefetch" href="/blog/assets/js/38.434945a5.js"><link rel="prefetch" href="/blog/assets/js/39.5649856d.js"><link rel="prefetch" href="/blog/assets/js/4.8abadb0c.js"><link rel="prefetch" href="/blog/assets/js/40.90c1fb7b.js"><link rel="prefetch" href="/blog/assets/js/41.bdaf363e.js"><link rel="prefetch" href="/blog/assets/js/42.bd11772d.js"><link rel="prefetch" href="/blog/assets/js/43.451622f4.js"><link rel="prefetch" href="/blog/assets/js/44.711b0b23.js"><link rel="prefetch" href="/blog/assets/js/45.3478f0e8.js"><link rel="prefetch" href="/blog/assets/js/46.0bd04509.js"><link rel="prefetch" href="/blog/assets/js/47.b05a79df.js"><link rel="prefetch" href="/blog/assets/js/48.e3917371.js"><link rel="prefetch" href="/blog/assets/js/49.cffe09bd.js"><link rel="prefetch" href="/blog/assets/js/5.d85c4ea7.js"><link rel="prefetch" href="/blog/assets/js/50.10849ea7.js"><link rel="prefetch" href="/blog/assets/js/51.29fb5c68.js"><link rel="prefetch" href="/blog/assets/js/52.c183fd4d.js"><link rel="prefetch" href="/blog/assets/js/53.cd6fc1ff.js"><link rel="prefetch" href="/blog/assets/js/54.1f32a761.js"><link rel="prefetch" href="/blog/assets/js/55.8b1c97ea.js"><link rel="prefetch" href="/blog/assets/js/56.b1d06de1.js"><link rel="prefetch" href="/blog/assets/js/57.0f3887f6.js"><link rel="prefetch" href="/blog/assets/js/58.ddd651ef.js"><link rel="prefetch" href="/blog/assets/js/59.88810128.js"><link rel="prefetch" href="/blog/assets/js/6.66823a83.js"><link rel="prefetch" href="/blog/assets/js/60.6405b5ee.js"><link rel="prefetch" href="/blog/assets/js/61.2fe87550.js"><link rel="prefetch" href="/blog/assets/js/62.24bf6999.js"><link rel="prefetch" href="/blog/assets/js/63.2f87f55d.js"><link rel="prefetch" href="/blog/assets/js/64.68cd3b45.js"><link rel="prefetch" href="/blog/assets/js/65.7dc0ee8b.js"><link rel="prefetch" href="/blog/assets/js/66.b8d26700.js"><link rel="prefetch" href="/blog/assets/js/67.ac26e1fe.js"><link rel="prefetch" href="/blog/assets/js/68.5b88c98a.js"><link rel="prefetch" href="/blog/assets/js/69.134a204b.js"><link rel="prefetch" href="/blog/assets/js/7.aeaa2fae.js"><link rel="prefetch" href="/blog/assets/js/70.780e9a6e.js"><link rel="prefetch" href="/blog/assets/js/71.d6bb3142.js"><link rel="prefetch" href="/blog/assets/js/72.78fc6941.js"><link rel="prefetch" href="/blog/assets/js/73.b2283872.js"><link rel="prefetch" href="/blog/assets/js/74.b1d33341.js"><link rel="prefetch" href="/blog/assets/js/75.c342eea5.js"><link rel="prefetch" href="/blog/assets/js/76.19907955.js"><link rel="prefetch" href="/blog/assets/js/77.619843d6.js"><link rel="prefetch" href="/blog/assets/js/78.b41b3078.js"><link rel="prefetch" href="/blog/assets/js/79.e7418aeb.js"><link rel="prefetch" href="/blog/assets/js/8.f72dc925.js"><link rel="prefetch" href="/blog/assets/js/81.04f50a1e.js"><link rel="prefetch" href="/blog/assets/js/82.db879ca5.js"><link rel="prefetch" href="/blog/assets/js/83.e89b8863.js"><link rel="prefetch" href="/blog/assets/js/84.07410b58.js"><link rel="prefetch" href="/blog/assets/js/85.d46c8682.js"><link rel="prefetch" href="/blog/assets/js/86.3869d59e.js"><link rel="prefetch" href="/blog/assets/js/87.e7860b15.js"><link rel="prefetch" href="/blog/assets/js/88.09fc332a.js"><link rel="prefetch" href="/blog/assets/js/89.8b302469.js"><link rel="prefetch" href="/blog/assets/js/9.9a1ee48f.js"><link rel="prefetch" href="/blog/assets/js/90.391f76ed.js"><link rel="prefetch" href="/blog/assets/js/91.d1662d38.js"><link rel="prefetch" href="/blog/assets/js/92.a65aa479.js"><link rel="prefetch" href="/blog/assets/js/93.bc850b53.js"><link rel="prefetch" href="/blog/assets/js/94.7dc858d7.js"><link rel="prefetch" href="/blog/assets/js/95.83afadb6.js"><link rel="prefetch" href="/blog/assets/js/96.85084d66.js"><link rel="prefetch" href="/blog/assets/js/97.68a76e8c.js"><link rel="prefetch" href="/blog/assets/js/98.169e3a46.js"><link rel="prefetch" href="/blog/assets/js/99.3235f388.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.b3aba94c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">一名GO+PHP工程师</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="https://gitee.com/ColinWWL/blog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  码云Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="https://gitee.com/ColinWWL/blog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  码云Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/blog/系统组件与架构设计/K8S/1kubernetes 概述" class="sidebar-heading clickable open"><span>K8S</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/系统组件与架构设计/K8S/1kubernetes 概述.html" class="sidebar-link">概述</a></li><li><a href="/blog/系统组件与架构设计/K8S/2kubernetes 集群搭建-kubeadm方式 .html" class="active sidebar-link">集群搭建(kubeadm 方式)</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/系统组件与架构设计/K8S/2kubernetes 集群搭建-kubeadm方式 .html#前置知识点" class="sidebar-link">前置知识点</a></li><li class="sidebar-sub-header"><a href="/blog/系统组件与架构设计/K8S/2kubernetes 集群搭建-kubeadm方式 .html#kubeadm-部署方式介绍" class="sidebar-link">kubeadm 部署方式介绍</a></li><li class="sidebar-sub-header"><a href="/blog/系统组件与架构设计/K8S/2kubernetes 集群搭建-kubeadm方式 .html#安装要求" class="sidebar-link">安装要求</a></li><li class="sidebar-sub-header"><a href="/blog/系统组件与架构设计/K8S/2kubernetes 集群搭建-kubeadm方式 .html#最终目标" class="sidebar-link">最终目标</a></li><li class="sidebar-sub-header"><a href="/blog/系统组件与架构设计/K8S/2kubernetes 集群搭建-kubeadm方式 .html#准备环境" class="sidebar-link">准备环境</a></li><li class="sidebar-sub-header"><a href="/blog/系统组件与架构设计/K8S/2kubernetes 集群搭建-kubeadm方式 .html#系统初始化" class="sidebar-link">系统初始化</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/系统组件与架构设计/K8S/2kubernetes 集群搭建-kubeadm方式 .html#关闭防火墙" class="sidebar-link">关闭防火墙</a></li><li class="sidebar-sub-header"><a href="/blog/系统组件与架构设计/K8S/2kubernetes 集群搭建-kubeadm方式 .html#关闭-selinux" class="sidebar-link">关闭 selinux</a></li><li class="sidebar-sub-header"><a href="/blog/系统组件与架构设计/K8S/2kubernetes 集群搭建-kubeadm方式 .html#关闭-swap" class="sidebar-link">关闭 swap</a></li><li class="sidebar-sub-header"><a href="/blog/系统组件与架构设计/K8S/2kubernetes 集群搭建-kubeadm方式 .html#主机名" class="sidebar-link">主机名：</a></li><li class="sidebar-sub-header"><a href="/blog/系统组件与架构设计/K8S/2kubernetes 集群搭建-kubeadm方式 .html#在-master-添加-hosts" class="sidebar-link">在 master 添加 hosts：</a></li><li class="sidebar-sub-header"><a href="/blog/系统组件与架构设计/K8S/2kubernetes 集群搭建-kubeadm方式 .html#将桥接的-ipv4-流量传递到-iptables-的链" class="sidebar-link">将桥接的 IPv4 流量传递到 iptables 的链</a></li><li class="sidebar-sub-header"><a href="/blog/系统组件与架构设计/K8S/2kubernetes 集群搭建-kubeadm方式 .html#时间同步" class="sidebar-link">时间同步：</a></li></ul></li><li class="sidebar-sub-header"><a href="/blog/系统组件与架构设计/K8S/2kubernetes 集群搭建-kubeadm方式 .html#所有节点安装-containerd-kubeadm-kubelet" class="sidebar-link">所有节点安装 containerd/kubeadm/kubelet</a></li><li class="sidebar-sub-header"><a href="/blog/系统组件与架构设计/K8S/2kubernetes 集群搭建-kubeadm方式 .html#部署-kubernetes-master" class="sidebar-link">部署 Kubernetes Master</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/系统组件与架构设计/K8S/2kubernetes 集群搭建-kubeadm方式 .html#在-192-168-56-1-master-执行" class="sidebar-link">在 192.168.56.1（Master）执行</a></li><li class="sidebar-sub-header"><a href="/blog/系统组件与架构设计/K8S/2kubernetes 集群搭建-kubeadm方式 .html#使用-kubectl-工具" class="sidebar-link">使用 kubectl 工具</a></li></ul></li><li class="sidebar-sub-header"><a href="/blog/系统组件与架构设计/K8S/2kubernetes 集群搭建-kubeadm方式 .html#安装-pod-网络插件-cni" class="sidebar-link">安装 Pod 网络插件（CNI）</a></li><li class="sidebar-sub-header"><a href="/blog/系统组件与架构设计/K8S/2kubernetes 集群搭建-kubeadm方式 .html#加入-kubernetes-node" class="sidebar-link">加入 Kubernetes Node</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/系统组件与架构设计/K8S/2kubernetes 集群搭建-kubeadm方式 .html#在-192-168-56-101-103-node-执行" class="sidebar-link">在 192.168.56.101/103（Node）执行</a></li></ul></li><li class="sidebar-sub-header"><a href="/blog/系统组件与架构设计/K8S/2kubernetes 集群搭建-kubeadm方式 .html#测试-kubernetes-集群" class="sidebar-link">测试 kubernetes 集群</a></li></ul></li><li><a href="/blog/系统组件与架构设计/K8S/4kubernetes 集群 YAML 文件详解.html" class="sidebar-link">集群 YAML 文件详解</a></li><li><a href="/blog/系统组件与架构设计/K8S/5kubernetes 集群命令行工具 kubectl.html" class="sidebar-link">集群命令行工具 kubectl</a></li><li><a href="/blog/系统组件与架构设计/K8S/6kubernetes 核心技术-Pod.html" class="sidebar-link">核心技术-Pod</a></li><li><a href="/blog/系统组件与架构设计/K8S/7kubernetes 核心技术-Label.html" class="sidebar-link">核心技术-Label</a></li><li><a href="/blog/系统组件与架构设计/K8S/8kubernetes 核心技术-Controller 控制器.html" class="sidebar-link">核心技术-Controller 控制器</a></li><li><a href="/blog/系统组件与架构设计/K8S/9kubernetes 核心技术-Volume.html" class="sidebar-link">核心技术-Volume</a></li><li><a href="/blog/系统组件与架构设计/K8S/10 kubernetes 核心技术-PVC 和 PV.html" class="sidebar-link">核心技术-PVC 和 PV</a></li><li><a href="/blog/系统组件与架构设计/K8S/11kubernetes 核心技术-Secret.html" class="sidebar-link">核心技术-Secret</a></li><li><a href="/blog/系统组件与架构设计/K8S/12kubernetes 核心技术-configMap.html" class="sidebar-link">核心技术-configMap</a></li><li><a href="/blog/系统组件与架构设计/K8S/13kubernetes 核心技术-Namespace.html" class="sidebar-link">核心技术-Namespace</a></li><li><a href="/blog/系统组件与架构设计/K8S/14kubernetes 核心技术-Service.html" class="sidebar-link">核心技术-Service</a></li><li><a href="/blog/系统组件与架构设计/K8S/18kubernetes 核心技术-探针.html" class="sidebar-link">核心技术-探针</a></li><li><a href="/blog/系统组件与架构设计/K8S/19kubernetes 核心技术-调度器.html" class="sidebar-link">核心技术-调度器</a></li><li><a href="/blog/系统组件与架构设计/K8S/20kubernetes 核心技术-集群安全机制 RBAC.html" class="sidebar-link">核心技术-集群安全机制 RBAC</a></li><li><a href="/blog/系统组件与架构设计/K8S/22kubernetes 核心技术-Helm.html" class="sidebar-link">核心技术-Helm</a></li><li><a href="/blog/系统组件与架构设计/K8S/23kubernetes 高可用集群搭建.html" class="sidebar-link">高可用集群搭建</a></li><li><a href="/blog/系统组件与架构设计/K8S/24kubernetes 部署项目.html" class="sidebar-link">部署项目</a></li><li><a href="/blog/系统组件与架构设计/K8S/25kubernetes-部署性能监控平台.html" class="sidebar-link">部署性能监控平台</a></li><li><a href="/blog/系统组件与架构设计/K8S/Web界面Dashboard.html" class="sidebar-link">Web界面Dashboard</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="集群搭建-kubeadm-方式"><a href="#集群搭建-kubeadm-方式" class="header-anchor">#</a> 集群搭建(kubeadm 方式)</h1> <h2 id="前置知识点"><a href="#前置知识点" class="header-anchor">#</a> 前置知识点</h2> <p>目前生产部署 Kubernetes 集群主要有两种方式：</p> <ul><li>kubeadm</li></ul> <p>Kubeadm 是一个 K8s 部署工具，提供 kubeadm init 和 kubeadm join，用于快速部署 Kubernetes 集群。</p> <p>官方地址：https://kubernetes.io/zh/docs/reference/setup-tools/kubeadm/</p> <ul><li>二进制包</li></ul> <p>从 github 下载发行版的二进制包，手动部署每个组件，组成 Kubernetes 集群。Kubeadm 降低部署门槛，但屏蔽了很多细节，遇到问题很难排查。如果想更容易可控，推荐使用二进制包部署 Kubernetes 集群，虽然手动部署麻烦点，期间可以学习很多工作原理，也利于后期维护。</p> <h2 id="kubeadm-部署方式介绍"><a href="#kubeadm-部署方式介绍" class="header-anchor">#</a> kubeadm 部署方式介绍</h2> <p>kubeadm 是官方社区推出的一个用于快速部署 kubernetes 集群的工具，这个工具能通过两条指令完成一个 kubernetes 集群的部署：</p> <p>第一、创建一个 Master 节点 kubeadm init</p> <p>第二， 将 Node 节点加入到当前集群中</p> <div class="language-bash extra-class"><pre class="language-bash"><code> kubeadm <span class="token function">join</span> <span class="token operator">&lt;</span>Master 节点的 IP 和端口 <span class="token operator">&gt;</span>
+</code></pre></div><h2 id="安装要求"><a href="#安装要求" class="header-anchor">#</a> 安装要求</h2> <p>在开始之前，部署 Kubernetes 集群机器需要满足以下几个条件：</p> <ul><li><p>一台或多台机器，操作系统 CentOS7.x-86_x64</p></li> <li><p>硬件配置：2GB 或更多 RAM，2 个 CPU 或更多 CPU，硬盘 30GB 或更多</p></li> <li><p>集群中所有机器之间网络互通</p></li> <li><p>可以访问外网，需要拉取镜像</p></li> <li><p>禁止 swap 分区</p></li></ul> <h2 id="最终目标"><a href="#最终目标" class="header-anchor">#</a> 最终目标</h2> <ul><li><p>在所有节点上安装 Docker 和 kubeadm</p></li> <li><p>部署 Kubernetes Master</p></li> <li><p>部署容器网络插件</p></li> <li><p>部署 Kubernetes Node，将节点加入 Kubernetes 集群中</p></li> <li><p>部署 Dashboard Web 页面，可视化查看 Kubernetes 资源</p></li></ul> <h2 id="准备环境"><a href="#准备环境" class="header-anchor">#</a> 准备环境</h2> <p><img src="/blog/assets/img/image-20210418123921669.887eec62.png" alt="image-20210418123921669"></p> <ul><li>角色 IP</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code>k8s-master <span class="token number">192.168</span>.56.1
+
+k8s-node1 <span class="token number">192.168</span>.56.101
+
+k8s-node1 <span class="token number">192.168</span>.56.102
+</code></pre></div><h2 id="系统初始化"><a href="#系统初始化" class="header-anchor">#</a> 系统初始化</h2> <h3 id="关闭防火墙"><a href="#关闭防火墙" class="header-anchor">#</a> 关闭防火墙</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>systemctl stop firewalld
+
+systemctl disable firewalld
+</code></pre></div><h3 id="关闭-selinux"><a href="#关闭-selinux" class="header-anchor">#</a> 关闭 selinux</h3> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">sed</span> -i <span class="token string">'s/enforcing/disabled/'</span> /etc/selinux/config <span class="token comment"># 永久</span>
+
+setenforce <span class="token number">0</span> <span class="token comment"># 临时</span>
+</code></pre></div><h3 id="关闭-swap"><a href="#关闭-swap" class="header-anchor">#</a> 关闭 swap</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>swapoff -a <span class="token comment"># 临时</span>
+
+<span class="token function">vim</span> /etc/fstab <span class="token comment"># 永久</span>
+</code></pre></div><p>PS: 在kubelet启动时添加参数 --fail-swap-on=false 参数，不用关闭swap</p> <h3 id="主机名"><a href="#主机名" class="header-anchor">#</a> 主机名：</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>hostnamectl set-hostname <span class="token operator">&lt;</span>hostname<span class="token operator">&gt;</span>
+</code></pre></div><h3 id="在-master-添加-hosts"><a href="#在-master-添加-hosts" class="header-anchor">#</a> 在 master 添加 hosts：</h3> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">cat</span> <span class="token operator">&gt;&gt;</span> /etc/hosts <span class="token operator">&lt;&lt;</span> <span class="token string">EOF
+192.168.56.1 k8s-master
+192.168.56.101 k8s-node1
+192.168.56.103 k8s-node2
+EOF</span>
+</code></pre></div><h3 id="将桥接的-ipv4-流量传递到-iptables-的链"><a href="#将桥接的-ipv4-流量传递到-iptables-的链" class="header-anchor">#</a> 将桥接的 IPv4 流量传递到 iptables 的链</h3> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">cat</span> <span class="token operator">&gt;</span> /etc/sysctl.d/k8s.conf <span class="token operator">&lt;&lt;</span> <span class="token string">EOF
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1
+EOF</span>
+
+sysctl --system <span class="token comment"># 生效</span>
+</code></pre></div><h3 id="时间同步"><a href="#时间同步" class="header-anchor">#</a> 时间同步：</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>yum <span class="token function">install</span> ntpdate -y
+
+ntpdate time.windows.com
+</code></pre></div><h2 id="所有节点安装-containerd-kubeadm-kubelet"><a href="#所有节点安装-containerd-kubeadm-kubelet" class="header-anchor">#</a> 所有节点安装 containerd/kubeadm/kubelet</h2> <ul><li>安装 containerd（容器运行时软件）</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">cat</span> <span class="token operator">&lt;&lt;</span><span class="token string">EOF<span class="token bash punctuation"> <span class="token operator">|</span> <span class="token function">sudo</span> <span class="token function">tee</span> /etc/modules-load.d/containerd.conf</span>
+overlay
+br_netfilter
+EOF</span>
+
+<span class="token function">sudo</span> modprobe overlay
+<span class="token function">sudo</span> modprobe br_netfilter
+
+<span class="token comment"># 设置必需的 sysctl 参数，这些参数在重新启动后仍然存在。</span>
+<span class="token function">cat</span> <span class="token operator">&lt;&lt;</span><span class="token string">EOF<span class="token bash punctuation"> <span class="token operator">|</span> <span class="token function">sudo</span> <span class="token function">tee</span> /etc/sysctl.d/99-kubernetes-cri.conf</span>
+net.bridge.bridge-nf-call-iptables  = 1
+net.ipv4.ip_forward                 = 1
+net.bridge.bridge-nf-call-ip6tables = 1
+EOF</span>
+
+<span class="token comment"># 应用 sysctl 参数而无需重新启动</span>
+<span class="token function">sudo</span> sysctl --system
+
+yum <span class="token function">install</span> -y yum-utils
+yum-config-manager <span class="token punctuation">\</span>
+    --add-repo <span class="token punctuation">\</span>
+    https://download.docker.com/linux/centos/docker-ce.repo
+
+yum <span class="token function">install</span> containerd.io
+</code></pre></div><ul><li>安装 kubeadm，kubelet 和 kubectl</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">cat</span> <span class="token operator">&lt;&lt;</span><span class="token string">EOF<span class="token bash punctuation"> <span class="token operator">&gt;</span> /etc/yum.repos.d/kubernetes.repo</span>
+[kubernetes]
+name=Kubernetes
+baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+EOF</span>
+
+yum <span class="token function">install</span> -y kubelet kubeadm kubectl
+
+systemctl <span class="token builtin class-name">enable</span> kubelet
+</code></pre></div><div class="language-bash extra-class"><pre class="language-bash"><code>dnf <span class="token function">install</span> -y iproute-tc
+</code></pre></div><h2 id="部署-kubernetes-master"><a href="#部署-kubernetes-master" class="header-anchor">#</a> 部署 Kubernetes Master</h2> <h3 id="在-192-168-56-1-master-执行"><a href="#在-192-168-56-1-master-执行" class="header-anchor">#</a> 在 192.168.56.1（Master）执行</h3> <p>然后接下来在 master 节点配置 kubeadm 初始化文件，可以通过如下命令导出默认的初始化配置：</p> <div class="language-text extra-class"><pre class="language-text"><code>kubeadm config print init-defaults &gt; kubeadm.yaml
+</code></pre></div><p>然后根据我们自己的需求修改配置，比如修改 imageRepository 的值，kube-proxy 的模式为 ipvs，需要注意的是由于我们使用的containerd作为运行时，所以在初始化节点的时候需要指定 <code>cgroupDriver</code> 为 <code>systemd</code></p> <div class="language- extra-class"><pre class="language-text"><code>
+apiVersion: kubeadm.k8s.io/v1beta2
+bootstrapTokens:
+
+* groups:
+  + system:bootstrappers:kubeadm:default-node-token
+
+  token: abcdef.0123456789abcdef
+  ttl: 24h0m0s
+  usages:
+
+  + signing
+  + authentication
+
+kind: InitConfiguration
+localAPIEndpoint:
+  advertiseAddress: 192.168.56.1
+  bindPort: 6443
+nodeRegistration:
+  criSocket: /run/containerd/containerd.sock 
+  name: k8s-master
+  taints:
+
+  + effect: NoSchedule
+
+    key: node-role.kubernetes.io/master
+---
+apiServer:
+  timeoutForControlPlane: 4m0s
+apiVersion: kubeadm.k8s.io/v1beta2
+certificatesDir: /etc/kubernetes/pki
+clusterName: kubernetes
+controllerManager: {}
+dns:
+  type: CoreDNS
+etcd:
+  local:
+    dataDir: /var/lib/etcd
+imageRepository: k8s.gcr.io
+kind: ClusterConfiguration
+kubernetesVersion: v1.21.0
+networking:
+  dnsDomain: cluster.local
+  podSubnet: 172.16.0.0/16
+  serviceSubnet: 10.96.0.0/12
+scheduler: {}
+---
+apiVersion: kubeproxy.config.k8s.io/v1alpha1
+kind: KubeProxyConfiguration
+mode: ipvs
+---
+apiVersion: kubelet.config.k8s.io/v1beta1
+kind: KubeletConfiguration
+cgroupDriver: systemd
+</code></pre></div><p>由于默认拉取镜像地址 k8s.gcr.io 国内无法访问，这里指定阿里云镜像仓库地址。</p> <p>然后使用上面的配置文件进行初始化：</p> <div class="language-text extra-class"><pre class="language-text"><code>$ kubeadm init --config=kubeadm.yaml
+
+[init] Using Kubernetes version: v1.21.0
+[preflight] Running pre-flight checks
+[preflight] Pulling images required for setting up a Kubernetes cluster
+[preflight] This might take a minute or two, depending on the speed of your internet connection
+[preflight] You can also perform this action in beforehand using 'kubeadm config images pull'
+[certs] Using certificateDir folder &quot;/etc/kubernetes/pki&quot;
+[certs] Generating &quot;ca&quot; certificate and key
+[certs] Generating &quot;apiserver&quot; certificate and key
+[certs] apiserver serving cert is signed for DNS names [k8s-master kubernetes kubernetes.default kubernetes.default.svc kubernetes.default.svc.cluster.local] and IPs [10.96.0.1 192.168.0.5]
+[certs] Generating &quot;apiserver-kubelet-client&quot; certificate and key
+[certs] Generating &quot;front-proxy-ca&quot; certificate and key
+[certs] Generating &quot;front-proxy-client&quot; certificate and key
+[certs] Generating &quot;etcd/ca&quot; certificate and key
+[certs] Generating &quot;etcd/server&quot; certificate and key
+[certs] etcd/server serving cert is signed for DNS names [k8s-master localhost] and IPs [192.168.0.5 127.0.0.1 ::1]
+[certs] Generating &quot;etcd/peer&quot; certificate and key
+[certs] etcd/peer serving cert is signed for DNS names [k8s-master localhost] and IPs [192.168.0.5 127.0.0.1 ::1]
+[certs] Generating &quot;etcd/healthcheck-client&quot; certificate and key
+[certs] Generating &quot;apiserver-etcd-client&quot; certificate and key
+[certs] Generating &quot;sa&quot; key and public key
+[kubeconfig] Using kubeconfig folder &quot;/etc/kubernetes&quot;
+[kubeconfig] Writing &quot;admin.conf&quot; kubeconfig file
+[kubeconfig] Writing &quot;kubelet.conf&quot; kubeconfig file
+[kubeconfig] Writing &quot;controller-manager.conf&quot; kubeconfig file
+[kubeconfig] Writing &quot;scheduler.conf&quot; kubeconfig file
+[kubelet-start] Writing kubelet environment file with flags to file &quot;/var/lib/kubelet/kubeadm-flags.env&quot;
+[kubelet-start] Writing kubelet configuration to file &quot;/var/lib/kubelet/config.yaml&quot;
+[kubelet-start] Starting the kubelet
+[control-plane] Using manifest folder &quot;/etc/kubernetes/manifests&quot;
+[control-plane] Creating static Pod manifest for &quot;kube-apiserver&quot;
+[control-plane] Creating static Pod manifest for &quot;kube-controller-manager&quot;
+[control-plane] Creating static Pod manifest for &quot;kube-scheduler&quot;
+[etcd] Creating static Pod manifest for local etcd in &quot;/etc/kubernetes/manifests&quot;
+[wait-control-plane] Waiting for the kubelet to boot up the control plane as static Pods from directory &quot;/etc/kubernetes/manifests&quot;. This can take up to 4m0s
+[kubelet-check] Initial timeout of 40s passed.
+[apiclient] All control plane components are healthy after 70.001862 seconds
+[upload-config] Storing the configuration used in ConfigMap &quot;kubeadm-config&quot; in the &quot;kube-system&quot; Namespace
+[kubelet] Creating a ConfigMap &quot;kubelet-config-1.20&quot; in namespace kube-system with the configuration for the kubelets in the cluster
+[upload-certs] Skipping phase. Please see --upload-certs
+[mark-control-plane] Marking the node k8s-master as control-plane by adding the labels &quot;node-role.kubernetes.io/master=''&quot; and &quot;node-role.kubernetes.io/control-plane='' (deprecated)&quot;
+[mark-control-plane] Marking the node k8s-master as control-plane by adding the taints [node-role.kubernetes.io/master:NoSchedule]
+[bootstrap-token] Using token: abcdef.0123456789abcdef
+[bootstrap-token] Configuring bootstrap tokens, cluster-info ConfigMap, RBAC Roles
+[bootstrap-token] configured RBAC rules to allow Node Bootstrap tokens to get nodes
+[bootstrap-token] configured RBAC rules to allow Node Bootstrap tokens to post CSRs in order for nodes to get long term certificate credentials
+[bootstrap-token] configured RBAC rules to allow the csrapprover controller automatically approve CSRs from a Node Bootstrap Token
+[bootstrap-token] configured RBAC rules to allow certificate rotation for all node client certificates in the cluster
+[bootstrap-token] Creating the &quot;cluster-info&quot; ConfigMap in the &quot;kube-public&quot; namespace
+[kubelet-finalize] Updating &quot;/etc/kubernetes/kubelet.conf&quot; to point to a rotatable kubelet client certificate and key
+[addons] Applied essential addon: CoreDNS
+[addons] Applied essential addon: kube-proxy
+
+Your Kubernetes control-plane has initialized successfully!
+
+To start using your cluster, you need to run the following as a regular user:
+
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+Alternatively, if you are the root user, you can run:
+
+  export KUBECONFIG=/etc/kubernetes/admin.conf
+
+You should now deploy a pod network to the cluster.
+Run &quot;kubectl apply -f [podnetwork].yaml&quot; with one of the options listed at:
+  https://kubernetes.io/docs/concepts/cluster-administration/addons/
+
+Then you can join any number of worker nodes by running the following on each as root:
+
+kubeadm join 192.168.56.1:6443 --token abcdef.0123456789abcdef \
+  --discovery-token-ca-cert-hash sha256:2e70eac3eddebcd794de4c4d3a7ef03ab41b69ad0795c19a913df7a350f7aaab
+</code></pre></div><h3 id="使用-kubectl-工具"><a href="#使用-kubectl-工具" class="header-anchor">#</a> 使用 kubectl 工具</h3> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">mkdir</span> -p <span class="token environment constant">$HOME</span>/.kube
+<span class="token function">sudo</span> <span class="token function">cp</span> -i /etc/kubernetes/admin.conf <span class="token environment constant">$HOME</span>/.kube/config
+<span class="token function">sudo</span> <span class="token function">chown</span> <span class="token variable"><span class="token variable">$(</span><span class="token function">id</span> -u<span class="token variable">)</span></span><span class="token builtin class-name">:</span><span class="token variable"><span class="token variable">$(</span><span class="token function">id</span> -g<span class="token variable">)</span></span> <span class="token environment constant">$HOME</span>/.kube/config
+kubectl get nodes
+</code></pre></div><h2 id="安装-pod-网络插件-cni"><a href="#安装-pod-网络插件-cni" class="header-anchor">#</a> 安装 Pod 网络插件（CNI）</h2> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">sudo</span> kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+</code></pre></div><p>确保能够访问到 quay.io 这个 registery。如果 Pod 镜像下载失败，可以改这个镜像地址</p> <h2 id="加入-kubernetes-node"><a href="#加入-kubernetes-node" class="header-anchor">#</a> 加入 Kubernetes Node</h2> <h3 id="在-192-168-56-101-103-node-执行"><a href="#在-192-168-56-101-103-node-执行" class="header-anchor">#</a> 在 192.168.56.101/103（Node）执行</h3> <p>向集群添加新节点，执行在 kubeadm init 输出的 kubeadm join 命令：</p> <div class="language-bash extra-class"><pre class="language-bash"><code>kubeadm <span class="token function">join</span> <span class="token number">192.168</span>.56.1:6443 --token abcdef.0123456789abcdef <span class="token punctuation">\</span>
+  --discovery-token-ca-cert-hash sha256:2e70eac3eddebcd794de4c4d3a7ef03ab41b69ad0795c19a913df7a350f7aaab
+</code></pre></div><h2 id="测试-kubernetes-集群"><a href="#测试-kubernetes-集群" class="header-anchor">#</a> 测试 kubernetes 集群</h2> <p>在 Kubernetes 集群中创建一个 pod，验证是否正常运行：</p> <p>$ kubectl create deployment nginx --image=nginx</p> <p>$ kubectl expose deployment nginx --port=80 --type=NodePort</p> <p>$ kubectl get pod, svc</p> <p>访问地址：http://NodeIP: Port</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">5/21/2021, 1:25:38 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/系统组件与架构设计/K8S/1kubernetes 概述.html" class="prev">
+        概述
+      </a></span> <span class="next"><a href="/blog/系统组件与架构设计/K8S/4kubernetes 集群 YAML 文件详解.html">
+        集群 YAML 文件详解
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.e96a3795.js" defer></script><script src="/blog/assets/js/3.21e2e031.js" defer></script><script src="/blog/assets/js/80.c1884ffd.js" defer></script>
+  </body>
+</html>
